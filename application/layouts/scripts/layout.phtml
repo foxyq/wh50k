@@ -1,0 +1,185 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('wh50k');
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+    <?php  $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/css/sb-admin.css'); ?>
+	<?php $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/css/bootstrap.min.css'); ?>
+	<?php  $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/css/morris.css'); ?>
+	<?php $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/css/font-awesome.min.css'); ?>
+	<?php echo $this->headLink(); ?>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Navigácia</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">WH50k</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+             
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <!-- Ján Novák  --><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profil</a>
+                        </li>
+                     <!--    <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Správy</a>
+                        </li> -->
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Nastavenia</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Odhlásiť</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Nástenka</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#trans"><i class="fa fa-fw fa-arrows-v"></i> Transakcie <i class="fa fa-fw fa-caret-down"></i></a>
+                          
+                        
+                        <ul id="trans" class="collapse">
+                            <li>
+                                <a href="prijmy.html">Príjmy</a>
+                            </li>
+                            <li>
+                                <a href="vydaje.html">Výdaje</a>
+                            </li>
+                            <li>
+                                <a href="#">Externá dodávka</a>
+                            </li>
+                        </ul>
+
+
+                    </li>
+                    <li>
+    
+                        <a href="javascript:;" data-toggle="collapse" data-target="#administracia"><i class="fa fa-fw fa-edit"></i> Administrácia <i class="fa fa-fw fa-caret-down"></i></a>
+                          
+                        
+                        <ul id="administracia" class="collapse">
+                            <li>
+                                <a href="#">Sklady</a>
+                            </li>
+                            <li>
+                                <a href="#">Dodavatelia</a>
+                            </li>
+                            <li>
+                                <a href="#">Odberatelia</a>
+                            </li>
+                            <li>
+                                <a href="#">Stroje</a>
+                            </li>
+                            <li>
+                                <a href="#">Druhy Materiálov</a>
+                            </li>
+                            <li>
+                                <a href="#">Typy Materiálov</a>
+                            </li>
+                            <li>
+                                <a href="#">Prepravcovia</a>
+                            </li>
+                            <li>
+                                <a href="#">Miesta Štiepenia</a>
+                            </li>
+                            <li>
+                                <a href="#">Objednávky Odberateľov</a>
+                            </li>
+                        </ul>
+
+
+                    </li>
+                    <li>
+
+                         <a href="javascript:;" data-toggle="collapse" data-target="#prehlady"><i class="fa fa-fw fa-bar-chart-o"></i> Prehľady<i class="fa fa-fw fa-caret-down"></i></a>
+                          
+                        
+                        <ul id="prehlady" class="collapse">
+                            <li>
+                                <a href="#">Stav Skladov</a>
+                            </li>
+                            <li>
+                                <a href="#">Plnenie Objednávok</a>
+                            </li>
+                            <li>
+                                <a href="#">Vyťaženie Strojov</a>
+                            </li>
+                        </ul>
+                    </li>
+                      
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+	    <div id="page-wrapper">
+
+			<div class="container-fluid">
+
+				
+			   <h1> trolololo .. lo lo lo loooo </h1>
+
+			<!-- end of container -->
+			</div>
+
+
+		<!-- end of page-wrapper -->
+		</div>
+
+			<!-- place for scripts -->
+
+			 <!-- jQuery -->
+		    <script src="/wh50k/public/js/jquery.js"></script>
+		    <!-- Bootstrap Core JavaScript -->
+		    <script src="/wh50k/public/js/bootstrap.min.js"></script>
+		    <!-- Morris Charts JavaScript -->
+		    <script src="/wh50k/public/js/plugins/morris/raphael.min.js"></script>
+		    <script src="/wh50k/public/js/plugins/morris/morris.js"></script>
+		    <script src="/wh50k/public/js/plugins/morris/morris-data.js"></script>
+
+			
+			<!-- end of scripts -->
+
+	 <!-- /.end-of-wrapper -->
+	</div>
+
+   
+</body>
+</html>
