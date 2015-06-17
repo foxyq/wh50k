@@ -9,15 +9,9 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="preview"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
-        <controllerFile controllerName="Prijmy">
-          <actionMethod actionName="index"/>
-          <actionMethod actionName="list"/>
-          <actionMethod actionName="add"/>
-          <actionMethod actionName="edit"/>
-          <actionMethod actionName="delete"/>
-        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory>
@@ -25,16 +19,7 @@
           <layoutScriptFile layoutName="layout"/>
         </layoutScriptsDirectory>
       </layoutsDirectory>
-      <modelsDirectory>
-        <dbTableDirectory>
-          <dbTableFile dbTableName="Prijmy"/>
-          <dbTableFile dbTableName="Sklady"/>
-          <dbTableFile dbTableName="Podsklady"/>
-          <dbTableFile dbTableName="Dodavatelia"/>
-          <dbTableFile dbTableName="Prepravcovia"/>
-          <dbTableFile dbTableName="Prepravci"/>
-        </dbTableDirectory>
-      </modelsDirectory>
+      <modelsDirectory/>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>
@@ -45,20 +30,8 @@
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Prijmy">
-            <viewScriptFile forActionName="index"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Prijmy">
-            <viewScriptFile forActionName="list"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Prijmy">
-            <viewScriptFile forActionName="add"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Prijmy">
-            <viewScriptFile forActionName="edit"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Prijmy">
-            <viewScriptFile forActionName="delete"/>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="preview"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
