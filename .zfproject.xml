@@ -35,6 +35,7 @@
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Zakaznik"/>
+        <formFile formName="Vydaj"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
