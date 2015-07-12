@@ -1,16 +1,16 @@
 <?php
 
-class Application_Model_DbTable_Prepravci extends Zend_Db_Table_Abstract
+class Application_Model_DbTable_MaterialyTypy extends Zend_Db_Table_Abstract
 {
-	//namapovanie tabuľky podľa mena z databáze pre aplikáciu
-    protected $_name = 'prepravci';
+
+    protected $_name = 'materialy_typy';
 
     //vracanie názvov pre výpisy
     public function getNazov($id)
     {
-    	$id = (int)$id;
-    	$nazov = $this->fetchRow('prepravci_id = '.$id)->meno;
-    	return $nazov;
+        $id = (int)$id;
+        $nazov = $this->fetchRow('materialy_typy_id = '.$id)->nazov;
+        return $nazov;
 
     }
 
@@ -21,12 +21,11 @@ class Application_Model_DbTable_Prepravci extends Zend_Db_Table_Abstract
         $moznosti = array();
 
         foreach ($pole as $hodnota){
-            $moznosti[$hodnota['prepravci_id']] = $hodnota['meno'];
+            $moznosti[$hodnota['materialy_typy_id']] = $hodnota['nazov'];
         }
 
         return $moznosti;
     }
+
 }
-
-
 

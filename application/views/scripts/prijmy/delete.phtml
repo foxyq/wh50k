@@ -1,8 +1,23 @@
-<br /><br />
-<div id="view-content">
-	<p>
-	<?php
-		echo $this->message;
-	?>
-	</p>
-</div>
+
+<?php
+$this->title = "Zmazať Príjem";
+$this->headTitle($this->title);
+
+?>
+<p>Naozaj chcete zmazať príjem ?</br></br>
+    prijem id: <?php echo $this->escape($this->prijem['ts_prijmy_id']); ?></br>
+    doklad id: <?php echo $this->escape($this->prijem['doklad_cislo']); ?></br>
+    dátum príjmu: <?php echo $this->escape($this->prijem['datum_prijmu_d']); ?></br>
+    sklad: <?php echo $this->escape($this->sklady->getNazov($this->prijem['sklad_enum'])); ?></br>
+    podsklad: <?php echo $this->escape($this->podsklady->getNazov($this->prijem['podsklad_enum'])); ?></br>
+    tony merané: <?php echo $this->escape($this->prijem['q_tony_merane']); ?></br>
+
+</p>
+<form action="<?php echo $this->url(array('action'=>'delete')); ?>"
+      method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $this->prijem['ts_prijmy_id']; ?>" />
+        <input type="submit" name="del" value="Yes" />
+        <input type="submit" name="del" value="No" />
+    </div>
+</form>

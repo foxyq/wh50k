@@ -1,0 +1,30 @@
+<?php
+$this->headTitle($this->title);
+?>
+
+
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Meno</th>
+        <th>Názov spoločnosti</th>
+        <th>Úpravy</th>
+    </tr>
+
+
+    <?php foreach($this->zakaznici as $zakaznik) : ?>
+        <tr>
+            <td><?php echo $this->escape($zakaznik->zakaznici_id);?></td>
+            <td><?php echo $this->escape($zakaznik->meno);?></td>
+            <td><?php echo $this->escape($zakaznik->nazov_spolocnosti);?></td>
+            <td>
+                <a href="<?php echo $this->url(array('controller'=>'Zakaznici',
+                    'action'=>'delete', 'zakaznici_id'=>$zakaznik->zakaznici_id));?>">Zmazať</a>
+
+                <a href="<?php echo $this->url(array('controller'=>'Zakaznici',
+                    'action'=>'edit', 'zakaznici_id'=>$zakaznik->zakaznici_id));?>">Upraviť</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+
+</table>
