@@ -174,7 +174,6 @@ class PrijmyController extends Zend_Controller_Action
 
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
-            print_r($formData);
             //tu musi byt premenne $id pretoze podla toho on upravuje a nacitava data
             if ($form->isValid($formData)) {
                 $id = (int)$form->getValue('ts_prijmy_id');
@@ -217,7 +216,7 @@ class PrijmyController extends Zend_Controller_Action
                 $form->populate($formData);
             }
         } else {
-            $id = $this->_getParam('id', 1);
+            $id = $this->_getParam('id', 0);
             if ($id > 0) {
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $form->populate($prijmy->getPrijem($id));
