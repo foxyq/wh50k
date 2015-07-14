@@ -36,28 +36,96 @@ class VydajeController extends Zend_Controller_Action
 
     public function addAction()
     {
-        $form = new Application_Form_Vydaj();
 
-        $form->submit->setLabel('Pridať výdaj');
+
+        //instancia modelu z ktoreho budeme tahat zoznam
+        $skladyMoznosti = new Application_Model_DbTable_Sklady();
+        $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
+        $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
+        $prepravciMoznosti = new Application_Model_DbTable_Prepravci();
+        $dokladyTypyMoznosti = new Application_Model_DbTable_DokladyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+
+        //metoda ktorou vytiahneme do premennej zoznam
+        $skladyMoznosti = $skladyMoznosti->getMoznosti();
+        $podskladyMoznosti = $podskladyMoznosti->getMoznosti();
+        $zakazniciMoznosti = $zakazniciMoznosti->getMoznosti();
+        $prepravciMoznosti = $prepravciMoznosti->getMoznosti();
+        $dokladyTypyMoznosti = $dokladyTypyMoznosti->getMoznosti();
+        $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
+        $materialyTypyMoznosti = $materialyTypy->getMoznosti();
+        $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
+
+
+        //samostatne premenne ktore posielame na form
+        $potvrdzujuceTlacidlo = 'Vložiť';
+
+        $form = new Application_Form_Vydaj(array(
+            'skladyMoznosti' => $skladyMoznosti,
+            'podskladyMoznosti' => $podskladyMoznosti,
+            'zakazniciMoznosti' => $zakazniciMoznosti,
+            'prepravciMoznosti' => $prepravciMoznosti,
+            'dokladyTypyMoznosti' => $dokladyTypyMoznosti,
+            'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
+            'materialyTypyMoznosti' => $materialyTypyMoznosti,
+            'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
+            'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
+        ));
         $this->view->form = $form;
+
 
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
 
-            //echo $form->getAttribs();
-
             if ($form->isValid($formData)) {
-//                $meno = $form->getValue('meno');
 
-              $vydaje = new Application_Model_DbTable_Vydaje();
-              $vydaje->addVydaj($formData);
+                $datum_vydaju = $form->getValue('datum_vydaju_d');
+                $sklad = $form->getValue('sklad_enum');
+                $podsklad = $form->getValue('podsklad_enum');
+                $zakaznik = $form->getValue('zakaznik_enum');
+                $prepravca = $form->getValue('prepravca_enum');
+                $prepravca_spz = $form->getValue('prepravca_spz');
+                $q_tony_merane = $form->getValue('q_tony_merane');
+                $doklad_typ = $form->getValue('doklad_typ_enum');
+                $material_typ = $form->getValue('material_typ_enum');
+                $material_druh = $form->getValue('material_druh_enum');
+                $poznamka = $form->getValue('poznamka');
+                $chyba = $form->getValue('chyba');
+                $stav_transakcie = $form->getValue('stav_transakcie');
 
+                $vydaje = new Application_Model_DbTable_Vydaje();
+                $vydaje->addVydaj(
+                    $datum_vydaju,
+                    $sklad,
+                    $podsklad,
+                    $zakaznik,
+                    $prepravca,
+                    $prepravca_spz,
+                    $q_tony_merane,
+                    $doklad_typ,
+                    $material_typ,
+                    $material_druh,
+                    $poznamka,
+                    $chyba,
+                    $stav_transakcie);
+
+                $this->_helper->redirector('list');
+//                $this->_helper->redirector('list');
+//
+//
+//
+//
+//              $vydaje = new Application_Model_DbTable_Vydaje();
+//              $vydaje->addVydaj($formData);
+//
 //                TOTO vymazat z form data submit a tak to ulozic
-
-                //echo $form->getValues($data);
+//
+//                echo $form->getValues($data);
 //                echo $form->getValue('datum_vydaju_d');
-
-
+//
+//
 //                $this->_helper->redirector('list');
             } else {
                 $form->populate($formData);
@@ -67,7 +135,101 @@ class VydajeController extends Zend_Controller_Action
 
     public function editAction()
     {
-        // action body
+
+        //instancia modelu z ktoreho budeme tahat zoznam
+        $skladyMoznosti = new Application_Model_DbTable_Sklady();
+        $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
+        $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
+        $prepravciMoznosti = new Application_Model_DbTable_Prepravci();
+        $dokladyTypyMoznosti = new Application_Model_DbTable_DokladyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+
+        //metoda ktorou vytiahneme do premennej zoznam
+        $skladyMoznosti = $skladyMoznosti->getMoznosti();
+        $podskladyMoznosti = $podskladyMoznosti->getMoznosti();
+        $zakazniciMoznosti = $zakazniciMoznosti->getMoznosti();
+        $prepravciMoznosti = $prepravciMoznosti->getMoznosti();
+        $dokladyTypyMoznosti = $dokladyTypyMoznosti->getMoznosti();
+        $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
+        $materialyTypyMoznosti = $materialyTypy->getMoznosti();
+        $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
+
+
+        //samostatne premenne ktore posielame na form
+        $potvrdzujuceTlacidlo = 'Vložiť';
+
+
+        $form = new Application_Form_Vydaj(array(
+            'skladyMoznosti' => $skladyMoznosti,
+            'podskladyMoznosti' => $podskladyMoznosti,
+            'zakazniciMoznosti' => $zakazniciMoznosti,
+            'prepravciMoznosti' => $prepravciMoznosti,
+            'dokladyTypyMoznosti' => $dokladyTypyMoznosti,
+            'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
+            'materialyTypyMoznosti' => $materialyTypyMoznosti,
+            'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
+            'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
+        ));
+
+
+        $this->view->form = $form;
+
+
+        if ($this->getRequest()->isPost()) {
+            $formData = $this->getRequest()->getPost();
+            print_r($formData);
+
+            if ($form->isValid($formData)) {
+
+                $id = (int)$form->getValue('ts_vydaje_id');
+                $datum_vydaju = $form->getValue('datum_vydaju_d');
+                $sklad = $form->getValue('sklad_enum');
+                $podsklad = $form->getValue('podsklad_enum');
+                $zakaznik = $form->getValue('zakaznik_enum');
+                $prepravca = $form->getValue('prepravca_enum');
+                $prepravca_spz = $form->getValue('prepravca_spz');
+                $q_tony_merane = $form->getValue('q_tony_merane');
+                $doklad_typ = $form->getValue('doklad_typ_enum');
+                $material_typ = $form->getValue('material_typ_enum');
+                $material_druh = $form->getValue('material_druh_enum');
+                $poznamka = $form->getValue('poznamka');
+                $chyba = $form->getValue('chyba');
+                $stav_transakcie = $form->getValue('stav_transakcie');
+
+                $vydaje = new Application_Model_DbTable_Vydaje();
+                $vydaje->editVydaj(
+                    $id,
+                    $datum_vydaju,
+                    $sklad,
+                    $podsklad,
+                    $zakaznik,
+                    $prepravca,
+                    $prepravca_spz,
+                    $q_tony_merane,
+                    $doklad_typ,
+                    $material_typ,
+                    $material_druh,
+                    $poznamka,
+                    $chyba,
+                    $stav_transakcie);
+
+                $this->_helper->redirector('list');
+
+            } else {
+                $form->populate($formData);
+            }
+        } else {
+            $id = $this->_getParam('id', 1);
+            //$id = (int)$this->$form->getValue('ts_vydaje_id');
+            if ($id > 0) {
+                $vydaje = new Application_Model_DbTable_Vydaje();
+                $form->populate($vydaje->getVydaj($id));
+                $this->view->data = $vydaje->getVydaj($id);
+            }
+
+        }
     }
 
     public function deleteAction()

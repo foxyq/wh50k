@@ -15,46 +15,93 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
-    public function addVydaj($data)
-    {
+    public function addVydaj($datum_vydaju,
+                              $sklad,
+                              $podsklad,
+                              $zakaznik,
+                              $prepravca,
+                              $prepravca_spz,
+                              $q_tony_merane,
+                              $doklad_typ,
+                              $material_typ,
+                              $material_druh,
+                              $poznamka,
+                              $chyba,
+                              $stav_transakcie){
+        $data = array(
+            'datum_vydaju_d' => $datum_vydaju,
+            'sklad_enum' => $sklad,
+            'podsklad_enum' => $podsklad,
+            'zakaznik_enum' => $zakaznik,
+            'prepravca_enum' => $prepravca,
+            'prepravca_spz' => $prepravca_spz,
+            'q_tony_merane' => $q_tony_merane,
+            'doklad_typ_enum' => $doklad_typ,
+            'material_typ_enum' => $material_typ,
+            'material_druh_enum' => $material_druh,
+            'poznamka' => $poznamka,
+            'chyba' => $chyba,
+            'stav_transakcie' => $stav_transakcie,
 
+            'vytvoril_u' => 1, //TODO podla logged in usera
+            'posledna_uprava_u' => 1 // TODO ^ same shit
 
-//        $data = array(
-//            'vznik_zaznamu_dtm' => $array,
-//            'vytvoril_u' => $array,
-//            'posledna_uprava_dtm' => $array,
-//            'posledna_uprava_u' => $array,
-//            'datum_vydaju_d' => $array,
-//            'sklad_enum' => $array,
-//            'podsklad_enum' => $array,
-//            'zakaznik_enum' => $array,
-//            'prepravca_enum' => $array,
-//            'prepravca_spz' => $array,
-//            'stroj_enum' => $array,
-//            'q_tony_merane_brutto' => $array,
-//            'q_tony_merane_tara' => $array,
-//            'q_tony_merane' => $array,
-//            'q_tony_vypocet' => $array,
-//            'q_m3_merane' => $array,
-//            'q_m3_vypocet' => $array,
-//            'q_prm_merane' => $array,
-//            'q_prm_vypocet' => $array,
-//            'doklad_cislo' => $array,
-//            'doklad_typ_enum' => $array,
-//            'material_druh_enum' => $array,
-//            'poznamka' => $array,
-//            'chyba' => $array,
-//            'stav_transakcie' => $array
-//        );
+        );
         $this->insert($data);
     }
 
+
+    public function editVydaj(
+                            $id,
+                            $datum_vydaju,
+                             $sklad,
+                             $podsklad,
+                             $zakaznik,
+                             $prepravca,
+                             $prepravca_spz,
+                             $q_tony_merane,
+                             $doklad_typ,
+                             $material_typ,
+                             $material_druh,
+                             $poznamka,
+                             $chyba,
+                             $stav_transakcie){
+        $data = array(
+            'datum_vydaju_d' => $datum_vydaju,
+            'sklad_enum' => $sklad,
+            'podsklad_enum' => $podsklad,
+            'zakaznik_enum' => $zakaznik,
+            'prepravca_enum' => $prepravca,
+            'prepravca_spz' => $prepravca_spz,
+            'q_tony_merane' => $q_tony_merane,
+            'doklad_typ_enum' => $doklad_typ,
+            'material_typ_enum' => $material_typ,
+            'material_druh_enum' => $material_druh,
+            'poznamka' => $poznamka,
+            'chyba' => $chyba,
+            'stav_transakcie' => $stav_transakcie,
+
+            'vytvoril_u' => 1, //TODO podla logged in usera
+            'posledna_uprava_u' => 1 // TODO ^ same shit
+
+        );
+        $this->update($data, 'ts_vydaje_id ='. (int)$id);
+    }
 
     public function deleteVydaj($id)
     {
         $this->delete('ts_vydaje_id =' . (int)$id);
     }
 
-
+    //get SUM of column1 by column2
+    //toto nie je optimalne pri velkom mnozstve dat to bude dlho trvat
+    public function getSumByColumn($column1, $column2, $column2_value){
+        $vydaje = $this->fetchAll($column2.' = '. $column2_value);
+        $sum = 0;
+        foreach ($vydaje as $vydaj){
+            $sum = $sum + $vydaj[$column1];
+        }
+        return $sum;
+    }
 }
 

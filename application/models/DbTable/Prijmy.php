@@ -4,18 +4,111 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
 {
 	//namapovanie tabuľky podľa mena z databáze pre aplikáciu
     protected $_name = 'ts_prijmy';
-/*
-    protected $referenceMap = array(
-    	'Sklad'=>array(
-    		'columnes'=>array('sklady_id'),
-    		'refTableClass'=>'Sklady',
-    		'refColumns'=>array();
 
+    public function getPrijem($id)
+    {
+        $id = (int)$id;
+        $row = $this->fetchRow('ts_prijmy_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        return $row;
+    }
 
-    		)
+    public function deletePrijem($id)
+    {
+        $this->delete('ts_prijmy_id =' . (int)$id);
+    }
 
+    public function addPrijem($datum_prijmu,
+                              $sklad,
+                              $podsklad,
+                              $dodavatel,
+                              $prepravca,
+                              $prepravca_spz,
+                              $q_tony_merane,
+                              $q_tony_nadrozmer,
+                              $doklad_typ,
+                              $material_typ,
+                              $material_druh,
+                              $poznamka,
+                              $chyba,
+                              $stav_transakcie){
+        $data = array(
+            'datum_prijmu_d' => $datum_prijmu,
+            'sklad_enum' => $sklad,
+            'podsklad_enum' => $podsklad,
+            'dodavatel_enum' => $dodavatel,
+            'prepravca_enum' => $prepravca,
+            'prepravca_spz' => $prepravca_spz,
+            'q_tony_merane' => $q_tony_merane,
+            'q_tony_nadrozmer' => $q_tony_nadrozmer,
+            'doklad_typ_enum' => $doklad_typ,
+            'material_typ_enum' => $material_typ,
+            'material_druh_enum' => $material_druh,
+            'poznamka' => $poznamka,
+            'chyba' => $chyba,
+            'stav_transakcie' => $stav_transakcie,
 
-    	);*/
+            'vytvoril_u' => 1,
+            'posledna_uprava_u' => 1
+
+        );
+        $this->insert($data);
+    }
+
+    public function editPrijem(
+        $id,
+        $datum_prijmu,
+        $sklad,
+        $podsklad,
+        $dodavatel,
+        $prepravca,
+        $prepravca_spz,
+        $q_tony_merane,
+        $q_tony_nadrozmer,
+        $doklad_typ,
+        $material_druh,
+        $material_typ,
+        $poznamka,
+        $chyba,
+        $stav_transakcie){
+
+        $data = array(
+            'datum_prijmu_d' => $datum_prijmu,
+            'sklad_enum' => $sklad,
+            'podsklad_enum' => $podsklad,
+            'dodavatel_enum' => $dodavatel,
+            'prepravca_enum' => $prepravca,
+            'prepravca_spz' => $prepravca_spz,
+            'q_tony_merane' => $q_tony_merane,
+            'q_tony_nadrozmer' => $q_tony_nadrozmer,
+            'doklad_typ_enum' => $doklad_typ,
+            'material_typ_enum' => $material_typ,
+            'material_druh_enum' => $material_druh,
+            'poznamka' => $poznamka,
+            'chyba' => $chyba,
+            'stav_transakcie' => $stav_transakcie,
+
+            'vytvoril_u' => 1,
+            'posledna_uprava_u' => 1
+
+        );
+        $this->update($data, 'ts_prijmy_id ='. (int)$id);
+
+    }
+
+    //get SUM of column1 by column2
+    //toto nie je optimalne pri velkom mnozstve dat to bude dlho trvat
+    public function getSumByColumn($column1, $column2, $column2_value){
+       $prijmy = $this->fetchAll($column2.' = '. $column2_value);
+        $sum = 0;
+        foreach ($prijmy as $prijem){
+            $sum = $sum + $prijem[$column1];
+        }
+        return $sum;
+    }
 
 
 

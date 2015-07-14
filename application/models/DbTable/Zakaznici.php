@@ -46,6 +46,18 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         $this->update($data, 'zakaznici_id = '. (int)$id);
     }
 
+    public function getMoznosti()
+    {
+        $pole = $this->fetchAll()->toArray();
+        $moznosti = array();
+
+        foreach ($pole as $hodnota){
+            $moznosti[$hodnota['zakaznici_id']] = $hodnota['meno'];
+        }
+
+        return $moznosti;
+    }
+
 
 
 
