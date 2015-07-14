@@ -17,7 +17,7 @@ class ZakazniciController extends Zend_Controller_Action
     {
         $form = new Application_Form_Zakaznik();
 
-        $form->submit->setLabel('Pridať zákazníka');
+        $form->submit->setLabel('Pridať zákanzíka');
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
@@ -28,7 +28,7 @@ class ZakazniciController extends Zend_Controller_Action
                 $zakaznici = new Application_Model_DbTable_Zakaznici();
                 $zakaznici->addZakaznik($meno, $nazov_spolocnosti);
 
-                $this->_helper->redirector('list');
+                $this->_helper->redirector('index');
             } else {
                 $form->populate($formData);
             }
@@ -53,7 +53,7 @@ class ZakazniciController extends Zend_Controller_Action
                 $zakaznici = new Application_Model_DbTable_Zakaznici();
                 $zakaznici->deleteZakaznik($id);
             }
-            $this->_helper->redirector('list');
+            $this->_helper->redirector('index');
         } else {
             $id = $this->_getParam('zakaznici_id', 0);
             $zakaznici = new Application_Model_DbTable_Zakaznici();
@@ -78,7 +78,7 @@ class ZakazniciController extends Zend_Controller_Action
                     $zakaznici = new Application_Model_DbTable_Zakaznici();
                     $zakaznici->updateZakaznik($id, $meno, $nazov_spolocnosti);
 
-                    $this->_helper->redirector('list');
+                    $this->_helper->redirector('index');
                 } else {
                     $form->populate($formData);
                 }

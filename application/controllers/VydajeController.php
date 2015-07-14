@@ -37,7 +37,6 @@ class VydajeController extends Zend_Controller_Action
     public function addAction()
     {
 
-
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
@@ -73,6 +72,7 @@ class VydajeController extends Zend_Controller_Action
             'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
         ));
+
         $this->view->form = $form;
 
 
@@ -112,21 +112,8 @@ class VydajeController extends Zend_Controller_Action
                     $stav_transakcie);
 
                 $this->_helper->redirector('list');
-//                $this->_helper->redirector('list');
-//
-//
-//
-//
-//              $vydaje = new Application_Model_DbTable_Vydaje();
-//              $vydaje->addVydaj($formData);
-//
-//                TOTO vymazat z form data submit a tak to ulozic
-//
-//                echo $form->getValues($data);
-//                echo $form->getValue('datum_vydaju_d');
-//
-//
-//                $this->_helper->redirector('list');
+
+
             } else {
                 $form->populate($formData);
             }
@@ -241,7 +228,7 @@ class VydajeController extends Zend_Controller_Action
             $vydaje = new Application_Model_DbTable_Vydaje();
             $vydaje->deleteVydaj($id);
         }
-         $this->_helper->redirector('list');
+         $this->_helper->redirector('index');
             } else {
                 $id = $this->_getParam('ts_vydaje_id', 0);
                 $vydaje = new Application_Model_DbTable_Vydaje();
