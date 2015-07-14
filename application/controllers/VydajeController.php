@@ -21,6 +21,9 @@ class VydajeController extends Zend_Controller_Action
         $podsklady = new Application_Model_DbTable_Podsklady();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
         $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
 
         // priradenie modelov do premenných a poslanie na view script
         $this->view->vydaje = $vydaje->fetchAll();
@@ -28,6 +31,9 @@ class VydajeController extends Zend_Controller_Action
         $this->view->podsklady = $podsklady;
         $this->view->zakaznici = $zakaznici;
         $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->transakcieStavy = $transakcieStavy;
 
         //názov stránky
         $this->view->title = "Výdaje - zoznam";
@@ -208,7 +214,7 @@ class VydajeController extends Zend_Controller_Action
                 $form->populate($formData);
             }
         } else {
-            $id = $this->_getParam('id', 1);
+            $id = $this->_getParam('ts_vydaje_id', 0);
             //$id = (int)$this->$form->getValue('ts_vydaje_id');
             if ($id > 0) {
                 $vydaje = new Application_Model_DbTable_Vydaje();
@@ -221,6 +227,16 @@ class VydajeController extends Zend_Controller_Action
 
     public function deleteAction()
     {
+
+        $sklady = new Application_Model_DbTable_Sklady();
+        $podsklady = new Application_Model_DbTable_Podsklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+
+        $this->view->sklady = $sklady;
+        $this->view->podsklady = $podsklady;
+        $this->view->zakaznici = $zakaznici;
+
+
      if ($this->getRequest()->isPost()) {
         $del = $this->getRequest()->getPost('del');
         if ($del == 'Yes') {
@@ -228,7 +244,7 @@ class VydajeController extends Zend_Controller_Action
             $vydaje = new Application_Model_DbTable_Vydaje();
             $vydaje->deleteVydaj($id);
         }
-         $this->_helper->redirector('index');
+         $this->_helper->redirector('list');
             } else {
                 $id = $this->_getParam('ts_vydaje_id', 0);
                 $vydaje = new Application_Model_DbTable_Vydaje();

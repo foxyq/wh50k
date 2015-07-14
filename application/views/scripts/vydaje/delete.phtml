@@ -3,14 +3,12 @@ $this->title = "Zmazať Výdaj";
 $this->headTitle($this->title);
 
 ?>
-<p>Naozaj chcete zmazať výdaj
-    '<?php echo $this->escape($this->vydaj['datum_vydaju_d']); ?>',
-    '<?php echo $this->escape($this->vydaj['sklad_enum']); ?>',
-    '<?php echo $this->escape($this->vydaj['podsklad_enum']); ?>',
-    '<?php echo $this->escape($this->vydaj['zakaznik_enum']); ?>',
-    '<?php echo $this->escape($this->vydaj['prepravca_enum']); ?>',
-    '<?php echo $this->escape($this->vydaj['q_tony_merane']); ?>'
-    ?
+<p>Naozaj chcete zmazať výdaj? <br> <br>
+    dátum výdaju: <?php echo $this->escape($this->vydaj['datum_vydaju_d']); ?> <br>
+    sklad: <?php echo $this->escape($this->sklady->getNazov($this->vydaj['sklad_enum'])); ?> <br>
+    podsklad: <?php echo $this->escape($this->podsklady->getNazov($this->vydaj['podsklad_enum'])); ?> <br>
+    zákazník: <?php echo $this->escape($this->zakaznici->getNazov($this->vydaj['zakaznik_enum'])); ?> <br>
+    tony merané: <?php echo $this->escape($this->vydaj['q_tony_merane']); ?>
 </p>
 <form action="<?php echo $this->url(array('action'=>'delete')); ?>"
       method="post">

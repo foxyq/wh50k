@@ -1,14 +1,24 @@
 <?php
 $this->headTitle($this->title);
+
 ?>
 
-<!--toto mozeme casom vymazat len kontrolny vypis
-<?php echo($this->podsklady->getNazov(1));?>
-<?php echo($this->prepravci->getNazov(1));?>
-<?php echo($this->zakaznici->getNazov(1));?>
--->
+
+<div class="alert alert-dismissable alert-warning">
+    kontrolny vypis</br>
+    <?php
+    //$date = new Zend_Date('Jun 15, 2015', Zend_Date::DATETIME_SHORT);
+    //echo $date;
+    ?>
 
 
+</div>
+
+
+<a href="<?php echo $this->url(array('controller'=>'Vydaje',
+    'action'=>'add'));?>">Pridať nový výdaj</a>
+
+<div id="".col-lg-12">
 <table class="table table-striped table-bordered table-hover">
     <tr>
         <th>ID</th>
@@ -17,12 +27,24 @@ $this->headTitle($this->title);
         <th>podsklad</th>
         <th>zákazník</th>
         <th>prepravca</th>
-        <th>prepravca SPZ</th>
-        <th>tony</th>
+        <th> SPZ</th>
+        <th>tony m</th>
+        <th>tony v</th>
+        <th>m3 m</th>
+        <th>m3 v</th>
+        <th>prm m</th>
+        <th>prm v</th>
         <th>doklad číslo</th>
+        <th>material typ</th>
+        <th>material druh</th>
+        <th>stav transakcie</th>
         <th>chyba</th>
         <th>úpravy</th>
     </tr>
+
+
+
+
 
     <?php $suma = 0; $pocet = 0;?>
 
@@ -36,7 +58,15 @@ $this->headTitle($this->title);
             <td><?php echo $this->escape($this->prepravci->getNazov($vydaj->prepravca_enum));?></td>
             <td><?php echo $this->escape($vydaj->prepravca_spz);?></td>
             <td><?php echo $this->escape($vydaj->q_tony_merane);?></td>
+            <td><?php echo $this->escape($vydaj->q_tony_vypocet);?></td>
+            <td><?php echo $this->escape($vydaj->q_m3_merane);?></td>
+            <td><?php echo $this->escape($vydaj->q_m3_vypocet);?></td>
+            <td><?php echo $this->escape($vydaj->q_prm_merane);?></td>
+            <td><?php echo $this->escape($vydaj->q_prm_vypocet);?></td>
             <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
+            <td><?php echo $this->escape($this->materialyTypy->getNazov($vydaj->material_typ_enum));?></td>
+            <td><?php echo $this->escape($this->materialyDruhy->getNazov($vydaj->material_druh_enum));?></td>
+            <td><?php echo $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie));?></td>
             <td>
                 <?php
                 if ($this->escape($vydaj->chyba) == 0)
@@ -46,7 +76,7 @@ $this->headTitle($this->title);
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
                     'action'=>'delete', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id));?>">Zmazať</a>
-                <a href="<?php echo $this->url(array('controller'=>'vydaje',
+                <a href="<?php echo $this->url(array('controller'=>'Vydaje',
                     'action'=>'edit', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id));?>">Upraviť</a>
             </td>
 
@@ -79,5 +109,64 @@ $this->headTitle($this->title);
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
     </tr>
 </table>
+</div>
+
+<?php //PDF TEST
+
+Zend_Loader::loadClass('Zend_Pdf');
+
+try {
+    // create PDF
+
+//    $pdf = new Zend_Pdf();
+$filename = '../docs/pdf/file.pdf';
+$pdf = Zend_Pdf::load( $filename);
+
+
+    // create A4 page
+    //$page = new Zend_Pdf_Page(Zend_Pdf_Page::SIZE_A4);
+    $page = $pdf->pages[0];
+
+
+    // define font resource
+    $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
+
+    // set font for page
+    // write text to page
+    $page->setFont($font, 24)
+//        ->drawText('That which we call a rose,', 72, 720)
+        ->drawText('By any other name would smell as sweet.', 72, 620);
+
+    // add page to document
+   // $pdf->pages[] = $page;
+
+    // save as file
+    $pdf->save('example.pdf');
+    echo 'SUCCESS: Document saved!';
+
+    //download file
+    // Get PDF document as a string
+//    $pdfData = $pdf->render();
+//
+//    header("Content-Disposition: inline; filename=result.pdf");
+//    header("Content-type: application/x-pdf");
+//    echo $pdfData;
+
+
+} catch (Zend_Pdf_Exception $e) {
+    die ('PDF error: ' . $e->getMessage());
+} catch (Exception $e) {
+    die ('Application error: ' . $e->getMessage());
+}
+?>
