@@ -136,6 +136,7 @@ ul.alert-dropdown {
         background-color: #000 !important;
     }
 }
+/* koniec media tagov .... zas random ? meh */
 
 .side-nav>li>ul {
     padding: 0;
@@ -245,4 +246,6 @@ ul.alert-dropdown {
   -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #fff;
 }
