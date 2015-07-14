@@ -36,29 +36,20 @@ class VydajeController extends Zend_Controller_Action
 
     public function addAction()
     {
-        $form = new Application_Form_Vydaj();
+        $form = new Application_Form_Zakaznik();
 
-        $form->submit->setLabel('Pridať výdaj');
+        $form->submit->setLabel('Pridať zákanzíka');
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
-
-            //echo $form->getAttribs();
-
             if ($form->isValid($formData)) {
-//                $meno = $form->getValue('meno');
+                $meno = $form->getValue('meno');
+                $nazov_spolocnosti= $form->getValue('nazov_spolocnosti');
+                $zakaznici = new Application_Model_DbTable_Zakaznici();
+                $zakaznici->addZakaznik($meno, $nazov_spolocnosti);
 
-              $vydaje = new Application_Model_DbTable_Vydaje();
-              $vydaje->addVydaj($formData);
-
-//                TOTO vymazat z form data submit a tak to ulozic
-
-                //echo $form->getValues($data);
-//                echo $form->getValue('datum_vydaju_d');
-
-
-//                $this->_helper->redirector('list');
+                $this->_helper->redirector('index');
             } else {
                 $form->populate($formData);
             }
@@ -79,7 +70,7 @@ class VydajeController extends Zend_Controller_Action
             $vydaje = new Application_Model_DbTable_Vydaje();
             $vydaje->deleteVydaj($id);
         }
-         $this->_helper->redirector('list');
+         $this->_helper->redirector('index');
             } else {
                 $id = $this->_getParam('ts_vydaje_id', 0);
                 $vydaje = new Application_Model_DbTable_Vydaje();

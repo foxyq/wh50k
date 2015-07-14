@@ -2,9 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - database@http://localhost/" uuid="5441dddf-e069-4c80-bf5c-5f40999f2d23">
-      <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
-      <user-name>root</user-name>
+      <secret-storage>memory</secret-storage>
     </data-source>
   </component>
 </project>

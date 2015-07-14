@@ -1,74 +1,99 @@
 <?php
 $this->headTitle($this->title);
-?>
+?><a href="<?php echo $this->url(array('controller'=>'prijmy',
+    'action'=>'add'));?>">Pridať záznam</a>
 
-<!--toto mozeme casom vymazat len kontrolny vypis
-<?php echo($this->podsklady->getNazov(1));?>
-<?php echo($this->prepravci->getNazov(1));?>
-<?php echo($this->dodavatelia->getNazov(1));?>
--->
+<div class="alert alert-dismissable alert-warning">
+kontrolny vypis</br>
+    <?php
+        //$date = new Zend_Date('Jun 15, 2015', Zend_Date::DATETIME_SHORT);
+        //echo $date;
 
 
+    ?>
+
+
+</div>
+
+
+<div id="".col-lg-12">
 <table class="table table-striped table-bordered table-hover">
 <tr>
     <th>ID</th>
-    <th>Dátum príjmu</th>
+    <th>dátum</th>
     <th>sklad</th>
     <th>podsklad</th>
     <th>dodávateľ</th>
     <th>prepravca</th>
-    <th>prepravca SPZ</th>
-    <th>tony</th>
+    <th>SPZ</th>
+    <th>t m</th>
+    <th>t nadrozmer</th>
+    <th>t v</th>
+    <th>m3 m</th>
+    <th>m3 v</th>
+    <th>PRM m</th>
+    <th>PRM v</th>
     <th>doklad číslo</th>
+    <th>materiál typ</th>
+    <th>materiál druh</th>
+    <th>stav transakcie</th>
     <th>chyba</th>
+    <th>zmazať</th>
+    <th>úpravy</th>
 </tr>
 
-<?php $suma = 0; $pocet = 0;?>
 
 <?php foreach($this->prijmy as $prijem) : ?>
 <tr>
     <td><?php echo $this->escape($prijem->ts_prijmy_id);?></td>
-    <td><?php echo $this->escape($prijem->datum_prijmu_d);?></td>
+    <td>
+        <?php
+            $date = date('d.m.Y', strtotime($this->escape($prijem->datum_prijmu_d)));
+            echo $date;
+            //echo $this->escape($prijem->datum_prijmu_d);
+        ?>
+    </td>
     <td><?php echo $this->escape($this->sklady->getNazov($prijem->sklad_enum));?></td>
     <td><?php echo $this->escape($this->podsklady->getNazov($prijem->podsklad_enum));?></td>
     <td><?php echo $this->escape($this->dodavatelia->getNazov($prijem->dodavatel_enum));?></td>
     <td><?php echo $this->escape($this->prepravci->getNazov($prijem->prepravca_enum));?></td>
     <td><?php echo $this->escape($prijem->prepravca_spz);?></td>
     <td><?php echo $this->escape($prijem->q_tony_merane);?></td>
+    <td><?php echo $this->escape($prijem->q_tony_nadrozmer);?></td>
+    <td><?php echo $this->escape($prijem->q_tony_vypocet);?></td>
+    <td><?php echo $this->escape($prijem->q_m3_merane);?></td>
+    <td><?php echo $this->escape($prijem->q_m3_vypocet);?></td>
+    <td><?php echo $this->escape($prijem->q_prm_merane);?></td>
+    <td><?php echo $this->escape($prijem->q_prm_vypocet);?></td>
     <td><?php echo $this->escape($prijem->doklad_cislo);?></td>
+    <td><?php echo $this->escape($this->materialyTypy->getNazov($prijem->material_typ_enum));?></td>
+    <td><?php echo $this->escape($this->materialyDruhy->getNazov($prijem->material_druh_enum));?></td>
+    <td><?php echo $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie));?></td>
     <td>
     	<?php
     		if ($this->escape($prijem->chyba) == 0)
-    			{echo "chyba";}
-    		else {echo "OK";}
+    			{echo "OK";}
+    		else {echo "chyba";}
 
     			?></td>
+    <td>
+        <a href="<?php echo $this->url(array('controller'=>'Prijmy',
+            'action'=>'delete', 'id'=>$prijem->ts_prijmy_id));?>">Zmazať</a>
+    </td>
 
+    <td>
+        <a href="<?php echo $this->url(array('controller'=>'Prijmy',
+        'action'=>'edit', 'id'=>$prijem->ts_prijmy_id));?>">Upraviť</a>
+    </td>
 
-    <?php $this->suma += $this->escape($prijem->q_tony_merane); $this->pocet += 1;?>
 </tr>
 <?php endforeach; ?>
 
-<?php
-
-	$priemer = $this->suma/$this->pocet;
-
-;?>
 
 
 
 
 
-<tr>
-	<td>Priemer</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><?php echo $priemer;?></td>
-    <td></td>
-    <td></td>
-</tr>
+
 </table>
+</div>

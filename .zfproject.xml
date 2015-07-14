@@ -32,10 +32,14 @@
           <actionMethod actionName="delete"/>
           <actionMethod actionName="edit"/>
         </controllerFile>
+        <controllerFile controllerName="Sklady">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Zakaznik"/>
         <formFile formName="Vydaj"/>
+        <formFile formName="Prijem"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -52,6 +56,10 @@
           <dbTableFile dbTableName="Prepravci"/>
           <dbTableFile dbTableName="Vydaje"/>
           <dbTableFile dbTableName="Zakaznici"/>
+          <dbTableFile dbTableName="MaterialTypy"/>
+          <dbTableFile dbTableName="MaterialDruhy"/>
+          <dbTableFile dbTableName="TransakcieStavy"/>
+          <dbTableFile dbTableName="DokladyTypy"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
@@ -108,6 +116,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Zakaznici">
             <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Sklady">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

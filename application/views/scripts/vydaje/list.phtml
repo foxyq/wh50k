@@ -44,7 +44,7 @@ $this->headTitle($this->title);
                 else {echo "OK";}
                 ?></td>
             <td>
-                <a href="<?php echo $this->url(array('controller'=>'vydaje',
+                <a href="<?php echo $this->url(array('controller'=>'Vydaje',
                     'action'=>'delete', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id));?>">Zmazať</a>
             </td>
 
@@ -79,6 +79,3 @@ $this->headTitle($this->title);
         <td></td>
     </tr>
 </table>
-
-<a href="<?php echo $this->url(array('controller'=>'vydaje',
-    'action'=>'add')); ?>">Pridať</a>

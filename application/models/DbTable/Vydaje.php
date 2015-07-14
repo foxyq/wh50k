@@ -15,37 +15,36 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
-    public function addVydaj($data)
+    public function addVydaj($array)
     {
 
-
-//        $data = array(
-//            'vznik_zaznamu_dtm' => $array,
-//            'vytvoril_u' => $array,
-//            'posledna_uprava_dtm' => $array,
-//            'posledna_uprava_u' => $array,
-//            'datum_vydaju_d' => $array,
-//            'sklad_enum' => $array,
-//            'podsklad_enum' => $array,
-//            'zakaznik_enum' => $array,
-//            'prepravca_enum' => $array,
-//            'prepravca_spz' => $array,
-//            'stroj_enum' => $array,
-//            'q_tony_merane_brutto' => $array,
-//            'q_tony_merane_tara' => $array,
-//            'q_tony_merane' => $array,
-//            'q_tony_vypocet' => $array,
-//            'q_m3_merane' => $array,
-//            'q_m3_vypocet' => $array,
-//            'q_prm_merane' => $array,
-//            'q_prm_vypocet' => $array,
-//            'doklad_cislo' => $array,
-//            'doklad_typ_enum' => $array,
-//            'material_druh_enum' => $array,
-//            'poznamka' => $array,
-//            'chyba' => $array,
-//            'stav_transakcie' => $array
-//        );
+        $data = array(
+            'vznik_zaznamu_dtm' => $array,
+            'vytvoril_u' => $array,
+            'posledna_uprava_dtm' => $array,
+            'posledna_uprava_u' => $array,
+            'datum_vydaju_d' => $array,
+            'sklad_enum' => $array,
+            'podsklad_enum' => $array,
+            'zakaznik_enum' => $array,
+            'prepravca_enum' => $array,
+            'prepravca_spz' => $array,
+            'stroj_enum' => $array,
+            'q_tony_merane_brutto' => $array,
+            'q_tony_merane_tara' => $array,
+            'q_tony_merane' => $array,
+            'q_tony_vypocet' => $array,
+            'q_m3_merane' => $array,
+            'q_m3_vypocet' => $array,
+            'q_prm_merane' => $array,
+            'q_prm_vypocet' => $array,
+            'doklad_cislo' => $array,
+            'doklad_typ_enum' => $array,
+            'material_druh_enum' => $array,
+            'poznamka' => $array,
+            'chyba' => $array,
+            'stav_transakcie' => $array
+        );
         $this->insert($data);
     }
 
@@ -55,6 +54,15 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         $this->delete('ts_vydaje_id =' . (int)$id);
     }
 
-
+    //get SUM of column1 by column2
+    //toto nie je optimalne pri velkom mnozstve dat to bude dlho trvat
+    public function getSumByColumn($column1, $column2, $column2_value){
+        $vydaje = $this->fetchAll($column2.' = '. $column2_value);
+        $sum = 0;
+        foreach ($vydaje as $vydaj){
+            $sum = $sum + $vydaj[$column1];
+        }
+        return $sum;
+    }
 }
 
