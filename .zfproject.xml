@@ -24,6 +24,7 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="list"/>
+          <actionMethod actionName="print"/>
         </controllerFile>
         <controllerFile controllerName="Zakaznici">
           <actionMethod actionName="index"/>
@@ -119,6 +120,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Sklady">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Vydaje">
+            <viewScriptFile forActionName="print"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

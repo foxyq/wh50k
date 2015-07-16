@@ -39,7 +39,6 @@ class VydajeController extends Zend_Controller_Action
         $this->view->title = "Výdaje - zoznam";
     }
 
-
     public function addAction()
     {
 
@@ -252,10 +251,29 @@ class VydajeController extends Zend_Controller_Action
             }
     }
 
+    public function printAction()
+    {
+        $id = $this->_getParam('ts_vydaje_id', 0);
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $this->view->vydaj = $vydaje->getVydaj($id);
 
+
+//        $id = $this->_getParam('ts_vydaje_id', 0);
+//        $listok = $this->_getParam('cislo_listku', 0);
+//        $spz = $this->_getParam('spz', 0);
+//
+//        echo '<br> controller ID '.$id.', cislo '.$listok.', spz '.$spz;
+
+        // Disable the main layout renderer
+//        $this->_helper->layout->disableLayout();
+        // Do not even attempt to render a view
+//        $this->_helper->viewRenderer->setNoRender(true);
+    }
 
 
 }
+
+
 
 
 

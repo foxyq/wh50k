@@ -101,40 +101,6 @@ class Application_Form_Vydaj extends Zend_Form
         $potvrdzujuceTlacidlo->setLabel($this->getAttrib('potvrdzujuceTlacidlo'));
         $potvrdzujuceTlacidlo->setAttrib('id', 'submitbutton');
 
-//
-//
-//          $data = array(
-//
-////            'vznik_zaznamu_dtm' => $array,
-////            'vytvoril_u' => $array,
-////            'posledna_uprava_dtm' => $array,
-////            'posledna_uprava_u' => $array,
-//                'datum_vydaju_d' => $datum_vydaju_d,
-//            'sklad_enum' => $sklad_enum,
-//            'podsklad_enum' => $podsklad_enum,
-//            'zakaznik_enum' => $zakaznik_enum,
-//            'prepravca_enum' => $dopravca_enum,
-//            'prepravca_spz' => $prepravca_spz,
-//            'stroj_enum' => $stroj_enum,
-//            'q_tony_merane_brutto' => $q_tony_merane_brutto,
-//            'q_tony_merane_tara' => $q_tony_merane_tara,
-//            'q_tony_merane' => $q_tony_merane,
-//            'q_tony_vypocet' => $q_tony_vypocet,
-//            'q_m3_merane' => $q_m3_merane,
-//            'q_m3_vypocet' => $q_m3_vypocet,
-//            'q_prm_merane' => $q_prm_merane,
-//            'q_prm_vypocet' => $q_prm_vypocet,
-//            'doklad_cislo' => $doklad_cislo,
-//            'doklad_typ_enum' => $doklad_typ_enum,
-//            'material_druh_enum' => $material_druh_enum,
-//            'poznamka' => $poznamka,
-//            'chyba' => $chyba,
-//            'stav_transakcie' => $stav_transakcie,
-//            'submit' => $submit );
-//
-////        $this->addElements(array($id, $sklad_enum, $submit));
-//       // $this->addElements($data);
-
 
         $this->addElements(array(
             $id,

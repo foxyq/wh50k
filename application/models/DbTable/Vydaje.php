@@ -44,7 +44,8 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
             'stav_transakcie' => $stav_transakcie,
 
             'vytvoril_u' => 1, //TODO podla logged in usera
-            'posledna_uprava_u' => 1 // TODO ^ same shit
+            'posledna_uprava_u' => 1, // TODO ^ same shit
+            'doklad_cislo' => 150701666
 
         );
         $this->insert($data);
