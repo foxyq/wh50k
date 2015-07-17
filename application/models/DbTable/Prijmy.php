@@ -110,6 +110,28 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         return $sum;
     }
 
+    //$column1 - co sledujeme
+    //$column2 - parametre od do
+    //$column3 - goup by - standardne id skladu
+    public function getSumByColumnBetween($column1, $column2, $column2_value1, $column2_value2, $column3, $column3_value1){
+
+        if ($column2_value1 > $column2_value2){
+            $pomocna = $column2_value2;
+            $column2_value2 = $column2_value1;
+            $column2_value1 = $pomocna;
+        }
+
+        $sql = $column3." = ".$column3_value1." AND (".$column2." BETWEEN '".$column2_value1."' AND '".$column2_value2."')";
+        //$prijmy = $this->fetchAll($column2.' > '. $column2_value1);
+        $prijmy = $this->fetchAll($sql);
+
+        $sum = 0;
+        foreach ($prijmy as $prijem){
+            $sum = $sum + $prijem[$column1];
+        }
+        return $sum;
+    }
+
 
 
 
