@@ -15,6 +15,9 @@ echo $this->doctype(); ?>
         ->prependStylesheet($this->baseUrl().'/css/morris.css'); ?>
 	<?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/font-awesome.min.css'); ?>
+<!--    JQUERY-->
+    <?php $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/js/jquery/jquery-ui-sejtan.css'); ?>
 	<?php echo $this->headLink(); ?>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -25,8 +28,9 @@ echo $this->doctype(); ?>
     <![endif]-->
 
 <!--    pokusy od tadeto-->
+    <link type="text/css" href="/css/redmond/jquery-ui-1.8.5.custom.css" rel="Stylesheet" />
 
-<!--    pokusy PO tadeto-->
+    <!--    pokusy PO tadeto-->
 </head>
 
 

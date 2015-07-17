@@ -26,8 +26,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
 //        )));
 //        $this->addElement($elem);
 
-        $datumis = new ZendX_JQuery_Form_Element_DatePicker('datumis');
-        $this->addElement($datumis);
+
+
 
 //        ZLTUNKE PIKO konec
 
@@ -126,6 +126,16 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $potvrdzujuceTlacidlo->setAttrib('id', 'submitbutton');
 
 
+        $datumis = new ZendX_JQuery_Form_Element_DatePicker('datumis',
+            array('jQueryParams' => array('defaultDate' => date('Y-m-D'),
+                'changeYear'=> 'true')));
+        $datumis->setJQueryParam('dateFormat', 'dd.mm.yy')
+            ->setRequired()
+            ->setLabel("Date");
+
+
+        $this->addElement($datumis);
+
         $this->addElements(array(
             $id,
             $datum_vydaju,
@@ -144,6 +154,9 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
             $stav_transakcie,
             $potvrdzujuceTlacidlo
         ));
+
+
+
 
     }
 
