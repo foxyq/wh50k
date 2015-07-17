@@ -1,11 +1,35 @@
 <?php
 
-class Application_Form_Vydaj extends Zend_Form
+class Application_Form_Vydaj extends ZendX_JQuery_Form
+
 {
 
     public function init()
     {
         $this->setName('vydaj');
+
+
+//        $this->jQuery()->setLocalPath('http://localhost/wh50k/public/js/jquery.js');
+
+//            ->addStylesheet('http://localhost/zend/js/jquery/themes/ui.datepicker.css');
+//        echo $this->jQuery();
+
+
+//
+//        testik PIKERA
+//
+//        $elem = new ZendX_JQuery_Form_Element_DatePicker('start_date', array(
+//            'label'         => 'Start Date',
+//            'required'      => true,
+//            'validators'    => array('Date'),
+//            'jQueryParams'  => array('dateFormat' => 'dd-mm-yy', 'minDate'    => '+1'
+//        )));
+//        $this->addElement($elem);
+
+        $datumis = new ZendX_JQuery_Form_Element_DatePicker('datumis');
+        $this->addElement($datumis);
+
+//        ZLTUNKE PIKO konec
 
 
         $id = new Zend_Form_Element_Hidden('ts_vydaje_id');
@@ -105,6 +129,7 @@ class Application_Form_Vydaj extends Zend_Form
         $this->addElements(array(
             $id,
             $datum_vydaju,
+//            $datumis,
             $sklad,
             $podsklad,
             $zakaznik,

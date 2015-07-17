@@ -6,6 +6,7 @@ class VydajeController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
+        $this->view->addHelperPath('ZendX/JQuery/View/Helper/', 'ZendX_JQuery_View_Helper');
     }
 
     public function indexAction()
@@ -42,6 +43,9 @@ class VydajeController extends Zend_Controller_Action
     public function addAction()
     {
 
+
+
+
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
@@ -67,6 +71,7 @@ class VydajeController extends Zend_Controller_Action
         $potvrdzujuceTlacidlo = 'Vložiť';
 
         $form = new Application_Form_Vydaj(array(
+//        $form = new ZendX_JQuery_Form_Vydaj(array(
             'skladyMoznosti' => $skladyMoznosti,
             'podskladyMoznosti' => $podskladyMoznosti,
             'zakazniciMoznosti' => $zakazniciMoznosti,
@@ -101,6 +106,10 @@ class VydajeController extends Zend_Controller_Action
                 $stav_transakcie = $form->getValue('stav_transakcie');
 
                 $vydaje = new Application_Model_DbTable_Vydaje();
+
+//               echo "button";
+
+
                 $vydaje->addVydaj(
                     $datum_vydaju,
                     $sklad,

@@ -24,6 +24,9 @@ echo $this->doctype(); ?>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<!--    pokusy od tadeto-->
+
+<!--    pokusy PO tadeto-->
 </head>
 
 
@@ -184,6 +187,11 @@ echo $this->doctype(); ?>
 	 <!-- /.end-of-wrapper -->
 	</div>
 
-   
+    <?php
+    echo $this->jQuery()
+    ->setVersion('1.5.1')
+    ->setUiVersion('1.8.11')
+    ->enable()
+    ->uiEnable(); ?>
 </body>
 </html>
