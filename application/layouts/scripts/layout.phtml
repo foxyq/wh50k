@@ -7,6 +7,7 @@ echo $this->doctype(); ?>
 <head>
     <?php echo $this->headMeta(); ?>
     <?php echo $this->headTitle(); ?>
+
     <?php  $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/sb-admin.css'); ?>
 	<?php $this->headLink()
@@ -15,9 +16,11 @@ echo $this->doctype(); ?>
         ->prependStylesheet($this->baseUrl().'/css/morris.css'); ?>
 	<?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/font-awesome.min.css'); ?>
-<!--    JQUERY-->
+<!--    JQUERY CSS-->
     <?php $this->headLink()
-        ->prependStylesheet($this->baseUrl().'/js/jquery/jquery-ui-sejtan.css'); ?>
+        ->prependStylesheet($this->baseUrl().'/js/jquery/jquery-ui-dark.css'); ?>
+<!-- JQUERY CSS KONIEC-->
+
 	<?php echo $this->headLink(); ?>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,13 +30,7 @@ echo $this->doctype(); ?>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<!--    pokusy od tadeto-->
-    <link type="text/css" href="/css/redmond/jquery-ui-1.8.5.custom.css" rel="Stylesheet" />
-
-    <!--    pokusy PO tadeto-->
 </head>
-
-
 <body>
 
     <div id="wrapper">
@@ -177,7 +174,7 @@ echo $this->doctype(); ?>
 
 			<!-- place for scripts -->
 
-			  <?php $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
+			  <?php
 					$this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 					$this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
 					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.js');
@@ -191,11 +188,16 @@ echo $this->doctype(); ?>
 	 <!-- /.end-of-wrapper -->
 	</div>
 
+<!--jquery-->
+
     <?php
     echo $this->jQuery()
-    ->setVersion('1.5.1')
-    ->setUiVersion('1.8.11')
+//    ->setVersion('1.5.1')
+//    ->setUiVersion('1.8.11')
     ->enable()
     ->uiEnable(); ?>
+<!--jquery-->
+
+
 </body>
 </html>

@@ -8,39 +8,30 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
     {
         $this->setName('vydaj');
 
-
-//        $this->jQuery()->setLocalPath('http://localhost/wh50k/public/js/jquery.js');
-
-//            ->addStylesheet('http://localhost/zend/js/jquery/themes/ui.datepicker.css');
-//        echo $this->jQuery();
-
-
-//
-//        testik PIKERA
-//
-//        $elem = new ZendX_JQuery_Form_Element_DatePicker('start_date', array(
-//            'label'         => 'Start Date',
-//            'required'      => true,
-//            'validators'    => array('Date'),
-//            'jQueryParams'  => array('dateFormat' => 'dd-mm-yy', 'minDate'    => '+1'
-//        )));
-//        $this->addElement($elem);
-
-
-
-
-//        ZLTUNKE PIKO konec
-
-
         $id = new Zend_Form_Element_Hidden('ts_vydaje_id');
         $id->addFilter('Int');
 
-        $datum_vydaju = new Zend_Dojo_Form_Element_TimeTextBox('datum_vydaju_d');
-        $datum_vydaju->setLabel('Dátum výdaju')
+        //echo Zend_Date::now()->toString('yyyy-MM-dd');
+
+        $datum_vydaju = new ZendX_JQuery_Form_Element_DatePicker("datum_vydaju_d",
+                            "12.12.2014", array(), array());
+
+        $datum_vydaju->setValue(Zend_Date::now()->toString('YYYY-MM-dd'));
+
+        $datum_vydaju->setJQueryParam('dateFormat', 'yy-mm-dd')
+//            ->setJqueryParam('regional', 'de')
             ->setRequired(true)
+            ->setLabel("Dátum výdaju")
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty');
+
+//        $datum_vydaju = new Zend_Dojo_Form_Element_TimeTextBox('datum_vydaju_d');
+//        $datum_vydaju->setLabel('Dátum výdaju')
+//            ->setRequired(true)
+//            ->addFilter('StripTags')
+//            ->addFilter('StringTrim')
+//            ->addValidator('NotEmpty');
 
         $sklad = new Zend_Form_Element_Select('sklad_enum');
         $sklad->setMultiOptions($this->getAttrib('skladyMoznosti'));
@@ -126,20 +117,10 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $potvrdzujuceTlacidlo->setAttrib('id', 'submitbutton');
 
 
-        $datumis = new ZendX_JQuery_Form_Element_DatePicker('datumis',
-            array('jQueryParams' => array('defaultDate' => date('Y-m-D'),
-                'changeYear'=> 'true')));
-        $datumis->setJQueryParam('dateFormat', 'dd.mm.yy')
-            ->setRequired()
-            ->setLabel("Date");
-
-
-        $this->addElement($datumis);
 
         $this->addElements(array(
             $id,
             $datum_vydaju,
-//            $datumis,
             $sklad,
             $podsklad,
             $zakaznik,
