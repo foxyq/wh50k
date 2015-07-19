@@ -5,6 +5,9 @@ $this->headTitle('wh50k');
 echo $this->doctype(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <?php echo $this->headMeta(); ?>
     <?php echo $this->headTitle(); ?>
 
@@ -14,9 +17,20 @@ echo $this->doctype(); ?>
         ->prependStylesheet($this->baseUrl().'/css/bootstrap.min.css'); ?>
 	<?php  $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/morris.css'); ?>
-	<?php $this->headLink()
+    <?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/font-awesome.min.css'); ?>
-<!--    JQUERY CSS-->
+    <?php $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/css/jquery.dataTables.css'); ?>
+    <?php $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/css/shCore.css'); ?>
+
+
+
+
+
+
+
+    <!--    JQUERY CSS-->
 <!--    --><?php //$this->headLink()
 //        ->prependStylesheet($this->baseUrl().'/js/jquery/jquery-ui-dark.css'); ?>
 <!-- JQUERY CSS KONIEC-->
@@ -29,6 +43,39 @@ echo $this->doctype(); ?>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript" language="javascript" class="init">
+
+
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                initComplete: function () {
+                    var api = this.api();
+
+                    api.columns().indexes().flatten().each( function ( i ) {
+                        var column = api.column( i );
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo( $(column.footer()).empty() )
+                            .on( 'change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search( val ? '^'+val+'$' : '', true, false )
+                                    .draw();
+                            } );
+
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>' )
+                        } );
+                    } );
+                }
+            } );
+        } );
+
+
+    </script>
 
 </head>
 <body>
@@ -157,11 +204,17 @@ echo $this->doctype(); ?>
 
 			<div class="container-fluid">
 
+                <div class="row">
+                    <div class="col-lg-12">
 
 
 
                           <h1><?php echo $this->escape($this->title); ?></h1>
                             <?php echo $this->layout()->content; ?>
+
+                    </div>
+                </div>
+                <!-- end of row    -->
 
 			<!-- end of container -->
 			</div>
@@ -175,9 +228,11 @@ echo $this->doctype(); ?>
 			  <?php
 					$this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 					$this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
-					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.js');
-					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
-
+					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
+                    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
+                    $this->inlineScript()->appendFile($this->baseUrl().'/js/shCore.js');
+                    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
+                    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
 
 					echo $this->inlineScript(); ?>
 			
