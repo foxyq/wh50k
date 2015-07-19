@@ -11,24 +11,43 @@ echo $this->doctype(); ?>
     <?php echo $this->headMeta(); ?>
     <?php echo $this->headTitle(); ?>
 
+    <!--jquery-->
+
+    <?php
+    echo $this->jQuery()
+//    ->setVersion('1.5.1')    // toto nacita najnovsie ENG z netu
+//    ->setUiVersion('1.8.11') // toto je k tomu a tiez je to ENG
+        ->enable()
+        ->uiEnable(); ?>
+    <!--jquery-->
+
+    <?php
+
+    //					$this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
+    //					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
+    //                    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
+    //                    $this->inlineScript()->appendFile($this->baseUrl().'/js/shCore.js');
+    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
+
+    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
+
+    $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
+
+    echo $this->inlineScript(); ?>
+
+
     <?php  $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/sb-admin.css'); ?>
 	<?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/bootstrap.min.css'); ?>
-	<?php  $this->headLink()
-        ->prependStylesheet($this->baseUrl().'/css/morris.css'); ?>
+<!--	--><?php // $this->headLink()
+//        ->prependStylesheet($this->baseUrl().'/css/morris.css'); ?>
     <?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/font-awesome.min.css'); ?>
     <?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/jquery.dataTables.css'); ?>
-    <?php $this->headLink()
-        ->prependStylesheet($this->baseUrl().'/css/shCore.css'); ?>
-
-
-
-
-
-
+<!--    --><?php //$this->headLink()
+//        ->prependStylesheet($this->baseUrl().'/css/shCore.css'); ?>
 
     <!--    JQUERY CSS-->
 <!--    --><?php //$this->headLink()
@@ -37,45 +56,11 @@ echo $this->doctype(); ?>
 
 	<?php echo $this->headLink(); ?>
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" language="javascript" class="init">
-
-
-        $(document).ready(function() {
-            $('#example').DataTable( {
-                initComplete: function () {
-                    var api = this.api();
-
-                    api.columns().indexes().flatten().each( function ( i ) {
-                        var column = api.column( i );
-                        var select = $('<select><option value=""></option></select>')
-                            .appendTo( $(column.footer()).empty() )
-                            .on( 'change', function () {
-                                var val = $.fn.dataTable.util.escapeRegex(
-                                    $(this).val()
-                                );
-
-                                column
-                                    .search( val ? '^'+val+'$' : '', true, false )
-                                    .draw();
-                            } );
-
-                        column.data().unique().sort().each( function ( d, j ) {
-                            select.append( '<option value="'+d+'">'+d+'</option>' )
-                        } );
-                    } );
-                }
-            } );
-        } );
-
-
-    </script>
 
 </head>
 <body>
@@ -227,10 +212,10 @@ echo $this->doctype(); ?>
 
 			  <?php
 					$this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
-					$this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
-					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
-                    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
-                    $this->inlineScript()->appendFile($this->baseUrl().'/js/shCore.js');
+//					$this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
+//					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
+//                    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
+//                    $this->inlineScript()->appendFile($this->baseUrl().'/js/shCore.js');
                     $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
                     $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
 
@@ -241,15 +226,7 @@ echo $this->doctype(); ?>
 	 <!-- /.end-of-wrapper -->
 	</div>
 
-<!--jquery-->
 
-    <?php
-    echo $this->jQuery()
-//    ->setVersion('1.5.1')    // toto nacita najnovsie ENG z netu
-//    ->setUiVersion('1.8.11') // toto je k tomu a tiez je to ENG
-    ->enable()
-    ->uiEnable(); ?>
-<!--jquery-->
 
 
 </body>
