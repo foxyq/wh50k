@@ -46,6 +46,7 @@
         <formFile formName="Zakaznik"/>
         <formFile formName="Vydaj"/>
         <formFile formName="Prijem"/>
+        <formFile formName="Dodavatel"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>

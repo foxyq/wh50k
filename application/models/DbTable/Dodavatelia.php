@@ -26,5 +26,21 @@ class Application_Model_DbTable_Dodavatelia extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
+    public function addDodavatel (
+            $meno,
+            $nazov,
+            $ico){
+
+        $data = array(
+            'meno' => $meno,
+            'nazov_spolocnosti' => $nazov,
+            'ico' => $ico
+        );
+
+        $this->insert($data);
+
+    }
+
+
 }
 
