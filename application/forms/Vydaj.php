@@ -19,7 +19,6 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $datum_vydaju->setValue(Zend_Date::now()->toString('YYYY-MM-dd'));
 
         $datum_vydaju->setJQueryParam('dateFormat', 'yy-mm-dd')
-//            ->setJqueryParam('regional', 'de')
             ->setRequired(true)
             ->setLabel("Dátum výdaju")
             ->addFilter('StripTags')
