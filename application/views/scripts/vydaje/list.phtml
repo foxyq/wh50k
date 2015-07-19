@@ -1,7 +1,13 @@
 <?php
 $this->headTitle($this->title);
 
+    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
+    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
+    $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
+
 ?>
+
+
 <script type="text/javascript" language="javascript" class="init">
 
 
@@ -34,7 +40,6 @@ $this->headTitle($this->title);
 
 
 </script>
-
 
 <div class="alert alert-dismissable alert-warning">
 

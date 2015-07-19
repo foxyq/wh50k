@@ -11,7 +11,9 @@ echo $this->doctype(); ?>
     <?php echo $this->headMeta(); ?>
     <?php echo $this->headTitle(); ?>
 
-    <!--jquery-->
+    <!--  *********** HEAD JS + JQUERY INCLUDES   ******** -->
+
+    <!--jquery kamos so zendom-->
 
     <?php
     echo $this->jQuery()
@@ -19,42 +21,53 @@ echo $this->doctype(); ?>
 //    ->setUiVersion('1.8.11') // toto je k tomu a tiez je to ENG
         ->enable()
         ->uiEnable(); ?>
+
+    <script type="text/javascript">
+        //<!--
+        $(document).ready(function() {
+            $("#datum_vydaju_d").datepicker({"dateFormat":"yy-mm-dd"});
+        });
+        //-->
+
+    </script>
+
+
     <!--jquery-->
 
+    <!-- ostatne JS + jquery pre fancy tables    -->
     <?php
 
-    //					$this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
-    //					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
-    //                    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
-    //                    $this->inlineScript()->appendFile($this->baseUrl().'/js/shCore.js');
-    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
-
-    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
-
-    $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
+//    $this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
+//    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
+//    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
+//    $this->inlineScript()->appendFile($this->baseUrl().'/js/shCore.js');
+//    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
+//    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
+//    $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 
     echo $this->inlineScript(); ?>
+    <!--  *********** KONIEC HEAD JS + JQUERY INCLUDES   ******** -->
 
+
+<!--   ************ HEAD CSS INCLUDES *****************   -->
 
     <?php  $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/sb-admin.css'); ?>
 	<?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/bootstrap.min.css'); ?>
-<!--	--><?php // $this->headLink()
-//        ->prependStylesheet($this->baseUrl().'/css/morris.css'); ?>
+	<?php  $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/css/morris.css'); ?>
     <?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/font-awesome.min.css'); ?>
     <?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/jquery.dataTables.css'); ?>
-<!--    --><?php //$this->headLink()
-//        ->prependStylesheet($this->baseUrl().'/css/shCore.css'); ?>
+    <?php $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/js/jquery/jquery-ui-dark.css'); ?>
 
-    <!--    JQUERY CSS-->
-<!--    --><?php //$this->headLink()
-//        ->prependStylesheet($this->baseUrl().'/js/jquery/jquery-ui-dark.css'); ?>
-<!-- JQUERY CSS KONIEC-->
 
 	<?php echo $this->headLink(); ?>
+
+<!--    ************** KONIEC CSS INCLUDES ************ -->
 
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -212,15 +225,15 @@ echo $this->doctype(); ?>
 
 			  <?php
 					$this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
-//					$this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
-//					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
-//                    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
+					$this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
+					$this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
+                    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
 //                    $this->inlineScript()->appendFile($this->baseUrl().'/js/shCore.js');
                     $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
-                    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
+//                    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
 
 					echo $this->inlineScript(); ?>
-			
+
 			<!-- end of scripts -->
 
 	 <!-- /.end-of-wrapper -->

@@ -16,6 +16,18 @@ class VydajeController extends Zend_Controller_Action
 
     public function listAction()
     {
+
+
+//        $controller = $this->getRequest()->getControllerName();
+//        $action = $this->getRequest()->getActionName();
+
+//        VERY IMPORTANT!!!!
+//        if ($controller == 'Vydaje' && $action == 'add') echo 'penis';
+//        else echo 'vagina';
+
+
+
+
         // vytvorenie instancií modelov
         $vydaje = new Application_Model_DbTable_Vydaje();
         $sklady = new Application_Model_DbTable_Sklady();

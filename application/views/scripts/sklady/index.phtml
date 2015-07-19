@@ -38,10 +38,10 @@ $this->headTitle($this->title);
                     </div>
 
                     <?php
-                    $skladyIds = $this->skladyModel->getIds();
+                    $skladyIds = $this->skladyModel->getIds(); ?>
 
 
-                    foreach ($skladyIds AS $skladId):?>
+                    <?php foreach ($skladyIds AS $skladId) : ?>
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -96,23 +96,8 @@ $this->headTitle($this->title);
 
                         </div>
                     </div>
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-<?php
-$datum = date('2015-02-28', strtotime(' +3 day'));
-echo $datum;
-
-?>
 </div>
