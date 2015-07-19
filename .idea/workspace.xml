@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" afterPath="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -264,7 +262,13 @@
       <option name="project" value="LOCAL" />
       <updated>1437326276342</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fungujuce JS,jquery, datatables, +veci od 3t">
+      <created>1437327787866</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1437327787866</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -355,7 +359,8 @@
     <MESSAGE value="2015-07-17" />
     <MESSAGE value="system ubytkov hmotnosti, prehlad skladov" />
     <MESSAGE value="pridane ubytky, mergnute a fungujuce" />
-    <option name="LAST_COMMIT_MESSAGE" value="pridane ubytky, mergnute a fungujuce" />
+    <MESSAGE value="fungujuce JS,jquery, datatables, +veci od 3t" />
+    <option name="LAST_COMMIT_MESSAGE" value="fungujuce JS,jquery, datatables, +veci od 3t" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
