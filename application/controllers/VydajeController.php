@@ -175,7 +175,7 @@ class VydajeController extends Zend_Controller_Action
 
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
-            print_r($formData);
+//            print_r($formData);
 
             if ($form->isValid($formData)) {
 

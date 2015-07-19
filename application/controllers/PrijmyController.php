@@ -5,7 +5,8 @@ class PrijmyController extends Zend_Controller_Action
 
     public function init()
     {
-
+//        celkom dolezite pre jquery ...
+        $this->view->addHelperPath('ZendX/JQuery/View/Helper/', 'ZendX_JQuery_View_Helper');
     }
 
     public function indexAction()
@@ -192,6 +193,8 @@ class PrijmyController extends Zend_Controller_Action
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
 
+                var_dump($datum_prijmu);
+
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $prijmy->editPrijem(
                     $id,
@@ -223,12 +226,7 @@ class PrijmyController extends Zend_Controller_Action
                 $this->view->data = $prijmy->getPrijem($id);
             }
         }
-
-
-
-
-        }
-
+    }
 
     public function deleteAction()
     {

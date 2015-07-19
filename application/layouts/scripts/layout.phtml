@@ -17,8 +17,8 @@ echo $this->doctype(); ?>
 	<?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/font-awesome.min.css'); ?>
 <!--    JQUERY CSS-->
-    <?php $this->headLink()
-        ->prependStylesheet($this->baseUrl().'/js/jquery/jquery-ui-dark.css'); ?>
+<!--    --><?php //$this->headLink()
+//        ->prependStylesheet($this->baseUrl().'/js/jquery/jquery-ui-dark.css'); ?>
 <!-- JQUERY CSS KONIEC-->
 
 	<?php echo $this->headLink(); ?>
@@ -192,8 +192,8 @@ echo $this->doctype(); ?>
 
     <?php
     echo $this->jQuery()
-//    ->setVersion('1.5.1')
-//    ->setUiVersion('1.8.11')
+//    ->setVersion('1.5.1')    // toto nacita najnovsie ENG z netu
+//    ->setUiVersion('1.8.11') // toto je k tomu a tiez je to ENG
     ->enable()
     ->uiEnable(); ?>
 <!--jquery-->

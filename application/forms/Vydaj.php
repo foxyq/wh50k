@@ -135,12 +135,6 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
             $stav_transakcie,
             $potvrdzujuceTlacidlo
         ));
-
-
-
-
     }
-
-
 }
 

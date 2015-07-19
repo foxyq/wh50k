@@ -8,11 +8,26 @@ class Application_Form_Prijem extends Zend_Form
     {
         $this->setName('prijem');
 
-        $id = new Zend_Form_Element_text('ts_prijmy_id');
+        $id = new Zend_Form_Element_Hidden('ts_prijmy_id');
         $id->addFilter('Int');
 
-        $datum_prijmu = new Zend_Form_Element_Text('datum_prijmu_d');
-        $datum_prijmu->setLabel('Dátum príjmu');
+//        povodny textfield datum, fo sho
+//        $datum_prijmu = new Zend_Form_Element_Text('datum_prijmu_d');
+//        $datum_prijmu->setLabel('Dátum príjmu');
+//
+        $datum_prijmu = new ZendX_JQuery_Form_Element_DatePicker("datum_prijmu_d",
+            "12.12.2014", array(), array());
+
+        $datum_prijmu->setValue(Zend_Date::now()->toString('YYYY-MM-dd'));
+
+        $datum_prijmu->setJQueryParam('dateFormat', 'yy-mm-dd')
+//            ->setJqueryParam('regional', 'de')
+            ->setRequired(true)
+            ->setLabel("Dátum príjmu")
+            ->addFilter('StripTags')
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty');
+
 
         $sklad = new Zend_Form_Element_Select('sklad_enum');
         $sklad->setMultiOptions($this->getAttrib('skladyMoznosti'));
