@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="system ubytkov hmotnosti, prehlad skladov">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Dell.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/UbytkyController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/DbTable/UbytkyParametre.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/ubytky/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.zfproject.xml" afterPath="$PROJECT_DIR$/.zfproject.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Prijmy.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Prijmy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Sklady.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Sklady.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/SkladyController.php" afterPath="$PROJECT_DIR$/application/controllers/SkladyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Vydaje.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Vydaje.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/sklady/index.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/sklady/index.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" />
+    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -54,7 +40,7 @@
       <file leaf-file-name="Prijmy.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/DbTable/Prijmy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76632804" vertical-offset="628" max-vertical-offset="1343">
+            <state vertical-scroll-proportion="0.99248123" vertical-offset="628" max-vertical-offset="1343">
               <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
               <folding>
                 <element signature="n#getSumByDateAndStock#0;n#Application_Model_DbTable_Prijmy#0;n#!!top" expanded="true" />
@@ -360,18 +346,8 @@
             <option name="myCanBeAbsent" value="false" />
             <option name="myId" value="UPDATED" />
             <PATH vcs="Git" revision="">$PROJECT_DIR$/.zfproject.xml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/Bootstrap.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/configs/application.ini</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/controllers/PrijmyController.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/controllers/VydajeController.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/Prijem.php</PATH>
             <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/Vydaj.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/layouts/scripts/layout.phtml</PATH>
             <PATH vcs="Git" revision="">$PROJECT_DIR$/application/models/DbTable/Dodavatelia.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/vydaje/add.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/vydaje/edit.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml</PATH>
           </FILE-GROUP>
           <FILE-GROUP>
             <option name="myUpdateName" value="Created" />
@@ -386,7 +362,6 @@
             <option name="mySupportsDeletion" value="false" />
             <option name="myCanBeAbsent" value="true" />
             <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/js/jquery.js</PATH>
           </FILE-GROUP>
           <FILE-GROUP>
             <option name="myUpdateName" value="Restored" />
@@ -515,7 +490,13 @@
       <option name="project" value="LOCAL" />
       <updated>1437167052464</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="system ubytkov hmotnosti, prehlad skladov">
+      <created>1437320961299</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1437320961299</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -540,9 +521,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1432" y="-308" width="1936" height="1216" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32942238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -551,8 +532,8 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14479166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32942238" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47111914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47111914" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47111914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -947,7 +928,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/Prijmy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76632804" vertical-offset="628" max-vertical-offset="1343">
+        <state vertical-scroll-proportion="0.99248123" vertical-offset="628" max-vertical-offset="1343">
           <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
           <folding>
             <element signature="n#getSumByDateAndStock#0;n#Application_Model_DbTable_Prijmy#0;n#!!top" expanded="true" />
