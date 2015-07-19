@@ -18,9 +18,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 //                  AMPPS LOCALHOSTU A ROUTOVANIU ***********
 
-        $view->jQuery()->addStylesheet('http://localhost/wh50k/public/js/jquery/jquery-ui-dark.css')
-        ->setLocalPath('http://localhost/wh50k/public/js/jquery.min.js')
-        ->setUiLocalPath('http://localhost/wh50k/public/js/jquery-ui.min.js');
+//        $view->jQuery()->addStylesheet('http://localhost/wh50k/public/js/jquery/jquery-ui-dark.css')
+//        ->setLocalPath('http://localhost/wh50k/public/js/jquery.min.js')
+//        ->setUiLocalPath('http://localhost/wh50k/public/js/jquery-ui.min.js');
 
 //         KONIEC HLASENIA ... na live zmazat a odkomentovat cast v application.ini
         return $view;
