@@ -72,9 +72,9 @@ kontrolny vypis</br>
     <td><?php echo $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie));?></td>
     <td>
     	<?php
-    		if ($this->escape($prijem->chyba) == 0)
-    			{echo "OK";}
-    		else {echo "chyba";}
+    		if ($this->escape($prijem->chyba) == 1)
+    			{echo "áno";}
+    		else {echo "nie";}
 
     			?></td>
     <td>
@@ -89,13 +89,6 @@ kontrolny vypis</br>
 
 </tr>
 <?php endforeach; ?>
-
-
-
-
-
-
-
 </table>
 
 </div>

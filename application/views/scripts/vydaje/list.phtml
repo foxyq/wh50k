@@ -73,9 +73,9 @@ $this->headTitle($this->title);
             <td><?php echo $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie));?></td>
             <td>
                 <?php
-                if ($this->escape($vydaj->chyba) == 0)
-                {echo "chyba";}
-                else {echo "OK";}
+                if ($this->escape($vydaj->chyba) == 1)
+                {echo "áno";}
+                else {echo "nie";}
                 ?></td>
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',

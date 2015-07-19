@@ -28,11 +28,91 @@ $this->headTitle($this->title);
         </tr>
     <?php endforeach; ?>
 
-
-
-
-
-
-
 </table>
+
+
+
+    <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h2>Stav Skladov </h2>
+                    </div>
+
+                    <?php
+                    $skladyIds = $this->skladyModel->getIds();
+
+
+                    foreach ($skladyIds AS $skladId):?>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-database fa-3x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">
+                                            <?php
+                                                $stavSkladu = floatval($this->ubytky->getLastStavSkladu($skladId));
+                                                $vystup = number_format($stavSkladu, 2, ',', ' ');
+                                                echo $vystup;
+                                            ?>
+                                            <span style="font-size:10pt;">ton</span></div>
+                                        <div>
+                                            <?php
+                                                echo $this->skladyModel->getNazov($skladId);
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                    <div class="row">
+
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                            <p>Vláknina <br>10 000 ton</p>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                                            <p>Odrezky <br>5 500 ton</p>
+                                        </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar" style="width: 64%"><span class="sr-only">64</span>
+                                            </div>
+                                            <div class="progress-bar progress-bar-striped" style="width: 36%"><span class="sr-only">36</span>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <? endforeach; ?>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+$datum = date('2015-02-28', strtotime(' +3 day'));
+echo $datum;
+
+?>
 </div>

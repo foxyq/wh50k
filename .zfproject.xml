@@ -24,7 +24,6 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="list"/>
-          <actionMethod actionName="print"/>
         </controllerFile>
         <controllerFile controllerName="Zakaznici">
           <actionMethod actionName="index"/>
@@ -36,17 +35,15 @@
         <controllerFile controllerName="Sklady">
           <actionMethod actionName="index"/>
         </controllerFile>
-        <controllerFile controllerName="Dodavatelia">
+        <controllerFile controllerName="Ubytky">
           <actionMethod actionName="index"/>
-          <actionMethod actionName="add"/>
-          <actionMethod actionName="edit"/>
+          <actionMethod actionName="list"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Zakaznik"/>
         <formFile formName="Vydaj"/>
         <formFile formName="Prijem"/>
-        <formFile formName="Dodavatel"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -67,6 +64,8 @@
           <dbTableFile dbTableName="MaterialDruhy"/>
           <dbTableFile dbTableName="TransakcieStavy"/>
           <dbTableFile dbTableName="DokladyTypy"/>
+          <dbTableFile dbTableName="UbytkyHmotnosti"/>
+          <dbTableFile dbTableName="UbytkyParametre"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
@@ -127,17 +126,11 @@
           <viewControllerScriptsDirectory forControllerName="Sklady">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Vydaje">
-            <viewScriptFile forActionName="print"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Dodavatelia">
+          <viewControllerScriptsDirectory forControllerName="Ubytky">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Dodavatelia">
-            <viewScriptFile forActionName="add"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Dodavatelia">
-            <viewScriptFile forActionName="edit"/>
+          <viewControllerScriptsDirectory forControllerName="Ubytky">
+            <viewScriptFile forActionName="list"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

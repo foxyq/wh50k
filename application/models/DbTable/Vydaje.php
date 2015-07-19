@@ -104,5 +104,15 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         }
         return $sum;
     }
+
+    //get SUM of column1 by column2 (date) and column3 (stock)
+    public function getSumByDateAndStock($column1, $column2, $column2_value, $column3, $column3_value){
+        $vydaje = $this->fetchAll($column2." = '".$column2_value."' AND ".$column3." = ".$column3_value);
+        $sum = 0;
+        foreach ($vydaje as $vydaj){
+            $sum = $sum + $vydaj[$column1];
+        }
+        return $sum;
+    }
 }
 

@@ -29,6 +29,16 @@ class Application_Model_DbTable_Sklady extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
+    public function getIds(){
+        $sklady = $this->fetchAll()->toArray();
+        $ids = array();
+
+        foreach($sklady as $sklad){
+            $ids[]=$sklad['sklady_id'];
+        }
+        return $ids;
+    }
+
 
 
 

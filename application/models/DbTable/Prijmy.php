@@ -102,7 +102,17 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
     //get SUM of column1 by column2
     //toto nie je optimalne pri velkom mnozstve dat to bude dlho trvat
     public function getSumByColumn($column1, $column2, $column2_value){
-       $prijmy = $this->fetchAll($column2.' = '. $column2_value);
+       $prijmy = $this->fetchAll($column2.' = '.$column2_value);
+        $sum = 0;
+        foreach ($prijmy as $prijem){
+            $sum = $sum + $prijem[$column1];
+        }
+        return $sum;
+    }
+
+    //get SUM of column1 by column2 (date) and column3 (stock)
+    public function getSumByDateAndStock($column1, $column2, $column2_value, $column3, $column3_value){
+       $prijmy = $this->fetchAll($column2." = '".$column2_value."' AND ".$column3." = ".$column3_value);
         $sum = 0;
         foreach ($prijmy as $prijem){
             $sum = $sum + $prijem[$column1];
@@ -130,6 +140,12 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
             $sum = $sum + $prijem[$column1];
         }
         return $sum;
+    }
+
+    public function getColumnById($column, $id){
+        $sql = "ts_prijmy_id = " . $id;
+        $value = $this->fetchAll($sql);
+        return $value[$column];
     }
 
 
