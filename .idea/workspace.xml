@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/jquery.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Vydaj.php" afterPath="$PROJECT_DIR$/application/forms/Vydaj.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" afterPath="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -466,7 +460,13 @@
       <option name="project" value="LOCAL" />
       <updated>1437340456640</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="bootstrap vydaje/add ... fixnute JS a jQuery (dufam ze na furt)">
+      <created>1437518607906</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1437518607906</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -559,7 +559,8 @@
     <MESSAGE value="pridane ubytky, mergnute a fungujuce" />
     <MESSAGE value="fungujuce JS,jquery, datatables, +veci od 3t" />
     <MESSAGE value="idu fancy table aj datepickery (zatial len vydaje, ale podla toho sa to spravi inde ... zomieram)" />
-    <option name="LAST_COMMIT_MESSAGE" value="idu fancy table aj datepickery (zatial len vydaje, ale podla toho sa to spravi inde ... zomieram)" />
+    <MESSAGE value="bootstrap vydaje/add ... fixnute JS a jQuery (dufam ze na furt)" />
+    <option name="LAST_COMMIT_MESSAGE" value="bootstrap vydaje/add ... fixnute JS a jQuery (dufam ze na furt)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
