@@ -3,8 +3,78 @@ $this->title = "Pridanie Výdaju";
 $this->headTitle($this->title);
 
 
-//$this->inlineScript()->appendFile($this->baseUrl('/js/jquery.min.js'));
-//$this->inlineScript()->appendFile($this->baseUrl('/js/jquery-ui.min.js'));
-
-echo $this->form ;
+//echo $this->form ;
 ?>
+
+<div class="row">
+
+    <?php echo $this->form->ts_vydaje_id; ?>
+
+
+    <div class="col-lg-2">
+        <?php echo $this->form->datum_vydaju_d; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->sklad_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->podsklad_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->zakaznik_enum; // render the user name field here ?>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-2">
+        <?php echo $this->form->prepravca_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->prepravca_spz; // render the user name field here ?>
+    </div>
+<!--    <div class="col-lg-2">-->
+<!--        --><?php //echo $this->form->stroj_enum; // render the user name field here ?>
+<!--    </div>-->
+    <div class="col-lg-2">
+        <?php echo $this->form->stav_transakcie; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->q_tony_merane; // render the user name field here ?>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-2">
+        <?php echo $this->form->doklad_typ_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->material_typ_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->material_druh_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->poznamka; // render the user name field here ?>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-lg-2">
+        <?php echo $this->form->stav_transakcie; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->chyba; // render the user name field here ?>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-lg-2">
+        <?php echo $this->form->potvrdzujuceTlacidlo; // render the user name field here ?>
+    </div>
+
+</div>

@@ -1,10 +1,8 @@
 <?php
 $this->headTitle($this->title);
 
-    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.js');
-    $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
-    $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
-
+$this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
+    $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 ?>
 
 
@@ -54,31 +52,33 @@ $this->headTitle($this->title);
 
         <thead>
           <tr class="tableizer-firstrow">
-            <th>ID</th>
-            <th>Dátum výdaju</th>
-            <th>sklad</th>
-            <th>podsklad</th>
-            <th>zákazník</th>
-            <th>prepravca</th>
-            <th> SPZ</th>
-            <th>tony m</th>
-            <th>tony v</th>
-            <th>m3 m</th>
-            <th>m3 v</th>
-            <th>prm m</th>
-            <th>prm v</th>
-            <th>doklad číslo</th>
-            <th>material typ</th>
-            <th>material druh</th>
-            <th>stav transakcie</th>
-            <th>chyba</th>
-            <th>úpravy</th>
+              <!--        <th>ID</th>-->
+              <th>doklad číslo</th>
+              <th>Dátum výdaju</th>
+              <th>sklad</th>
+              <th>podsklad</th>
+              <th>zákazník</th>
+              <th>prepravca</th>
+              <th> SPZ</th>
+              <th>tony m</th>
+              <!--        <th>tony v</th>-->
+              <!--        <th>m3 m</th>-->
+              <!--        <th>m3 v</th>-->
+              <!--        <th>prm m</th>-->
+              <!--        <th>prm v</th>-->
+
+              <th>material typ</th>
+              <th>material druh</th>
+              <th>stav</th>
+              <th>chyba</th>
+              <th>úpravy</th>
           </tr>
         </thead>
 
     <tfoot>
     <tr>
-        <th>ID</th>
+<!--        <th>ID</th>-->
+        <th>doklad číslo</th>
         <th>Dátum výdaju</th>
         <th>sklad</th>
         <th>podsklad</th>
@@ -86,15 +86,15 @@ $this->headTitle($this->title);
         <th>prepravca</th>
         <th> SPZ</th>
         <th>tony m</th>
-        <th>tony v</th>
-        <th>m3 m</th>
-        <th>m3 v</th>
-        <th>prm m</th>
-        <th>prm v</th>
-        <th>doklad číslo</th>
+<!--        <th>tony v</th>-->
+<!--        <th>m3 m</th>-->
+<!--        <th>m3 v</th>-->
+<!--        <th>prm m</th>-->
+<!--        <th>prm v</th>-->
+
         <th>material typ</th>
         <th>material druh</th>
-        <th>stav transakcie</th>
+        <th>stav</th>
         <th>chyba</th>
         <th>úpravy</th>
     </tr>
@@ -104,7 +104,8 @@ $this->headTitle($this->title);
 
     <?php foreach($this->vydaje as $vydaj) : ?>
         <tr>
-            <td><?php echo $this->escape($vydaj->ts_vydaje_id);?></td>
+<!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
+            <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
             <td><?php
                 $date = date('d.m.Y', strtotime($this->escape($vydaj->datum_vydaju_d)));
                 echo $date ;?>
@@ -115,12 +116,12 @@ $this->headTitle($this->title);
             <td><?php echo $this->escape($this->prepravci->getNazov($vydaj->prepravca_enum));?></td>
             <td><?php echo $this->escape($vydaj->prepravca_spz);?></td>
             <td><?php echo $this->escape($vydaj->q_tony_merane);?></td>
-            <td><?php echo $this->escape($vydaj->q_tony_vypocet);?></td>
-            <td><?php echo $this->escape($vydaj->q_m3_merane);?></td>
-            <td><?php echo $this->escape($vydaj->q_m3_vypocet);?></td>
-            <td><?php echo $this->escape($vydaj->q_prm_merane);?></td>
-            <td><?php echo $this->escape($vydaj->q_prm_vypocet);?></td>
-            <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
+<!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
+<!--            <td>--><?php //echo $this->escape($vydaj->q_m3_merane);?><!--</td>-->
+<!--            <td>--><?php //echo $this->escape($vydaj->q_m3_vypocet);?><!--</td>-->
+<!--            <td>--><?php //echo $this->escape($vydaj->q_prm_merane);?><!--</td>-->
+<!--            <td>--><?php //echo $this->escape($vydaj->q_prm_vypocet);?><!--</td>-->
+
             <td><?php echo $this->escape($this->materialyTypy->getNazov($vydaj->material_typ_enum));?></td>
             <td><?php echo $this->escape($this->materialyDruhy->getNazov($vydaj->material_druh_enum));?></td>
             <td><?php echo $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie));?></td>
