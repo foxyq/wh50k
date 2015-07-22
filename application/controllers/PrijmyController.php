@@ -259,8 +259,19 @@ class PrijmyController extends Zend_Controller_Action
         }
     }
 
+    public function printAction()
+    {
+        $id = $this->_getParam('id', 0);
+        $prijmy = new Application_Model_DbTable_Prijmy();
+        $this->view->prijem = $prijmy->getPrijem($id);
+
+
+    }
+
 
 }
+
+
 
 
 

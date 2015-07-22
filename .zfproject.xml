@@ -17,6 +17,7 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
+          <actionMethod actionName="print"/>
         </controllerFile>
         <controllerFile controllerName="Vydaje">
           <actionMethod actionName="index"/>
@@ -40,12 +41,12 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="add"/>
           <actionMethod actionName="edit"/>
-            <actionMethod actionName="list"/>
+          <actionMethod actionName="list"/>
         </controllerFile>
-          <controllerFile controllerName="Ubytky">
-              <actionMethod actionName="index"/>
-              <actionMethod actionName="list"/>
-          </controllerFile>
+        <controllerFile controllerName="Ubytky">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="list"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Zakaznik"/>
@@ -148,6 +149,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Ubytky">
             <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Prijmy">
+            <viewScriptFile forActionName="print"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

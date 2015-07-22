@@ -53,8 +53,9 @@
 
     <thead>
     <tr class="tableizer-firsrow">
-    <th>ID</th>
-    <th>dátum</th>
+<!--    <th>ID</th>-->
+        <th>doklad číslo</th>
+        <th>dátum</th>
     <th>sklad</th>
     <th>podsklad</th>
     <th>dodávateľ</th>
@@ -62,24 +63,24 @@
     <th>SPZ</th>
     <th>t m</th>
     <th>t nadrozmer</th>
-    <th>t v</th>
-    <th>m3 m</th>
-    <th>m3 v</th>
-    <th>PRM m</th>
-    <th>PRM v</th>
-    <th>doklad číslo</th>
+<!--    <th>t v</th>-->
+<!--    <th>m3 m</th>-->
+<!--    <th>m3 v</th>-->
+<!--    <th>PRM m</th>-->
+<!--    <th>PRM v</th>-->
+
     <th>materiál typ</th>
     <th>materiál druh</th>
-    <th>stav transakcie</th>
+    <th>stav</th>
     <th>chyba</th>
-    <th>zmazať</th>
     <th>úpravy</th>
     </tr>
     </thead>
 
     <tfoot>
     <tr>
-        <th>ID</th>
+<!--        <th>ID</th>-->
+        <th>doklad číslo</th>
         <th>dátum</th>
         <th>sklad</th>
         <th>podsklad</th>
@@ -88,17 +89,16 @@
         <th>SPZ</th>
         <th>t m</th>
         <th>t nadrozmer</th>
-        <th>t v</th>
-        <th>m3 m</th>
-        <th>m3 v</th>
-        <th>PRM m</th>
-        <th>PRM v</th>
-        <th>doklad číslo</th>
+<!--        <th>t v</th>-->
+<!--        <th>m3 m</th>-->
+<!--        <th>m3 v</th>-->
+<!--        <th>PRM m</th>-->
+<!--        <th>PRM v</th>-->
+
         <th>materiál typ</th>
         <th>materiál druh</th>
-        <th>stav transakcie</th>
+        <th>stav</th>
         <th>chyba</th>
-        <th>zmazať</th>
         <th>úpravy</th>
     </tr>
     </tfoot>
@@ -106,7 +106,8 @@
     <tbody>
         <?php foreach($this->prijmy as $prijem) : ?>
         <tr>
-            <td><?php echo $this->escape($prijem->ts_prijmy_id);?></td>
+<!--            <td>--><?php //echo $this->escape($prijem->ts_prijmy_id);?><!--</td>-->
+            <td><?php echo $this->escape($prijem->doklad_cislo);?></td>
             <td>
                 <?php
                     $date = date('d.m.Y', strtotime($this->escape($prijem->datum_prijmu_d)));
@@ -121,12 +122,12 @@
             <td><?php echo $this->escape($prijem->prepravca_spz);?></td>
             <td><?php echo $this->escape($prijem->q_tony_merane);?></td>
             <td><?php echo $this->escape($prijem->q_tony_nadrozmer);?></td>
-            <td><?php echo $this->escape($prijem->q_tony_vypocet);?></td>
-            <td><?php echo $this->escape($prijem->q_m3_merane);?></td>
-            <td><?php echo $this->escape($prijem->q_m3_vypocet);?></td>
-            <td><?php echo $this->escape($prijem->q_prm_merane);?></td>
-            <td><?php echo $this->escape($prijem->q_prm_vypocet);?></td>
-            <td><?php echo $this->escape($prijem->doklad_cislo);?></td>
+<!--            <td>--><?php //echo $this->escape($prijem->q_tony_vypocet);?><!--</td>-->
+<!--            <td>--><?php //echo $this->escape($prijem->q_m3_merane);?><!--</td>-->
+<!--            <td>--><?php //echo $this->escape($prijem->q_m3_vypocet);?><!--</td>-->
+<!--            <td>--><?php //echo $this->escape($prijem->q_prm_merane);?><!--</td>-->
+<!--            <td>--><?php //echo $this->escape($prijem->q_prm_vypocet);?><!--</td>-->
+
             <td><?php echo $this->escape($this->materialyTypy->getNazov($prijem->material_typ_enum));?></td>
             <td><?php echo $this->escape($this->materialyDruhy->getNazov($prijem->material_druh_enum));?></td>
             <td><?php echo $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie));?></td>
@@ -140,11 +141,13 @@
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy',
                     'action'=>'delete', 'id'=>$prijem->ts_prijmy_id));?>">Zmazať</a>
-            </td>
 
-            <td>
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy',
-                'action'=>'edit', 'id'=>$prijem->ts_prijmy_id));?>">Upraviť</a>
+                    'action'=>'edit', 'id'=>$prijem->ts_prijmy_id));?>">Upraviť</a>
+
+                <a href="<?php echo $this->url(array('controller'=>'Prijmy',
+                    'action'=>'print', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo,
+                    'spz'=>$prijem->prepravca_spz)) ;?>" target="_blank">Tlačiť</a>
             </td>
 
         </tr>
