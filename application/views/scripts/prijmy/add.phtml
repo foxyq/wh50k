@@ -1,7 +1,113 @@
 <?php
-$this->title = "Pridaj nový záznam";
+$this->title = "Pridanie Príjmu";
 
 $this->headTitle($this->title);
 
-echo $this->form;
+//echo $this->form;
 ?>
+<form action="<?php echo $this->escape($this->form->getAction()) ?>"
+      method="<?php echo $this->escape($this->form->getMethod()) ?>"
+      enctype="multipart/form-data">
+<div class="row">
+
+    <?php echo $this->form->ts_prijmy_id; ?>
+
+
+    <div class="col-lg-2">
+        <?php echo $this->form->datum_prijmu_d; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->sklad_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->podsklad_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->dodavatel_enum; // render the user name field here ?>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-2">
+        <?php echo $this->form->prepravca_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->prepravca_spz; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->q_tony_merane; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->q_tony_nadrozmer; // render the user name field here ?>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-lg-2">
+        <?php echo $this->form->doklad_typ_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->material_typ_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->material_druh_enum; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->chyba; // render the user name field here ?>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-lg-2">
+        <?php echo $this->form->poznamka; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->form->stav_transakcie; // render the user name field here ?>
+    </div>
+
+</div>
+
+
+<div class="row">
+
+
+    <div class="col-lg-2">
+        <?php echo $this->form->potvrdzujuceTlacidlo; // render the user name field here ?>
+    </div>
+
+</div>
+
+</form>
+
+<script>
+    $(document).ready(function(){
+        $(".input").keyup(function(){
+            var tonym = +$(".tonym").val();
+            var tonyv = +$(".tonyv").val();
+
+            var prmm = +$(".prmm").val();
+            var prmv = +$(".prmv").val();
+
+            $(".tonyv").val(2*prmm);
+            $(".prmv").val((1/2)*tonym);
+
+
+//            $("#result").val(val1+val2);
+        });
+    });
+
+</script>
+
+
+tony merane <input type="text" class="input tonym"> <br>
+tony vypocet <input type="text" class="input tonyv" disabled><br>
+<br>
+prm merane <input type="text" class="input prmm"><br>
+prm vypocet <input type="text" class="input prmv" disabled><br>
+

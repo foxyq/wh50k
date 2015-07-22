@@ -5,7 +5,9 @@ $this->headTitle($this->title);
 
 //echo $this->form ;
 ?>
-
+<form action="<?php echo $this->escape($this->form->getAction()) ?>"
+      method="<?php echo $this->escape($this->form->getMethod()) ?>"
+      enctype="multipart/form-data">
 <div class="row">
 
     <?php echo $this->form->ts_vydaje_id; ?>
@@ -78,3 +80,4 @@ $this->headTitle($this->title);
     </div>
 
 </div>
+    </form>
