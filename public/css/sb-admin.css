@@ -224,7 +224,8 @@ ul.alert-dropdown {
 .panel-yellow a:hover {
     color: #df8a13;
 }
-#hide {
+#hide,
+.hide{
     display: none;
 }
 .auto-width{
@@ -248,4 +249,23 @@ ul.alert-dropdown {
 }
 .table-striped>tbody>tr:nth-of-type(even) {
     background-color: #fff;
+}
+td img {
+    float: left;
+    padding: 0 2px;
+}
+th.col-upravy{
+    min-width: 105px;
+}
+th.col-chyba{
+    min-width: 55px;
+}
+th.col-stav{
+    min-width: 45px;
+}
+th.col-podsklad{
+    min-width: 75px;
+}
+th.col-tony-nadrozmer{
+    min-width: 85px;
 }
