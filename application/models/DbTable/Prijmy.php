@@ -16,6 +16,17 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         return $row;
     }
 
+    public function getPrijemByDokladCislo($id)
+    {
+        //$id = $id;
+        $row = $this->fetchRow("doklad_cislo = '" . $id."'");
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        return $row;
+    }
+
     public function deletePrijem($id)
     {
         $this->delete('ts_prijmy_id =' . (int)$id);

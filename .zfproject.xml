@@ -22,6 +22,7 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="print"/>
+          <actionMethod actionName="preview"/>
         </controllerFile>
         <controllerFile controllerName="Vydaje">
           <actionMethod actionName="index"/>
@@ -30,6 +31,7 @@
           <actionMethod actionName="delete"/>
           <actionMethod actionName="list"/>
           <actionMethod actionName="print"/>
+          <actionMethod actionName="preview"/>
         </controllerFile>
         <controllerFile controllerName="Zakaznici">
           <actionMethod actionName="index"/>
@@ -190,6 +192,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Auth">
             <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Prijmy">
+            <viewScriptFile forActionName="preview"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Vydaje">
+            <viewScriptFile forActionName="preview"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

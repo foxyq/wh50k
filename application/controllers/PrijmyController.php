@@ -124,6 +124,8 @@ class PrijmyController extends Zend_Controller_Action
                     $stav_transakcie);
 
                 $this->_helper->redirector('list');
+
+                //$this->_helper->redirector('preview', 'prijmy', null, array('id' => 1));
             } else {
                 $form->populate($formData);
             }
@@ -268,8 +270,18 @@ class PrijmyController extends Zend_Controller_Action
 
     }
 
+    public function previewAction()
+    {
+        $id = $this->_getParam('id');
+        $prijmy = new Application_Model_DbTable_Prijmy();
+        $prijem = $prijmy->getPrijemByDokladCislo($id);
+        $this->view->prijem = $prijem;
+    }
+
 
 }
+
+
 
 
 

@@ -15,6 +15,18 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
+
+    public function getVydajByDokladCislo($id)
+    {
+        $id = $id;
+        $row = $this->fetchRow("doklad_cislo = '" . $id."'");
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        return $row;
+    }
+
     public function addVydaj($datum_vydaju,
                               $sklad,
                               $podsklad,
