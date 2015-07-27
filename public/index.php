@@ -22,5 +22,12 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+
 $application->bootstrap()
             ->run();
+//toto potom odmaz ak netreba
+$application->getAutoloader()->setFallbackAutoloader(true);
+
+
+
+function d($v, $l=''){Zend_Debug::dump($v,$l);}

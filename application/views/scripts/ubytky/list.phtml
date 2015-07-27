@@ -3,6 +3,10 @@
 ?>
 
 <h1><?php echo $this->view->title;?></h1>
+
+<a href="<?php echo $this->url(array('controller'=>'ubytky',
+            'action'=>'refreshData'));?>"><button type="button" class="btn btn-lg btn-success">Prepočítať tabuľku</button></a>
+<hr>
 <div id="".col-lg-12">
     <table class="table table-striped table-bordered table-hover">
     <tr>
@@ -35,8 +39,5 @@
         </tr>
     <?php endforeach; ?>
     </table>
-    <hr>
-    <?php
-        echo $this->prijmy->getSumByColumnBetween('q_tony_merane', 'datum_prijmu_d', '2015-06-01', '2015-06-02', 'sklad_enum', 3);
-    ?>
+
 </div>

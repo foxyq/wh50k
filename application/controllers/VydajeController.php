@@ -282,8 +282,18 @@ class VydajeController extends Zend_Controller_Action
 //        $this->_helper->viewRenderer->setNoRender(true);
     }
 
+    public function previewAction()
+    {
+        $id = $this->_getParam('id');
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $vydaj = $vydaje->getVydajByDokladCislo($id);
+        $this->view->vydaj = $vydaj;
+    }
+
 
 }
+
+
 
 
 

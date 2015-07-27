@@ -11,12 +11,12 @@ class UbytkyController extends Zend_Controller_Action
     public function indexAction()
     {
         // asi netreba
-        $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
         //$prijmy = new Application_Model_DbTable_Prijmy();
-
-
         //$ubytky->dropTableData();
-        $ubytky->refreshTableDataByDate('2015-06-01', '2015-06-30');
+
+
+        //$ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
+        //$ubytky->refreshTableDataByDate('2015-06-01', '2015-06-30');
 
     }
 
@@ -33,8 +33,18 @@ class UbytkyController extends Zend_Controller_Action
         $this->view->title = 'Prehľad úbytkov';
     }
 
+    public function refreshdataAction()
+    {
+        // action body
+        $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
+        $ubytky->refreshTableDataByDate('2015-06-01', '2015-06-30');
+        $this->_helper->redirector('list');
+    }
+
 
 }
+
+
 
 
 
