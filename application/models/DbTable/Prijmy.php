@@ -112,7 +112,7 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
 
     //get SUM of column1 by column2 (date) and column3 (stock)
     public function getSumByDateAndStock($column1, $column2, $column2_value, $column3, $column3_value){
-       $prijmy = $this->fetchAll($column2." = '".$column2_value."' AND ".$column3." = ".$column3_value);
+       $prijmy = $this->fetchAll($column2." = '".$column2_value."' AND ".$column3." = ".$column3_value." AND stav_transakcie = 2");
         $sum = 0;
         foreach ($prijmy as $prijem){
             $sum = $sum + $prijem[$column1];
@@ -148,7 +148,21 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         return $value[$column];
     }
 
+    public function getNumberOfErrors(){
+            $select = $this->select();
+            $select->from($this, array('count(*) as amount'))->where("chyba = 1");
+            $rows = $this->fetchAll($select);
 
+            return($rows[0]->amount);
+    }
+
+    public function getNumberOfWaitings(){
+            $select = $this->select();
+            $select->from($this, array('count(*) as amount'))->where("stav_transakcie = 1");
+            $rows = $this->fetchAll($select);
+
+            return($rows[0]->amount);
+    }
 
 
 }

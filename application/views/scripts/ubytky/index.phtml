@@ -3,34 +3,3 @@
 	<p>View script for controller <b>Ubytky</b> and script/action name <b>index</b></p>
     <hr>
 </div>
-
-<?php
-    $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
-    $poslednHodnota = $ubytky->getLastStavSkladu(3);
-    echo $parameter;
-    /*
-    $prijmy = new Application_Model_DbTable_Prijmy();
-    $suma = $prijmy->getSumByDateAndStock('q_tony_merane', 'datum_prijmu_d', '2015-06-01', 'sklad_enum', 1);
-    echo $suma;
-*/
-     /*   $startDate = new DateTime('2015-01-01');
-        $endDate = new DateTime('2015-12-31');
-        $id = 1;
-
-        $prijmy = new Application_Model_DbTable_Prijmy();
-        $datum = '2015-08-08';
-        echo $prijmy->getSumByColumn('q_tony_merane','datum_prijmu_d', "\"".$datum."\"");
-/*
-        do{
-            $aktualnePrijmy = $prijmy->getSumByColumn('q_tony_merane','datum_prijmu_d',"2015-06-01");
-            echo $aktualnePrijmy;
-            echo "<br>";
-            //$this->insert(array('ts_ubytky_hmotnosti_id' => $id, 'datum_ubytku_dt' => $startDate->format('Y-m-d'), 'q_rano_tony' => $aktualnePrijmy, 'sklad_enum' => 1));
-            $startDate->modify('+1 day');
-            $id++;
-
-        }while ($endDate>=$startDate);*/
-
-
-
-?>

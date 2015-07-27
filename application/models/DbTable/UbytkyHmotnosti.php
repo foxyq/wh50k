@@ -77,7 +77,7 @@ class Application_Model_DbTable_UbytkyHmotnosti extends Zend_Db_Table_Abstract
 
     //matoda, ktora spusti refresh celej tabulky -dropData, calculateData podla datum od $startDate do $endDate
     public function refreshTableDataByDate($startDate, $endDate){
-        $this->dropTableDataByDate($startDate,$endDate);
+        $this->dropTableData();
         $this->calculateTableData($startDate,$endDate);
 
     }

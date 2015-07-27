@@ -97,7 +97,7 @@ echo $this->doctype(); ?>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Odhlásiť</a>
+                            <a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'));?>"><i class="fa fa-fw fa-power-off"></i> Odhlásiť</a>
                         </li>
                     </ul>
                 </li>
