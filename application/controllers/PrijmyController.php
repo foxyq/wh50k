@@ -106,6 +106,11 @@ class PrijmyController extends Zend_Controller_Action
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
 
+                $code = str_replace('-', '', $datum_prijmu);
+                $code = substr( $code, 2);
+
+                $doklad_cislo = 'SP'.$code.'-'.substr(uniqid(),6);
+
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $prijmy->addPrijem(
                     $datum_prijmu,
@@ -121,7 +126,10 @@ class PrijmyController extends Zend_Controller_Action
                     $material_druh,
                     $poznamka,
                     $chyba,
-                    $stav_transakcie);
+                    $stav_transakcie,
+                    $doklad_cislo);
+
+//    echo $doklad_cislo;
 
                 $this->_helper->redirector('list');
             } else {
@@ -193,7 +201,7 @@ class PrijmyController extends Zend_Controller_Action
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
 
-                var_dump($datum_prijmu);
+//                var_dump($datum_prijmu);
 
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $prijmy->editPrijem(

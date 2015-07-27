@@ -91,10 +91,6 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
             ->setAttrib('class', 'form-control');
 
 
-
-        //TODO
-        //$doklad_cislo;
-
         $doklad_typ = new Zend_Form_Element_Select('doklad_typ_enum');
         $doklad_typ->setMultiOptions($this->getAttrib('dokladyTypyMoznosti'));
         $doklad_typ->setLabel('Doklad typ')

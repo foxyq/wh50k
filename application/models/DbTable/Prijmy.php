@@ -34,7 +34,8 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
                               $material_druh,
                               $poznamka,
                               $chyba,
-                              $stav_transakcie){
+                              $stav_transakcie,
+                            $doklad_cislo){
         $data = array(
             'datum_prijmu_d' => $datum_prijmu,
             'sklad_enum' => $sklad,
@@ -50,7 +51,7 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
             'poznamka' => $poznamka,
             'chyba' => $chyba,
             'stav_transakcie' => $stav_transakcie,
-
+            'doklad_cislo' => $doklad_cislo,
             'vytvoril_u' => 1,
             'posledna_uprava_u' => 1
 

@@ -112,6 +112,11 @@ class VydajeController extends Zend_Controller_Action
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
 
+                $code = str_replace('-', '', $datum_vydaju);
+                $code = substr( $code, 2);
+
+                $doklad_cislo = 'SV'.$code.'-'.substr(uniqid(),6);
+
                 $vydaje = new Application_Model_DbTable_Vydaje();
 
                 $vydaje->addVydaj(
@@ -127,10 +132,11 @@ class VydajeController extends Zend_Controller_Action
                     $material_druh,
                     $poznamka,
                     $chyba,
-                    $stav_transakcie);
+                    $stav_transakcie,
+                    $doklad_cislo);
 
                 $this->_helper->redirector('list');
-
+//            echo $doklad_cislo;
 
             } else {
                 $form->populate($formData);

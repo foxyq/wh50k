@@ -12,8 +12,9 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
     $(document).ready(function() {
         $('#fancy_table').DataTable( {
 
+            "order": [[ 0, "desc" ]],
             columnDefs: [
-                { "sType": "title-string", "aTargets": [ 10 ]  }
+                { "sType": "title-string", "aTargets": [ 7 ]  }
 //                    { "sType": "alt-string", "aTargets" : 11 }
             ],
 
@@ -51,6 +52,8 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
         'action'=>'add'));?>">
         <?php echo '<img src="'.$this->baseUrl().'/images/pridat.png" alt="pridat">'; ?>
         Pridať nový výdaj</a>
+
+    <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
 </div>
 
 
@@ -61,13 +64,14 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
         <thead>
           <tr class="tableizer-firstrow">
               <!--        <th>ID</th>-->
-              <th>doklad číslo</th>
+
               <th>Dátum výdaju</th>
+<!--              <th>doklad číslo</th>-->
               <th>sklad</th>
               <th class="col-podsklad">podsklad</th>
               <th>zákazník</th>
               <th>prepravca</th>
-              <th> SPZ</th>
+<!--              <th> SPZ</th>-->
               <th>tony m</th>
               <!--        <th>tony v</th>-->
               <!--        <th>m3 m</th>-->
@@ -76,7 +80,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
               <!--        <th>prm v</th>-->
 
               <th>material typ</th>
-              <th>material druh</th>
+<!--              <th>material druh</th>-->
               <th class="col-stav">stav</th>
 <!--              <th >chyba</th>-->
               <th class="col-upravy">úpravy</th>
@@ -86,13 +90,14 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
     <tfoot>
     <tr>
 <!--        <th>ID</th>-->
-        <th>doklad číslo</th>
+
         <th>Dátum výdaju</th>
+<!--        <th>doklad číslo</th>-->
         <th>sklad</th>
         <th>podsklad</th>
         <th>zákazník</th>
         <th>prepravca</th>
-        <th> SPZ</th>
+<!--        <th> SPZ</th>-->
         <th>tony m</th>
 <!--        <th>tony v</th>-->
 <!--        <th>m3 m</th>-->
@@ -101,8 +106,8 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 <!--        <th>prm v</th>-->
 
         <th>material typ</th>
-        <th>material druh</th>
-<!--        <th>stav</th>-->
+<!--        <th>material druh</th>-->
+<!--        <th>stav </th>-->
 <!--        <th>chyba</th>-->
 <!--        <th>úpravy</th>-->
     </tr>
@@ -115,16 +120,17 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
         else echo   "<tr>";
         ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
-            <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
+
             <td><?php
-                $date = date('d.m.Y', strtotime($this->escape($vydaj->datum_vydaju_d)));
+                $date = date('Y/M/d', strtotime($this->escape($vydaj->datum_vydaju_d)));
                 echo $date ;?>
             </td>
+<!--               <td>--><?php //echo $this->escape($vydaj->doklad_cislo);?><!--</td>-->
             <td><?php echo $this->escape($this->sklady->getNazov($vydaj->sklad_enum));?></td>
             <td><?php echo $this->escape($this->podsklady->getNazov($vydaj->podsklad_enum));?></td>
             <td><?php echo $this->escape($this->zakaznici->getNazov($vydaj->zakaznik_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($vydaj->prepravca_enum));?></td>
-            <td><?php echo $this->escape($vydaj->prepravca_spz);?></td>
+<!--            <td>--><?php //echo $this->escape($vydaj->prepravca_spz);?><!--</td>-->
             <td><?php echo $this->escape($vydaj->q_tony_merane);?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($vydaj->q_m3_merane);?><!--</td>-->
@@ -133,7 +139,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 <!--            <td>--><?php //echo $this->escape($vydaj->q_prm_vypocet);?><!--</td>-->
 
             <td><?php echo $this->escape($this->materialyTypy->getNazov($vydaj->material_typ_enum));?></td>
-            <td><?php echo $this->escape($this->materialyDruhy->getNazov($vydaj->material_druh_enum));?></td>
+<!--            <td>--><?php //echo $this->escape($this->materialyDruhy->getNazov($vydaj->material_druh_enum));?><!--</td>-->
             <td>
 
 <!--            --><?php //echo $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie));?>
@@ -142,15 +148,18 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 
                 if  (strcmp('schvalene', $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie)) ) == 0 ) {
 
-                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
+//                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
+                    echo '<div class="schvalene"></div>';
                 }
                 else if (strcmp('caka na schvalenie', $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie)) ) == 0 ) {
 
-                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
+//                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
+                    echo '<div class="caka"></div>';
                 }
                 else {
 
-                    echo '<img src="'.$this->baseUrl().'/images/zrusene.png" alt="zrusene">';
+//                    echo '<img src="'.$this->baseUrl().'/images/zrusene.png" alt="zrusene">';
+                    echo '<div class="zrusene"></div>';
                 }
                 ?>
 

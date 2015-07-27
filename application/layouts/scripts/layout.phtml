@@ -78,7 +78,7 @@ echo $this->doctype(); ?>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">WH50k</a>
+                <a class="navbar-brand" href="#">WH50k</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -106,7 +106,7 @@ echo $this->doctype(); ?>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Nástenka</a>
+                        <a href="<?php echo $this->baseUrl().'/ubytky/list'?>"><i class="fa fa-fw fa-dashboard"></i> Nástenka</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#trans"><i class="fa fa-fw fa-arrows-v"></i> Transakcie <i class="fa fa-fw fa-caret-down"></i></a>
@@ -114,10 +114,10 @@ echo $this->doctype(); ?>
                         
                         <ul id="trans" class="collapse">
                             <li>
-                                <a href="prijmy.html">Príjmy</a>
+                                <a href="<?php echo $this->baseUrl().'/prijmy/list'?>">Príjmy</a>
                             </li>
                             <li>
-                                <a href="vydaje.html">Výdaje</a>
+                                <a href="<?php echo $this->baseUrl().'/vydaje/list'?>">Výdaje</a>
                             </li>
                             <li>
                                 <a href="#">Externá dodávka</a>
@@ -136,7 +136,7 @@ echo $this->doctype(); ?>
                                 <a href="#">Sklady</a>
                             </li>
                             <li>
-                                <a href="#">Dodavatelia</a>
+                                <a href="<?php echo $this->baseUrl().'/dodavatelia/list'?>">Dodavatelia</a>
                             </li>
                             <li>
                                 <a href="#">Odberatelia</a>
@@ -170,7 +170,7 @@ echo $this->doctype(); ?>
                         
                         <ul id="prehlady" class="collapse">
                             <li>
-                                <a href="#">Stav Skladov</a>
+                                <a href="<?php echo $this->baseUrl().'/sklady'?>">Stav Skladov</a>
                             </li>
                             <li>
                                 <a href="#">Plnenie Objednávok</a>

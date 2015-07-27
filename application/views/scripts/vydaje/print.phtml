@@ -4,6 +4,17 @@
 //povinne volanie loaderu
 Zend_Loader::loadClass('Zend_Pdf');
 
+function random_string($length) {
+    $key = '';
+    $keys = array_merge(range(0, 9), range('a', 'z'));
+
+    for ($i = 0; $i < $length; $i++) {
+        $key .= $keys[array_rand($keys)];
+    }
+
+    return $key;
+}
+
 try {
             //    1. bud vytvorim clear cisty ... 2.alebo otvaram existujuci layout
             //    $pdf = new Zend_Pdf();
@@ -43,7 +54,12 @@ try {
             // $pdf->pages[] = $page;
 
             // ulozim si to ako file ... cesta a save
-            $output = '../public/pdf/vazny_listok.pdf';
+
+//            $random = random_string(5);
+//                $random = substr(uniqid(),6);
+
+            $output = '../public/pdf/vazny_listok-'.$cislo_listku.'.pdf';
+            $odkaz = substr($output, 9);
             $pdf->save( $output);
 
 
@@ -58,9 +74,12 @@ try {
         }
 
         // hotovo , mozem linkovat na existujuci dokument .. cisto pre istotu keby cosi zlyhalo
-        echo '<a id=”pdfDownloadLink” href="'.$this->baseUrl().'/pdf/vazny_listok.pdf"'.'>Odkaz na PDF</a>';
+//        echo '<a id=”pdfDownloadLink” href=" '.$this->baseUrl().$odkaz.' " '.'>Odkaz na PDF</a>';
+
+
+    echo $output.'<br>';
 
         // ak je vsetko ok, automaticky redirect na pdf
-        header('Location: '.$this->baseUrl().'/pdf/vazny_listok.pdf');
+        header('Location: '.$this->baseUrl().$odkaz);
 
         ?>

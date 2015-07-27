@@ -33,7 +33,7 @@ try {
 
     //  do tej page, ktoru som si vyssie vybral, vpisujem moje stringy na x,y, poziciu
     $page->setFont($font, 9)
-        ->drawText( strval($cislo_listku) , 450, 747)
+        ->drawText( strval($cislo_listku) , 455, 747)
         ->drawText($spz, 400, 707)
         ->drawText($dodavatel, 400, 685);
 
@@ -41,7 +41,9 @@ try {
     // $pdf->pages[] = $page;
 
     // ulozim si to ako file ... cesta a save
-    $output = '../public/pdf/prijmovy_listok.pdf';
+
+    $output = '../public/pdf/prijmovy_listok-'.$cislo_listku.'.pdf';
+    $odkaz = substr($output, 9);
     $pdf->save( $output);
 
 
@@ -56,9 +58,9 @@ catch (Zend_Pdf_Exception $e) {
 }
 
 // hotovo , mozem linkovat na existujuci dokument .. cisto pre istotu keby cosi zlyhalo
-echo '<a id=”pdfDownloadLink” href="'.$this->baseUrl().'/pdf/prijmovy_listok.pdf"'.'>Odkaz na PDF</a>';
+echo '<a id=”pdfDownloadLink” href="'.$this->baseUrl().$odkaz.'>Odkaz na PDF</a>';
 
 // ak je vsetko ok, automaticky redirect na pdf, takze link vyssie ani nevidno ... ak sa nic nepokazilo
-//header('Location: '.$this->baseUrl().'/pdf/prijmovy_listok.pdf');
+header('Location: '.$this->baseUrl().$odkaz);
 
 ?>

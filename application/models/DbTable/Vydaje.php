@@ -27,7 +27,8 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
                               $material_druh,
                               $poznamka,
                               $chyba,
-                              $stav_transakcie){
+                              $stav_transakcie,
+                             $doklad_cislo){
         $data = array(
             'datum_vydaju_d' => $datum_vydaju,
             'sklad_enum' => $sklad,
@@ -42,12 +43,13 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
             'poznamka' => $poznamka,
             'chyba' => $chyba,
             'stav_transakcie' => $stav_transakcie,
-
+            'doklad_cislo' => $doklad_cislo,
             'vytvoril_u' => 1, //TODO podla logged in usera
             'posledna_uprava_u' => 1, // TODO ^ same shit
-            'doklad_cislo' => 150701666
+
 
         );
+//        var_dump( $data);
         $this->insert($data);
     }
 

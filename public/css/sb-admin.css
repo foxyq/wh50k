@@ -269,3 +269,25 @@ th.col-podsklad{
 th.col-tony-nadrozmer{
     min-width: 85px;
 }
+.schvalene, .caka, .zrusene {
+    background: url('../images/icons.png') no-repeat;
+    margin: 4px auto 0px auto;
+    width: 25px;
+    height: 25px;
+}
+.schvalene{
+    background-position:  -65px 0;
+}
+.caka{
+    background-position:  -33px 0;
+}
+.zrusene{
+    background-position: 0px 0px;
+
+}
+.left {
+    float: left;
+}
+.right{
+    float: right;
+}
