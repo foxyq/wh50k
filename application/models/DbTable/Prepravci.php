@@ -26,6 +26,35 @@ class Application_Model_DbTable_Prepravci extends Zend_Db_Table_Abstract
 
         return $moznosti;
     }
+
+    public function getPrepravca($id)
+    {
+        $id = (int)$id;
+        $row = $this->fetchRow('prepravci_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        return $row;
+    }
+
+    public function addPrepravca($kod, $meno){
+        $data = array(
+            'kod' => $kod,
+            'meno' => $meno,
+        );
+        $this->insert($data);
+    }
+
+    public function updatePrepravca($id, $kod, $meno)
+    {
+        $data = array(
+            'kod' => $kod,
+            'meno' => $meno,
+        );
+        $this->update($data, 'prepravci_id = '. (int)$id);
+    }
+
 }
 
 

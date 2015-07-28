@@ -25,6 +25,43 @@ class Application_Model_DbTable_Sklady extends Zend_Db_Table_Abstract
 
     }
 
+    public function getSklad($id)
+    {
+        $id = (int)$id;
+        $row = $this->fetchRow('sklady_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        return $row->toArray();
+    }
+
+    //$kod, $nazov, $skratka, $mesto, $merna_jednotka, $adresa,
+    public function addSklad($kod, $nazov, $skratka, $mesto, $merna_jednotka, $adresa)
+    {
+        $data = array(
+            'kod_skladu' => $kod,
+            'nazov_skladu' => $nazov,
+            'skratka_skladu' => $skratka,
+            'mesto_enum' => $mesto,
+            'merna_jednotka_enum' => $merna_jednotka,
+            'adresa' => $adresa,
+        );
+        $this->insert($data);
+    }
+
+    public function updateSklad($id, $kod, $nazov, $skratka, $mesto, $merna_jednotka, $adresa)
+    {
+        $data = array(
+            'kod_skladu' => $kod,
+            'nazov_skladu' => $nazov,
+            'skratka_skladu' => $skratka,
+            'mesto_enum' => $mesto,
+            'merna_jednotka_enum' => $merna_jednotka,
+            'adresa' => $adresa,
+        );
+        $this->update($data, 'sklady_id = '. (int)$id);
+    }
+
     //metoda vracia pole pre vypisy a formulare - id a nazov skladu
     public function getMoznosti()
     {

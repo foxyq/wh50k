@@ -1,7 +1,7 @@
 <?php
 $this->headTitle($this->title);
-//definicia farieb skladov
-$colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'primary', '5' => 'primary', '6' => 'primary', '7' => 'primary', '8' => 'primary', '9' => 'primary', '10' => 'primary');
+//definicia farieb skladov - max sklado je 10
+$colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow', '5' => 'purple', '6' => 'aqua', '7' => 'green', '8' => 'yellow', '9' => 'red', '10' => 'primary');
 //print_r($this->skladyModel->getMernaJednotka(1));
 ?>
 
@@ -43,12 +43,13 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'primary'
                     </div>
 
                     <?php
-                    $skladyIds = $this->skladyModel->getIds(); ?>
-
+                    $skladyIds = $this->skladyModel->getIds();
+                    $counter = 1;
+                    ?>
 
                     <?php foreach ($skladyIds AS $skladId) : ?>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-<?php echo $colors[$skladId]?>">
+                        <div class="panel panel-<?php echo $colors[$counter]?>">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
@@ -155,7 +156,9 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'primary'
 
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <?php
+                    $counter++;
+                    endforeach; ?>
     </div>
 
 

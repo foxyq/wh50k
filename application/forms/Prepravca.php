@@ -1,15 +1,23 @@
 <?php
 
-class Application_Form_Zakaznik extends Zend_Form
+class Application_Form_Prepravca extends Zend_Form
 {
 
     public function init()
     {
 
-        $this->setName('zakaznik');
 
-        $id = new Zend_Form_Element_Hidden('zakaznici_id');
+        $this->setName('prepravca');
+
+        $id = new Zend_Form_Element_Hidden('prepravci_id');
         $id->addFilter('Int');
+
+        $kod = new Zend_Form_Element_Text('kod');
+        $kod->setLabel('Kod')
+            ->setRequired(true)
+            ->addFilter('StripTags')
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty');
 
         $meno = new Zend_Form_Element_Text('meno');
         $meno->setLabel('Meno')
@@ -18,18 +26,12 @@ class Application_Form_Zakaznik extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty');
 
-        $nazov_spolocnosti = new Zend_Form_Element_Text('nazov_spolocnosti');
-        $nazov_spolocnosti->setLabel('Názov spoločnosti')
-            ->setRequired(true)
-            ->addFilter('StripTags')
-            ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
-
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
 
-        $this->addElements(array($id, $meno, $nazov_spolocnosti, $submit));
+        $this->addElements(array($id, $kod, $meno, $submit));
     }
+
 
 
 }

@@ -224,6 +224,46 @@ ul.alert-dropdown {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+.panel-purple {
+    border-color: #DF01A5;
+}
+
+.panel-purple .panel-heading {
+    border-color: #DF01A5;
+    color: #fff;
+    background-color: #DF01A5;
+}
+
+.panel-purple a {
+    color: #DF01A5;
+}
+
+.panel-purple a:hover {
+    color: #DF01A5;
+}
+
+.panel-aqua {
+    border-color: #04B4AE;
+}
+
+.panel-aqua .panel-heading {
+    border-color: #04B4AE;
+    color: #fff;
+    background-color: #04B4AE;
+}
+
+.panel-aqua a {
+    color: #04B4AE;
+}
+
+.panel-aqua a:hover {
+    color: #04B4AE;
+}
+
+
+
+
 #hide,
 .hide{
     display: none;

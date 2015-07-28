@@ -29,6 +29,7 @@ class PrijmyController extends Zend_Controller_Action
 
 
         // priradenie modelov do premenných a poslanie na view script
+
         $this->view->prijmy = $prijmy->fetchAll();
         $this->view->sklady = $sklady;        
         $this->view->podsklady = $podsklady;
