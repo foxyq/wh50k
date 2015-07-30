@@ -124,16 +124,28 @@ echo $this->doctype(); ?>
 
 
                         <li>
-                            <a href="#"><?php echo $prijmy_w; ?> <span class="label label-warning">Čakajúcich príjmov</span></a>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'prijmy',
+                                'action' => 'waitings'
+                            ), null, true) ?>">  <?php echo $prijmy_w; ?> <span class="label label-warning">Čakajúcich príjmov</span></a>
                         </li>
                         <li>
-                            <a href="#"><?php echo $prijmy_e; ?> <span class="label label-danger">Chybných príjmov</span></a>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'prijmy',
+                                'action' => 'errors'
+                            ), null, true) ?>"><?php echo $prijmy_e; ?> <span class="label label-danger">Chybných príjmov</span></a>
                         </li>
                         <li>
-                            <a href="#"><?php echo $vydaje_w; ?> <span class="label label-warning">Čakajúcich výdajov</span></a>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'vydaje',
+                                'action' => 'waitings'
+                            ), null, true) ?>"><?php echo $vydaje_w; ?> <span class="label label-warning">Čakajúcich výdajov</span></a>
                         </li>
                         <li>
-                            <a href="#"><?php echo $vydaje_e; ?>  <span class="label label-danger">Chybných výdajov</span></a>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'vydaje',
+                                'action' => 'errors'
+                            ), null, true) ?>"><?php echo $vydaje_e; ?>  <span class="label label-danger">Chybných výdajov</span></a>
                         </li>
                         <li>
                             <a href="#"> &nbsp;  <span class="label label-primary">taketo mame este farby</span></a>

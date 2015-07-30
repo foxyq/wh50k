@@ -75,10 +75,21 @@
     </div>
 -->
     <p>
-    <a href="<?php echo $this->url(array('controller'=>'Prijmy',
-        'action'=>'add'));?>">
-        <button type="button" class="btn btn-success">Pridať príjem</button>
-    </a>
+        <a href="<?php echo $this->url(array('controller'=>'Prijmy',
+            'action'=>'add'));?>" type="button" class="btn btn-success">
+            Pridať príjem
+        </a>
+
+        <a href="<?php echo $this->url(array(
+            'controller' => 'prijmy',
+            'action' => 'waitings'
+        ), null, true) ?>" type="button" class="btn btn-warning">  Na schválenie </a>
+
+        <a href="<?php echo $this->url(array(
+            'controller' => 'prijmy',
+            'action' => 'errors'
+        ), null, true) ?>" type="button" class="btn btn-danger"> Chybné </a>
+
     </p>
 
 
