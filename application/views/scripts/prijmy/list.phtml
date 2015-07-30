@@ -74,24 +74,43 @@
         <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
     </div>
 -->
+
+    <?php
+
+    $notifikacie     = new Application_Model_Notifikacie();
+
+
+    $notif_info = $notifikacie->getStatusArray();
+
+    $count_notif = $notif_info['total'];
+
+    $prijmy_w = $notif_info['prijmy_waitings'];
+    $prijmy_e = $notif_info['prijmy_errors'];
+
+    ?>
+
+
     <p>
         <a href="<?php echo $this->url(array('controller'=>'Prijmy',
             'action'=>'add'));?>" type="button" class="btn btn-success">
             Pridať príjem
         </a>
 
-        <a href="<?php echo $this->url(array(
-            'controller' => 'prijmy',
-            'action' => 'waitings'
-        ), null, true) ?>" type="button" class="btn btn-warning">  Na schválenie </a>
 
-        <a href="<?php echo $this->url(array(
-            'controller' => 'prijmy',
-            'action' => 'errors'
-        ), null, true) ?>" type="button" class="btn btn-danger"> Chybné </a>
-
+        <?php if ($prijmy_w >0) { ?>
+            <a href="<?php echo $this->url(array(
+                'controller' => 'prijmy',
+                'action' => 'waitings'
+            ), null, true) ?>" type="button" class="btn btn-warning">Na schválenie (<?php echo $prijmy_w; ?>) </a>
+        <?php }
+        if ($prijmy_e > 0) {
+            ?>
+            <a href="<?php echo $this->url(array(
+                'controller' => 'prijmy',
+                'action' => 'errors'
+            ), null, true) ?>" type="button" class="btn btn-danger"> Chybné (<?php echo $prijmy_e   ; ?>) </a>
+        <?php } ?>
     </p>
-
 
 
 <div id=".col-lg-12"  class="table-responsive">

@@ -331,6 +331,12 @@ th.col-tony-nadrozmer{
 .right{
     float: right;
 }
+.tleft {
+    text-align: left;
+}
+.tright {
+    text-align: right;
+}
 .center{
     text-align: center;
 }

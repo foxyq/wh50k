@@ -63,21 +63,41 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
     <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
 </div>
 -->
+
+
+<?php
+
+$notifikacie     = new Application_Model_Notifikacie();
+
+
+$notif_info = $notifikacie->getStatusArray();
+
+$count_notif = $notif_info['total'];
+
+$vydaje_w = $notif_info['vydaje_waitings'];
+$vydaje_e = $notif_info['vydaje_errors'];
+
+?>
+
+
 <p>
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
         'action'=>'add'));?>" type="button" class="btn btn-success">
         Pridať výdaj
     </a>
-
+<?php if ($vydaje_w >0) { ?>
     <a href="<?php echo $this->url(array(
         'controller' => 'vydaje',
         'action' => 'waitings'
-    ), null, true) ?>" type="button" class="btn btn-warning">  Na schválenie </a>
-
+    ), null, true) ?>" type="button" class="btn btn-warning">Na schválenie (<?php echo $vydaje_w; ?>) </a>
+<?php }
+    if ($vydaje_e > 0) {
+        ?>
     <a href="<?php echo $this->url(array(
         'controller' => 'vydaje',
         'action' => 'errors'
-    ), null, true) ?>" type="button" class="btn btn-danger"> Chybné </a>
+    ), null, true) ?>" type="button" class="btn btn-danger"> Chybné (<?php echo $vydaje_e   ; ?>) </a>
+    <?php } ?>
     </p>
 
 

@@ -99,10 +99,6 @@ echo $this->doctype(); ?>
                     $vydaje_w = $notif_info['vydaje_waitings'];
                     $vydaje_e = $notif_info['vydaje_errors'];
 
-//                    var_dump($notif_info);
-
-//                    prijmy_waitings"]=> string(2) "17" ["prijmy_errors"]=> string(1) "7" ["vydaje_waitings"]=> string(1) "5" ["vydaje_errors"]=> string(1) "2" ["total"]=> int(31)
-
                     ?>
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -122,45 +118,72 @@ echo $this->doctype(); ?>
 
                     <ul class="dropdown-menu alert-dropdown">
 
-
+                    <?php if ($prijmy_w > 0) { ?>
                         <li>
                             <a href="<?php echo $this->url(array(
                                 'controller' => 'prijmy',
                                 'action' => 'waitings'
-                            ), null, true) ?>">  <?php echo $prijmy_w; ?> <span class="label label-warning">Čakajúcich príjmov</span></a>
+                            ), null, true) ?>">  <span class="label label-warning tleft">Čakajúcich príjmov</span> <span class="notif_count right"> <?php echo $prijmy_w; ?></span> </a>
                         </li>
+
+                    <?php }
+
+                    if ($prijmy_e > 0) { ?>
                         <li>
                             <a href="<?php echo $this->url(array(
                                 'controller' => 'prijmy',
                                 'action' => 'errors'
-                            ), null, true) ?>"><?php echo $prijmy_e; ?> <span class="label label-danger">Chybných príjmov</span></a>
+                            ), null, true) ?>">  <span class="label label-danger tleft">Chybných príjmov</span> <span class="notif_count right"> <?php echo $prijmy_e; ?> </span></a>
                         </li>
-                        <li>
-                            <a href="<?php echo $this->url(array(
-                                'controller' => 'vydaje',
-                                'action' => 'waitings'
-                            ), null, true) ?>"><?php echo $vydaje_w; ?> <span class="label label-warning">Čakajúcich výdajov</span></a>
-                        </li>
-                        <li>
-                            <a href="<?php echo $this->url(array(
-                                'controller' => 'vydaje',
-                                'action' => 'errors'
-                            ), null, true) ?>"><?php echo $vydaje_e; ?>  <span class="label label-danger">Chybných výdajov</span></a>
-                        </li>
-                        <li>
-                            <a href="#"> &nbsp;  <span class="label label-primary">taketo mame este farby</span></a>
-                        </li>
-                        <li>
-                            <a href="#"> &nbsp; <span class="label label-success">alebo taketo</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="label label-info">666 </span> &nbsp;  aj takto sa da </a>
-                        </li>
+                    <?php }
 
+                    if ($count_notif > 0) {
+                    ?>
                         <li class="divider"></li>
+
+                        <?php }
+
+                    if ($vydaje_w >0) {
+                    ?>
+
+                        <li>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'vydaje',
+                                'action' => 'waitings'
+                            ), null, true) ?>"> <span class="label label-warning tleft">Čakajúcich výdajov</span> <span class="notif_count right"> <?php echo $vydaje_w; ?> </span> </a>
+                        </li>
+
+                    <?php }
+
+                    if ($vydaje_e > 0 ) {
+                        ?>
+
+                        <li>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'vydaje',
+                                'action' => 'errors'
+                            ), null, true) ?>"> <span class="label label-danger tleft">Chybných výdajov</span> <span class="notif_count right"> <?php echo $vydaje_e; ?> </span>  </a>
+                        </li>
+
+                        <?php }
+
+                    if ($count_notif >0) {
+                        ?>
+<!--                        <li>-->
+<!--                            <a href="#"> &nbsp;  <span class="label label-primary">taketo mame este farby</span></a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="#"> &nbsp; <span class="label label-success">alebo taketo</span></a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="#"><span class="label label-info">666 </span> &nbsp;  aj takto sa da </a>-->
+<!--                        </li>-->
+                        <li class="divider"></li>
+
                         <li>
                             <a href="#">Celkovo <?php echo $count_notif; ?> notifikácií</a>
                         </li>
+                        <?php } ?>
                     </ul>
                 </li>
 
