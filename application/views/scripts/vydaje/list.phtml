@@ -133,7 +133,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
         else echo   "<tr>";
         ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
-            <td class="center"> <a href="<?php echo $this->url(array('controller'=>'Vydaje',
+            <td> <a href="<?php echo $this->url(array('controller'=>'Vydaje',
             'action'=>'preview', 'id'=>$vydaj->doklad_cislo));?>">
                      <?php echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
                 </a></td>

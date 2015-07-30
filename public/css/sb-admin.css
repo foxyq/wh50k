@@ -337,3 +337,8 @@ th.col-tony-nadrozmer{
 td.center img{
     float: none;
 }
+#notif-number{
+    background: rgba(61, 70, 249, 0.51);
+    padding: 6px;
+    border-radius: 12px;
+}
