@@ -310,7 +310,7 @@ class PrijmyController extends Zend_Controller_Action
 
     public function errorsAction()
     {
-        $param = "stav_transakcie = 3";
+        $param = "chyba = 1";
         $title = "Príjmy - chyby";
         $this->_forward('list', 'prijmy', null, array('param' => $param, 'title' => $title));
 

@@ -304,7 +304,7 @@ class VydajeController extends Zend_Controller_Action
 
     public function errorsAction()
     {
-        $param = "stav_transakcie = 3";
+        $param = "chyba = 1";
         $title = "Výdaje - chyby";
         $this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
 
