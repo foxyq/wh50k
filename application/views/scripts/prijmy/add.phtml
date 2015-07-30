@@ -5,6 +5,8 @@ $this->headTitle($this->title);
 
 //echo $this->form;
 ?>
+
+
 <form action="<?php echo $this->escape($this->form->getAction()) ?>"
       method="<?php echo $this->escape($this->form->getMethod()) ?>"
       enctype="multipart/form-data">
@@ -81,9 +83,20 @@ $this->headTitle($this->title);
         <?php echo $this->form->potvrdzujuceTlacidlo; // render the user name field here ?>
     </div>
 
+    <div class="col-lg-2">
+        <dt>&nbsp;</dt>
+        <a href="<?php echo $this->url(array(
+            'controller' => 'prijmy',
+            'action' => 'list'
+        ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
+    </div>
+
 </div>
 
 </form>
+
+
+
 
 <script>
     $(document).ready(function(){

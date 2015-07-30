@@ -1,5 +1,111 @@
 <h3>Detail transakcie <?php echo $this->prijem['doklad_cislo'];?></h3>
 <hr>
 <?php
-    print_r($this->prijem);
+//    print_r($this->prijem);
 ?>
+
+    <div class="row">
+
+        <?php echo $this->prijem['ts_prijmy_id'] ?>
+
+
+        <div class="col-lg-2">
+            datum prijmu
+            <?php echo $this->prijem['datum_prijmu_d']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            sklad
+            <?php echo $this->prijem['sklad_enum']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            podsklad
+            <?php echo $this->prijem['podsklad_enum']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            dodavatel
+            <?php echo $this->prijem['dodavatel_enum']; // render the user name field here ?>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-2">
+            prepravca
+            <?php echo $this->prijem['prepravca_enum']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            spz
+            <?php echo $this->prijem['prepravca_spz']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            tony merane
+            <?php echo $this->prijem['q_tony_merane']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            tony nadrozmer
+            <?php echo $this->prijem['q_tony_nadrozmer']; // render the user name field here ?>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="col-lg-2">
+            doklad typ
+            <?php echo $this->prijem['doklad_typ_enum']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            material typ
+            <?php echo $this->prijem['material_typ_enum']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            material druh
+            <?php echo $this->prijem['material_druh_enum']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            chyba
+            <?php echo $this->prijem['chyba']; // render the user name field here ?>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-lg-2">
+            poznamka
+            <?php echo $this->prijem['poznamka']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            stav
+            <?php echo $this->prijem['stav_transakcie']; // render the user name field here ?>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+
+        <div class="col-lg-2">
+            <a href="<?php echo $this->url(array('controller'=>'prijmy',
+                'action'=>'print',
+                'id'=>$this->prijem['ts_prijmy_id'], 'cislo_listku'=>$prijem->doklad_cislo,
+                'spz'=>$prijem->prepravca_spz ));?>" target="_blank" class="btn-info btn" >
+
+              <?php //echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
+                Tlačiť
+
+            </a>
+
+        </div>
+
+        <div class="col-lg-2">
+<!--            <dt>&nbsp;</dt>-->
+            <a href="<?php echo $this->url(array(
+                'controller' => 'prijmy',
+                'action' => 'list'
+            ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
+        </div>
+
+    </div>

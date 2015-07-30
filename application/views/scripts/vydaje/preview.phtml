@@ -1,5 +1,95 @@
 <h3>Detail transakcie <?php echo $this->vydaj['doklad_cislo'];?></h3>
 <hr>
+
 <?php
-    print_r($this->vydaj);
+//    print_r($this->vydaj);
+
+    echo $this->vydaj['prepravca_spz'];
+
 ?>
+
+
+
+<div class="col-lg-2">
+    <?php echo $this->vydaj['datum_vydaju_d']; // render the user name field here ?>
+</div>
+<div class="col-lg-2">
+    <?php echo $this->vydaj['sklad_enum']; // render the user name field here ?>
+</div>
+<div class="col-lg-2">
+    <?php echo $this->vydaj['podsklad_enum']; // render the user name field here ?>
+</div>
+<div class="col-lg-2">
+    <?php echo $this->vydaj['zakaznik_enum']; // render the user name field here ?>
+</div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['prepravca_enum']; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['prepravca_spz']; // render the user name field here ?>
+    </div>
+    <!--    <div class="col-lg-2">-->
+    <!--        --><?php //echo $this->vydaj->stroj_enum; // render the user name field here ?>
+    <!--    </div>-->
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['stav_transakcie']; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['q_tony_merane']; // render the user name field here ?>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['doklad_typ_enum']; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['material_typ_enum']; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['material_druh_enum']; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['poznamka']; // render the user name field here ?>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['stav_transakcie']; // render the user name field here ?>
+    </div>
+    <div class="col-lg-2">
+        <?php echo $this->vydaj['chyba']; // render the user name field here ?>
+    </div>
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-lg-2">
+        <a href="<?php echo $this->url(array('controller'=>'Vydaje',
+            'action'=>'print', 'ts_vydaje_id'=>$this->vydaj['ts_vydaje_id'], 'cislo_listku'=>$vydaj->doklad_cislo,
+            'spz'=>$vydaj->prepravca_spz));?>" target="_blank" class="btn-info btn" >
+
+            <!--        --><?php //echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
+            Tlačiť
+        </a>
+    </div>
+
+    <div class="col-lg-2">
+
+        <a href="<?php echo $this->url(array(
+            'controller' => 'vydaje',
+            'action' => 'list'
+        ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
+    </div>
+
+</div>

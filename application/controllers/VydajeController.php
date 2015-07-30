@@ -136,7 +136,7 @@ class VydajeController extends Zend_Controller_Action
                     $doklad_cislo);
 
                 $this->_helper->redirector('list');
-//            echo $doklad_cislo;
+//            var_dump( $doklad_cislo);
 
             } else {
                 $form->populate($formData);

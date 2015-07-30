@@ -122,7 +122,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $potvrdzujuceTlacidlo = new Zend_Form_Element_Submit('potvrdzujuceTlacidlo');
         $potvrdzujuceTlacidlo->setLabel($this->getAttrib('potvrdzujuceTlacidlo'));
         $potvrdzujuceTlacidlo->setAttrib('id', 'submitbutton')
-            ->setAttrib('class', 'form-control');
+            ->setAttrib('class', 'form-control btn-success ');
+
 
 
 

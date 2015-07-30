@@ -130,7 +130,7 @@ class PrijmyController extends Zend_Controller_Action
                     $stav_transakcie,
                     $doklad_cislo);
 
-//    echo $doklad_cislo;
+//    var_dump( $doklad_cislo);
 
                 $this->_helper->redirector('list');
 
