@@ -8,6 +8,9 @@
     ?>
 
 
+
+
+
     <script type="text/javascript" language="javascript" class="init">
 
 
@@ -59,7 +62,7 @@
 
 
     </script>
-
+<!--
     <div class="alert alert-dismissable alert-info">
 
 
@@ -70,6 +73,13 @@
 
         <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
     </div>
+-->
+    <p>
+    <a href="<?php echo $this->url(array('controller'=>'Prijmy',
+        'action'=>'add'));?>">
+        <button type="button" class="btn btn-success">Pridať príjem</button>
+    </a>
+    </p>
 
 
 

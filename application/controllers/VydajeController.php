@@ -36,7 +36,12 @@ class VydajeController extends Zend_Controller_Action
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
 
         // priradenie modelov do premenných a poslanie na view script
-        $this->view->vydaje = $vydaje->fetchAll();
+        $param = $this->_getParam('param', null);
+        $title = $this->_getParam('title', null);
+        if (!isset($title)){$title = 'Výdaje - zoznam';}
+
+        // priradenie modelov do premenných a poslanie na view script
+        $this->view->vydaje = $vydaje->fetchAll($param);
         $this->view->sklady = $sklady;
         $this->view->podsklady = $podsklady;
         $this->view->zakaznici = $zakaznici;
@@ -290,8 +295,27 @@ class VydajeController extends Zend_Controller_Action
         $this->view->vydaj = $vydaj;
     }
 
+    public function waitingsAction()
+    {
+        $param = "stav_transakcie = 1";
+        $title = "Výdaje - čaká na schválenie";
+        $this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
+    }
+
+    public function errorsAction()
+    {
+        $param = "stav_transakcie = 3";
+        $title = "Výdaje - chyby";
+        $this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
+
+    }
+
 
 }
+
+
+
+
 
 
 

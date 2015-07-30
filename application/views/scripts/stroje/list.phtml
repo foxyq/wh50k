@@ -2,6 +2,13 @@
 $this->headTitle($this->title);
 ?>
 
+<p>
+    <a href="<?php echo $this->url(array('controller'=>'Stroje',
+        'action'=>'add'));?>">
+        <button type="button" class="btn btn-success">Pridať stroj</button>
+    </a>
+</p>
+
 
 <table class="table table-striped table-bordered table-hover">
     <tr>

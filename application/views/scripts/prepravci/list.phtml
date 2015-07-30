@@ -1,6 +1,12 @@
 <?php
 $this->headTitle($this->title);
 ?>
+<p>
+    <a href="<?php echo $this->url(array('controller'=>'Prepravci',
+        'action'=>'add'));?>">
+        <button type="button" class="btn btn-success">Pridať prepravcu</button>
+    </a>
+</p>
 
 
 <table class="table table-striped table-bordered table-hover">

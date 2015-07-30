@@ -52,7 +52,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 
 
 </script>
-
+<!--
 <div class="alert alert-dismissable alert-info">
 
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
@@ -62,7 +62,13 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 
     <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
 </div>
-
+-->
+<p>
+    <a href="<?php echo $this->url(array('controller'=>'Vydaje',
+        'action'=>'add'));?>">
+        <button type="button" class="btn btn-success">Pridať výdaj</button>
+    </a>
+    </p>
 
 
 <div class="table-responsive">

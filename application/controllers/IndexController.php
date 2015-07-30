@@ -5,7 +5,7 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $_SESSION['pomoc'] = "mala macinka";
     }
 
     public function indexAction()
@@ -18,6 +18,9 @@ class IndexController extends Zend_Controller_Action
         $this->view->status = $this->getStatus();*/
 
         //$form = $this->view->form = new Application_Form_Login();
+        $request = $this->getRequest()->getServer('HTTP_REFERER');
+        //$request->getHeader('referer');
+        print_r( $request);
     }
 
     public function previewAction()
@@ -126,7 +129,10 @@ class IndexController extends Zend_Controller_Action
 
     public function secretAction()
     {
-        // action body
+        print_r($_SESSION['pomoc']);
+        $request = $this->getRequest()->getServer('HTTP_REFERER');
+        //$request->getHeader('referer');
+        print_r( $request);
     }
 
 

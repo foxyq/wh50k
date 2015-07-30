@@ -23,6 +23,8 @@
           <actionMethod actionName="delete"/>
           <actionMethod actionName="print"/>
           <actionMethod actionName="preview"/>
+          <actionMethod actionName="waitings"/>
+          <actionMethod actionName="errors"/>
         </controllerFile>
         <controllerFile controllerName="Vydaje">
           <actionMethod actionName="index"/>
@@ -32,6 +34,8 @@
           <actionMethod actionName="list"/>
           <actionMethod actionName="print"/>
           <actionMethod actionName="preview"/>
+          <actionMethod actionName="waitings"/>
+          <actionMethod actionName="errors"/>
         </controllerFile>
         <controllerFile controllerName="Zakaznici">
           <actionMethod actionName="index"/>
@@ -252,6 +256,18 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Sklady">
             <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Prijmy">
+            <viewScriptFile forActionName="waitings"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Vydaje">
+            <viewScriptFile forActionName="waitings"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Vydaje">
+            <viewScriptFile forActionName="errors"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Prijmy">
+            <viewScriptFile forActionName="errors"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

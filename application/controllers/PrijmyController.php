@@ -2,11 +2,13 @@
 
 class PrijmyController extends Zend_Controller_Action
 {
+    protected $_request = null;
 
     public function init()
     {
 //        celkom dolezite pre jquery ...
         $this->view->addHelperPath('ZendX/JQuery/View/Helper/', 'ZendX_JQuery_View_Helper');
+
     }
 
     public function indexAction()
@@ -29,8 +31,12 @@ class PrijmyController extends Zend_Controller_Action
 
 
         // priradenie modelov do premenných a poslanie na view script
+        $param = $this->_getParam('param', null);
+        $title = $this->_getParam('title', null);
+        if (!isset($title)){$title = 'Príjmy - zoznam';}
 
-        $this->view->prijmy = $prijmy->fetchAll();
+        $this->view->prijmy = $prijmy->fetchAll($param);
+
         $this->view->sklady = $sklady;        
         $this->view->podsklady = $podsklady;
         $this->view->dodavatelia = $dodavatelia;
@@ -40,7 +46,7 @@ class PrijmyController extends Zend_Controller_Action
         $this->view->transakcieStavy = $transakcieStavy;
 
         //názov stránky
-        $this->view->title = "Príjmy - zoznam";
+        $this->view->title = $title;
     }
 
     public function addAction()
@@ -144,6 +150,11 @@ class PrijmyController extends Zend_Controller_Action
     public function editAction()
     {
 
+        //$request = $this->getRequest()->getServer('HTTP_REFERER');
+        //print_r($request);
+        //TDODO THIS: print_r( $this->_request);
+
+
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
@@ -226,6 +237,7 @@ class PrijmyController extends Zend_Controller_Action
                 );
 
                 $this->_helper->redirector('list');
+                //TDODO THIS: $this->redirect(_request);
             } else {
                 $form->populate($formData);
             }
@@ -235,6 +247,8 @@ class PrijmyController extends Zend_Controller_Action
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $form->populate($prijmy->getPrijem($id));
                 $this->view->data = $prijmy->getPrijem($id);
+
+                //TDODO THIS: $this->_request = $this->getRequest()->getServer('HTTP_REFERER');
             }
         }
     }
@@ -287,8 +301,27 @@ class PrijmyController extends Zend_Controller_Action
         $this->view->prijem = $prijem;
     }
 
+    public function waitingsAction()
+    {
+        $param = "stav_transakcie = 1";
+        $title = "Príjmy - čaká na schválenie";
+        $this->_forward('list', 'prijmy', null, array('param' => $param, 'title' => $title));
+    }
+
+    public function errorsAction()
+    {
+        $param = "stav_transakcie = 3";
+        $title = "Príjmy - chyby";
+        $this->_forward('list', 'prijmy', null, array('param' => $param, 'title' => $title));
+
+    }
+
 
 }
+
+
+
+
 
 
 

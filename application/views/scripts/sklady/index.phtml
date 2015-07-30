@@ -1,7 +1,7 @@
 <?php
 $this->headTitle($this->title);
-//definicia farieb skladov - max sklado je 10
-$colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow', '5' => 'purple', '6' => 'aqua', '7' => 'green', '8' => 'yellow', '9' => 'red', '10' => 'primary');
+//definicia farieb skladov - farby sa opakuju v slucke ale ak chces viac roznych treba definovat v css a potom sem nahodit string do pola - automaticky sa to strieba v poradi
+$colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow', '5' => 'purple', '6' => 'aqua');
 //print_r($this->skladyModel->getMernaJednotka(1));
 ?>
 
@@ -47,7 +47,9 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                     $counter = 1;
                     ?>
 
-                    <?php foreach ($skladyIds AS $skladId) : ?>
+                    <?php foreach ($skladyIds AS $skladId) :
+                        if ($counter>count($colors)) {$counter = 1;}
+                        ?>
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-<?php echo $colors[$counter]?>">
                             <div class="panel-heading">
