@@ -2,8 +2,10 @@
 $this->headTitle($this->title);
 //definicia farieb skladov - farby sa opakuju v slucke ale ak chces viac roznych treba definovat v css a potom sem nahodit string do pola - automaticky sa to strieba v poradi
 $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow', '5' => 'purple', '6' => 'aqua');
-//print_r($this->skladyModel->getMernaJednotka(1));
+//print_r($this->vyvojStavuSkladov);
 ?>
+
+
 
 <!--
 <div id="".col-lg-12">
@@ -71,9 +73,9 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                         <div class="huge">
                                             <span style="font-size:26pt;">
                                             <?php
-                                                $stavSkladu = floatval($this->ubytky->getLastStavSkladu($skladId));
-                                                $vystup = number_format($stavSkladu, 2, ',', ' ');
-                                                echo $vystup;
+                                                $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
+                                                $aktualnyStavSkladu = number_format($aktualnyStavSkladu['t'], 2, ',', ' ');
+                                                echo $aktualnyStavSkladu;
                                             ?>
                                             <span style="font-size:10pt;">
                                                 t
@@ -91,22 +93,36 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                             <div class="panel-body" style="margin-left: 15px; margin-right: 15px;">
 
 
-                                    <p>TODO calculation</p>
                                     <div class="row">
                                         <table style="border-style: none; width: 100%; font-size: large;">
                                             <tr>
-                                                <td><?php echo $vystup;?></td>
+                                                <td>
+                                                    <?php
+                                                        $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
+                                                        $aktualnyStavSkladu = number_format($aktualnyStavSkladu['t'], 2, ',', ' ');
+                                                        echo $aktualnyStavSkladu;
+                                                    ?>
+                                                </td>
                                                 <td style="font-weight: bold;">tony</td>
                                             </tr>
                                             <tr>
                                                 <td><?php
-
-                                                        echo $vystup;?></td>
+                                                        $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
+                                                        $aktualnyStavSkladu = number_format($aktualnyStavSkladu['prm'], 2, ',', ' ');
+                                                        echo $aktualnyStavSkladu;
+                                                    ?>
+                                                </td>
                                                 <td style="font-weight: bold;">PRM</td>
 
                                             </tr>
                                             <tr>
-                                                <td><?php echo $vystup;?></td>
+                                                <td>
+                                                    <?php
+                                                        $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
+                                                        $aktualnyStavSkladu = number_format($aktualnyStavSkladu['m3'], 2, ',', ' ');
+                                                        echo $aktualnyStavSkladu;
+                                                    ?>
+                                                </td>
                                                 <td style="font-weight: bold;">m3</td>
                                             </tr>
                                         </table>
@@ -122,31 +138,47 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                                 <td>pohyb</td>
                                                 <td>príjmy</td>
                                                 <td>výdaje</td>
-                                                <td>za deň</td>
+                                                <td>celkovo</td>
                                             </tr>
                                             <tr>
-                                                <td>denný</td>
-                                                <td>45</td>
-                                                <td>20</td>
-                                                <td>25</td>
+                                                <td>deň</td>
+                                                <td><?php echo $this->pohyby[$skladId]['den']['prijmy'];?></td>
+                                                <td><?php echo $this->pohyby[$skladId]['den']['vydaje'];?></td>
+                                                <td><?php echo $this->pohyby[$skladId]['den']['total'];?></td>
                                             </tr>
                                             <tr>
-                                                <td>týždenný</td>
-                                                <td>450</td>
-                                                <td>200</td>
-                                                <td>250</td>
+                                                <td>týždeň</td>
+                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['prijmy'];?></td>
+                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['vydaje'];?></td>
+                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['total'];?></td>
                                             </tr>
                                              <tr>
-                                                <td>mesačný</td>
-                                                <td>4500</td>
-                                                <td>2000</td>
-                                                <td>2500</td>
+                                                <td>mesiac</td>
+                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['prijmy'];?></td>
+                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['vydaje'];?></td>
+                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['total'];?></td>
                                             </tr>
                                         </table>
 
                                     </div>
 
+                                    <div class="row">
+                                            <hr>
+                                        </div>
 
+                                    <div class="row">
+                                        <?php
+                                            echo "<strong> Data pre graf - last 30 days </strong><br><br>";
+
+                                            foreach ($this->vyvojStavuSkladov[$skladId] AS $stavSkladu)
+                                            {
+                                                echo $stavSkladu;
+                                                echo "<br>";
+                                            }
+                                        ?>
+
+
+                                    </div>
 
 
 

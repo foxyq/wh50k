@@ -54,6 +54,24 @@ class Application_Model_DbTable_MaterialyDruhy extends Zend_Db_Table_Abstract
 
     }
 
+    public function getKonverzieDefault(){
+        $konverzie = array();
+        //$sql = "materialy_druhy_id = ".$druhId;
+        //$row = $this->fetchRow($sql);
+
+        $konverzie['m3_ton'] = 0.55;
+        $konverzie['m3_prm'] = 1.7;
+        $konverzie['ton_m3'] = 1.818182;
+        $konverzie['ton_prm'] = 3.090909;
+        $konverzie['prm_ton'] = 0.323529;
+        $konverzie['prm_m3'] = 0.588235;
+
+
+
+        return $konverzie;
+
+    }
+
      public function addDruh($nazov, $skratka)
     {
         $data = array(

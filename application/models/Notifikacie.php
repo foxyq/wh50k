@@ -8,15 +8,21 @@ class Application_Model_Notifikacie
 
         $prijmy = new Application_Model_DbTable_Prijmy();
         $vydaje = new Application_Model_DbTable_Vydaje();
-
+        $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
 
         $status['prijmy_waitings'] = $prijmy->getNumberOfWaitings();
         $status['prijmy_errors'] = $prijmy->getNumberOfErrors();
         $status['vydaje_waitings'] = $vydaje->getNumberOfWaitings();
         $status['vydaje_errors'] = $vydaje->getNumberOfErrors();
+        $status['ubytky_chyba'] = $ubytky->getErrorNedostatokNaSklade();
 
 
-        $status['total'] = $prijmy->getNumberOfWaitings() + $prijmy->getNumberOfErrors() + $vydaje->getNumberOfWaitings() + $vydaje->getNumberOfErrors();
+        $status['total'] =
+            $prijmy->getNumberOfWaitings() +
+            $prijmy->getNumberOfErrors() +
+            $vydaje->getNumberOfWaitings() +
+            $vydaje->getNumberOfErrors() +
+            $ubytky->getErrorNedostatokNaSklade();
 
         return $status;
 

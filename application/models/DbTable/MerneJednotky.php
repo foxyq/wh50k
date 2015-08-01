@@ -53,6 +53,34 @@ class Application_Model_DbTable_MerneJednotky extends Zend_Db_Table_Abstract
         return $prepoctyArray;
     }
 
+    public function getPrepoctyArrayDefault($mnozstvo, $mernaJednotkaId){
+        $materialDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $konverzie = $materialDruhy->getKonverzieDefault();
+        $prepoctyArray = array();
+
+        switch ($mernaJednotkaId){
+            case 1:
+                $prepoctyArray['t'] = $mnozstvo;
+                $prepoctyArray['prm'] = $mnozstvo * $konverzie['ton_prm'];
+                $prepoctyArray['m3'] = $mnozstvo * $konverzie['ton_m3'];
+                break;
+            case 2:
+                $prepoctyArray['prm'] = $mnozstvo;
+                $prepoctyArray['t'] = $mnozstvo * $konverzie['prm_ton'];
+                $prepoctyArray['m3'] = $mnozstvo * $konverzie['prm_m3'];
+                break;
+            case 3:
+                $prepoctyArray['m3'] = $mnozstvo;
+                $prepoctyArray['t'] = $mnozstvo * $konverzie['m3_ton'];
+                $prepoctyArray['prm'] = $mnozstvo * $konverzie['m3_prm'];
+                break;
+        }
+
+
+
+        return $prepoctyArray;
+    }
+
 
 }
 

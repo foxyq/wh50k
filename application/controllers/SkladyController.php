@@ -21,6 +21,41 @@ class SkladyController extends Zend_Controller_Action
         $this->view->prijmy = $prijmy;
         $this->view->vydaje = $vydaje;
         $this->view->ubytky = $ubytky;
+
+        //vypocty pre pohyby
+        $pohyby = array();
+        $skladyIdArray = $sklady->getIds();
+
+        foreach ($skladyIdArray as $skladId)
+        {
+            //den
+            $pohyby[$skladId]['den']['prijmy'] = $prijmy->getSumByDateAndStock("q_tony_merane", "sklad_enum", $skladId, "datum_prijmu_d", "'".date('Y-m-d')."'");
+            $pohyby[$skladId]['den']['vydaje'] = $vydaje->getSumByDateAndStock("q_tony_merane", "sklad_enum", $skladId, "datum_vydaju_d", "'".date('Y-m-d')."'");
+            $pohyby[$skladId]['den']['total'] = $pohyby[$skladId]['den']['prijmy'] - $pohyby[$skladId]['den']['vydaje'];
+
+            //tyzden
+            $pohyby[$skladId]['tyzden']['prijmy'] = $prijmy->getSumByColumnBetween("q_tony_merane", "datum_prijmu_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['tyzden']['vydaje'] = $vydaje->getSumByColumnBetween("q_tony_merane", "datum_vydaju_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['tyzden']['total'] = $pohyby[$skladId]['tyzden']['prijmy'] - $pohyby[$skladId]['tyzden']['vydaje'];
+
+
+            //mesiac
+            $pohyby[$skladId]['mesiac']['prijmy'] = $prijmy->getSumByColumnBetween("q_tony_merane", "datum_prijmu_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['mesiac']['vydaje'] = $vydaje->getSumByColumnBetween("q_tony_merane", "datum_vydaju_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['mesiac']['total'] = $pohyby[$skladId]['mesiac']['prijmy'] - $pohyby[$skladId]['mesiac']['vydaje'];
+        }
+
+        $this->view->pohyby = $pohyby;
+
+        //vypocet pre grafy
+        $vyvojStavuSkladov = array();
+        foreach ($skladyIdArray as $skladId) {
+            $vyvojStavuSkladov[$skladId] = $ubytky->getLastXValues($skladId, 30);
+        }
+        $this->view->vyvojStavuSkladov = $vyvojStavuSkladov;
+
+
+
     }
 
     public function addAction()

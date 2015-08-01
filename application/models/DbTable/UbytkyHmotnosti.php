@@ -82,10 +82,53 @@ class Application_Model_DbTable_UbytkyHmotnosti extends Zend_Db_Table_Abstract
 
     }
 
+    //vrati stav skladu v tonach, m3 a PRM
     public function getLastStavSkladu($skladId){
         $transakcie = $this->fetchAll("sklad_enum = ".$skladId)->toArray();
-        $lastElement = end($transakcie);
-        return $lastElement['q_konecny_stav_tony'];
+        $defaultneKonverzie = new Application_Model_DbTable_MerneJednotky();
+        $lastElementTony = end($transakcie);
+
+
+        $lastStavSkladuArray = $defaultneKonverzie->getPrepoctyArrayDefault($lastElementTony[q_konecny_stav_tony], 1);
+
+        return $lastStavSkladuArray;
+    }
+
+    //vracia pole s poslednymi $pocetHodnot hodnotami pre vykreslovanie grafu - hodnoty na konci dna po odpocte ubytkov
+    //pole je v poradi od najstarsieho [0] po najnovsie [max]
+    public function getLastXValues($skladId, $pocetHodnot)
+    {
+        $poslednychXHodnot = array();
+
+        $sql = "sklad_enum = ". $skladId;
+        $pocetZaznamov = $this->fetchAll($sql)->count();
+        if ($pocetZaznamov  < $pocetHodnot)
+        {
+            $pocetHodnot = $pocetZaznamov;
+        }
+
+        for ($i = 1; $i <= $pocetHodnot; $i++)
+        {
+            $poslednychXHodnot[] = $ubytky = $this->fetchAll($sql)->getRow($pocetZaznamov-$pocetHodnot-1+$i)->toArray();
+        }
+
+        $poslednychXHodnotVystup = array();
+
+        foreach ($poslednychXHodnot as $polozka){
+            $poslednychXHodnotVystup[]=$polozka['q_konecny_stav_tony'];
+        }
+
+        ksort($poslednychXHodnotVystup);
+
+        return $poslednychXHodnotVystup;
+
+
+    }
+
+    public function getErrorNedostatokNaSklade(){
+        $sql = "poznamka = 'Nedostatok na sklade.'";
+        $pocetChyb = $this->fetchAll($sql)->count();
+        return $pocetChyb;
     }
 
 

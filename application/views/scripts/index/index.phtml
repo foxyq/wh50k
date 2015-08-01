@@ -5,7 +5,11 @@
 //TELETE THIS AFTER CODE
 $merneJednotky = new Application_Model_DbTable_MerneJednotky();
 $merneJednotky = $merneJednotky->getPrepoctyArray(1.818182,3,2);
-print_r($merneJednotky);
+$ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
+
+$ubytky = $ubytky->getErrorNedostatokNaSklade();
+print_r($ubytky);
+
 
 
 ?>

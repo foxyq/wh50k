@@ -37,7 +37,7 @@ class UbytkyController extends Zend_Controller_Action
     {
         // action body
         $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
-        $ubytky->refreshTableDataByDate('2015-06-01', '2015-06-30');
+        $ubytky->refreshTableDataByDate('2015-06-01', date('Y-m-d'));
         $this->_helper->redirector('list');
     }
 
