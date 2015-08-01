@@ -14,6 +14,17 @@ class Application_Model_DbTable_MaterialyDruhy extends Zend_Db_Table_Abstract
 
     }
 
+    public function getDruh($id)
+    {
+        $id = (int)$id;
+        $row = $this->fetchRow('materialy_druhy_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        return $row->toArray();
+    }
+
+
     //metoda vracia pole pre vypisy a formulare - id a nazov skladu
     public function getMoznosti()
     {
@@ -41,6 +52,24 @@ class Application_Model_DbTable_MaterialyDruhy extends Zend_Db_Table_Abstract
 
         return $konverzie;
 
+    }
+
+     public function addDruh($nazov, $skratka)
+    {
+        $data = array(
+            'nazov' => $nazov,
+            'skratka' => $skratka,
+        );
+        $this->insert($data);
+    }
+
+    public function updateDruh($id, $nazov, $skratka)
+    {
+        $data = array(
+            'nazov' => $nazov,
+            'skratka' => $skratka,
+        );
+        $this->update($data, 'materialy_druhy_id = '. (int)$id);
     }
 
 

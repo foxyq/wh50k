@@ -1,3 +1,11 @@
 <h1>Vitajte v skladovej aplikácií</h1>
 <h3>Dnes má meniny Adolf!</h3>
 <a href="index/secret">Secret</a>
+<?php
+//TELETE THIS AFTER CODE
+$merneJednotky = new Application_Model_DbTable_MerneJednotky();
+$merneJednotky = $merneJednotky->getPrepoctyArray(1.818182,3,2);
+print_r($merneJednotky);
+
+
+?>

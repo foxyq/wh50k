@@ -1,0 +1,106 @@
+<?php
+
+class PodskladyController extends Zend_Controller_Action
+{
+
+    public function init()
+    {
+        /* Initialize action controller here */
+    }
+
+    public function indexAction()
+    {
+        // action body
+    }
+
+    public function listAction()
+    {
+        $podsklady = new Application_Model_DbTable_Podsklady();
+        $mesta = new Application_Model_DbTable_Mesta();
+
+        $this->view->podsklady = $podsklady->fetchAll();
+        $this->view->mesta = $mesta;
+
+        $this->view->title = "Podsklady - zoznam";
+    }
+
+    public function addAction()
+    {
+        $mesta = new Application_Model_DbTable_Mesta();
+
+        $mestaMoznosti = $mesta->getMoznosti();
+
+        $form = new Application_Form_Podsklad(array(
+            'mestaMoznosti' => $mestaMoznosti));
+
+        $form->submit->setLabel('Pridať podsklad');
+
+        $this->view->title = "Pridanie podskladu";
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            $formData = $this->getRequest()->getPost();
+            if ($form->isValid($formData)) {
+                $nazov_podskladu = $form->getValue('nazov_podskladu');
+                $kod_podskladu= $form->getValue('kod_podskladu');
+                $mesto_enum= $form->getValue('mesto_enum');
+                $adresa= $form->getValue('adresa');
+
+                $podsklady = new Application_Model_DbTable_Podsklady();
+                $podsklady->addPodsklad($nazov_podskladu, $kod_podskladu, $mesto_enum, $adresa);
+
+                $this->_helper->redirector('list');
+            } else {
+                $form->populate($formData);
+            }
+        }
+    }
+
+    public function editAction()
+    {
+        $mesta = new Application_Model_DbTable_Mesta();
+
+        $mestaMoznosti = $mesta->getMoznosti();
+
+        $form = new Application_Form_Podsklad(array(
+            'mestaMoznosti' => $mestaMoznosti));
+
+        $form->submit->setLabel('Upraviť podsklad');
+
+        $this->view->title = "Upraviť podskladu";
+        $this->view->form = $form;
+
+            if ($this->getRequest()->isPost()) {
+                $formData = $this->getRequest()->getPost();
+                if ($form->isValid($formData)) {
+                    $id = (int)$form->getValue('podsklady_id');
+                    $nazov_podskladu = $form->getValue('nazov_podskladu');
+                    $kod_podskladu= $form->getValue('kod_podskladu');
+                    $mesto_enum= $form->getValue('mesto_enum');
+                    $adresa= $form->getValue('adresa');
+
+                    $podsklady = new Application_Model_DbTable_Podsklady();
+                    $podsklady->updatePodsklad($id, $nazov_podskladu, $kod_podskladu, $mesto_enum, $adresa);
+
+                    $this->_helper->redirector('list');
+                } else {
+                    $form->populate($formData);
+                }
+            } else {
+                $id = $this->_getParam('id', 0);
+                if ($id > 0) {
+                    $podsklady = new Application_Model_DbTable_Podsklady();
+                    $form->populate($podsklady->getPodsklad($id));
+                }
+            }
+    }
+
+
+}
+
+
+
+
+
+
+
