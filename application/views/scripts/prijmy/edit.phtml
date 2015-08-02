@@ -5,6 +5,8 @@ $this->headTitle($this->title);
 //echo $this->form;
 ?>
 
+
+
 <form action="<?php echo $this->escape($this->form->getAction()) ?>"
       method="<?php echo $this->escape($this->form->getMethod()) ?>"
       enctype="multipart/form-data">
@@ -83,11 +85,14 @@ $this->headTitle($this->title);
 
         <div class="col-lg-2">
             <dt>&nbsp;</dt>
-            <a href="<?php echo $this->url(array(
-                'controller' => 'prijmy',
-                'action' => 'list'
+            <a href="<?php
+                //pageManager
+                echo $this->url(array(
+                'controller' => $_SESSION['pageManager']['lastPageParameters']['controller'],
+                'action' => $_SESSION['pageManager']['lastPageParameters']['action']
             ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
         </div>
+
     </div>
 
 </form>

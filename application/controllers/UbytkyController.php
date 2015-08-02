@@ -31,6 +31,8 @@ class UbytkyController extends Zend_Controller_Action
         $this->view->sklady = $sklady;
         $this->view->prijmy = $prijmy;
         $this->view->title = 'Prehľad úbytkov';
+
+
     }
 
     public function refreshdataAction()

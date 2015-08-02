@@ -18,11 +18,11 @@ class Application_Model_Notifikacie
 
 
         $status['total'] =
-            $prijmy->getNumberOfWaitings() +
-            $prijmy->getNumberOfErrors() +
-            $vydaje->getNumberOfWaitings() +
-            $vydaje->getNumberOfErrors() +
-            $ubytky->getErrorNedostatokNaSklade();
+            (int)$prijmy->getNumberOfWaitings() +
+            (int)$prijmy->getNumberOfErrors() +
+            (int)$vydaje->getNumberOfWaitings() +
+            (int)$vydaje->getNumberOfErrors() +
+            (int)$ubytky->getErrorNedostatokNaSklade();
 
         return $status;
 

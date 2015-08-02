@@ -84,12 +84,14 @@ $this->headTitle($this->title);
     </div>
 
     <div class="col-lg-2">
-        <dt>&nbsp;</dt>
-        <a href="<?php echo $this->url(array(
-            'controller' => 'prijmy',
-            'action' => 'list'
-        ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
-    </div>
+            <dt>&nbsp;</dt>
+            <a href="<?php
+                //pageManager
+                echo $this->url(array(
+                'controller' => $_SESSION['pageManager']['lastPageParameters']['controller'],
+                'action' => $_SESSION['pageManager']['lastPageParameters']['action']
+            ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
+        </div>
 
 </div>
 

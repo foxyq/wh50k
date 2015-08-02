@@ -95,6 +95,9 @@ class VydajeController extends Zend_Controller_Action
 
         $this->view->form = $form;
 
+        //pageManager
+        $_SESSION[pageManager][ignore] = 1;
+
 
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
@@ -140,11 +143,18 @@ class VydajeController extends Zend_Controller_Action
                     $stav_transakcie,
                     $doklad_cislo);
 
-                $this->_helper->redirector('list');
-//            var_dump( $doklad_cislo);
+                //$this->_helper->redirector('list');
+                //var_dump( $doklad_cislo);
+
+                //pageManager
+                $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+
 
             } else {
                 $form->populate($formData);
+
+                //pageManager
+                $_SESSION[pageManager][ignore] = 1;
             }
         }
     }
@@ -231,10 +241,16 @@ class VydajeController extends Zend_Controller_Action
                     $chyba,
                     $stav_transakcie);
 
-                $this->_helper->redirector('list');
+                 //pageManager
+                $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+
+                //$this->_helper->redirector('list');
 
             } else {
                 $form->populate($formData);
+
+                //pageManager
+                $_SESSION[pageManager][ignore] = 1;
             }
         } else {
             $id = $this->_getParam('ts_vydaje_id', 0);
@@ -243,6 +259,10 @@ class VydajeController extends Zend_Controller_Action
                 $vydaje = new Application_Model_DbTable_Vydaje();
                 $form->populate($vydaje->getVydaj($id));
                 $this->view->data = $vydaje->getVydaj($id);
+
+
+                //pageManager
+                $_SESSION[pageManager][ignore] = 1;
             }
 
         }
@@ -267,11 +287,18 @@ class VydajeController extends Zend_Controller_Action
             $vydaje = new Application_Model_DbTable_Vydaje();
             $vydaje->deleteVydaj($id);
         }
-         $this->_helper->redirector('list');
+         //$this->_helper->redirector('list');
+
+
+         //pageManager
+         $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
             } else {
                 $id = $this->_getParam('ts_vydaje_id', 0);
                 $vydaje = new Application_Model_DbTable_Vydaje();
                 $this->view->vydaj = $vydaje->getVydaj($id);
+
+                //pageManager
+                $_SESSION[pageManager][ignore] = 1;
             }
     }
 

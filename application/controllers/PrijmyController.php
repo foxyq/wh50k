@@ -94,9 +94,13 @@ class PrijmyController extends Zend_Controller_Action
         ));
         $this->view->form = $form;
 
+        //pageManager
+        $_SESSION[pageManager][ignore] = 1;
+
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
-            //tu nesmie byt $id
+
+
             if ($form->isValid($formData)) {
                 $datum_prijmu = $form->getValue('datum_prijmu_d');
                 $sklad = $form->getValue('sklad_enum');
@@ -136,14 +140,24 @@ class PrijmyController extends Zend_Controller_Action
                     $stav_transakcie,
                     $doklad_cislo);
 
-//    var_dump( $doklad_cislo);
+                //pageManager
+                $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
 
-                $this->_helper->redirector('list');
+
+                //$this->_helper->redirector('list');
+
+
 
                 //$this->_helper->redirector('preview', 'prijmy', null, array('id' => 1));
             } else {
+
+
                 $form->populate($formData);
+                //pageManager
+                $_SESSION[pageManager][ignore] = 1;
+
             }
+
         }
     }
 
@@ -236,19 +250,24 @@ class PrijmyController extends Zend_Controller_Action
                     $stav_transakcie
                 );
 
-                $this->_helper->redirector('list');
-                //TDODO THIS: $this->redirect(_request);
+                //pageManager
+                $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+
             } else {
                 $form->populate($formData);
+                //pageManager
+                $_SESSION[pageManager][ignore] = 1;
             }
         } else {
+
             $id = $this->_getParam('id', 0);
             if ($id > 0) {
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $form->populate($prijmy->getPrijem($id));
                 $this->view->data = $prijmy->getPrijem($id);
 
-                //TDODO THIS: $this->_request = $this->getRequest()->getServer('HTTP_REFERER');
+                //pageManager
+                $_SESSION[pageManager][ignore] = 1;
             }
         }
     }
@@ -275,12 +294,20 @@ class PrijmyController extends Zend_Controller_Action
                 $prijmy->deletePrijem($id);
             }
             //presmeruje po zmazani na stranku list
-            $this->_helper->redirector('list');
+            //$this->_helper->redirector('list');
+
+
+            //pageManager
+            $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+
         //ak pride GET tak nacita model a posle na kontrolny vypis a otazku zmazat? data zo zaznamu
         } else {
             $id = $this->_getParam('id', 0);
             $prijmy = new Application_Model_DbTable_Prijmy();
             $this->view->prijem = $prijmy->getPrijem($id);
+
+            //pageManager
+                $_SESSION[pageManager][ignore] = 1;
         }
     }
 
