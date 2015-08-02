@@ -10,7 +10,19 @@ class StrojeController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $stroje = new Application_Model_DbTable_Stroje();
+        $vydaje = new Application_Model_DbTable_Vydaje();
+
+        $strojeIds = $stroje->getIds();
+        $vytazenieStrojov = array();
+
+        foreach ($strojeIds AS $strojId){
+            $vytazenieStrojov[$strojId] = $vydaje->getSumByColumn('q_tony_merane', 'stroj_enum', $strojId);
+
+        }
+
+        $this->view->title = "Stroje - prehľad";
+        $this->view->vytazenieStrojov = $vytazenieStrojov;
     }
 
     public function addAction()

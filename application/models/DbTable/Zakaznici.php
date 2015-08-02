@@ -23,6 +23,17 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         return $nazov;
     }
 
+    public function getIds()
+    {
+        $zakaznici = $this->fetchAll()->toArray();
+        $ids = array();
+
+        foreach ($zakaznici as $zakaznik) {
+            $ids[] = $zakaznik['zakaznici_id'];
+        }
+        return $ids;
+    }
+
     public function addZakaznik($meno, $nazov_spolocnosti)
     {
         $data = array(

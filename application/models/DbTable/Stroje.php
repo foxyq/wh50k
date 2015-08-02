@@ -15,6 +15,33 @@ class Application_Model_DbTable_Stroje extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
+    public function getIds()
+    {
+        $stroje = $this->fetchAll()->toArray();
+        $ids = array();
+
+        foreach ($stroje as $stroj) {
+            $ids[] = $stroj['stroje_id'];
+        }
+        return $ids;
+    }
+
+    public function getNazov($id)
+    {
+        $id = (int)$id;
+        $nazov = $this->fetchRow('stroje_id = ' . $id)->nazov_stroja;
+        return $nazov;
+
+    }
+
+    public function getTyp($id)
+    {
+        $id = (int)$id;
+        $typ = $this->fetchRow('stroje_id = ' . $id)->typ_stroja;
+        return $typ;
+
+    }
+
     public function addStroj($nazov, $typ)
     {
         $data = array(

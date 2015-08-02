@@ -10,7 +10,19 @@ class ZakazniciController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $vydaje = new Application_Model_DbTable_Vydaje();
+
+        $zakazniciIds = $zakaznici->getIds();
+        $dodaneMnozstvoZakaznikom = array();
+
+        foreach ($zakazniciIds AS $zakaznikId){
+            $dodaneMnozstvoZakaznikom[$zakaznikId] = $vydaje->getSumByColumn('q_tony_merane', 'zakaznik_enum', $zakaznikId);
+
+        }
+
+        $this->view->title = "Zákazníci - prehľad";
+        $this->view->dodaneMnozstvoZakaznikom = $dodaneMnozstvoZakaznikom;
     }
 
     public function addAction()
