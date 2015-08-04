@@ -271,13 +271,32 @@ class VydajeController extends Zend_Controller_Action
     public function deleteAction()
     {
 
-        $sklady = new Application_Model_DbTable_Sklady();
-        $podsklady = new Application_Model_DbTable_Podsklady();
-        $zakaznici = new Application_Model_DbTable_Zakaznici();
+       //inicializacia pre vypis premennych - pre getNazov() metody
+        $skladyModel = new Application_Model_DbTable_Sklady();
+        $podskladyModel = new Application_Model_DbTable_Podsklady();
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $prepravciModel = new Application_Model_DbTable_Prepravci();
+        $strojeModel = new Application_Model_DbTable_Stroje();
 
-        $this->view->sklady = $sklady;
-        $this->view->podsklady = $podsklady;
-        $this->view->zakaznici = $zakaznici;
+        $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
+        $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyTypy();
+        $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
+
+        $ciselniky = array(
+            'skladyModel' => $skladyModel,
+            'podskladyModel' => $podskladyModel,
+            'zakazniciModel' => $zakazniciModel,
+            'prepravciModel' => $prepravciModel,
+            'strojeModel'=>$strojeModel,
+            'dokladyTypyModel' => $dokladyTypyModel,
+            'materialyTypyModel' => $materialyTypyModel,
+            'materialyDruhyModel' => $materialyDruhyModel,
+            'transakcieStavyModel' => $transakcieStavyModel
+        );
+
+        $this->view->ciselniky = $ciselniky;
+        $this->view->title = "Zmazať výdaj?";
 
 
      if ($this->getRequest()->isPost()) {
@@ -316,10 +335,39 @@ class VydajeController extends Zend_Controller_Action
 
     public function previewAction()
     {
+        //inicializacia pre vypis premennych - pre getNazov() metody
+        $skladyModel = new Application_Model_DbTable_Sklady();
+        $podskladyModel = new Application_Model_DbTable_Podsklady();
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $prepravciModel = new Application_Model_DbTable_Prepravci();
+        $strojeModel = new Application_Model_DbTable_Stroje();
+
+        $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
+        $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyTypy();
+        $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
+
+        $ciselniky = array(
+            'skladyModel' => $skladyModel,
+            'podskladyModel' => $podskladyModel,
+            'zakazniciModel' => $zakazniciModel,
+            'prepravciModel' => $prepravciModel,
+            'strojeModel'=>$strojeModel,
+            'dokladyTypyModel' => $dokladyTypyModel,
+            'materialyTypyModel' => $materialyTypyModel,
+            'materialyDruhyModel' => $materialyDruhyModel,
+            'transakcieStavyModel' => $transakcieStavyModel
+        );
+
+
+
+
         $id = $this->_getParam('id');
         $vydaje = new Application_Model_DbTable_Vydaje();
         $vydaj = $vydaje->getVydajByDokladCislo($id);
+
         $this->view->vydaj = $vydaj;
+        $this->view->ciselniky = $ciselniky;
     }
 
     public function waitingsAction()

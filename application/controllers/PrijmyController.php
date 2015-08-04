@@ -274,10 +274,31 @@ class PrijmyController extends Zend_Controller_Action
 
     public function deleteAction()
     {
-        $sklady = new Application_Model_DbTable_Sklady();
-        $podsklady = new Application_Model_DbTable_Podsklady();
-        $this->view->sklady = $sklady;
-        $this->view->podsklady = $podsklady;
+        //inicializacia pre vypis premennych - pre getNazov() metody
+        $skladyModel = new Application_Model_DbTable_Sklady();
+        $podskladyModel = new Application_Model_DbTable_Podsklady();
+        $dodavateliaModel = new Application_Model_DbTable_Dodavatelia();
+        $prepravciModel = new Application_Model_DbTable_Prepravci();
+        $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
+        $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyTypy();
+        $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
+
+        $ciselniky = array(
+            'skladyModel' => $skladyModel,
+            'podskladyModel' => $podskladyModel,
+            'dodavateliaModel' => $dodavateliaModel,
+            'prepravciModel' => $prepravciModel,
+            'dokladyTypyModel' => $dokladyTypyModel,
+            'materialyTypyModel' => $materialyTypyModel,
+            'materialyDruhyModel' => $materialyDruhyModel,
+            'transakcieStavyModel' => $transakcieStavyModel
+        );
+
+
+
+
+        $this->view->ciselniky = $ciselniky;
 
         /*  kontrola ci prisiel post alebo get
             ak pride post - tak mazeme
@@ -322,10 +343,33 @@ class PrijmyController extends Zend_Controller_Action
 
     public function previewAction()
     {
+        //inicializacia pre vypis premennych - pre getNazov() metody
+        $skladyModel = new Application_Model_DbTable_Sklady();
+        $podskladyModel = new Application_Model_DbTable_Podsklady();
+        $dodavateliaModel = new Application_Model_DbTable_Dodavatelia();
+        $prepravciModel = new Application_Model_DbTable_Prepravci();
+        $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
+        $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyTypy();
+        $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
+
+        $ciselniky = array(
+            'skladyModel' => $skladyModel,
+            'podskladyModel' => $podskladyModel,
+            'dodavateliaModel' => $dodavateliaModel,
+            'prepravciModel' => $prepravciModel,
+            'dokladyTypyModel' => $dokladyTypyModel,
+            'materialyTypyModel' => $materialyTypyModel,
+            'materialyDruhyModel' => $materialyDruhyModel,
+            'transakcieStavyModel' => $transakcieStavyModel
+        );
+
         $id = $this->_getParam('id');
         $prijmy = new Application_Model_DbTable_Prijmy();
         $prijem = $prijmy->getPrijemByDokladCislo($id);
+
         $this->view->prijem = $prijem;
+        $this->view->ciselniky = $ciselniky;
     }
 
     public function waitingsAction()

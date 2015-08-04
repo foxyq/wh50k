@@ -18,5 +18,13 @@ class Application_Model_DbTable_DokladyTypy extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
+    public function getNazov($id)
+    {
+        $id = (int)$id;
+        $nazov = $this->fetchRow('doklady_typy_id = '.$id)->nazov;
+        return $nazov;
+
+    }
+
 }
 

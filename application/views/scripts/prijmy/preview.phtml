@@ -1,13 +1,15 @@
 <h3>Detail transakcie <?php echo $this->prijem['doklad_cislo'];?></h3>
 <hr>
 <?php
-//    print_r($this->prijem);
+//print_r($this->ciselniky);
 ?>
 
     <div class="row">
 
-        <?php echo $this->prijem['ts_prijmy_id'] ?>
-
+        <div class="col-lg-2">
+            id
+            <?php echo $this->prijem['ts_prijmy_id']; // render the user name field here ?>
+        </div>
 
         <div class="col-lg-2">
             datum prijmu
@@ -15,15 +17,15 @@
         </div>
         <div class="col-lg-2">
             sklad
-            <?php echo $this->prijem['sklad_enum']; // render the user name field here ?>
+            <?php echo $this->ciselniky['skladyModel']->getNazov($this->prijem['sklad_enum']); // render the user name field here ?>
         </div>
         <div class="col-lg-2">
             podsklad
-            <?php echo $this->prijem['podsklad_enum']; // render the user name field here ?>
+            <?php echo $this->ciselniky['podskladyModel']->getNazov($this->prijem['podsklad_enum']); // render the user name field here ?>
         </div>
         <div class="col-lg-2">
             dodavatel
-            <?php echo $this->prijem['dodavatel_enum']; // render the user name field here ?>
+            <?php echo $this->ciselniky['dodavateliaModel']->getNazov($this->prijem['dodavatel_enum']); // render the user name field here ?>
         </div>
     </div>
 
@@ -31,19 +33,35 @@
 
         <div class="col-lg-2">
             prepravca
-            <?php echo $this->prijem['prepravca_enum']; // render the user name field here ?>
+            <?php echo $this->ciselniky['prepravciModel']->getNazov($this->prijem['prepravca_enum']); // render the user name field here ?>
         </div>
         <div class="col-lg-2">
             spz
             <?php echo $this->prijem['prepravca_spz']; // render the user name field here ?>
         </div>
         <div class="col-lg-2">
-            tony merane
+            tony brutto
+            <?php echo $this->prijem['q_tony_merane_brutto']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            tony tara
+            <?php echo $this->prijem['q_tony_merane_tara']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            tony netto
             <?php echo $this->prijem['q_tony_merane']; // render the user name field here ?>
         </div>
         <div class="col-lg-2">
             tony nadrozmer
             <?php echo $this->prijem['q_tony_nadrozmer']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            PRM
+            <?php echo $this->prijem['q_prm_merane']; // render the user name field here ?>
+        </div>
+        <div class="col-lg-2">
+            m3
+            <?php echo $this->prijem['q_m3_merane']; // render the user name field here ?>
         </div>
     </div>
 
@@ -52,16 +70,12 @@
     <div class="row">
 
         <div class="col-lg-2">
-            doklad typ
-            <?php echo $this->prijem['doklad_typ_enum']; // render the user name field here ?>
-        </div>
-        <div class="col-lg-2">
             material typ
-            <?php echo $this->prijem['material_typ_enum']; // render the user name field here ?>
+            <?php echo $this->ciselniky['materialyTypyModel']->getNazov($this->prijem['material_typ_enum']); // render the user name field here ?>
         </div>
         <div class="col-lg-2">
             material druh
-            <?php echo $this->prijem['material_druh_enum']; // render the user name field here ?>
+            <?php echo $this->ciselniky['materialyDruhyModel']->getNazov($this->prijem['material_druh_enum']); // render the user name field here ?>
         </div>
         <div class="col-lg-2">
             chyba
@@ -78,7 +92,7 @@
         </div>
         <div class="col-lg-2">
             stav
-            <?php echo $this->prijem['stav_transakcie']; // render the user name field here ?>
+            <?php echo $this->ciselniky['transakcieStavyModel']->getNazov($this->prijem['stav_transakcie']); // render the user name field here ?>
         </div>
 
     </div>
