@@ -123,6 +123,7 @@ class Application_Form_Prijem extends Zend_Form
             $potvrdzujuceTlacidlo
         ));
 
+//        var_dump($_SESSION);
     }
 
 

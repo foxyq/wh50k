@@ -348,3 +348,6 @@ td.center img{
     padding: 6px;
     border-radius: 12px;
 }
+.normal label {
+    font-weight: 400;
+}
