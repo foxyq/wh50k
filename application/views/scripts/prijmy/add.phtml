@@ -1,5 +1,137 @@
 <h2 >Príjmy - vytvoriť nový</h2>
 <!--<hr>-->
+
+
+
+<script>
+
+
+    function isEmpty(str){
+
+        if(document.getElementById(str).value == "")
+        {
+            return true;
+        }
+        return false;
+
+    }
+
+    $(document).ready(function(){
+
+
+        $(".in").keyup(function(){
+
+            var tonym = +$("#q_tony_merane").val();
+            var tonyb = +$("#q_tony_brutto").val();
+
+            var tonyt = +$("#q_tony_tara").val();
+            var m3 = +$("#q_m3_merane").val();
+            var prm = +$("#q_prm_merane").val();
+
+            var tony2m3 = 2;
+            var tony2prm = 3;
+
+            var m32tony = 0.5;
+            var m32prm = 5;
+
+            var prm2tony = 1.5;
+            var prm2m3 = 2.5;
+
+            var nula = "";
+
+
+//            vyplnam tony
+            if ( !isEmpty("q_tony_brutto") || !isEmpty("q_tony_tara") || !isEmpty("q_tony_nadrozmer")
+            && ( isEmpty("q_prm_merane") || isEmpty("q_m3_merane") )   ) {
+//            disable na prm a m3
+                document.getElementById('q_m3_merane').readOnly = true;
+                document.getElementById('q_prm_merane').readOnly = true;
+
+                $("#q_tony_merane").val(tonyb - tonyt);
+
+                $("#q_prm_merane").val( (tonyb - tonyt ) * tony2prm);
+                $("#q_m3_merane").val( (tonyb - tonyt ) * tony2m3);
+            }
+
+//          nevyplnam tony
+            if ( isEmpty("q_tony_brutto") && isEmpty("q_tony_tara") && isEmpty("q_tony_nadrozmer")
+                && !isEmpty("q_m3_merane") &&  !isEmpty("q_prm_merane") ) {
+//            disable na prm a m3
+                document.getElementById('q_m3_merane').readOnly = false;
+                document.getElementById('q_prm_merane').readOnly = false;
+
+                $("#q_tony_merane").val(nula);
+                $("#q_prm_merane").val( nula);
+                $("#q_m3_merane").val( nula );
+
+            }
+
+
+
+//            vyplnam m3
+            if ( !isEmpty("q_m3_merane") && isEmpty("q_tony_brutto") && isEmpty("q_tony_tara") &&
+                isEmpty("q_tony_brutto") && isEmpty("q_tony_nadrozmer") && isEmpty("q_prm_merane")) {
+//            disable na prm a tony
+                document.getElementById('q_tony_brutto').readOnly = true;
+                document.getElementById('q_tony_tara').readOnly = true;
+                document.getElementById('q_tony_merane').readOnly = true;
+                document.getElementById('q_tony_nadrozmer').readOnly = true;
+                document.getElementById('q_prm_merane').readOnly = true;
+
+                $("#q_tony_merane").val( m3 * m32tony);
+                $("#q_prm_merane").val( m3 * m32prm);
+            }
+
+            if ( isEmpty("q_m3_merane") && isEmpty("q_tony_brutto") && isEmpty("q_tony_tara") &&
+                 isEmpty("q_tony_nadrozmer") && isEmpty("q_prm_merane") ) {
+//            disable na prm a tony
+                document.getElementById('q_tony_brutto').readOnly = false;
+                document.getElementById('q_tony_tara').readOnly = false;
+                document.getElementById('q_tony_merane').readOnly = false;
+                document.getElementById('q_tony_nadrozmer').readOnly = false;
+                document.getElementById('q_prm_merane').readOnly = false ;
+
+                $("#q_tony_merane").val(nula);
+                $("#q_prm_merane").val( nula);
+                $("#q_m3_merane").val( nula );
+
+            }
+            //vyplnam prm
+            if ( !isEmpty("q_prm_merane") && isEmpty("q_tony_brutto") && isEmpty("q_tony_tara") &&
+                isEmpty("q_tony_brutto") && isEmpty("q_tony_nadrozmer") && isEmpty("q_m3_merane")) {
+//            disable na m3 a tony
+                document.getElementById('q_tony_brutto').readOnly = true;
+                document.getElementById('q_tony_tara').readOnly = true;
+                document.getElementById('q_tony_merane').readOnly = true;
+                document.getElementById('q_tony_nadrozmer').readOnly = true;
+                document.getElementById('q_m3_merane').readOnly = true ;
+
+
+                $("#q_tony_merane").val( prm * prm2tony);
+//                $("#q_m3_merane").val( m3 * m32tony);
+            }
+
+            if ( isEmpty("q_prm_merane") && isEmpty("q_tony_brutto") && isEmpty("q_tony_tara") &&
+                isEmpty("q_tony_brutto") && isEmpty("q_tony_nadrozmer") && isEmpty("q_m3_merane") ) {
+//            disable na prm a tony
+                document.getElementById('q_tony_brutto').readOnly = false;
+                document.getElementById('q_tony_tara').readOnly = false;
+                document.getElementById('q_tony_merane').readOnly = false;
+                document.getElementById('q_tony_nadrozmer').readOnly = false;
+                document.getElementById('q_m3_merane').readOnly = false ;
+
+                $("#q_tony_merane").val(nula);
+                $("#q_prm_merane").val( nula);
+                $("#q_m3_merane").val( nula );
+            }
+
+
+
+        });
+    });
+
+</script>
+
 <div class="col-lg-5">
     <div class="panel panel-green">
         <div class="panel-heading">
@@ -182,36 +314,6 @@
                 </div>
 <!--                --><?php //echo $this->form->doklad_typ_enum; // render the user name field here ?>
         </form>
-
-
-
-
-<script>
-    $(document).ready(function(){
-        $(".input").keyup(function(){
-            var tonym = +$(".tonym").val();
-            var tonyv = +$(".tonyv").val();
-
-            var prmm = +$(".prmm").val();
-            var prmv = +$(".prmv").val();
-
-            $(".tonyv").val(2*prmm);
-            $(".prmv").val((1/2)*tonym);
-
-
-//            $("#result").val(val1+val2);
-        });
-    });
-
-</script>
-<!---->
-<!---->
-<!--tony merane <input type="text" class="input tonym"> <br>-->
-<!--tony vypocet <input type="text" class="input tonyv" disabled><br>-->
-<!--<br>-->
-<!--prm merane <input type="text" class="input prmm"><br>-->
-<!--prm vypocet <input type="text" class="input prmv" disabled><br>-->
-<!---->
 
 
 
