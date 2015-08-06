@@ -66,6 +66,8 @@ class PrijmyController extends Zend_Controller_Action
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
 
+
+
         //metoda ktorou vytiahneme do premennej zoznam
         $skladyMoznosti = $skladyMoznosti->getMoznosti();
         $podskladyMoznosti = $podskladyMoznosti->getMoznosti();
@@ -110,6 +112,10 @@ class PrijmyController extends Zend_Controller_Action
                 $prepravca_spz = $form->getValue('prepravca_spz');
                 $q_tony_merane = $form->getValue('q_tony_merane');
                 $q_tony_nadrozmer = $form->getValue('q_tony_nadrozmer');
+                $q_tony_brutto = $form->getValue('q_tony_brutto');
+                $q_tony_tara = $form->getValue('q_tony_tara');
+                $q_m3_merane = $form->getValue('q_m3_merane');
+                $q_prm_merane = $form->getValue('q_prm_merane');
                 $doklad_typ = $form->getValue('doklad_typ_enum');
                 $material_typ = $form->getValue('material_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
@@ -132,6 +138,10 @@ class PrijmyController extends Zend_Controller_Action
                     $prepravca_spz,
                     $q_tony_merane,
                     $q_tony_nadrozmer,
+                    $q_tony_brutto,
+                    $q_tony_tara,
+                    $q_m3_merane,
+                    $q_prm_merane,
                     $doklad_typ,
                     $material_typ,
                     $material_druh,
@@ -142,13 +152,8 @@ class PrijmyController extends Zend_Controller_Action
 
                 //pageManager
                 $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+//              $this->_helper->redirector('list');
 
-
-                //$this->_helper->redirector('list');
-
-
-
-                //$this->_helper->redirector('preview', 'prijmy', null, array('id' => 1));
             } else {
 
 
@@ -222,6 +227,8 @@ class PrijmyController extends Zend_Controller_Action
                 $prepravca_spz = $form->getValue('prepravca_spz');
                 $q_tony_merane = $form->getValue('q_tony_merane');
                 $q_tony_nadrozmer = $form->getValue('q_tony_nadrozmer');
+                $q_m3_merane = $form->getValue('q_m3_merane');
+                $q_prm_merane = $form->getValue('q_prm_merane');
                 $doklad_typ = $form->getValue('doklad_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
                 $material_typ = $form->getValue('material_typ_enum');
@@ -242,6 +249,8 @@ class PrijmyController extends Zend_Controller_Action
                     $prepravca_spz,
                     $q_tony_merane,
                     $q_tony_nadrozmer,
+                    $q_m3_merane,
+                    $q_prm_merane,
                     $doklad_typ,
                     $material_druh,
                     $material_typ,

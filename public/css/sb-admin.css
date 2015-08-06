@@ -260,10 +260,6 @@ ul.alert-dropdown {
 .panel-aqua a:hover {
     color: #04B4AE;
 }
-
-
-
-
 #hide,
 .hide{
     display: none;
@@ -344,8 +340,10 @@ td.center img{
     float: none;
 }
 #notif-number{
-    background: rgba(61, 70, 249, 0.51);
+    background: #fff;
     padding: 6px;
+    color: #000;
+    margin-right: 5px;
     border-radius: 12px;
 }
 .normal label {
