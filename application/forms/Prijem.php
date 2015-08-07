@@ -59,7 +59,7 @@ class Application_Form_Prijem extends Zend_Form
 
 
         $q_tony_merane = new Zend_Form_Element_Text('q_tony_merane');
-        $q_tony_merane->setLabel('Tony merané')
+        $q_tony_merane->setLabel('Tony netto')
             ->setAttrib('class', 'form-control in');
 
         $q_tony_brutto = new Zend_Form_Element_Text('q_tony_brutto');
@@ -68,7 +68,10 @@ class Application_Form_Prijem extends Zend_Form
 
         $q_tony_tara = new Zend_Form_Element_Text('q_tony_tara');
         $q_tony_tara->setLabel('Tony tara')
+            ->addFilter('LocalizedToNormalized')
+            ->addValidator('float', true, array('locale' => 'sk'))
             ->setAttrib('class', 'form-control in');
+
 
         $q_tony_nadrozmer = new Zend_Form_Element_Text('q_tony_nadrozmer');
         $q_tony_nadrozmer->setLabel('Tony nadrozmer')

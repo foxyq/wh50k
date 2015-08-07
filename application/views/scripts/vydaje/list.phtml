@@ -85,6 +85,12 @@ $vydaje_e = $notif_info['vydaje_errors'];
         'action'=>'add'));?>" type="button" class="btn btn-success">
         Pridať výdaj
     </a>
+
+    <a href="<?php echo $this->url(array('controller'=>'Vydaje',
+        'action'=>'list'));?>" type="button" class="btn btn-info">
+        Všetky výdaje
+    </a>
+
 <?php if ($vydaje_w >0) { ?>
     <a href="<?php echo $this->url(array(
         'controller' => 'vydaje',
