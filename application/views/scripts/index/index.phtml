@@ -16,8 +16,8 @@ $storage = Zend_Auth::getInstance()->getStorage()->read();
 print_r($storage);
 */
 //$pomocna = Zend_controller_Front::getInstance()->getRequest()->getModuleName();
-$pomocna = new Application_Model_DbTable_MaterialyDruhy();
-$pomocna = $pomocna->getKonverzia('prm_ton', null);
+$pomocna = new Application_Model_DbTable_UbytkyHmotnosti();
+$pomocna = $pomocna->getLastXValues(1, 30);
 
 print_r($pomocna);
 

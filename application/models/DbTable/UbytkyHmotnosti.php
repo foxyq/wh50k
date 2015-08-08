@@ -114,8 +114,11 @@ class Application_Model_DbTable_UbytkyHmotnosti extends Zend_Db_Table_Abstract
 
         $poslednychXHodnotVystup = array();
 
+        $counter = 0;
         foreach ($poslednychXHodnot as $polozka){
-            $poslednychXHodnotVystup[]=$polozka['q_konecny_stav_tony'];
+            $poslednychXHodnotVystup[$counter]['datum']=$polozka['datum_ubytku_d'];
+            $poslednychXHodnotVystup[$counter]['stav']=$polozka['q_konecny_stav_tony'];
+            $counter++;
         }
 
         ksort($poslednychXHodnotVystup);
