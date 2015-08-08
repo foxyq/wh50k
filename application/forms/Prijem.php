@@ -60,33 +60,40 @@ class Application_Form_Prijem extends Zend_Form
 
         $q_tony_merane = new Zend_Form_Element_Text('q_tony_merane');
         $q_tony_merane->setLabel('Tony netto')
-            ->setAttrib('class', 'form-control in');
+            ->setAttrib('class', 'form-control in')
+            ->setAttrib('tabindex', '-1');
+
 
         $q_tony_brutto = new Zend_Form_Element_Text('q_tony_brutto');
         $q_tony_brutto->setLabel('Tony brutto')
-            ->setAttrib('class', 'form-control in');
+            ->setAttrib('class', 'form-control in')
+            ->setAttrib('tabindex', '-1');
 
         $q_tony_tara = new Zend_Form_Element_Text('q_tony_tara');
         $q_tony_tara->setLabel('Tony tara')
 //            ->addFilter('LocalizedToNormalized')
 //            ->addValidator('float', true, array('locale' => 'sk_SK'))
-            ->setAttrib('class', 'form-control in');
+            ->setAttrib('class', 'form-control in')
+            ->setAttrib('tabindex', '-1');
 
 
         $q_tony_nadrozmer = new Zend_Form_Element_Text('q_tony_nadrozmer');
         $q_tony_nadrozmer->setLabel('Tony nadrozmer')
-            ->setAttrib('class', 'form-control in');
+            ->setAttrib('class', 'form-control in')
+            ->setAttrib('tabindex', '-1');
 
 
 
 
         $q_m3_merane = new Zend_Form_Element_Text('q_m3_merane');
         $q_m3_merane->setLabel('Merané m3' )
-            ->setAttrib('class', 'form-control in');
+            ->setAttrib('class', 'form-control in')
+            ->setAttrib('tabindex', '-1');
 
         $q_prm_merane = new Zend_Form_Element_Text('q_prm_merane');
         $q_prm_merane->setLabel('Merané PRM')
-            ->setAttrib('class', 'form-control in');
+            ->setAttrib('class', 'form-control in')
+            ->setAttrib('tabindex', '-1');
 
 
 
