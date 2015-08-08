@@ -1,77 +1,171 @@
-<?php
-$this->headTitle($this->title);
-
-?>
-<p>Naozaj chcete zmazať výdaj <?php echo $this->vydaj['doklad_cislo'];?>?</p>
-
-<div class="col-lg-2">datum:
-    <?php echo $this->vydaj['datum_vydaju_d']; // render the user name field here ?>
-</div>
-<div class="col-lg-2">sklad:
-    <?php echo $this->ciselniky['skladyModel']->getNazov($this->vydaj['sklad_enum']); // render the user name field here ?>
-</div>
-<div class="col-lg-2">podsklad:
-    <?php echo $this->ciselniky['podskladyModel']->getNazov($this->vydaj['podsklad_enum']); // render the user name field here ?>
-</div>
-<div class="col-lg-2">zakaznik
-    <?php echo $this->ciselniky['zakazniciModel']->getNazov($this->vydaj['zakaznik_enum']); // render the user name field here ?>
-</div>
-</div>
-
-
-<div class="row">
-    <div class="col-lg-2">prepravca
-        <?php echo $this->ciselniky['prepravciModel']->getNazov($this->vydaj['prepravca_enum']); // render the user name field here ?>
-    </div>
-    <div class="col-lg-2">spz
-        <?php echo $this->vydaj['prepravca_spz']; // render the user name field here ?>
-    </div>
-        <div class="col-lg-2">stroj
-            <?php echo $this->ciselniky['strojeModel']->getNazov($this->vydaj['stroj_enum']); // render the user name field here ?>
+<h2 >Zmazať výdaj</h2>
+<!--<hr>-->
+<div class="col-lg-5">
+    <div class="panel panel-red">
+        <div class="panel-heading">
+            <h3 class="panel-title">Detail transakcie  <?php echo $this->vydaj['doklad_cislo'];?></h3>
         </div>
-    <div class="col-lg-2">tony netto
-        <?php echo $this->vydaj['q_tony_merane']; // render the user name field here ?>
-    </div>
-    <div class="col-lg-2">PRM
-        <?php echo $this->vydaj['q_prm_merane']; // render the user name field here ?>
-    </div>
-    <div class="col-lg-2">m3
-        <?php echo $this->vydaj['q_m3_merane']; // render the user name field here ?>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-lg-2">typ materialu
-        <?php echo $this->ciselniky['materialyTypyModel']->getNazov($this->vydaj['material_typ_enum']); // render the user name field here ?>
-    </div>
-    <div class="col-lg-2">druh materialu
-        <?php echo $this->ciselniky['materialyDruhyModel']->getNazov($this->vydaj['material_druh_enum']); // render the user name field here ?>
-    </div>
-    <div class="col-lg-2">poznamka
-        <?php echo $this->vydaj['poznamka']; // render the user name field here ?>
-    </div>
-</div>
-
-
-<div class="row">
-
-    <div class="col-lg-2">stav transakcie
-        <?php echo $this->vydaj['stav_transakcie']; // render the user name field here ?>
-    </div>
-    <div class="col-lg-2">chyba
-        <?php echo $this->vydaj['chyba']; // render the user name field here ?>
-    </div>
-
-</div>
+        <div class="panel-body">
 
 
 
-<form action="<?php echo $this->url(array('action'=>'delete')); ?>"
-      method="post">
-    <div>
-        <input type="hidden" name="ts_vydaje_id" value="<?php echo $this->vydaj['ts_vydaje_id']; ?>" />
-        <input type="submit" name="del" value="Yes" class="btn btn-success" />
-        <input type="submit" name="del" value="No" class="btn btn-warning"/>
+
+            <!--        <div class="col-lg-6">-->
+            <!--            id-->
+            <!--            --><?php //echo $this->prijem['ts_prijmy_id']; // render the user name field here ?>
+            <!--        </div>-->
+
+
+            <div class="row">
+                <fieldset>
+                    <legend>Dátum výdaju</legend>
+
+                    <div class="col-lg-6">
+                        Dátum:
+                        <?php echo $this->vydaj['datum_vydaju_d']; // render the user name field here ?>
+                    </div>
+                </fieldset>
+            </div>
+            <!---->
+            <div class="row">
+                <fieldset>
+                    <legend>Sklady</legend>
+                    <div class="col-lg-6">
+                        Sklad:
+
+                        <?php echo $this->ciselniky['skladyModel']->getNazov($this->vydaj['sklad_enum']); // render the user name field here ?>
+                    </div>
+
+                    <div class="col-lg-6">
+                        Podsklad:
+                        <?php echo $this->ciselniky['podskladyModel']->getNazov($this->vydaj['podsklad_enum']); // render the user name field here ?>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!--        -->
+            <div class="row">
+                <fieldset>
+                    <legend>Dodanie</legend>
+                    <div class="col-lg-6">
+                        Zákazník:
+                        <?php echo $this->ciselniky['zakazniciModel']->getNazov($this->vydaj['zakaznik_enum']); // render the user name field here ?>
+                    </div>
+
+                    <div class="col-lg-6">
+                        Prepravca:
+                        <?php echo $this->ciselniky['prepravciModel']->getNazov($this->vydaj['prepravca_enum']); // render the user name field here ?>
+                    </div>
+            </div>
+            <!--        -->
+            <div class="row">
+                <div class="col-lg-6">
+                    ŠPZ:
+                    <?php echo $this->vydaj['prepravca_spz']; // render the user name field here ?>
+                </div>
+                </fieldset>
+            </div>
+            <!---->
+
+            <div class="row">
+                <fieldset>
+                    <legend>Množstvo</legend>
+                    <div class="col-lg-6">
+                        Váha:
+                        <?php echo $this->vydaj['q_tony_merane'].' t'; // render the user name field here ?>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        Objem:
+                        <?php echo $this->vydaj['q_m3_merane'].' m<sup>3</sup>'; // render the user name field here ?>
+                    </div>
+
+            </div>
+            <div class="row">
+
+
+                <div class="col-lg-6">
+                    Priestor:
+                    <?php echo $this->vydaj['q_prm_merane'].' PRM'; // render the user name field here ?>
+                </div>
+                </fieldset>
+            </div>
+
+
+            <div class="row">
+                <fieldset>
+                    <legend>Materiál</legend>
+                    <div class="col-lg-6">
+                        Typ:
+                        <?php echo $this->ciselniky['materialyTypyModel']->getNazov($this->vydaj['material_typ_enum']); // render the user name field here ?>
+                    </div>
+                    <div class="col-lg-6">
+                        Druh:
+                        <?php echo $this->ciselniky['materialyDruhyModel']->getNazov($this->vydaj['material_druh_enum']); // render the user name field here ?>
+                    </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    Využitý stroj:
+                    <?php echo $this->ciselniky['strojeModel']->getNazov($this->vydaj['stroj_enum']); // render the user name field here ?>
+                </div>
+            </div>
+
+            <div class="row">
+                <fieldset>
+                    <legend>Doplňujúce informácie</legend>
+                    <div class="col-lg-6">
+                        Stav:
+                        <?php echo $this->ciselniky['transakcieStavyModel']->getNazov($this->vydaj['stav_transakcie']); // render the user name field here ?>
+                    </div>
+                    <div class="col-lg-6">
+                        Chyba:
+                        <?php if ($this->vydaj['chyba'] == 1 ) echo 'áno';
+                        else echo 'nie'; // render the user name field here ?>
+                    </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    Poznámka:
+                    <?php if ($this->vydaj['poznamka'] == '' || $this->vydaj['poznamka'] == '0' ) echo 'žiadna poznámka';
+                    else echo $this->vydaj['poznamka']; // render the user name field here ?>
+                </div>
+                </fieldset>
+            </div>
+
+
+
+            <br>
+
+            <div class="row">
+                <form action="<?php echo $this->url(array('action'=>'delete')); ?>"
+                      method="post">
+                    <div>
+                        <input type="hidden" name="ts_vydaje_id" value="<?php echo $this->vydaj['ts_vydaje_id']; ?>" />
+
+
+                        <div class="col-lg-6 tright">
+
+                            <input type="submit" name="del" value="Yes" class="btn btn-danger" />
+
+                        </div>
+
+
+                        <div class="col-lg-6">
+
+                            <input type="submit" name="del" value="No" class="btn btn-warning form-control"/>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
-</form>
+

@@ -1,7 +1,7 @@
 <h2 xmlns="http://www.w3.org/1999/html">Príjmy - detail</h2>
 <!--<hr>-->
 <div class="col-lg-5">
-    <div class="panel panel-primary">
+    <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">Detail transakcie <?php echo $this->prijem['doklad_cislo'];?></h3>
         </div>
@@ -159,7 +159,7 @@
                     <a href="<?php echo $this->url(array('controller'=>'prijmy',
                         'action'=>'print',
                         'id'=>$this->prijem['ts_prijmy_id'], 'cislo_listku'=>$prijem->doklad_cislo,
-                        'spz'=>$prijem->prepravca_spz ));?>" target="_blank" class="btn-primary btn" >
+                        'spz'=>$prijem->prepravca_spz ));?>" target="_blank" class="btn-info btn" >
 
                         <?php //echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
                         Tlačiť

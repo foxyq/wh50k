@@ -199,8 +199,10 @@ class VydajeController extends Zend_Controller_Action
         $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
         $strojeMoznosti = $stroje->getMoznosti();
 
+
+
         //samostatne premenne ktore posielame na form
-        $potvrdzujuceTlacidlo = 'Vložiť';
+        $potvrdzujuceTlacidlo = 'Upraviť';
 
 
         $form = new Application_Form_Vydaj(array(
@@ -234,6 +236,8 @@ class VydajeController extends Zend_Controller_Action
                 $prepravca = $form->getValue('prepravca_enum');
                 $prepravca_spz = $form->getValue('prepravca_spz');
                 $q_tony_merane = $form->getValue('q_tony_merane');
+                $q_m3_merane = $form->getValue('q_m3_merane');
+                $q_prm_merane = $form->getValue('q_prm_merane');
                 $doklad_typ = $form->getValue('doklad_typ_enum');
                 $material_typ = $form->getValue('material_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
@@ -252,6 +256,8 @@ class VydajeController extends Zend_Controller_Action
                     $prepravca,
                     $prepravca_spz,
                     $q_tony_merane,
+                    $q_m3_merane,
+                    $q_prm_merane,
                     $doklad_typ,
                     $material_typ,
                     $material_druh,
@@ -302,6 +308,8 @@ class VydajeController extends Zend_Controller_Action
         $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
 
+
+
         $ciselniky = array(
             'skladyModel' => $skladyModel,
             'podskladyModel' => $podskladyModel,
@@ -311,7 +319,8 @@ class VydajeController extends Zend_Controller_Action
             'dokladyTypyModel' => $dokladyTypyModel,
             'materialyTypyModel' => $materialyTypyModel,
             'materialyDruhyModel' => $materialyDruhyModel,
-            'transakcieStavyModel' => $transakcieStavyModel
+            'transakcieStavyModel' => $transakcieStavyModel,
+            'strojeMoznosti' => $strojeModel
         );
 
         $this->view->ciselniky = $ciselniky;
