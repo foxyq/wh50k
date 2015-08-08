@@ -230,7 +230,7 @@ class PrijmyController extends Zend_Controller_Action
                 $q_tony_nadrozmer = $form->getValue('q_tony_nadrozmer');
                 $q_m3_merane = $form->getValue('q_m3_merane');
                 $q_prm_merane = $form->getValue('q_prm_merane');
-                $doklad_typ = $form->getValue('doklad_typ_enum');
+//                $doklad_typ = $form->getValue('doklad_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
                 $material_typ = $form->getValue('material_typ_enum');
                 $poznamka = $form->getValue('poznamka');
@@ -252,7 +252,7 @@ class PrijmyController extends Zend_Controller_Action
                     $q_tony_nadrozmer,
                     $q_m3_merane,
                     $q_prm_merane,
-                    $doklad_typ,
+//                    $doklad_typ,
                     $material_druh,
                     $material_typ,
                     $poznamka,
@@ -291,7 +291,7 @@ class PrijmyController extends Zend_Controller_Action
         $prepravciModel = new Application_Model_DbTable_Prepravci();
         $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
         $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
-        $materialyDruhyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
 
         $ciselniky = array(
@@ -360,7 +360,7 @@ class PrijmyController extends Zend_Controller_Action
         $prepravciModel = new Application_Model_DbTable_Prepravci();
         $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
         $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
-        $materialyDruhyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
 
         $ciselniky = array(

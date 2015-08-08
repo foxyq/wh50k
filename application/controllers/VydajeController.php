@@ -68,6 +68,7 @@ class VydajeController extends Zend_Controller_Action
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+        $stroje = new Application_Model_DbTable_Stroje();
 
         //metoda ktorou vytiahneme do premennej zoznam
         $skladyMoznosti = $skladyMoznosti->getMoznosti();
@@ -78,6 +79,8 @@ class VydajeController extends Zend_Controller_Action
         $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
         $materialyTypyMoznosti = $materialyTypy->getMoznosti();
         $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
+        $strojeMoznosti = $stroje->getMoznosti();
+
 
 
         //samostatne premenne ktore posielame na form
@@ -92,7 +95,8 @@ class VydajeController extends Zend_Controller_Action
             'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
             'materialyTypyMoznosti' => $materialyTypyMoznosti,
             'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
-            'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
+            'strojeMoznosti' => $strojeMoznosti,
+            'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo,
         ));
 
         $this->view->form = $form;
@@ -115,9 +119,12 @@ class VydajeController extends Zend_Controller_Action
                 $prepravca = $form->getValue('prepravca_enum');
                 $prepravca_spz = $form->getValue('prepravca_spz');
                 $q_tony_merane = $form->getValue('q_tony_merane');
+                $q_m3_merane = $form->getValue('q_m3_merane');
+                $q_prm_merane = $form->getValue('q_prm_merane');
                 $doklad_typ = $form->getValue('doklad_typ_enum');
                 $material_typ = $form->getValue('material_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
+                $stroj = $form->getValue('stroj_enum');
                 $poznamka = $form->getValue('poznamka');
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
@@ -137,9 +144,12 @@ class VydajeController extends Zend_Controller_Action
                     $prepravca,
                     $prepravca_spz,
                     $q_tony_merane,
+                    $q_m3_merane,
+                    $q_prm_merane,
                     $doklad_typ,
                     $material_typ,
                     $material_druh,
+                    $stroj,
                     $poznamka,
                     $chyba,
                     $stav_transakcie,
@@ -175,6 +185,8 @@ class VydajeController extends Zend_Controller_Action
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+        $stroje = new Application_Model_DbTable_Stroje();
+
 
         //metoda ktorou vytiahneme do premennej zoznam
         $skladyMoznosti = $skladyMoznosti->getMoznosti();
@@ -185,7 +197,7 @@ class VydajeController extends Zend_Controller_Action
         $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
         $materialyTypyMoznosti = $materialyTypy->getMoznosti();
         $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
-
+        $strojeMoznosti = $stroje->getMoznosti();
 
         //samostatne premenne ktore posielame na form
         $potvrdzujuceTlacidlo = 'Vložiť';
@@ -200,6 +212,7 @@ class VydajeController extends Zend_Controller_Action
             'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
             'materialyTypyMoznosti' => $materialyTypyMoznosti,
             'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
+            'strojeMoznosti' => $strojeMoznosti,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
         ));
 
@@ -224,6 +237,7 @@ class VydajeController extends Zend_Controller_Action
                 $doklad_typ = $form->getValue('doklad_typ_enum');
                 $material_typ = $form->getValue('material_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
+                $stroj = $form->getValue('stroj_enum');
                 $poznamka = $form->getValue('poznamka');
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
@@ -241,6 +255,7 @@ class VydajeController extends Zend_Controller_Action
                     $doklad_typ,
                     $material_typ,
                     $material_druh,
+                    $stroj,
                     $poznamka,
                     $chyba,
                     $stav_transakcie);
@@ -284,7 +299,7 @@ class VydajeController extends Zend_Controller_Action
 
         $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
         $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
-        $materialyDruhyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
 
         $ciselniky = array(
@@ -348,7 +363,7 @@ class VydajeController extends Zend_Controller_Action
 
         $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
         $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
-        $materialyDruhyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
 
         $ciselniky = array(

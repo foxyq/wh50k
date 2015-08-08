@@ -68,8 +68,8 @@ class Application_Form_Prijem extends Zend_Form
 
         $q_tony_tara = new Zend_Form_Element_Text('q_tony_tara');
         $q_tony_tara->setLabel('Tony tara')
-            ->addFilter('LocalizedToNormalized')
-            ->addValidator('float', true, array('locale' => 'sk'))
+//            ->addFilter('LocalizedToNormalized')
+//            ->addValidator('float', true, array('locale' => 'sk_SK'))
             ->setAttrib('class', 'form-control in');
 
 
@@ -107,7 +107,8 @@ class Application_Form_Prijem extends Zend_Form
         $material_druh = new Zend_Form_Element_Select('material_druh_enum');
         $material_druh->setMultiOptions($this->getAttrib('materialyDruhyMoznosti'));
         $material_druh->setLabel('Materiál druh')
-            ->setAttrib('class', 'form-control');
+            ->setAttrib('class', 'form-control')
+            ->setAttrib('onchange', 'getComboA(this)');
 
         $poznamka = new Zend_Form_Element_Text('poznamka');
         $poznamka->setLabel('Poznámka')
@@ -141,7 +142,7 @@ class Application_Form_Prijem extends Zend_Form
             $q_tony_tara,
             $q_m3_merane,
             $q_prm_merane,
-            $doklad_typ,
+//            $doklad_typ,
             $material_druh,
             $material_typ,
             $poznamka,

@@ -88,11 +88,11 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         $prepravca_spz,
         $q_tony_merane,
         $q_tony_nadrozmer,
-        $q_tony_brutto,
-        $q_tony_tara,
+//        $q_tony_brutto,
+//        $q_tony_tara,
         $q_m3_merane,
         $q_prm_merane,
-        $doklad_typ,
+//        $doklad_typ,
         $material_druh,
         $material_typ,
         $poznamka,
@@ -110,17 +110,18 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
             'q_tony_nadrozmer' => $q_tony_nadrozmer,
 //            'q_tony_merane_brutto' => $q_tony_brutto,
 //            'q_tony_merane_tara' => $q_tony_tara,
-//            'q_m3_merane' => $q_m3_merane,
-//            'q_prm_merane' => $q_prm_merane,
-            'doklad_typ_enum' => $doklad_typ,
-            'material_typ_enum' => $material_typ,
+            'q_m3_merane' => $q_m3_merane,
+            'q_prm_merane' => $q_prm_merane,
+//            'doklad_typ_enum' => $doklad_typ,
             'material_druh_enum' => $material_druh,
+            'material_typ_enum' => $material_typ,
             'poznamka' => $poznamka,
             'chyba' => $chyba,
             'stav_transakcie' => $stav_transakcie,
 
             'vytvoril_u' => 1,
-            'posledna_uprava_u' =>  1
+            'posledna_uprava_u' =>  1,
+
 
         );
         $this->update($data, 'ts_prijmy_id ='. (int)$id);

@@ -61,10 +61,12 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         //$prepravca_spz->addValidator('regex', false, array('^(B(A|B|C|J|L|N|R|S|Y)|CA|D(K|S|T)|G(A|L)|H(C|E)|IL|K(A|I|E|K|M|N|S)|L(E|C|M|V)|M(A|I|L|T|Y)|N(I|O|M|R|Z)|P(B|D|E|O|K|N|P|T|U|V)|R(A|K|S|V)|S(A|B|C|E|I|K|L|O|N|P|V)|T(A|C|N|O|R|S|T|V)|V(K|T)|Z(A|C|H|I|M|V))([ ]{0,1})([0-9]{3})([A-Z]{2})$'));
 
 
-        $stroj_enum = new Zend_Dojo_Form_Element_NumberSpinner('$stroj_enum');
-        $stroj_enum->addFilter('Int')
-            ->setAttrib('class', 'form-control');
-//
+        $stroj_enum = new Zend_Form_Element_Select('$stroj_enum');
+        $stroj_enum->setMultiOptions($this->getAttrib('strojeMoznosti'));
+        $stroj_enum->setLabel('Stroj');
+        $stroj_enum->setAttrib('class', 'form-control');
+
+
 //        $q_tony_merane_brutto = new Zend_Dojo_Form_Element_NumberSpinner('$q_tony_merane_brutto ');
 //        $q_tony_merane_brutto ->addFilter('Int');
 //
@@ -74,14 +76,18 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
 //        $q_tony_vypocet= new Zend_Dojo_Form_Element_NumberSpinner('$q_tony_vypocet ');
 //        $q_tony_vypocet ->addFilter('Int');
 //
-//        $q_m3_merane = new Zend_Dojo_Form_Element_NumberSpinner('$q_m3_merane ');
-//        $q_m3_merane ->addFilter('Int');
+        $q_m3_merane = new Zend_Dojo_Form_Element_NumberSpinner('$q_m3_merane ');
+        $q_m3_merane
+            ->setLabel('Merané m3')
+            ->setAttrib('class', 'form-control');
 //
 //        $q_m3_vypocet = new Zend_Dojo_Form_Element_NumberSpinner('$q_m3_vypocet');
 //        $q_m3_vypocet->addFilter('Int');
 //
-//        $q_prm_merane = new Zend_Dojo_Form_Element_NumberSpinner('$q_prm_merane');
-//        $q_prm_merane->addFilter('Int');
+        $q_prm_merane = new Zend_Dojo_Form_Element_NumberSpinner('$q_prm_merane');
+        $q_prm_merane
+            ->setLabel('PRM merané')
+            ->setAttrib('class', 'form-control');
 //
 //        $q_prm_vypocet = new Zend_Dojo_Form_Element_NumberSpinner('$q_prm_vypocet');
 //        $q_prm_vypocet->addFilter('Int');
@@ -136,7 +142,10 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
             $prepravca,
             $prepravca_spz,
             $q_tony_merane,
+            $q_m3_merane,
+            $q_prm_merane,
             $doklad_typ,
+            $stroj_enum,
             $material_druh,
             $material_typ,
             $poznamka,

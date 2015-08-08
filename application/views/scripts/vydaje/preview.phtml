@@ -18,7 +18,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Dátum príjmu</legend>
+                    <legend>Dátum výdaju</legend>
 
                     <div class="col-lg-6">
                         Dátum:
@@ -71,40 +71,27 @@
                 <fieldset>
                     <legend>Množstvo</legend>
                     <div class="col-lg-6">
-                        Netto:
-                        <?php echo $this->vydaj['q_tony_merane'].'t'; // render the user name field here ?>
+
+                        <?php echo $this->vydaj['q_tony_merane'].' t'; // render the user name field here ?>
                     </div>
 
 
                     <div class="col-lg-6">
 
+                        <?php echo $this->vydaj['q_m3_merane'].' m<sup>3</sup>'; // render the user name field here ?>
                     </div>
 
             </div>
             <div class="row">
-                <div class="col-lg-6">
-                    Brutto:
-                    <?php echo $this->vydaj['q_tony_merane_brutto'].'t'; // render the user name field here ?>
-                </div>
+
 
                 <div class="col-lg-6">
 
-                    <?php echo $this->vydaj['q_prm_merane'].'PRM'; // render the user name field here ?>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    Tara
-                    <?php echo $this->vydaj['q_tony_merane_tara'].'t'; // render the user name field here ?>
-                </div>
-
-                <div class="col-lg-6">
-
-                    <?php echo $this->vydaj['q_m3_merane'].'m<sup>3</sup>'; // render the user name field here ?>
+                    <?php echo $this->vydaj['q_prm_merane'].' PRM'; // render the user name field here ?>
                 </div>
                 </fieldset>
             </div>
+
 
             <div class="row">
                 <fieldset>
@@ -121,7 +108,7 @@
             </div>
 
             <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         Využitý stroj:
                         <?php echo $this->ciselniky['strojeModel']->getNazov($this->vydaj['stroj_enum']); // render the user name field here ?>
                     </div>

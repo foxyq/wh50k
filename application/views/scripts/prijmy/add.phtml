@@ -1,8 +1,5 @@
 <h2 >Príjmy - vytvoriť nový</h2>
 <!--<hr>-->
-
-
-
 <script>
 
 
@@ -13,6 +10,30 @@
             return true;
         }
         return false;
+
+    }
+
+
+    function getComboA(sel) {
+        var value = sel.value;
+
+        var tonym = +$("#q_tony_merane").val();
+        var tonyb = +$("#q_tony_brutto").val();
+
+        var tonyt = +$("#q_tony_tara").val();
+        var m3 = +$("#q_m3_merane").val();
+        var prm = +$("#q_prm_merane").val();
+
+        var nula = "";
+
+        $("#q_m3_merane").val( nula );
+        $("#q_tony_brutto").val( nula );
+        $("#q_tony_merane").val( nula );
+        $("#q_tony_tara").val( nula );
+        $("#q_tony_nadrozmer").val( nula );
+        $("#q_prm_merane").val( nula );
+
+
 
     }
 
@@ -68,6 +89,8 @@
             $konverznaTabulka = $materialyDruhyModel->getKonverzieAll();
         ?>
 
+
+
         $(".in").keyup(function(){
             var konverznaTabulka = <?php echo json_encode($konverznaTabulka); ?>;
 
@@ -90,64 +113,6 @@
             var prm2m3 = konverznaTabulka[materialDruh]["prm_m3"];
 
             var nula = "";
-
-//            if $("input#q_tony_brutto").is(":active"); alert("tony");
-
-//            $('input').on("focus", function(){
-
-
-//            });
-
-//
-//            if ( !isEmpty("q_tony_brutto") || !isEmpty("q_tony_tara") || !isEmpty("q_tony_nadrozmer")
-//                && ( isEmpty("q_prm_merane") && isEmpty("q_m3_merane") )
-//                || ( document.getElementById("q_prm_merane").value == "0"
-//                && document.getElementById("q_m3_merane").value == "0"  )
-//            ) {
-////            disable na prm a m3
-////                document.getElementById('q_m3_merane').readOnly = true;
-////                document.getElementById('q_prm_merane').readOnly = true;
-//            }
-//
-
-//
-//
-//
-////            vyplnam m3
-//            if  ( !isEmpty("q_m3_merane")
-//                && (isEmpty("q_tony_tara") && isEmpty("q_tony_brutto")
-//                && isEmpty("q_tony_nadrozmer")  && isEmpty("q_prm_merane"))
-//                || ( document.getElementById("q_tony_tara").value == "0"
-//                    && document.getElementById("q_tony_brutto").value == "0"
-//                    && document.getElementById("q_tony_nadrozmer").value == "0"
-//                    && document.getElementById("q_prm_merane").value == "0" )
-//            ) {
-////            disable na prm a tony
-////                document.getElementById('q_tony_brutto').readOnly = true;
-////                document.getElementById('q_tony_tara').readOnly = true;
-////                document.getElementById('q_tony_nadrozmer').readOnly = true;
-////                document.getElementById('q_prm_merane').readOnly = true;
-//                }
-//
-////            if (  isEmpty("q_m3_merane") )  {
-//            if ( (isEmpty("q_m3_merane") || document.getElementById("q_m3_merane").value == "0") ){
-//                && !isEmpty("q_tony_merane") && !isEmpty("q_prm_merane") ) {
-////                document.getElementById('q_tony_brutto').readOnly = false;
-////                document.getElementById('q_tony_tara').readOnly = false;
-////                document.getElementById('q_tony_nadrozmer').readOnly = false;
-////                document.getElementById('q_prm_merane').readOnly = false ;
-//            }
-//
-//
-//            if ( ( !isEmpty("q_prm_merane") || document.getElementById("q_prm_merane").value == "0" )
-//                && isEmpty("q_tony_merane") && isEmpty("q_m3_merane")) {
-//////            disable na m3 a tony
-////                document.getElementById('q_tony_brutto').readOnly = true;
-////                document.getElementById('q_tony_tara').readOnly = true;
-////                document.getElementById('q_tony_nadrozmer').readOnly = true;
-////                document.getElementById('q_m3_merane').readOnly = true;
-//
-//            }
 
 //
             if($('#q_tony_brutto').is(':focus')) {
@@ -218,93 +183,6 @@
                 $("#q_m3_merane").val( prm * prm2m3);
 
             }
-
-
-
-////            vyplnam tony
-//            if ( !isEmpty("q_tony_brutto") || !isEmpty("q_tony_tara") || !isEmpty("q_tony_nadrozmer")
-//                && ( isEmpty("q_prm_merane") && isEmpty("q_m3_merane") )
-//            ) {
-////            disable na prm a m3
-//                document.getElementById('q_m3_merane').readOnly = true;
-//                document.getElementById('q_prm_merane').readOnly = true;
-//
-//                $("#q_tony_merane").val(tonyb - tonyt);
-//                $("#q_prm_merane").val( (tonyb - tonyt ) * tony2prm);
-//                $("#q_m3_merane").val( (tonyb - tonyt ) * tony2m3);
-//            }
-//
-////          nevyplnam tony
-//            if ( isEmpty("q_tony_brutto") && isEmpty("q_tony_tara") && isEmpty("q_tony_nadrozmer")
-//                && !isEmpty("q_m3_merane") &&  !isEmpty("q_prm_merane") ) {
-////            disable na prm a m3
-//                document.getElementById('q_m3_merane').readOnly = false;
-//                document.getElementById('q_prm_merane').readOnly = false;
-//
-//                $("#q_tony_merane").val(nula);
-//                $("#q_tony_brutto").val( nula);
-//                $("#q_tony_nadrozmer").val( nula);
-//                $("#q_tony_tara").val( nula);
-//                $("#q_prm_merane").val( nula);
-//                $("#q_m3_merane").val( nula );
-////                alert("TONY END");
-//
-//            }
-//
-////            vyplnam m3
-//            if ( ( !isEmpty("q_m3_merane") || document.getElementById("q_m3_merane").value != "0" )
-//                && isEmpty("q_tony_merane") && isEmpty("q_prm_merane")) {
-////            disable na prm a tony
-//                document.getElementById('q_tony_brutto').readOnly = true;
-//                document.getElementById('q_tony_tara').readOnly = true;
-//                document.getElementById('q_tony_merane').readOnly = true;
-//                document.getElementById('q_tony_nadrozmer').readOnly = true;
-//                document.getElementById('q_prm_merane').readOnly = true;
-//
-//                $("#q_tony_merane").val( m3 * m32tony);
-//                $("#q_prm_merane").val( m3 * m32prm);
-//            }
-//
-//            if ( (isEmpty("q_m3_merane") || document.getElementById("q_m3_merane").value == "0") ){
-////                && !isEmpty("q_tony_merane") && !isEmpty("q_prm_merane") ) {
-////            disable na prm a tony
-//                document.getElementById('q_tony_brutto').readOnly = false;
-//                document.getElementById('q_tony_tara').readOnly = false;
-//                document.getElementById('q_tony_nadrozmer').readOnly = false;
-//                document.getElementById('q_prm_merane').readOnly = false ;
-//
-//                $("#q_tony_merane").val(nula);
-////                $("#q_prm_merane").val( nula);
-//                $("#q_m3_merane").val( nula );
-//                $("#q_tony_nadrozmer").val( nula );
-//                alert("m3 END");
-//
-//            }
-//            //vyplnam prm
-//            if ( ( !isEmpty("q_prm_merane") || document.getElementById("q_prm_merane").value != "0" ) && isEmpty("q_tony_merane") && isEmpty("q_m3_merane")) {
-////            disable na m3 a tony
-//                document.getElementById('q_tony_brutto').readOnly = true;
-//                document.getElementById('q_tony_tara').readOnly = true;
-//                document.getElementById('q_tony_merane').readOnly = true;
-//                document.getElementById('q_tony_nadrozmer').readOnly = true;
-//                document.getElementById('q_m3_merane').readOnly = true ;
-//
-//                $("#q_tony_merane").val( prm * prm2tony);
-//                $("#q_m3_merane").val( prm * prm2m3);
-//            }
-//
-//            if ( (isEmpty("q_prm_merane") || document.getElementById("q_prm_merane").value == "0") && !isEmpty("q_tony_merane") && !isEmpty("q_m3_merane") ) {
-////            disable na m3 a tony
-//                document.getElementById('q_tony_brutto').readOnly = false;
-//                document.getElementById('q_tony_tara').readOnly = false;
-//                document.getElementById('q_tony_nadrozmer').readOnly = false;
-//                document.getElementById('q_m3_merane').readOnly = false ;
-//
-//                $("#q_tony_merane").val(nula);
-//                $("#q_prm_merane").val( nula);
-//                $("#q_m3_merane").val( nula );
-//                alert("PRM END ");
-//            }
 
 
         });
@@ -390,7 +268,23 @@
 //            var_dump($moznosti);
             ?>
 <!--                koniec prepoctov .. rozparsovane -->
-            <div class="row">
+
+                <div class="row">
+                    <fieldset>
+                        <legend>Materiál</legend>
+                        <div class="col-lg-6">
+                            <!--                        Typ:-->
+                            <?php echo $this->form->material_typ_enum; // render the user name field here ?>
+                        </div>
+                        <div class="col-lg-6">
+                            <!--                        Druh:-->
+                            <?php echo $this->form->material_druh_enum; // render the user name field here ?>
+                        </div>
+
+                </div>
+
+
+                <div class="row">
                 <fieldset>
                     <legend>Množstvo</legend>
                     <div class="col-lg-6">
@@ -433,19 +327,6 @@
                 </div>
 
 
-            <div class="row">
-                <fieldset>
-                    <legend>Materiál</legend>
-                    <div class="col-lg-6">
-<!--                        Typ:-->
-                        <?php echo $this->form->material_typ_enum; // render the user name field here ?>
-                    </div>
-                    <div class="col-lg-6">
-<!--                        Druh:-->
-                        <?php echo $this->form->material_druh_enum; // render the user name field here ?>
-                    </div>
-
-            </div>
 
 
             <div class="row">

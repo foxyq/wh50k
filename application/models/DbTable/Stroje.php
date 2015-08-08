@@ -60,6 +60,18 @@ class Application_Model_DbTable_Stroje extends Zend_Db_Table_Abstract
         $this->update($data, 'stroje_id = '. (int)$id);
     }
 
+    public function getMoznosti()
+    {
+        $pole = $this->fetchAll()->toArray();
+        $moznosti = array();
+
+        foreach ($pole as $hodnota) {
+            $moznosti[$hodnota['stroje_id']] = $hodnota['nazov_stroja'];
+        }
+
+        return $moznosti;
+    }
+
 
 }
 
