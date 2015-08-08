@@ -11,9 +11,11 @@ class Application_Form_Prijem extends Zend_Form
         $id = new Zend_Form_Element_Hidden('ts_prijmy_id');
         $id->addFilter('Int');
 
-//        povodny textfield datum, fo sho
-//        $datum_prijmu = new Zend_Form_Element_Text('datum_prijmu_d');
-//        $datum_prijmu->setLabel('Dátum príjmu');
+        $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
+        $submitButtonClass = "success";
+        if ($actionName == 'edit'){
+            $submitButtonClass = "primary";
+        }
 //
         $datum_prijmu = new ZendX_JQuery_Form_Element_DatePicker("datum_prijmu_d",
             "12.12.2014", array(), array());
@@ -132,7 +134,7 @@ class Application_Form_Prijem extends Zend_Form
         $potvrdzujuceTlacidlo = new Zend_Form_Element_Submit('potvrdzujuceTlacidlo');
         $potvrdzujuceTlacidlo->setLabel($this->getAttrib('potvrdzujuceTlacidlo'));
         $potvrdzujuceTlacidlo->setAttrib('id', 'submitbutton')
-            ->setAttrib('class', 'form-control btn-success ');
+            ->setAttrib('class', 'form-control btn-'.$submitButtonClass);
 
 
         $this->addElements(array(

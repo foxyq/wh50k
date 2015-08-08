@@ -11,6 +11,12 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $id = new Zend_Form_Element_Hidden('ts_vydaje_id');
         $id->addFilter('Int');
 
+        $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
+        $submitButtonClass = "success";
+        if ($actionName == 'edit'){
+            $submitButtonClass = "primary";
+        }
+
         //echo Zend_Date::now()->toString('yyyy-MM-dd');
 
         $datum_vydaju = new ZendX_JQuery_Form_Element_DatePicker("datum_vydaju_d",
@@ -126,7 +132,7 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $potvrdzujuceTlacidlo = new Zend_Form_Element_Submit('potvrdzujuceTlacidlo');
         $potvrdzujuceTlacidlo->setLabel($this->getAttrib('potvrdzujuceTlacidlo'));
         $potvrdzujuceTlacidlo->setAttrib('id', 'submitbutton')
-            ->setAttrib('class', 'form-control btn-success ');
+            ->setAttrib('class', 'form-control btn-'.$submitButtonClass);
 
 
 
