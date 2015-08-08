@@ -6,12 +6,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 ?>
 
 <script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
-<script src="<?php echo $this->baseUrl().'/js/morris-data.js';?>"></script>
+<!--<script src="--><?php //echo $this->baseUrl().'/js/morris-data.js';?><!--"></script>-->
 <script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
-
-
-
-
 
 
 
@@ -25,6 +21,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                     <?php
                     $skladyIds = $this->skladyModel->getIds();
                     $counter = 1;
+
+                    $pocitadlo = 1;
                     ?>
 
                     <?php foreach ($skladyIds AS $skladId) :
@@ -35,13 +33,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa
-                                            /*<?php
-                                            if ($this->skladyModel->getMernaJednotka($skladId) <> 1)
-                                            {echo "fa-cube";}
-                                            else
-                                            {echo "fa-database";}
-                                            ?>*/ fa-3x">
+                                        <i class="fa fa-3x">
                                                 <?php
                                                     ECHO $this->skladyModel->getSkratka($skladId)
 
@@ -101,7 +93,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                                         echo $aktualnyStavSkladu;
                                                     ?>
                                                 </td>
-                                                <td style="font-weight: bold;">m3</td>
+                                                <td style="font-weight: bold;">m<sup>3</sup></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -111,32 +103,32 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
 
 
-                                <div id="hidden_field<?php echo $counter;?>" class="hhhhidden">
+                                <div id="hidden_field<?php echo $counter;?>">
                                     <div class="row">
                                         <hr>
                                     </div>
                                     <div class="row">
-                                        <table style="border-style: none; width: 100%">
-                                            <tr style="font-weight: bold;">
-                                                <td>pohyb</td>
-                                                <td>príjmy</td>
-                                                <td>výdaje</td>
-                                                <td>celkovo</td>
+                                        <table class="center" style="border-style: none; width: 100%">
+                                            <tr class="tleft" style="font-weight: bold;">
+                                                <td>Pohyb</td>
+                                                <td>Príjmy</td>
+                                                <td>Výdaje</td>
+                                                <td>Celkovo</td>
                                             </tr>
                                             <tr>
-                                                <td>deň</td>
+                                                <td class="tleft">Deň</td>
                                                 <td><?php echo $this->pohyby[$skladId]['den']['prijmy'];?></td>
                                                 <td><?php echo $this->pohyby[$skladId]['den']['vydaje'];?></td>
                                                 <td><?php echo $this->pohyby[$skladId]['den']['total'];?></td>
                                             </tr>
                                             <tr>
-                                                <td>týždeň</td>
+                                                <td class="tleft">Týždeň</td>
                                                 <td><?php echo $this->pohyby[$skladId]['tyzden']['prijmy'];?></td>
                                                 <td><?php echo $this->pohyby[$skladId]['tyzden']['vydaje'];?></td>
                                                 <td><?php echo $this->pohyby[$skladId]['tyzden']['total'];?></td>
                                             </tr>
                                              <tr>
-                                                <td>mesiac</td>
+                                                <td class="tleft">Mesiac</td>
                                                 <td><?php echo $this->pohyby[$skladId]['mesiac']['prijmy'];?></td>
                                                 <td><?php echo $this->pohyby[$skladId]['mesiac']['vydaje'];?></td>
                                                 <td><?php echo $this->pohyby[$skladId]['mesiac']['total'];?></td>
@@ -149,22 +141,11 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                                 <hr>
                                         </div>
 
-                                        <div class="row">
-                                            <?php
-                                                echo "<strong> Data pre graf - last 30 days </strong><br><br>";
+                                    <div class="row">
 
+                                        <div id="morris-area-chart-<?php echo $counter ?>"></div>
 
-
-                                                foreach ($this->vyvojStavuSkladov[$skladId] AS $stavSkladu)
-                                                {
-                                                    echo $stavSkladu;
-                                                    echo "<br>";
-                                                }
-                                            ?>
-
-                                            <div id="morris-area-chart-<?php echo $counter; ?>"></div>
-
-                                        </div>
+                                    </div>
                                 </div>
 
 
@@ -176,13 +157,13 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
                             <div class="panel-heading center">
 
-                                <button id="button<?php echo $counter;?>" class="btn btn-default" type="button">
+                                <button id="button-<?php echo $counter;?>" class="btn btn-default" type="button">
                                     <i class="fa fa-bars"></i>
                                 </button>
 
                                 <script>
 
-                                    $("#button<?php echo $counter;?>").click( function() {
+                                    $("#button-<?php echo $counter;?>").click( function() {
 
                                         $("#hidden_field<?php echo $counter;?>").fadeToggle("slide");
                                         $("#hidden_field<?php echo $counter;?>").removeClass("hidden");
@@ -196,5 +177,42 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                     <?php
                     $counter++;
                     endforeach; ?>
+<!-- GRAFY DATA LOAD ... -->
+
+    <?php foreach ($skladyIds AS $skladId) : ?>
+
+        <?php
+
+        $dataSkladu = new Application_Model_DbTable_UbytkyHmotnosti();
+        $dataSkladu = $dataSkladu->getLastXValues( $skladId, 5);
+
+        ?>
+
+
+        <script>
+        // Area Chart
+        Morris.Bar({
+            element: 'morris-area-chart-<?php echo $skladId ?>',
+
+            data: <?php echo json_encode($dataSkladu);?>,
+
+            xkey: 'datum',
+            ykeys: ['stav'],
+            labels: ['Stav (t)'],
+            pointSize: 2,
+            hideHover: 'auto',
+            smooth: true,
+            resize: true
+        });
+
+
+        var d = document.getElementById("hidden_field<?php echo $skladId?>");
+        d.className = d.className + " hidden";
+
+    </script>
+
+    <?php endforeach ?>
+
+
     </div>
 
