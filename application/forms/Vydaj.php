@@ -11,6 +11,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $id = new Zend_Form_Element_Hidden('ts_vydaje_id');
         $id->addFilter('Int');
 
+         $filterCisla = new Zend_Filter_PregReplace(array('match' => '/,/', 'replace' => '.'));
+
         $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
         $submitButtonClass = "success";
         if ($actionName == 'edit'){
@@ -81,7 +83,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $q_m3_merane
             ->setLabel('Merané m3')
             ->setAttrib('class', 'form-control')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 //
 //        $q_m3_vypocet = new Zend_Dojo_Form_Element_NumberSpinner('$q_m3_vypocet');
 //        $q_m3_vypocet->addFilter('Int');
@@ -90,7 +93,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $q_prm_merane
             ->setLabel('PRM merané')
             ->setAttrib('class', 'form-control')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 //
 //        $q_prm_vypocet = new Zend_Dojo_Form_Element_NumberSpinner('$q_prm_vypocet');
 //        $q_prm_vypocet->addFilter('Int');
@@ -98,7 +102,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $q_tony_merane = new Zend_Form_Element_Text('q_tony_merane');
         $q_tony_merane->setLabel('Tony merané')
             ->setAttrib('class', 'form-control')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 
 
         $doklad_typ = new Zend_Form_Element_Select('doklad_typ_enum');

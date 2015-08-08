@@ -68,26 +68,26 @@
                     <legend>Váha</legend>
                     <div class="col-lg-6">
                         Netto:
-                        <?php echo $this->prijem['q_tony_merane'].'t'; // render the user name field here ?>
+                        <?php echo number_format($this->prijem['q_tony_merane'], 2, ",", " ").'t'; // render the user name field here ?>
                     </div>
 
 
                     <div class="col-lg-6">
 
                         Tara:
-                        <?php echo $this->prijem['q_tony_merane_tara'].'t'; // render the user name field here ?>
+                        <?php echo number_format($this->prijem['q_tony_merane_tara'], 2, ",", " ").'t'; // render the user name field here ?>
                     </div>
 
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     Brutto:
-                    <?php echo $this->prijem['q_tony_merane_brutto'].'t'; // render the user name field here ?>
+                    <?php echo number_format($this->prijem['q_tony_merane_brutto'], 2, ",", " ").'t'; // render the user name field here ?>
                 </div>
 
                 <div class="col-lg-6">
                     Nadrozmer:
-                    <?php echo $this->prijem['q_tony_nadrozmer'].'t'; // render the user name field here ?>
+                    <?php echo number_format($this->prijem['q_tony_nadrozmer'], 2, ",", " ").'t'; // render the user name field here ?>
                 </fieldset>
                 </div>
 
@@ -97,12 +97,12 @@
                     <legend>Priestor</legend>
                     <div class="col-lg-6">
                     PRM:
-                    <?php echo $this->prijem['q_prm_merane'].' PRM'; // render the user name field here ?>
+                    <?php echo number_format($this->prijem['q_prm_merane'], 2, ",", " ").' PRM'; // render the user name field here ?>
                 </div>
 
                 <div class="col-lg-6">
                     m<sup>3</sup>:
-                    <?php echo $this->prijem['q_m3_merane'].' m<sup>3</sup>'; // render the user name field here ?>
+                    <?php echo number_format($this->prijem['q_m3_merane'], 2, ",", " ").' m<sup>3</sup>'; // render the user name field here ?>
                 </div>
                 </fieldset>
             </div>

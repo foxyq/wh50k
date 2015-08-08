@@ -15,6 +15,28 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
+    public function getVydajFormatted($id)
+    {
+        $id = (int)$id;
+        $row = $this->fetchRow('ts_vydaje_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        $row['q_tony_merane']=number_format($row['q_tony_merane'], 2, ",", "");
+        $row['q_tony_merane_brutto']=number_format($row['q_tony_merane_brutto'], 2, ",", "");
+        $row['q_tony_merane_tara']=number_format($row['q_tony_merane_tara'], 2, ",", "");
+        $row['q_tony_nadrozmer']=number_format($row['q_tony_nadrozmer'], 2, ",", "");
+        //$row['q_tony_vypocet']=number_format($row['q_tony_vypocet'], 2, ",", "");
+        $row['q_m3_merane']=number_format($row['q_m3_merane'], 2, ",", "");
+        //$row['q_m3_vypocet']=number_format($row['q_m3_vypocet'], 2, ",", "");
+        $row['q_prm_merane']=number_format($row['q_prm_merane'], 2, ",", "");
+        //$row['q_prm_vypocet']=number_format($row['q_prm_vypocet'], 2, ",", "");
+
+
+        return $row;
+    }
+
 
     public function getVydajByDokladCislo($id)
     {

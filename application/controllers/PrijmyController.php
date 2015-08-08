@@ -277,7 +277,8 @@ class PrijmyController extends Zend_Controller_Action
             $id = $this->_getParam('id', 0);
             if ($id > 0) {
                 $prijmy = new Application_Model_DbTable_Prijmy();
-                $form->populate($prijmy->getPrijem($id));
+
+                $form->populate($prijmy->getPrijemFormatted($id));
                 $this->view->data = $prijmy->getPrijem($id);
 
                 //pageManager

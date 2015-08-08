@@ -11,6 +11,8 @@ class Application_Form_Prijem extends Zend_Form
         $id = new Zend_Form_Element_Hidden('ts_prijmy_id');
         $id->addFilter('Int');
 
+        $filterCisla = new Zend_Filter_PregReplace(array('match' => '/,/', 'replace' => '.'));
+
         $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
         $submitButtonClass = "success";
         if ($actionName == 'edit'){
@@ -63,26 +65,30 @@ class Application_Form_Prijem extends Zend_Form
         $q_tony_merane = new Zend_Form_Element_Text('q_tony_merane');
         $q_tony_merane->setLabel('Tony netto')
             ->setAttrib('class', 'form-control in')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 
 
         $q_tony_brutto = new Zend_Form_Element_Text('q_tony_brutto');
         $q_tony_brutto->setLabel('Tony brutto')
             ->setAttrib('class', 'form-control in')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 
         $q_tony_tara = new Zend_Form_Element_Text('q_tony_tara');
         $q_tony_tara->setLabel('Tony tara')
 //            ->addFilter('LocalizedToNormalized')
 //            ->addValidator('float', true, array('locale' => 'sk_SK'))
             ->setAttrib('class', 'form-control in')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 
 
         $q_tony_nadrozmer = new Zend_Form_Element_Text('q_tony_nadrozmer');
         $q_tony_nadrozmer->setLabel('Tony nadrozmer')
             ->setAttrib('class', 'form-control in')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 
 
 
@@ -90,12 +96,14 @@ class Application_Form_Prijem extends Zend_Form
         $q_m3_merane = new Zend_Form_Element_Text('q_m3_merane');
         $q_m3_merane->setLabel('Merané m3' )
             ->setAttrib('class', 'form-control in')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 
         $q_prm_merane = new Zend_Form_Element_Text('q_prm_merane');
         $q_prm_merane->setLabel('Merané PRM')
             ->setAttrib('class', 'form-control in')
-            ->setAttrib('tabindex', '-1');
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
 
 
 

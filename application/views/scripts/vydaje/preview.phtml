@@ -72,13 +72,13 @@
                     <legend>Množstvo</legend>
                     <div class="col-lg-6">
                             Váha:
-                        <?php echo $this->vydaj['q_tony_merane'].' t'; // render the user name field here ?>
+                        <?php echo number_format($this->vydaj['q_tony_merane'], 2, ",", " ").' t'; // render the user name field here ?>
                     </div>
 
 
                     <div class="col-lg-6">
                         Objem:
-                        <?php echo $this->vydaj['q_m3_merane'].' m<sup>3</sup>'; // render the user name field here ?>
+                        <?php echo number_format($this->vydaj['q_m3_merane'], 2, ",", " ").' m<sup>3</sup>'; // render the user name field here ?>
                     </div>
 
             </div>
@@ -87,7 +87,7 @@
 
                 <div class="col-lg-6">
                     Priestor:
-                    <?php echo $this->vydaj['q_prm_merane'].' PRM'; // render the user name field here ?>
+                    <?php echo number_format($this->vydaj['q_prm_merane'], 2, ",", " ").' PRM'; // render the user name field here ?>
                 </div>
                 </fieldset>
             </div>

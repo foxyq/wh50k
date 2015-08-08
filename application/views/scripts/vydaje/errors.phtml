@@ -184,7 +184,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <td><?php echo $this->escape($this->zakaznici->getNazov($vydaj->zakaznik_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($vydaj->prepravca_enum));?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->prepravca_spz);?><!--</td>-->
-            <td><?php echo $this->escape($vydaj->q_tony_merane);?></td>
+            <td><?php echo number_format($this->escape($vydaj->q_tony_merane), 2, ",", " ");?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($vydaj->q_m3_merane);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($vydaj->q_m3_vypocet);?><!--</td>-->

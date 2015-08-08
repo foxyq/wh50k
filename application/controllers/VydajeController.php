@@ -284,7 +284,7 @@ class VydajeController extends Zend_Controller_Action
             //$id = (int)$this->$form->getValue('ts_vydaje_id');
             if ($id > 0) {
                 $vydaje = new Application_Model_DbTable_Vydaje();
-                $form->populate($vydaje->getVydaj($id));
+                $form->populate($vydaje->getVydajFormatted($id));
                 $this->view->data = $vydaje->getVydaj($id);
 
 
