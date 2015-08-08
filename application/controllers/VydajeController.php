@@ -56,6 +56,8 @@ class VydajeController extends Zend_Controller_Action
 
     public function addAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
 
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
@@ -147,7 +149,9 @@ class VydajeController extends Zend_Controller_Action
                 //var_dump( $doklad_cislo);
 
                 //pageManager
-                $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+                //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+
+                $this->_helper->redirector($fromAction);
 
 
             } else {
@@ -372,16 +376,72 @@ class VydajeController extends Zend_Controller_Action
 
     public function waitingsAction()
     {
-        $param = "stav_transakcie = 1";
-        $title = "Výdaje - čaká na schválenie";
-        $this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
+        //$param = "stav_transakcie = 1";
+        //$title = "Výdaje - čaká na schválenie";
+        //$this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
+
+        // vytvorenie instancií modelov
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $sklady = new Application_Model_DbTable_Sklady();
+        $podsklady = new Application_Model_DbTable_Podsklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+
+        // priradenie modelov do premenných a poslanie na view script
+        //$param = $this->_getParam('param', null);
+        //$title = $this->_getParam('title', null);
+        //if (!isset($title)){$title = 'Výdaje - zoznam';}
+
+        // priradenie modelov do premenných a poslanie na view script
+        $this->view->vydaje = $vydaje->fetchAll("stav_transakcie = 1");
+        $this->view->sklady = $sklady;
+        $this->view->podsklady = $podsklady;
+        $this->view->zakaznici = $zakaznici;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->transakcieStavy = $transakcieStavy;
+
+        //názov stránky
+        $this->view->title = "Výdaje - čaká na schválenie";
     }
 
     public function errorsAction()
     {
-        $param = "chyba = 1";
-        $title = "Výdaje - chyby";
-        $this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
+        //$param = "chyba = 1";
+        //$title = "Výdaje - chyby";
+        //$this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
+
+        // vytvorenie instancií modelov
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $sklady = new Application_Model_DbTable_Sklady();
+        $podsklady = new Application_Model_DbTable_Podsklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+
+        // priradenie modelov do premenných a poslanie na view script
+        //$param = $this->_getParam('param', null);
+        //$title = $this->_getParam('title', null);
+        //if (!isset($title)){$title = 'Výdaje - zoznam';}
+
+        // priradenie modelov do premenných a poslanie na view script
+        $this->view->vydaje = $vydaje->fetchAll("chyba = 1");
+        $this->view->sklady = $sklady;
+        $this->view->podsklady = $podsklady;
+        $this->view->zakaznici = $zakaznici;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->transakcieStavy = $transakcieStavy;
+
+        //názov stránky
+        $this->view->title = "Výdaje - chyby";
 
     }
 

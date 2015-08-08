@@ -1,6 +1,19 @@
-<br /><br />
-<div id="view-content">
+<?php
+    $this->headTitle($this->title);
 
-    <h1>Modul skladník - index - index</h1>
-    <p><?php print_r($this->prijmy);?></p>
+print_r(Zend_controller_Front::getInstance()->getRequest()->getModuleName());
+?>
+
+<h1>Rozcestník</h1>
+<hr>
+<div>
+    <h3>Príjmy</h3>
+    <a href="<?php echo $this->baseUrl().'/skladnik/prijmy/add'?>">Pridať</a>
+    <a href="<?php echo $this->baseUrl().'/skladnik/prijmy/list'?>">Zoznam</a>
+</div>
+
+<div>
+<h3>Výdaje</h3>
+    <a href="<?php echo $this->baseUrl().'/skladnik/vydaje/add'?>">Pridať</a>
+    <a href="<?php echo $this->baseUrl().'/skladnik/vydaje/list'?>">Zoznam</a>
 </div>

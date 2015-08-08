@@ -10,10 +10,7 @@ class Skladnik_IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $prijmy = new Application_Model_DbTable_Prijmy();
-        $prijmy = $prijmy->getNumberOfErrors();
-
-        $this->view->prijmy = $prijmy;
+        $this->view->title = 'Nástenka';
     }
 
     public function secretAction()

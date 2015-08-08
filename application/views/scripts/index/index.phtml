@@ -6,10 +6,20 @@
 $merneJednotky = new Application_Model_DbTable_MerneJednotky();
 $merneJednotky = $merneJednotky->getPrepoctyArray(1.818182,3,2);
 $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
+/*
+$zendAuthIdentity = (array) Zend_Auth::getInstance()->getIdentity();
+$zendAuthEmail = $zendAuthIdentity['email'];
+print_r($zendAuthEmail);
+echo "<hr>";
 
-$ubytky = $ubytky->getErrorNedostatokNaSklade();
-print_r($ubytky);
+$storage = Zend_Auth::getInstance()->getStorage()->read();
+print_r($storage);
+*/
+//$pomocna = Zend_controller_Front::getInstance()->getRequest()->getModuleName();
+$pomocna = new Application_Model_DbTable_MaterialyDruhy();
+$pomocna = $pomocna->getKonverzia('prm_ton', null);
 
+print_r($pomocna);
 
 
 ?>

@@ -13,6 +13,34 @@ class Skladnik_VydajeController extends Zend_Controller_Action
         // action body
     }
 
+    public function addAction()
+    {
+        // action body
+    }
+
+    public function listAction()
+    {
+        // action body
+    }
+
+    public function previewAction()
+    {
+        // action body
+    }
+
+    public function printAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
+
+
+
+
 

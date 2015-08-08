@@ -69,8 +69,12 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::IS_EMPTY => "Value is required and can't be empty",
-        self::INVALID  => "Invalid type given. String, integer, float, boolean or array expected",
+        //original Zend messages:
+        //self::IS_EMPTY => "Value is required and can't be empty",
+        //self::INVALID  => "Invalid type given. String, integer, float, boolean or array expected",
+        //wh50k app custom message
+        self::IS_EMPTY => "Hodnota je povinná a nemôže byť prázdna",
+        self::INVALID  => "Nesprávny typ premennej. String, integer, float, boolean alebo array požadované",
     );
 
     /**

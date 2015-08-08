@@ -31,11 +31,11 @@ class PrijmyController extends Zend_Controller_Action
 
 
         // priradenie modelov do premenných a poslanie na view script
-        $param = $this->_getParam('param', null);
-        $title = $this->_getParam('title', null);
-        if (!isset($title)){$title = 'Príjmy - zoznam';}
+        //$param = $this->_getParam('param', null);
+        //$title = $this->_getParam('title', null);
+        //if (!isset($title)){$title = 'Príjmy - zoznam';}
 
-        $this->view->prijmy = $prijmy->fetchAll($param);
+        $this->view->prijmy = $prijmy->fetchAll();
 
         $this->view->sklady = $sklady;        
         $this->view->podsklady = $podsklady;
@@ -46,7 +46,7 @@ class PrijmyController extends Zend_Controller_Action
         $this->view->transakcieStavy = $transakcieStavy;
 
         //názov stránky
-        $this->view->title = $title;
+        $this->view->title = "Príjmy - zoznam";
     }
 
     public function addAction()
@@ -54,7 +54,8 @@ class PrijmyController extends Zend_Controller_Action
         /* ak chces pouzit vo forme zoznam z tabuliek, musis najpr vytvorit instanciu modelu
         a metodou getMoznosti dostanes do premennej pole s moznostami so strukturou id a nazov
         nasledne toto pole das do pola ktore je ako parameter pre form*/
-
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
 
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
@@ -151,9 +152,9 @@ class PrijmyController extends Zend_Controller_Action
                     $doklad_cislo);
 
                 //pageManager
-                $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
-//              $this->_helper->redirector('list');
+                //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
 
+                $this->_helper->redirector($fromAction);
             } else {
 
 
@@ -383,16 +384,64 @@ class PrijmyController extends Zend_Controller_Action
 
     public function waitingsAction()
     {
-        $param = "stav_transakcie = 1";
-        $title = "Príjmy - čaká na schválenie";
-        $this->_forward('list', 'prijmy', null, array('param' => $param, 'title' => $title));
+        //$param = "stav_transakcie = 1";
+        //$title = "Príjmy - čaká na schválenie";
+        //$this->_forward('list', 'prijmy', null, array('param' => $param, 'title' => $title));
+
+        // vytvorenie instancií modelov
+        $prijmy = new Application_Model_DbTable_Prijmy();
+        $sklady = new Application_Model_DbTable_Sklady();
+        $podsklady = new Application_Model_DbTable_Podsklady();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+
+        $this->view->prijmy = $prijmy->fetchAll("stav_transakcie = 1");
+
+        $this->view->sklady = $sklady;
+        $this->view->podsklady = $podsklady;
+        $this->view->dodavatelia = $dodavatelia;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->transakcieStavy = $transakcieStavy;
+
+        //názov stránky
+        $this->view->title = "Príjmy - čaká na schválenie";
+
+
     }
 
     public function errorsAction()
     {
-        $param = "chyba = 1";
-        $title = "Príjmy - chyby";
-        $this->_forward('list', 'prijmy', null, array('param' => $param, 'title' => $title));
+        //$param = "chyba = 1";
+        //$title = "Príjmy - chyby";
+        //$this->_forward('list', 'prijmy', null, array('param' => $param, 'title' => $title));
+
+        // vytvorenie instancií modelov
+        $prijmy = new Application_Model_DbTable_Prijmy();
+        $sklady = new Application_Model_DbTable_Sklady();
+        $podsklady = new Application_Model_DbTable_Podsklady();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+
+        $this->view->prijmy = $prijmy->fetchAll("chyba = 1");
+
+        $this->view->sklady = $sklady;
+        $this->view->podsklady = $podsklady;
+        $this->view->dodavatelia = $dodavatelia;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->transakcieStavy = $transakcieStavy;
+
+        //názov stránky
+        $this->view->title = "Príjmy - chyby";
 
     }
 

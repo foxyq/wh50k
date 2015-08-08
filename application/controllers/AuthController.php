@@ -34,18 +34,40 @@ class AuthController extends Zend_Controller_Action
             );
             $adapter->setIdentity($form->getValue('email'));
             $adapter->setCredential($form->getValue('password'));
+            //$adapter->setIdentityColumn('hollaAtMe');
+
 
             $result = Zend_Auth::getInstance()->authenticate($adapter);
+
             if (!$result->isValid()) {
                 d($result->getMessages());
             } else {
                 $storage = Zend_Auth::getInstance()->getStorage();
                 $storage->write(
                     $adapter->getResultRowObject(
-                        array('email', 'name')
+                        array('email', 'name', 'users_types_enum')
                     )
                 );
-                $this->_redirect('/');
+
+                $zendAuthIdentity = (array) Zend_Auth::getInstance()->getIdentity();
+                $zendAuthEmail = $zendAuthIdentity['email'];
+                $usersModel = new Application_Model_DbTable_Users();
+                $userType = $usersModel->getUserType($zendAuthEmail);
+
+                //redirector na úvodné stránky na základe typu účtu užívateľa
+                switch ($userType){
+                    case 1:
+                        $this->_redirect('/default');
+                        break;
+                    case 2:
+                        $this->_redirect('/default');
+                        break;
+                    case 3:
+                        $this->_redirect('/skladnik');
+                        break;
+                }
+
+
             }
         }
     }

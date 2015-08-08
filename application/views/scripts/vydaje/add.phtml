@@ -90,8 +90,8 @@ $this->headTitle($this->title);
             <a href="<?php
                 //pageManager
                 echo $this->url(array(
-                'controller' => $_SESSION['pageManager']['lastPageParameters']['controller'],
-                'action' => $_SESSION['pageManager']['lastPageParameters']['action']
+                'controller' => 'vydaje',
+                'action' => $this->fromAction
             ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
         </div>
 

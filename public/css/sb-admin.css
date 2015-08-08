@@ -168,7 +168,11 @@ ul.alert-dropdown {
 /* Custom Colored Panels */
 
 .huge {
-    font-size: 40px;
+     font-size: 40px;
+ }
+
+.xx-huge {
+    font-size: 150px;
 }
 
 .panel-green {

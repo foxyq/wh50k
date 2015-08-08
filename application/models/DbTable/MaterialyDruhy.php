@@ -54,6 +54,23 @@ class Application_Model_DbTable_MaterialyDruhy extends Zend_Db_Table_Abstract
 
     }
 
+    public function getKonverzieAll(){
+        $konverzie = array();
+        $rows = $this->fetchAll();
+
+        foreach ($rows AS $row){
+            $konverzie[$row['materialy_druhy_id']]['id'] = $row['materialy_druhy_id'];
+            $konverzie[$row['materialy_druhy_id']]['m3_ton'] = $row['m3_ton'];
+            $konverzie[$row['materialy_druhy_id']]['m3_prm'] = $row['m3_prm'];
+            $konverzie[$row['materialy_druhy_id']]['ton_m3'] = $row['ton_m3'];
+            $konverzie[$row['materialy_druhy_id']]['ton_prm'] = $row['ton_prm'];
+            $konverzie[$row['materialy_druhy_id']]['prm_ton'] = $row['prm_ton'];
+            $konverzie[$row['materialy_druhy_id']]['prm_m3'] = $row['prm_m3'];
+        }
+
+        return $konverzie;
+    }
+
     public function getKonverzieDefault(){
         $konverzie = array();
         //$sql = "materialy_druhy_id = ".$druhId;
@@ -72,7 +89,27 @@ class Application_Model_DbTable_MaterialyDruhy extends Zend_Db_Table_Abstract
 
     }
 
-     public function addDruh($nazov, $skratka)
+    public function getKonverzia($typKonverzie, $materialDruh){
+        if (is_int($materialDruh)) {
+            die($materialDruh);
+        }else{
+            die('Cislo je'.$materialDruh);
+        }
+
+        /*
+        if (isset($materialDruh)){
+            $materialDruh = (int) $materialDruh;
+        }else{
+            $materialDruh = 1;
+        }
+
+        $sql = "materialy_druhy_id = ".$materialDruh;
+        $konverzia = $this->fetchRow($sql)->toArray();
+
+        return $konverzia[$typKonverzie];*/
+    }
+
+    public function addDruh($nazov, $skratka)
     {
         $data = array(
             'nazov' => $nazov,

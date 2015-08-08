@@ -56,7 +56,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 <div class="alert alert-dismissable alert-info">
 
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-        'action'=>'add'));?>">
+        'action'=>'add', 'fromAction' => 'list'));?>">
         <?php echo '<img src="'.$this->baseUrl().'/images/pridat.png" alt="pridat">'; ?>
         Pridať nový výdaj</a>
 
@@ -82,7 +82,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
 <p>
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-        'action'=>'add'));?>" type="button" class="btn btn-success">
+        'action'=>'add', 'fromAction' => 'list'));?>" type="button" class="btn btn-success">
         Pridať výdaj
     </a>
 
