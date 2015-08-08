@@ -169,19 +169,18 @@
 
 
 
-
-                <form action="<?php echo $this->url(array('action'=>'delete')); ?>"
+                <form action="<?php echo $this->url(array('action'=>'delete', 'fromAction' => $this->fromAction)); ?>"
                       method="post">
                     <div>
 
                         <input type="hidden" name="id" value="<?php echo $this->prijem['ts_prijmy_id']; ?>" />
                         <div class="col-lg-6 tright">
-                        <input type="submit" name="del" value="Yes" class="btn btn-danger"/>
+                        <input type="submit" name="del" value="Áno" class="btn btn-danger"/>
                             </div>
                             <div class="col-lg-6">
 
 
-                        <input type="submit" name="del" value="No" class="form-control btn-warning btn"/>
+                        <input type="submit" name="del" value="Nie" class="form-control btn-warning btn"/>
                                 </div>
                     </div>
                 </form>

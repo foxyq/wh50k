@@ -186,7 +186,7 @@
 <!--            <td>--><?php //echo $this->escape($prijem->ts_prijmy_id);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($prijem->doklad_cislo);?><!--</td>-->
             <TD class="center"><a href="<?php echo $this->url(array('controller'=>'prijmy',
-                'action'=>'preview', 'id'=>$prijem->doklad_cislo));?>">
+                'action'=>'preview', 'id'=>$prijem->doklad_cislo, 'fromAction' => 'waitings'));?>">
                      <?php echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
                 </a>
 </TD>
@@ -244,20 +244,20 @@
 //                    ?>
 <!--            </td>-->
             <td>
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id));?>">
+                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id,  'fromAction' => 'waitings'));?>">
 
                     <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
 
                 </a>
 
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id));?>">
+                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?>">
 
                     <?php echo '<img src="'.$this->baseUrl().'/images/upravit.png" alt="upravit">'; ?>
 
                 </a>
 
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'print', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo,
-                    'spz'=>$prijem->prepravca_spz)) ;?>" target="_blank">
+                    'spz'=>$prijem->prepravca_spz, 'fromAction' => 'waitings'));?>" target="_blank">
                     <?php echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
                 </a>
             </td>

@@ -102,7 +102,7 @@ class VydajeController extends Zend_Controller_Action
         $this->view->form = $form;
 
         //pageManager
-        $_SESSION[pageManager][ignore] = 1;
+        //$_SESSION[pageManager][ignore] = 1;
 
 
         if ($this->getRequest()->isPost()) {
@@ -168,13 +168,15 @@ class VydajeController extends Zend_Controller_Action
                 $form->populate($formData);
 
                 //pageManager
-                $_SESSION[pageManager][ignore] = 1;
+                //$_SESSION[pageManager][ignore] = 1;
             }
         }
     }
 
     public function editAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
 
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
@@ -266,16 +268,16 @@ class VydajeController extends Zend_Controller_Action
                     $chyba,
                     $stav_transakcie);
 
-                 //pageManager
-                $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+                //pageManager
+                //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
 
-                //$this->_helper->redirector('list');
+                $this->_helper->redirector($fromAction);
 
             } else {
                 $form->populate($formData);
 
                 //pageManager
-                $_SESSION[pageManager][ignore] = 1;
+                //$_SESSION[pageManager][ignore] = 1;
             }
         } else {
             $id = $this->_getParam('ts_vydaje_id', 0);
@@ -287,7 +289,7 @@ class VydajeController extends Zend_Controller_Action
 
 
                 //pageManager
-                $_SESSION[pageManager][ignore] = 1;
+                //$_SESSION[pageManager][ignore] = 1;
             }
 
         }
@@ -295,6 +297,8 @@ class VydajeController extends Zend_Controller_Action
 
     public function deleteAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
 
        //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
@@ -329,28 +333,28 @@ class VydajeController extends Zend_Controller_Action
 
      if ($this->getRequest()->isPost()) {
         $del = $this->getRequest()->getPost('del');
-        if ($del == 'Yes') {
+        if ($del == 'Áno') {
             $id = $this->getRequest()->getPost('ts_vydaje_id');
             $vydaje = new Application_Model_DbTable_Vydaje();
             $vydaje->deleteVydaj($id);
         }
-         //$this->_helper->redirector('list');
-
-
+         $this->_helper->redirector($fromAction);
          //pageManager
-         $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+         //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
             } else {
                 $id = $this->_getParam('ts_vydaje_id', 0);
                 $vydaje = new Application_Model_DbTable_Vydaje();
                 $this->view->vydaj = $vydaje->getVydaj($id);
 
                 //pageManager
-                $_SESSION[pageManager][ignore] = 1;
+                //$_SESSION[pageManager][ignore] = 1;
             }
     }
 
     public function printAction()
     {
+
+
         $id = $this->_getParam('ts_vydaje_id', 0);
         $vydaje = new Application_Model_DbTable_Vydaje();
         $this->view->vydaj = $vydaje->getVydaj($id);
@@ -363,6 +367,9 @@ class VydajeController extends Zend_Controller_Action
 
     public function previewAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+
         //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
         $podskladyModel = new Application_Model_DbTable_Podsklady();

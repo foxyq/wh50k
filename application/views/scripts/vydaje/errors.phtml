@@ -170,7 +170,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
         ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
             <td> <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-            'action'=>'preview', 'id'=>$vydaj->doklad_cislo));?>">
+            'action'=>'preview', 'id'=>$vydaj->doklad_cislo, 'fromAction' => 'errors'));?>">
                      <?php echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
                 </a></td>
             <td>
@@ -226,12 +226,12 @@ $vydaje_e = $notif_info['vydaje_errors'];
 //                ?><!--</td>-->
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                    'action'=>'delete', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id));?>">
+                    'action'=>'delete', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'errors'));?>">
                     <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
                 </a>
 
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                    'action'=>'edit', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id));?>">
+                    'action'=>'edit', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'errors'));?>">
 
                       <?php echo '<img src="'.$this->baseUrl().'/images/upravit.png" alt="upravit">'; ?>
 

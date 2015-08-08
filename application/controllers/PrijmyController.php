@@ -173,6 +173,8 @@ class PrijmyController extends Zend_Controller_Action
         //$request = $this->getRequest()->getServer('HTTP_REFERER');
         //print_r($request);
         //TDODO THIS: print_r( $this->_request);
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
 
 
         //instancia modelu z ktoreho budeme tahat zoznam
@@ -260,13 +262,15 @@ class PrijmyController extends Zend_Controller_Action
                     $stav_transakcie
                 );
 
+                $this->_helper->redirector($fromAction);
+
                 //pageManager
-                $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+                //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
 
             } else {
                 $form->populate($formData);
                 //pageManager
-                $_SESSION[pageManager][ignore] = 1;
+                //$_SESSION[pageManager][ignore] = 1;
             }
         } else {
 
@@ -277,13 +281,16 @@ class PrijmyController extends Zend_Controller_Action
                 $this->view->data = $prijmy->getPrijem($id);
 
                 //pageManager
-                $_SESSION[pageManager][ignore] = 1;
+                //$_SESSION[pageManager][ignore] = 1;
             }
         }
     }
 
     public function deleteAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+
         //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
         $podskladyModel = new Application_Model_DbTable_Podsklady();
@@ -319,17 +326,17 @@ class PrijmyController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $del = $this->getRequest()->getPost('del');
             //ak prisiel POST a v premennej del je hodnota Yes tak zmaze
-            if ($del == 'Yes') {
+            if ($del == 'Áno') {
                 $id = $this->getRequest()->getPost('id');
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $prijmy->deletePrijem($id);
             }
             //presmeruje po zmazani na stranku list
-            //$this->_helper->redirector('list');
+            $this->_helper->redirector($fromAction);
 
 
             //pageManager
-            $this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+            //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
 
         //ak pride GET tak nacita model a posle na kontrolny vypis a otazku zmazat? data zo zaznamu
         } else {
@@ -338,7 +345,7 @@ class PrijmyController extends Zend_Controller_Action
             $this->view->prijem = $prijmy->getPrijem($id);
 
             //pageManager
-                $_SESSION[pageManager][ignore] = 1;
+            //$_SESSION[pageManager][ignore] = 1;
         }
     }
 
@@ -353,6 +360,9 @@ class PrijmyController extends Zend_Controller_Action
 
     public function previewAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+
         //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
         $podskladyModel = new Application_Model_DbTable_Podsklady();
