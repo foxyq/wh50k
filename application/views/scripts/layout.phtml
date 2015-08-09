@@ -1,3 +1,5 @@
+<!--TOTO JE NORMALNY LAYOUT-->
+
 <?php
 $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
 $this->headTitle()->setSeparator(' - ');
@@ -99,6 +101,7 @@ echo $this->doctype(); ?>
                     $prijmy_e = $notif_info['prijmy_errors'];
                     $vydaje_w = $notif_info['vydaje_waitings'];
                     $vydaje_e = $notif_info['vydaje_errors'];
+                    $ubytky_ch = $notif_info['ubytky_chyba'];
 
                     ?>
 
@@ -167,6 +170,18 @@ echo $this->doctype(); ?>
                         </li>
 
                         <?php }
+
+                    if ($ubytky_ch > 0 ) {
+                        ?>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'ubytky',
+                                'action' => 'list'
+                            ), null, true) ?>"> <span class="label label-info tleft">Chybných úbytkov</span> <span class="notif_count right"> <?php echo $ubytky_ch; ?> </span>  </a>
+                        </li>
+
+                    <?php }
 
                     if ($count_notif >0) {
                         ?>

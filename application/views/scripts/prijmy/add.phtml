@@ -53,6 +53,29 @@
 //            ifiky ... tieto sa kontroluju kazdu sekundu
 
 //            ked zmazem m3
+
+            if ( //ak sa nieeco posere a vsetky fieldy sa locknu ... zmaz ich a unlockni
+            //checkujem kazdu sekundu
+                document.getElementById('q_tony_nadrozmer').getAttribute('disabled') == false
+                && document.getElementById('q_tony_tara').getAttribute('disabled') == false
+                && document.getElementById('q_tony_brutto').getAttribute('disabled') == false
+                && document.getElementById('q_tony_merane').getAttribute('disabled') == false
+                && document.getElementById('q_prm_merane').getAttribute('disabled') == false
+                && document.getElementById('q_m3_merane').getAttribute('disabled') == false
+
+            ) {
+                tonym = nula; tonyb = nula; tonyt = nula; tonyn = nula;
+                prm = nula; m3 = nula;
+
+                document.getElementById('q_tony_nadrozmer').readOnly = false;
+                document.getElementById('q_tony_tara').readOnly = false;
+                document.getElementById('q_tony_brutto').readOnly = false;
+                document.getElementById('q_tony_merane').readOnly = false;
+                document.getElementById('q_prm_merane').readOnly = false;
+                document.getElementById('q_m3_merane').readOnly = false;
+
+            }
+
             if ( m3 == "" ) {
                 document.getElementById('q_tony_nadrozmer').readOnly = false;
                 document.getElementById('q_tony_tara').readOnly = false;

@@ -107,8 +107,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                     <div class="row">
                                         <hr>
                                     </div>
-                                    <div class="row">
-                                        <table class="center" style="border-style: none; width: 100%">
+                                    <div class="row " >
+                                        <table class="center table-hover" style="border-style: none; width: 100%">
                                             <tr class="tleft" style="font-weight: bold;">
                                                 <td>Pohyb</td>
                                                 <td>Príjmy</td>
@@ -202,7 +202,15 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
             pointSize: 2,
             hideHover: 'auto',
             smooth: true,
-            resize: true
+            resize: true,
+            <?php if ($skladId == 1) {
+             echo "barColors: ['#d9534f']";
+             }
+             else if ($skladId ==3){
+             echo "barColors: ['#5cb85c']";
+             }
+             ?>
+
         });
 
 
@@ -211,7 +219,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
     </script>
 
-    <?php endforeach ?>
+    <?php
+    endforeach ?>
 
 
     </div>

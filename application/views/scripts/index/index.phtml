@@ -19,7 +19,11 @@ print_r($storage);
 $pomocna = new Application_Model_DbTable_UbytkyHmotnosti();
 $pomocna = $pomocna->getLastXValues(1, 30);
 
-print_r($pomocna);
+//print_r($pomocna);
+$notifikacie     = new Application_Model_Notifikacie();
 
 
+$notif_info = $notifikacie->getStatusArray();
+
+var_dump($notif_info);
 ?>

@@ -94,11 +94,14 @@ echo $this->doctype(); ?>
 
                     $notif_info = $notifikacie->getStatusArray();
 
+
+
                     $count_notif = $notif_info['total'];
                     $prijmy_w = $notif_info['prijmy_waitings'];
                     $prijmy_e = $notif_info['prijmy_errors'];
                     $vydaje_w = $notif_info['vydaje_waitings'];
                     $vydaje_e = $notif_info['vydaje_errors'];
+                    $ubytky_ch = $notif_info['ubytky_chyba'];
 
                     ?>
 
@@ -168,6 +171,18 @@ echo $this->doctype(); ?>
 
                         <?php }
 
+                    if ($ubytky_ch > 0 ) {
+                        ?>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'ubytky',
+                                'action' => 'list'
+                            ), null, true) ?>"> <span class="label label-danger tleft">Chybných úbytkov</span> <span class="notif_count right"> <?php echo $ubytky_ch; ?> </span>  </a>
+                        </li>
+
+                    <?php }
+
                     if ($count_notif >0) {
                         ?>
 <!--                        <li>-->
@@ -179,9 +194,9 @@ echo $this->doctype(); ?>
 <!--                        <li>-->
 <!--                            <a href="#"><span class="label label-info">666 </span> &nbsp;  aj takto sa da </a>-->
 <!--                        </li>-->
-                        <li class="divider"></li>
-
-                        <li>
+<!--                        <li class="divider"></li>-->
+<!---->
+<!--                        <li>-->
                             <a href="#">Celkovo <?php echo $count_notif; ?> notifikácií</a>
                         </li>
                         <?php } ?>
