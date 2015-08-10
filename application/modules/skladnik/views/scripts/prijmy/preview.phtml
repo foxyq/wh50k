@@ -1,4 +1,12 @@
-<h2 xmlns="http://www.w3.org/1999/html">Príjmy - detail</h2>
+<?php
+    $title = Zend_Controller_Front::getInstance()->getRequest()->getParam('title');
+    if (isset($title)){
+        echo "<h2 xmlns=\"http://www.w3.org/1999/html\">".$title."</h2>";
+    }else{
+        echo "<h2 xmlns=\"http://www.w3.org/1999/html\">Príjmy - detail</h2>";
+    }
+?>
+
 <!--<hr>-->
 <div class="col-lg-5">
     <div class="panel panel-info">

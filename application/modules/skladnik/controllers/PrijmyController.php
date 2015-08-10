@@ -195,7 +195,8 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                     $doklad_cislo);
 
 
-                $this->_helper->redirector('list');
+                //$this->_helper->redirector('list');
+                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>'add'));
             } else {
 
 
@@ -306,7 +307,8 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                     $doklad_cislo);
 
 
-                $this->_helper->redirector('list');
+                //$this->_helper->redirector('list');
+                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>'add'));
             } else {
 
 
@@ -417,7 +419,8 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                     $doklad_cislo);
 
 
-                $this->_helper->redirector('list');
+                //$this->_helper->redirector('list');
+                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>'add'));
             } else {
 
 
