@@ -117,12 +117,12 @@
         $(".in").keyup(function(){
             var konverznaTabulka = <?php echo json_encode($konverznaTabulka); ?>;
 
-            var tonym = +$("#q_tony_merane").val();
-            var tonyb = +$("#q_tony_brutto").val();
+            var tonym = +$("#q_tony_merane").val().replace(",",".");
+            var tonyb = +$("#q_tony_brutto").val().replace(",",".");
 
-            var tonyt = +$("#q_tony_tara").val();
-            var m3 = +$("#q_m3_merane").val();
-            var prm = +$("#q_prm_merane").val();
+            var tonyt = +$("#q_tony_tara").val().replace(",",".");
+            var m3 = +$("#q_m3_merane").val().replace(",",".");
+            var prm = +$("#q_prm_merane").val().replace(",",".");
 
             var materialDruh =  +$("#material_druh_enum").val();
 
@@ -345,6 +345,13 @@
                     <div class="col-lg-6">
 
                         <?php echo $this->form->q_prm_merane; // render the user name field here ?>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <?php echo $this->form->q_vlhkost; // render the user name field here ?>
                     </div>
 
                 </div>

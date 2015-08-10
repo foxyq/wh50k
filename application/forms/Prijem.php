@@ -105,6 +105,13 @@ class Application_Form_Prijem extends Zend_Form
             ->setAttrib('tabindex', '-1')
             ->addFilter($filterCisla);
 
+        $q_vlhkost = new Zend_Form_Element_Text('q_vlhkost');
+        $q_vlhkost->setLabel('Vlhkosť')
+            ->setAttrib('class', 'form-control in')
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
+
+
 
 
         //TODO
@@ -159,6 +166,7 @@ class Application_Form_Prijem extends Zend_Form
             $q_tony_tara,
             $q_m3_merane,
             $q_prm_merane,
+            $q_vlhkost,
 //            $doklad_typ,
             $material_druh,
             $material_typ,

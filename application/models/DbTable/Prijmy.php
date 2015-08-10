@@ -50,6 +50,16 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         return $row;
     }
 
+    public function getAutor($id){
+        $id = (int)$id;
+        $row = $this->fetchRow('ts_prijmy_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        return $row['vytvoril_u'];
+    }
+
     public function deletePrijem($id)
     {
         $this->delete('ts_prijmy_id =' . (int)$id);
@@ -67,6 +77,7 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
                               $q_tony_tara,
                               $q_m3_merane,
                               $q_prm_merane,
+                              $q_vlhkost,
                               $doklad_typ,
                               $material_typ,
                               $material_druh,
@@ -74,6 +85,9 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
                               $chyba,
                               $stav_transakcie,
                             $doklad_cislo){
+        $identity = (array) Zend_Auth::getInstance()->getIdentity();
+        $identity = (int) $identity['id'];
+
         $data = array(
             'datum_prijmu_d' => $datum_prijmu,
             'sklad_enum' => $sklad,
@@ -87,6 +101,7 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
             'q_tony_merane_tara' => $q_tony_tara,
             'q_m3_merane' => $q_m3_merane,
             'q_prm_merane' => $q_prm_merane,
+            'q_vlhkost' => $q_vlhkost,
             'doklad_typ_enum' => $doklad_typ,
             'material_typ_enum' => $material_typ,
             'material_druh_enum' => $material_druh,
@@ -94,8 +109,8 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
             'chyba' => $chyba,
             'stav_transakcie' => $stav_transakcie,
             'doklad_cislo' => $doklad_cislo,
-            'vytvoril_u' => 1,
-            'posledna_uprava_u' => 1
+            'vytvoril_u' => $identity,
+            'posledna_uprava_u' => $identity
 
         );
         $this->insert($data);
@@ -115,12 +130,17 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
 //        $q_tony_tara,
         $q_m3_merane,
         $q_prm_merane,
+        $q_vlhkost,
 //        $doklad_typ,
         $material_druh,
         $material_typ,
         $poznamka,
         $chyba,
         $stav_transakcie){
+
+        $identity = (array) Zend_Auth::getInstance()->getIdentity();
+        $identity = (int) $identity['id'];
+
 
         $data = array(
             'datum_prijmu_d' => $datum_prijmu,
@@ -135,6 +155,7 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
 //            'q_tony_merane_tara' => $q_tony_tara,
             'q_m3_merane' => $q_m3_merane,
             'q_prm_merane' => $q_prm_merane,
+            'q_vlhkost' => $q_vlhkost,
 //            'doklad_typ_enum' => $doklad_typ,
             'material_druh_enum' => $material_druh,
             'material_typ_enum' => $material_typ,
@@ -142,8 +163,8 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
             'chyba' => $chyba,
             'stav_transakcie' => $stav_transakcie,
 
-            'vytvoril_u' => 1,
-            'posledna_uprava_u' =>  1,
+            'vytvoril_u' => self::getAutor($id),
+            'posledna_uprava_u' =>  $identity,
 
 
         );

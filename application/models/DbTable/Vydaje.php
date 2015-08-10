@@ -49,6 +49,16 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         return $row;
     }
 
+     public function getAutor($id){
+        $id = (int)$id;
+        $row = $this->fetchRow('ts_vydaje_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        return $row['vytvoril_u'];
+    }
+
     public function addVydaj($datum_vydaju,
                               $sklad,
                               $podsklad,
@@ -58,6 +68,7 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
                               $q_tony_merane,
                               $q_m3_merane,
                               $q_prm_merane,
+                              $q_vlhkost,
                               $doklad_typ,
                               $material_typ,
                               $material_druh,
@@ -66,6 +77,10 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
                               $chyba,
                               $stav_transakcie,
                              $doklad_cislo){
+
+        $identity = (array) Zend_Auth::getInstance()->getIdentity();
+        $identity = (int) $identity['id'];
+
         $data = array(
             'datum_vydaju_d' => $datum_vydaju,
             'sklad_enum' => $sklad,
@@ -76,6 +91,7 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
             'q_tony_merane' => $q_tony_merane,
             'q_m3_merane' => $q_m3_merane,
             'q_prm_merane' => $q_prm_merane,
+            'q_vlhkost' => $q_vlhkost,
             'doklad_typ_enum' => $doklad_typ,
             'material_typ_enum' => $material_typ,
             'material_druh_enum' => $material_druh,
@@ -84,8 +100,8 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
             'chyba' => $chyba,
             'stav_transakcie' => $stav_transakcie,
             'doklad_cislo' => $doklad_cislo,
-            'vytvoril_u' => 1, //TODO podla logged in usera
-            'posledna_uprava_u' => 1, // TODO ^ same shit
+            'vytvoril_u' => $identity,
+            'posledna_uprava_u' => $identity,
 
 
         );
@@ -103,8 +119,9 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
                              $prepravca,
                              $prepravca_spz,
                              $q_tony_merane,
-                              $q_m3_merane,
+                             $q_m3_merane,
                              $q_prm_merane,
+                             $q_vlhkost,
                              $doklad_typ,
                              $material_typ,
                              $material_druh,
@@ -112,6 +129,10 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
                              $poznamka,
                              $chyba,
                              $stav_transakcie){
+
+        $identity = (array) Zend_Auth::getInstance()->getIdentity();
+        $identity = (int) $identity['id'];
+
         $data = array(
             'datum_vydaju_d' => $datum_vydaju,
             'sklad_enum' => $sklad,
@@ -122,6 +143,7 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
             'q_tony_merane' => $q_tony_merane,
             'q_m3_merane' => $q_m3_merane,
             'q_prm_merane' => $q_prm_merane,
+            'q_vlhkost' => $q_vlhkost,
             'doklad_typ_enum' => $doklad_typ,
             'material_typ_enum' => $material_typ,
             'material_druh_enum' => $material_druh,
@@ -130,8 +152,8 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
             'chyba' => $chyba,
             'stav_transakcie' => $stav_transakcie,
 
-            'vytvoril_u' => 1, //TODO podla logged in usera
-            'posledna_uprava_u' => 1 // TODO ^ same shit
+            'vytvoril_u' => self::getAutor($id),
+            'posledna_uprava_u' => $identity
 
         );
         $this->update($data, 'ts_vydaje_id ='. (int)$id);

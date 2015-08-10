@@ -15,15 +15,11 @@ echo "<hr>";
 $storage = Zend_Auth::getInstance()->getStorage()->read();
 print_r($storage);
 */
-//$pomocna = Zend_controller_Front::getInstance()->getRequest()->getModuleName();
-$pomocna = new Application_Model_DbTable_UbytkyHmotnosti();
-$pomocna = $pomocna->getLastXValues(1, 30);
+echo "<br>";
+$pomocna = (array) Zend_Auth::getInstance()->getIdentity();
 
-//print_r($pomocna);
+
+print_r($pomocna['id']);
 $notifikacie     = new Application_Model_Notifikacie();
 
-
-$notif_info = $notifikacie->getStatusArray();
-
-var_dump($notif_info);
 ?>

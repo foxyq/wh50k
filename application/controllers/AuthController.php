@@ -45,7 +45,7 @@ class AuthController extends Zend_Controller_Action
                 $storage = Zend_Auth::getInstance()->getStorage();
                 $storage->write(
                     $adapter->getResultRowObject(
-                        array('email', 'name', 'users_types_enum')
+                        array('email', 'name', 'users_types_enum', 'id')
                     )
                 );
 

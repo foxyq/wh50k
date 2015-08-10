@@ -124,12 +124,13 @@ $vydaje_e = $notif_info['vydaje_errors'];
               <th>prepravca</th>
 <!--              <th> SPZ</th>-->
               <th>tony m</th>
+              <th>vlhkosť</th>
               <!--        <th>tony v</th>-->
               <!--        <th>m3 m</th>-->
               <!--        <th>m3 v</th>-->
               <!--        <th>prm m</th>-->
               <!--        <th>prm v</th>-->
-
+              <th>číslo dokladu</th>
               <th>material typ</th>
 <!--              <th>material druh</th>-->
               <th class="col-stav">stav</th>
@@ -181,12 +182,22 @@ $vydaje_e = $notif_info['vydaje_errors'];
                 echo $date ;?>
             </td>
 <!--               <td>--><?php //echo $this->escape($vydaj->doklad_cislo);?><!--</td>-->
-            <td><?php echo $this->escape($this->sklady->getNazov($vydaj->sklad_enum));?></td>
+            <td><?php echo $this->escape($this->sklady->getSkratka($vydaj->sklad_enum));?></td>
             <td><?php echo $this->escape($this->podsklady->getNazov($vydaj->podsklad_enum));?></td>
             <td><?php echo $this->escape($this->zakaznici->getNazov($vydaj->zakaznik_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($vydaj->prepravca_enum));?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->prepravca_spz);?><!--</td>-->
             <td><?php echo number_format($this->escape($vydaj->q_tony_merane), 2, ",", " ");?></td>
+            <td>
+                <?php
+                    if ($vydaj->q_vlhkost == 0.00){
+                        echo "-";
+                    }else {
+                        echo number_format($this->escape($vydaj->q_vlhkost), 2, ",", " ") . "%";
+                    }
+                ?>
+            </td>
+            <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($vydaj->q_m3_merane);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($vydaj->q_m3_vypocet);?><!--</td>-->

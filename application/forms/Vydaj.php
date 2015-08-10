@@ -105,6 +105,13 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
             ->setAttrib('tabindex', '-1')
             ->addFilter($filterCisla);
 
+        $q_vlhkost = new Zend_Dojo_Form_Element_NumberSpinner('$q_vlhkost');
+        $q_vlhkost
+            ->setLabel('Vlhkosť')
+            ->setAttrib('class', 'form-control')
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCisla);
+
 
         $doklad_typ = new Zend_Form_Element_Select('doklad_typ_enum');
         $doklad_typ->setMultiOptions($this->getAttrib('dokladyTypyMoznosti'));
@@ -153,6 +160,7 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
             $q_tony_merane,
             $q_m3_merane,
             $q_prm_merane,
+            $q_vlhkost,
             $doklad_typ,
             $stroj_enum,
             $material_druh,
