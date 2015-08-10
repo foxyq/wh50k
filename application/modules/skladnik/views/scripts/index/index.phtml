@@ -1,19 +1,23 @@
 <?php
     $this->headTitle($this->title);
-
-print_r(Zend_controller_Front::getInstance()->getRequest()->getModuleName());
 ?>
 
-<h1>Rozcestník</h1>
-<hr>
 <div>
-    <h3>Príjmy</h3>
-    <a href="<?php echo $this->baseUrl().'/skladnik/prijmy/add'?>">Pridať</a>
-    <a href="<?php echo $this->baseUrl().'/skladnik/prijmy/list'?>">Zoznam</a>
+    <h2>Príjmy</h2>
+    <hr>
+    <ul>
+        <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addton'?>">Pridať príjem v tonách</a></li>
+        <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addm3'?>">Pridať príjem v m<sup>3</sup></a></li>
+        <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addprm'?>">Pridať príjem v PRM</a></li>
+        <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/list'?>">Zoznam príjmov</a></li>
+    </ul>
 </div>
 
 <div>
-<h3>Výdaje</h3>
-    <a href="<?php echo $this->baseUrl().'/skladnik/vydaje/add'?>">Pridať</a>
-    <a href="<?php echo $this->baseUrl().'/skladnik/vydaje/list'?>">Zoznam</a>
+<h2>Výdaje</h2>
+    <hr>
+    <ul>
+        <li><a href="<?php echo $this->baseUrl().'/skladnik/vydaje/add'?>">Pridať</a></li>
+        <li><a href="<?php echo $this->baseUrl().'/skladnik/vydaje/list'?>">Zoznam výdajov</a></li>
+    </ul>
 </div>

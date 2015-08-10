@@ -10,7 +10,7 @@ class Skladnik_IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $this->view->title = 'Nástenka';
+        $this->view->title = 'Rozcestník';
     }
 
     public function secretAction()

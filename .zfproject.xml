@@ -156,6 +156,13 @@
               <actionMethod actionName="list"/>
               <actionMethod actionName="print"/>
               <actionMethod actionName="preview"/>
+              <actionMethod actionName="addton"/>
+              <actionMethod actionName="addprm"/>
+              <actionMethod actionName="addm3"/>
+              <actionMethod actionName="markAsError"/>
+              <actionMethod actionName="pokus"/>
+              <actionMethod actionName="errors"/>
+              <actionMethod actionName="noErrors"/>
             </controllerFile>
             <controllerFile controllerName="Vydaje">
               <actionMethod actionName="index"/>
@@ -210,6 +217,27 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Vydaje">
                 <viewScriptFile forActionName="print"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="addton"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="addprm"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="addm3"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="markAsError"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="pokus"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="errors"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="noErrors"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
