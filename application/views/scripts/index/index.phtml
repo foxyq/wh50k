@@ -1,25 +1,3 @@
 <h1>Vitajte v skladovej aplikácií</h1>
-<h3>Dnes má meniny Adolf!</h3>
-<a href="index/secret">Secret</a>
-<?php
-//TELETE THIS AFTER CODE
-$merneJednotky = new Application_Model_DbTable_MerneJednotky();
-$merneJednotky = $merneJednotky->getPrepoctyArray(1.818182,3,2);
-$ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
-/*
-$zendAuthIdentity = (array) Zend_Auth::getInstance()->getIdentity();
-$zendAuthEmail = $zendAuthIdentity['email'];
-print_r($zendAuthEmail);
-echo "<hr>";
+<!--<a href="index/secret">Secret</a>-->
 
-$storage = Zend_Auth::getInstance()->getStorage()->read();
-print_r($storage);
-*/
-echo "<br>";
-$pomocna = (array) Zend_Auth::getInstance()->getIdentity();
-
-
-print_r($pomocna['id']);
-$notifikacie     = new Application_Model_Notifikacie();
-
-?>

@@ -20,7 +20,7 @@ class IndexController extends Zend_Controller_Action
         //$form = $this->view->form = new Application_Form_Login();
         $request = $this->getRequest()->getServer('HTTP_REFERER');
         //$request->getHeader('referer');
-        print_r( $request);
+        //print_r( $request);
     }
 
     public function previewAction()
