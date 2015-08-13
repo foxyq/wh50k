@@ -3,3 +3,11 @@ $this->title = "Pridanie Skladu";
 $this->headTitle($this->title);
 echo $this->form ;
 ?>
+
+
+<a href="<?php
+//pageManager
+echo $this->url(array(
+    'controller' => 'sklady',
+    'action' => 'list'
+), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>

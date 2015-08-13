@@ -3,3 +3,11 @@ $this->title = "Upraviť zákazníka";
 $this->headTitle($this->title);
 echo $this->form ;
 ?>
+
+
+<a href="<?php
+//pageManager
+echo $this->url(array(
+    'controller' => 'zakaznici',
+    'action' => 'list'
+), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>

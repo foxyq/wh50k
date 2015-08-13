@@ -4,3 +4,57 @@ $this->headTitle($this->title);
 print_r($this->vytazenieStrojov);
 ?>
 
+
+<script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
+
+<div id="morris-donut-chart"></div>
+<div class="row">
+
+    <div id="morris-area-chart"></div>
+
+
+</div>
+
+
+
+<script>
+    // Area Chart
+    Morris.Bar({
+        element: 'morris-area-chart',
+
+        data: <?php echo json_encode($this->vytazenieStrojov);?>,
+
+        xkey: '1',
+        ykeys: ['0'],
+        labels: ['Stav (t)'],
+        pointSize: 2,
+        hideHover: 'auto',
+        smooth: true,
+        resize: true,
+        barColors: ['#000']
+
+
+    });
+
+    // Donut Chart
+    Morris.Donut({
+        element: 'morris-donut-chart',
+        data: [{
+            label: "Download Sales",
+            value: 12
+        }, {
+            label: "In-Store Sales",
+            value: 30
+        }, {
+            label: "Mail-Order Sales",
+            value: 20
+        }],
+        resize: true
+    });
+
+</script>
+
+
+
+<?php echo json_encode($this->vytazenieStrojov);?>
