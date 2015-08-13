@@ -370,11 +370,15 @@
                     <legend>Doplňujúce informácie</legend>
                     <div class="col-lg-6">
 <!--                        Stav:-->
-                        <?php echo $this->form->stav_transakcie->setAttribs(array('disabled' => TRUE, 'value' => 1));?>
+                        <?php
+                            echo $this->form->stav_transakcie->setAttribs(array('disabled' => 'disabled', 'value' => 1));
+                        ?>
                     </div>
                     <div class="col-lg-6">
 <!--                        Chyba:-->
-                        <?php echo $this->form->chyba->setAttribs(array('diaabled' => TRUE, 'value' => 0));?>
+                        <?php
+                            echo $this->form->chyba->setAttribs(array('disabled' => 'disabled', 'value' => 0));
+                        ?>
                     </div>
             </div>
 

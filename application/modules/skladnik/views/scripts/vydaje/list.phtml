@@ -245,10 +245,17 @@ $vydaje_e = $notif_info['vydaje_errors'];
                      <?php echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
 
                 </a>
-                <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-            'action'=>'mark-as-error', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'list', 'module'=>'skladnik'));?>">
-                    <?php echo '<img src="'.$this->baseUrl().'/images/oznacit.png" alt="oznacit">'; ?>
+                 <?php
+                    if ($vydaj->chyba == 0){
+                ?>
+                <a href="<?php echo $this->url(array('controller'=>'vydaje', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'list'));?>">
+
+                    <?php echo '<img src="'.$this->baseUrl().'/images/oznacit.png" alt="zmazat">'; ?>
+
                 </a>
+                <?php } else{
+                        echo $this->chyba;
+                    }?>
 
             </td>
         </tr>

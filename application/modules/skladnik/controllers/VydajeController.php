@@ -86,8 +86,8 @@ class Skladnik_VydajeController extends Zend_Controller_Action
                 $material_druh = $form->getValue('material_druh_enum');
                 $stroj = $form->getValue('stroj_enum');
                 $poznamka = $form->getValue('poznamka');
-                $chyba = $form->getValue('chyba');
-                $stav_transakcie = $form->getValue('stav_transakcie');
+                $chyba = 0;
+                $stav_transakcie = 1;
 
                 $code = str_replace('-', '', $datum_vydaju);
                 $code = substr( $code, 2);
@@ -122,7 +122,7 @@ class Skladnik_VydajeController extends Zend_Controller_Action
                 //pageManager
                 //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
 
-                $this->_helper->redirector($fromAction);
+                $this->getHelper('Redirector')->gotoSimple('preview', 'vydaje', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>$fromAction));
 
 
             } else {
@@ -288,11 +288,15 @@ class Skladnik_VydajeController extends Zend_Controller_Action
 
     public function markAsErrorAction()
     {
+
         $id = (int)Zend_Controller_Front::getInstance()->getRequest()->getParam('id');
+        $fromAction = Zend_Controller_Front::getInstance()->getRequest()->getParam('fromAction');
+
         //die($id);
-        $vydaje = new Application_Model_DbTable_Prijmy();
+        $vydaje = new Application_Model_DbTable_Vydaje();
         $vydaje->markAsError($id);
-        $this->_helper->redirector('list');
+        $this->_helper->redirector($fromAction);
+        die('mrtvlka');
     }
 
 
