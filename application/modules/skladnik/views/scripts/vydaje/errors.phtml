@@ -84,7 +84,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
 <p>
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-        'action'=>'add', 'fromAction' => 'list'));?>" type="button" class="btn btn-success">
+        'action'=>'add', 'fromAction' => 'errors'));?>" type="button" class="btn btn-success">
         Pridať výdaj
     </a>
 
@@ -102,6 +102,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
         'action'=>'errors', 'fromAction' => 'list'));?>" type="button" class="btn btn-danger">
         chyby
     </a>
+
 
 
     </p>
@@ -171,7 +172,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
         ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
             <td class="center"> <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-            'action'=>'preview', 'id'=>$vydaj->doklad_cislo, 'fromAction' => 'list'));?>">
+            'action'=>'preview', 'id'=>$vydaj->doklad_cislo,'fromAction' => 'errors'));?>">
                      <?php echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
                 </a></td>
             <td>
@@ -237,7 +238,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
 //                ?><!--</td>-->
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                    'action'=>'mark-as-error', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'list', 'module'=>'skladnik'));?>">
+                    'action'=>'mark-as-error', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'errors', 'module'=>'skladnik'));?>">
                     <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
                 </a>
 

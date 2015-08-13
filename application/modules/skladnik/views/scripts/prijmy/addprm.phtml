@@ -320,11 +320,11 @@
                     <legend>Množstvo</legend>
                     <div class="col-lg-6">
 <!--                        Netto:-->
-                        <?php echo $this->form->q_tony_merane; // render the user name field here ?>
+                        <?php echo $this->form->q_tony_merane->setAttribs(array('readOnly' => 'true', 'value'=>0)); // render the user name field here ?>
                     </div>
                     <div class="col-lg-6">
 <!--                        Brutto:-->
-                        <?php echo $this->form->q_tony_nadrozmer; // render the user name field here ?>
+                        <?php echo $this->form->q_tony_nadrozmer->setAttribs(array('readOnly' => 'true', 'value'=>0)); // render the user name field here ?>
                     </div>
                 </fieldset>
             </div>
@@ -332,11 +332,11 @@
                 <div class="row">
                     <div class="col-lg-6">
 
-                        <?php echo $this->form->q_tony_brutto; // render the user name field here ?>
+                        <?php echo $this->form->q_tony_brutto->setAttribs(array('readOnly' => 'disabled', 'value'=>0)); // render the user name field here ?>
                     </div>
                     <div class="col-lg-6">
 
-                        <?php echo $this->form->q_tony_tara; // render the user name field here ?>
+                        <?php echo $this->form->q_tony_tara->setAttribs(array('readOnly' => 'true', 'value'=>0)); // render the user name field here ?>
                     </div>
 
 
@@ -346,7 +346,7 @@
 
                     <div class="col-lg-6">
 
-                        <?php echo $this->form->q_m3_merane; // render the user name field here ?>
+                        <?php echo $this->form->q_m3_merane->setAttribs(array('readOnly' => 'true', 'value'=>0)); // render the user name field here ?>
                     </div>
 
 
@@ -372,11 +372,11 @@
                     <legend>Doplňujúce informácie</legend>
                     <div class="col-lg-6">
 <!--                        Stav:-->
-                        <?php echo $this->form->stav_transakcie; // render the user name field here ?>
+                        <?php echo $this->form->stav_transakcie->setAttribs(array('readOnly' => 'true', 'value'=>1)); // render the user name field here ?>
                     </div>
                     <div class="col-lg-6">
 <!--                        Chyba:-->
-                        <?php echo $this->form->chyba; // render the user name field here ?>
+                        <?php echo $this->form->chyba->setAttribs(array('readOnly' => 'true', 'value'=>0)); // render the user name field here ?>
                     </div>
             </div>
 
@@ -406,7 +406,8 @@
                         //pageManager
                         echo $this->url(array(
                             'controller' => 'prijmy',
-                            'action' => $this->fromAction
+                            'action' => $this->fromAction,
+                            'module' => 'skladnik'
                         ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
 
                     </div>

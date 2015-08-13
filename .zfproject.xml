@@ -170,6 +170,9 @@
               <actionMethod actionName="list"/>
               <actionMethod actionName="preview"/>
               <actionMethod actionName="print"/>
+              <actionMethod actionName="noErrors"/>
+              <actionMethod actionName="errors"/>
+              <actionMethod actionName="markAsError"/>
             </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
@@ -238,6 +241,15 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Prijmy">
                 <viewScriptFile forActionName="noErrors"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Vydaje">
+                <viewScriptFile forActionName="noErrors"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Vydaje">
+                <viewScriptFile forActionName="errors"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Vydaje">
+                <viewScriptFile forActionName="markAsError"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

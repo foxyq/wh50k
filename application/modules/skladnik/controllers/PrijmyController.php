@@ -58,7 +58,9 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
 
     public function printAction()
     {
-        // action body
+        $id = $this->_getParam('id', 0);
+        $prijmy = new Application_Model_DbTable_Prijmy();
+        $this->view->prijem = $prijmy->getPrijem($id);
     }
 
     public function previewAction()
@@ -433,8 +435,8 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
 
     public function markAsErrorAction()
     {
-        $id = (int)Zend_Controller_Front::getInstance()->getRequest()->getParam('id');
-        print_r($id);
+        $id = (int)Zend_Controller_Front::getInstance()->getRequest()->getParam('ts_vydaje_id');
+        //print_r($id);
         $prijmy = new Application_Model_DbTable_Prijmy();
         $prijmy->markAsError($id);
         $this->_helper->redirector('list');

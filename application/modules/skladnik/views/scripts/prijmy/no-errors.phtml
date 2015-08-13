@@ -86,12 +86,12 @@
         </a>
 
         <a href="<?php echo $this->url(array('controller'=>'prijmy',
-            'action'=>'list'));?>" type="button" class="btn btn-success">
+            'action'=>'list'));?>" type="button" class="btn btn-info">
             všetky
         </a>
 
         <a href="<?php echo $this->url(array('controller'=>'prijmy',
-            'action'=>'no-errors'));?>" type="button" class="btn btn-info">
+            'action'=>'no-errors'));?>" type="button" class="btn btn-success">
             bez chýb
         </a>
 
@@ -99,7 +99,6 @@
             'action'=>'errors'));?>" type="button" class="btn btn-danger">
             chyby
         </a>
-
 
 
 
@@ -254,7 +253,7 @@
                 <?php
                     if ($prijem->chyba == 0){
                 ?>
-                <a href="<?php echo $this->url(array('controller'=>'prijmy', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>">
+                <a href="<?php echo $this->url(array('controller'=>'prijmy', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'no-errors'));?>">
 
                     <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
 
