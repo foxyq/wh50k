@@ -15,7 +15,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 
             "order": [[ 1, "desc" ]],
             columnDefs: [
-                { "sType": "title-string", "aTargets": [ 8 ]  }
+                { "sType": "title-string", "aTargets": [ 10 ]  }
 //                    { "sType": "alt-string", "aTargets" : 11 }
             ],
 
@@ -84,7 +84,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
 <p>
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-        'action'=>'add', 'fromAction' => 'list'));?>" type="button" class="btn btn-success">
+        'action'=>'add', 'fromAction' => 'list'));?>" type="button" class="btn-first btn btn-success">
         Pridať výdaj
     </a>
 
