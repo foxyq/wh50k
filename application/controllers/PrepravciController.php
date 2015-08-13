@@ -40,7 +40,7 @@ class PrepravciController extends Zend_Controller_Action
         $prepravci = new Application_Model_DbTable_Prepravci();
         $this->view->prepravci = $prepravci->fetchAll();
 
-        $this->view->title = "Prepravci - zoznam";
+        $this->view->title = "Prepravcovia - zoznam";
     }
 
     public function editAction()

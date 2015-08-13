@@ -165,8 +165,9 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $material_typ = $form->getValue('material_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
                 $poznamka = $form->getValue('poznamka');
-                $chyba = $form->getValue('chyba');
-                $stav_transakcie = $form->getValue('stav_transakcie');
+                $chyba = 0;
+                $stav_transakcie = 1;
+
 
                 $code = str_replace('-', '', $datum_prijmu);
                 $code = substr( $code, 2);
@@ -198,7 +199,7 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
 
 
                 //$this->_helper->redirector('list');
-                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>'add'));
+                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>$fromAction));
             } else {
 
 
@@ -277,8 +278,8 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $material_typ = $form->getValue('material_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
                 $poznamka = $form->getValue('poznamka');
-                $chyba = $form->getValue('chyba');
-                $stav_transakcie = $form->getValue('stav_transakcie');
+                $chyba = 0;
+                $stav_transakcie = 1;
 
                 $code = str_replace('-', '', $datum_prijmu);
                 $code = substr( $code, 2);
@@ -310,7 +311,7 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
 
 
                 //$this->_helper->redirector('list');
-                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>'add'));
+                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>$fromAction));
             } else {
 
 
@@ -389,8 +390,8 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $material_typ = $form->getValue('material_typ_enum');
                 $material_druh = $form->getValue('material_druh_enum');
                 $poznamka = $form->getValue('poznamka');
-                $chyba = $form->getValue('chyba');
-                $stav_transakcie = $form->getValue('stav_transakcie');
+                $chyba = 0;
+                $stav_transakcie = 1;
 
                 $code = str_replace('-', '', $datum_prijmu);
                 $code = substr( $code, 2);
@@ -422,7 +423,7 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
 
 
                 //$this->_helper->redirector('list');
-                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>'add'));
+                $this->getHelper('Redirector')->gotoSimple('preview', 'prijmy', 'skladnik', array('id'=>$doklad_cislo, 'fromAction'=>$fromAction));
             } else {
 
 
@@ -435,11 +436,12 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
 
     public function markAsErrorAction()
     {
-        $id = (int)Zend_Controller_Front::getInstance()->getRequest()->getParam('ts_vydaje_id');
+        $id = (int)Zend_Controller_Front::getInstance()->getRequest()->getParam('id');
+        $fromAction = Zend_Controller_Front::getInstance()->getRequest()->getParam('fromAction');
         //print_r($id);
         $prijmy = new Application_Model_DbTable_Prijmy();
         $prijmy->markAsError($id);
-        $this->_helper->redirector('list');
+        $this->_helper->redirector($fromAction);
     }
 
     public function errorsAction()

@@ -369,11 +369,11 @@
                     <legend>Doplňujúce informácie</legend>
                     <div class="col-lg-6">
 <!--                        Stav:-->
-                        <?php echo $this->form->stav_transakcie->setAttribs(array('readonly' => 'true', 'value'=>1)); // render the user name field here ?>
+                        <?php echo $this->form->stav_transakcie->setAttribs(array('disabled' => 'disabled', 'value'=>1)); // render the user name field here ?>
                     </div>
                     <div class="col-lg-6">
 <!--                        Chyba:-->
-                        <?php echo $this->form->chyba->setAttribs(array('readonly' => 'true', 'value'=>0)); // render the user name field here ?>
+                        <?php echo $this->form->chyba->setAttribs(array('disabled' => 'disabled', 'value'=>0)); // render the user name field here ?>
                     </div>
             </div>
 

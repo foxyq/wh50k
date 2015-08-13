@@ -224,6 +224,7 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
     }
 
     public function markAsError($id){
+
         $id = (int) $id;
         $data = array('chyba'=>1);
         $this->update($data, 'ts_vydaje_id ='. (int)$id);
