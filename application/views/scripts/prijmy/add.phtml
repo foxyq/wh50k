@@ -45,7 +45,7 @@
 //deklaracie ....
             var tonym = +$("#q_tony_merane").val();
             var tonyb = +$("#q_tony_brutto").val();
-            var tonyn =  +$("#q_tony_nadrozmer").val();
+//            var tonyn =  +$("#q_tony_nadrozmer").val();
             var tonyt = +$("#q_tony_tara").val();
             var m3 = +$("#q_m3_merane").val();
             var prm = +$("#q_prm_merane").val();
@@ -161,12 +161,12 @@
 
             if($('#q_tony_nadrozmer').is(':focus')) {
 
-                document.getElementById('q_m3_merane').readOnly = true;
-                document.getElementById('q_prm_merane').readOnly = true;
+//                document.getElementById('q_m3_merane').readOnly = true;
+//                document.getElementById('q_prm_merane').readOnly = true;
 
-                $("#q_tony_merane").val(tonyb - tonyt);
-                $("#q_prm_merane").val( (tonyb - tonyt ) * tony2prm);
-                $("#q_m3_merane").val( (tonyb - tonyt ) * tony2m3);
+//                $("#q_tony_merane").val(tonyb - tonyt);
+//                $("#q_prm_merane").val( (tonyb - tonyt ) * tony2prm);
+//                $("#q_m3_merane").val( (tonyb - tonyt ) * tony2m3);
 
 
             }
@@ -177,7 +177,7 @@
                 document.getElementById('q_tony_merane').readOnly = true;
                 document.getElementById('q_tony_brutto').readOnly = true;
                 document.getElementById('q_tony_tara').readOnly = true;
-                document.getElementById('q_tony_nadrozmer').readOnly = true;
+//                document.getElementById('q_tony_nadrozmer').readOnly = true;
                 document.getElementById('q_prm_merane').readOnly = true;
 
                 $("#q_tony_brutto").val( nula );
@@ -195,7 +195,7 @@
                 document.getElementById('q_tony_merane').readOnly = true;
                 document.getElementById('q_tony_brutto').readOnly = true;
                 document.getElementById('q_tony_tara').readOnly = true;
-                document.getElementById('q_tony_nadrozmer').readOnly = true;
+//                document.getElementById('q_tony_nadrozmer').readOnly = true;
                 document.getElementById('q_m3_merane').readOnly = true;
 
                 $("#q_tony_brutto").val( nula );

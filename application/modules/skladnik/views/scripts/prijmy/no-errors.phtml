@@ -80,10 +80,16 @@
 
 
     <p>
-        <a href="<?php echo $this->url(array('controller'=>'prijmy',
-            'action'=>'add', 'fromAction'=>'no-errors'));?>" type="button" class="btn btn-success">
-            Pridať príjem
-        </a>
+    <div class="dropdown left ">
+        <a href="#" class="btn-first dropdown-toggle btn btn-success" data-toggle="dropdown">Pridať príjem <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+
+            <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addton'?>">Pridať príjem v tonách</a></li>
+            <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addm3'?>">Pridať príjem v m<sup>3</sup></a></li>
+            <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addprm'?>">Pridať príjem v PRM</a></li>
+
+        </ul>
+    </div>
 
         <a href="<?php echo $this->url(array('controller'=>'prijmy',
             'action'=>'list'));?>" type="button" class="btn btn-info">
@@ -255,10 +261,10 @@
                 ?>
                 <a href="<?php echo $this->url(array('controller'=>'prijmy', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'no-errors'));?>">
 
-                    <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
+                    <?php echo '<img src="'.$this->baseUrl().'/images/oznacit.png" alt="oznacit">'; ?>
 
                 </a>
-                <?} else{
+                <?php } else{
                         echo $this->chyba;
                     }?>
 

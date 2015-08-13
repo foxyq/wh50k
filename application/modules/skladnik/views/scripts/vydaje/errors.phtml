@@ -83,6 +83,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
 
 <p>
+
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
         'action'=>'add', 'fromAction' => 'errors'));?>" type="button" class="btn btn-success">
         Pridať výdaj
@@ -237,11 +238,6 @@ $vydaje_e = $notif_info['vydaje_errors'];
 //                else {echo "nie";}
 //                ?><!--</td>-->
             <td>
-                <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                    'action'=>'mark-as-error', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'errors', 'module'=>'skladnik'));?>">
-                    <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
-                </a>
-
 
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
                     'action'=>'print', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'cislo_listku'=>$vydaj->doklad_cislo,
@@ -250,6 +246,13 @@ $vydaje_e = $notif_info['vydaje_errors'];
                      <?php echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
 
                 </a>
+
+                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
+            'action'=>'mark-as-error', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'errors', 'module'=>'skladnik'));?>">
+                    <?php echo '<img src="'.$this->baseUrl().'/images/oznacit.png" alt="oznacit">'; ?>
+                </a>
+
+
             </td>
         </tr>
     <?php endforeach; ?>
