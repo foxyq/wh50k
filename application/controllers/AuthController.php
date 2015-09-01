@@ -56,10 +56,19 @@ class AuthController extends Zend_Controller_Action
 
                 //redirector na úvodné stránky na základe typu účtu užívateľa
                 switch ($userType){
+                    //superadmin
                     case 1:
+                        echo "Nacitam profil";
+                        $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
+                        $ubytky->refreshTableDataByDate('2015-08-01', date('Y-m-d'));
+
                         $this->_redirect('/default');
                         break;
+                    //admin
                     case 2:
+                        $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
+                        $ubytky->refreshTableDataByDate('2015-08-01', date('Y-m-d'));
+
                         $this->_redirect('/default');
                         break;
                     case 3:

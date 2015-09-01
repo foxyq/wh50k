@@ -17,12 +17,16 @@ class ZakazniciController extends Zend_Controller_Action
         $dodaneMnozstvoZakaznikom = array();
 
         foreach ($zakazniciIds AS $zakaznikId){
-            $dodaneMnozstvoZakaznikom[$zakaznikId] = $vydaje->getSumByColumn('q_tony_merane', 'zakaznik_enum', $zakaznikId);
+
+            $dodaneMnozstvoZakaznikom[$zakaznikId]['id'] = $zakaznikId;
+
+            $dodaneMnozstvoZakaznikom[$zakaznikId]['q_tony_merane'] = $vydaje->getSumByColumn('q_tony_merane', 'zakaznik_enum', $zakaznikId);
 
         }
 
         $this->view->title = "Zákazníci - prehľad";
         $this->view->dodaneMnozstvoZakaznikom = $dodaneMnozstvoZakaznikom;
+        $this->view->zakazniciModel = $zakaznici;
     }
 
     public function addAction()

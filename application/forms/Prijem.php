@@ -11,7 +11,25 @@ class Application_Form_Prijem extends Zend_Form
         $id = new Zend_Form_Element_Hidden('ts_prijmy_id');
         $id->addFilter('Int');
 
-        $filterCisla = new Zend_Filter_PregReplace(array('match' => '/,/', 'replace' => '.'));
+        //definicia filtrov
+        $filterCislaDesatinaCiarka = new Zend_Filter_PregReplace(array('match' => '/,/', 'replace' => '.'));
+        $filterTagy = new Zend_Filter_StripTags();
+        $strToUpper = new Zend_Filter_StringToUpper();
+        $filterOdstranCiarku = new Zend_Filter_PregReplace(array('match'=>'/-/', 'replace'=>''));
+        $filterOdstranMedzery = new Zend_Filter_PregReplace(array('match'=>'/ /', 'replace'=>''));
+
+        //definicia validatorov
+        $validatorDatum = new Zend_Validate_Date();
+        $validatorDatum->setMessage('Dátum nevyhovuje formátu rrrr-mm-dd', Zend_Validate_Date::FALSEFORMAT);
+        $validatorPercentaRange = new Zend_Validate_Between(array('min' => 0, 'max' => 99.99));
+        $validatorPercentaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 99,99.");
+        $validatorCislaRange = new Zend_Validate_Between(array('min' => 0, 'max' => 999.99));
+        $validatorCislaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 999,99.");
+        $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[1-Z]{2}[0-9]{3}[A-Z]{2}/"));
+        $validatorSPZ->setMessage('Zadali ste ŠPZ v nesprávnom tvare', Zend_Validate_Regex::NOT_MATCH);
+
+
+
 
         $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
         $submitButtonClass = "success";
@@ -25,12 +43,12 @@ class Application_Form_Prijem extends Zend_Form
         $datum_prijmu->setValue(Zend_Date::now()->toString('YYYY-MM-dd'));
 
         $datum_prijmu->setJQueryParam('dateFormat', 'yy-mm-dd')
-//            ->setJqueryParam('regional', 'de')
             ->setRequired(true)
             ->setLabel("Dátum príjmu")
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
+            ->addValidator($validatorDatum)
             ->setAttrib('class', 'form-control');
 
 
@@ -57,65 +75,77 @@ class Application_Form_Prijem extends Zend_Form
         $prepravca_spz = new Zend_Form_Element_Text('prepravca_spz');
         $prepravca_spz->setLabel('ŠPZ');
         $prepravca_spz->setRequired(true)
-            ->setAttrib('class', 'form-control');
-        //$prepravca_spz->addValidator('regex', false, array('^(B(A|B|C|J|L|N|R|S|Y)|CA|D(K|S|T)|G(A|L)|H(C|E)|IL|K(A|I|E|K|M|N|S)|L(E|C|M|V)|M(A|I|L|T|Y)|N(I|O|M|R|Z)|P(B|D|E|O|K|N|P|T|U|V)|R(A|K|S|V)|S(A|B|C|E|I|K|L|O|N|P|V)|T(A|C|N|O|R|S|T|V)|V(K|T)|Z(A|C|H|I|M|V))([ ]{0,1})([0-9]{3})([A-Z]{2})$'));
+            ->setAttrib('class', 'form-control')
+            ->addFilter($strToUpper)
+            ->addFilter($filterOdstranCiarku)
+            ->addFilter($filterOdstranMedzery)
+            ->addValidator($validatorSPZ);
 
-
+        /*
+         * KVANTITA
+         */
 
         $q_tony_merane = new Zend_Form_Element_Text('q_tony_merane');
         $q_tony_merane->setLabel('Tony netto')
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
 
         $q_tony_brutto = new Zend_Form_Element_Text('q_tony_brutto');
         $q_tony_brutto->setLabel('Tony brutto')
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
         $q_tony_tara = new Zend_Form_Element_Text('q_tony_tara');
         $q_tony_tara->setLabel('Tony tara')
-//            ->addFilter('LocalizedToNormalized')
-//            ->addValidator('float', true, array('locale' => 'sk_SK'))
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
 
         $q_tony_nadrozmer = new Zend_Form_Element_Text('q_tony_nadrozmer');
         $q_tony_nadrozmer->setLabel('Tony nadrozmer')
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
-
-
-
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
         $q_m3_merane = new Zend_Form_Element_Text('q_m3_merane');
         $q_m3_merane->setLabel('Merané m3' )
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
         $q_prm_merane = new Zend_Form_Element_Text('q_prm_merane');
         $q_prm_merane->setLabel('Merané PRM')
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
         $q_vlhkost = new Zend_Form_Element_Text('q_vlhkost');
         $q_vlhkost->setLabel('Vlhkosť')
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorPercentaRange);
+            //->addValidator('Float');
 
-
-
-
-        //TODO
-        //$doklad_cislo;
+        /*
+         * DOPLNUJUCE INFO
+         */
 
         $doklad_typ = new Zend_Form_Element_Select('doklad_typ_enum');
         $doklad_typ->setMultiOptions($this->getAttrib('dokladyTypyMoznosti'));
@@ -136,7 +166,8 @@ class Application_Form_Prijem extends Zend_Form
 
         $poznamka = new Zend_Form_Element_Text('poznamka');
         $poznamka->setLabel('Poznámka')
-            ->setAttrib('class', 'form-control');
+            ->setAttrib('class', 'form-control')
+            ->addFilter($filterTagy);
 
         $chyba = new Zend_Form_Element_Checkbox('chyba');
         $chyba->setLabel('Chyba');

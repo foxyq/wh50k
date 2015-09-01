@@ -176,6 +176,14 @@
 
 
                 <div class="col-lg-6 tright">
+
+                    <?php if ($this->prijem['chyba'] == 0 ){?>
+                        <a href="<?php
+                            echo $this->url(array('controller'=>'prijmy', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$this->prijem['ts_prijmy_id'], 'fromAction' => $this->fromAction));?>" class="btn-danger btn" >
+                        Označiť ako chybu
+                        </a>
+                    <?php } ?>
+
                     <a href="<?php echo $this->url(array('controller'=>'prijmy',
                         'action'=>'print',
                         'id'=>$this->prijem['ts_prijmy_id'], 'cislo_listku'=>$prijem->doklad_cislo,
@@ -185,6 +193,9 @@
                         Tlačiť
 
                     </a>
+
+
+
 
                 </div>
 

@@ -150,6 +150,13 @@
 
 
                 <div class="col-lg-6 tright">
+                    <?php if ($this->vydaj['chyba'] == 0 ){?>
+                        <a href="<?php
+                            echo $this->url(array('controller'=>'vydaje', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$this->vydaj['ts_vydaje_id'], 'fromAction' => $this->fromAction));?>" class="btn-danger btn" >
+                        Označiť ako chybu
+                        </a>
+                    <?php } ?>
+
                     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
                         'action'=>'print', 'ts_vydaje_id'=>$this->vydaj['ts_vydaje_id'], 'cislo_listku'=>$vydaj->doklad_cislo,
                         'spz'=>$vydaj->prepravca_spz));?>" target="_blank" class="btn-info btn" >

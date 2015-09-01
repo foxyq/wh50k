@@ -8,6 +8,9 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 <script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
 <script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
 
+<a href="<?php echo $this->url(array('controller'=>'ubytky',
+            'action'=>'refreshdataexternal', 'fromAction'=>'index', 'fromController'=>'sklady'));?>"><button type="button" class="btn btn-success">Aktualizovať data</button></a>
+
 
 
 <div class="row">
