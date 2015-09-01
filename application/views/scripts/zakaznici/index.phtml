@@ -4,20 +4,57 @@ $zakazniciModel = $this->zakazniciModel;
 //print_r($this->dodaneMnozstvoZakaznikom);
 ?>
 
+<?php echo json_encode($this->dodaneMnozstvoZakaznikom);?>
+<?php echo '<br><br>';
+    var_dump($this->dodaneMnozstvoZakaznikom);?>
 
-<table class="table table-striped table-bordered table-hover">
-    <tr>
-        <th>zákazník</th>
-        <th>dodané množstvo</th>
-    </tr>
 
-<?php foreach($this->dodaneMnozstvoZakaznikom as $zakaznik) : ?>
+<script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
+
+
+<div class="row">
+
+    <div id="morris-area-chart"></div>
+
+</div>
+
+<div class="row">
+
+
+    <table class="table table-striped table-bordered table-hover">
         <tr>
-            <td><?php echo $this->escape($zakazniciModel->getNazov($zakaznik['id']));?></td>
-            <td><?php echo number_format($this->escape($zakaznik['q_tony_merane']),2, ",", " "). " t";?></td>
-
+            <th>Zakaznik</th>
+            <th>Dodané množstvo</th>
 
         </tr>
-    <?php endforeach; ?>
 
-</table>
+
+        <?php foreach($this->dodaneMnozstvoZakaznikom as $zakaznik) : ?>
+            <tr>
+                <td><?php echo $this->escape($zakazniciModel->getNazov($zakaznik['id']));?></td>
+                <td><?php echo number_format($this->escape($zakaznik['q_tony_merane']),2, ",", " "). " t";?></td>
+
+
+            </tr>
+        <?php endforeach; ?>
+
+
+</div>
+
+
+<script>
+    // Area Chart
+    Morris.Bar({
+        element: 'morris-area-chart',
+        data: <?php echo ($this->dodaneMnozstvoZakaznikom);?>,
+        xkey: 'id',
+        ykeys: ['q_tony_merane'],
+        labels: ['Stav (t)'],
+        pointSize: 2,
+        hideHover: 'auto',
+        smooth: true,
+        resize: true,
+        barColors: ['#000']
+    });
+</script>

@@ -1,30 +1,22 @@
 <?php
-
 class VydajeController extends Zend_Controller_Action
 {
-
     public function init()
     {
         /* Initialize action controller here */
         $this->view->addHelperPath('ZendX/JQuery/View/Helper/', 'ZendX_JQuery_View_Helper');
     }
-
     public function indexAction()
     {
         // action body
     }
-
     public function listAction()
     {
-
-
 //        $controller = $this->getRequest()->getControllerName();
 //        $action = $this->getRequest()->getActionName();
-
 //        VERY IMPORTANT!!!!
 //        if ($controller == 'Vydaje' && $action == 'add') echo 'penis';
 //        else echo 'vagina';
-
         // vytvorenie instancií modelov
         $vydaje = new Application_Model_DbTable_Vydaje();
         $sklady = new Application_Model_DbTable_Sklady();
@@ -34,12 +26,10 @@ class VydajeController extends Zend_Controller_Action
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
-
         // priradenie modelov do premenných a poslanie na view script
         $param = $this->_getParam('param', null);
         $title = $this->_getParam('title', null);
         if (!isset($title)){$title = 'Výdaje - zoznam';}
-
         // priradenie modelov do premenných a poslanie na view script
         $this->view->vydaje = $vydaje->fetchAll($param);
         $this->view->sklady = $sklady;
@@ -49,16 +39,13 @@ class VydajeController extends Zend_Controller_Action
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
         $this->view->transakcieStavy = $transakcieStavy;
-
         //názov stránky
         $this->view->title = "Výdaje - zoznam";
     }
-
     public function addAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
@@ -69,7 +56,6 @@ class VydajeController extends Zend_Controller_Action
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
         $stroje = new Application_Model_DbTable_Stroje();
-
         //metoda ktorou vytiahneme do premennej zoznam
         $skladyMoznosti = $skladyMoznosti->getMoznosti();
         $podskladyMoznosti = $podskladyMoznosti->getMoznosti();
@@ -80,12 +66,8 @@ class VydajeController extends Zend_Controller_Action
         $materialyTypyMoznosti = $materialyTypy->getMoznosti();
         $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
         $strojeMoznosti = $stroje->getMoznosti();
-
-
-
         //samostatne premenne ktore posielame na form
         $potvrdzujuceTlacidlo = 'Vložiť';
-
         $form = new Application_Form_Vydaj(array(
             'skladyMoznosti' => $skladyMoznosti,
             'podskladyMoznosti' => $podskladyMoznosti,
@@ -98,20 +80,13 @@ class VydajeController extends Zend_Controller_Action
             'strojeMoznosti' => $strojeMoznosti,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo,
         ));
-
         $this->view->form = $form;
-
         //pageManager
         //$_SESSION[pageManager][ignore] = 1;
-
-
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
-
 //            var_dump($this->getRequest()->getPost());
-
             if ($form->isValid($formData)) {
-
                 $datum_vydaju = $form->getValue('datum_vydaju_d');
                 $sklad = $form->getValue('sklad_enum');
                 $podsklad = $form->getValue('podsklad_enum');
@@ -129,14 +104,10 @@ class VydajeController extends Zend_Controller_Action
                 $poznamka = $form->getValue('poznamka');
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
-
                 $code = str_replace('-', '', $datum_vydaju);
                 $code = substr( $code, 2);
-
                 $doklad_cislo = 'SV'.$code.'-'.substr(uniqid(),6);
-
                 $vydaje = new Application_Model_DbTable_Vydaje();
-
                 $vydaje->addVydaj(
                     $datum_vydaju,
                     $sklad,
@@ -156,30 +127,22 @@ class VydajeController extends Zend_Controller_Action
                     $chyba,
                     $stav_transakcie,
                     $doklad_cislo);
-
                 //$this->_helper->redirector('list');
                 //var_dump( $doklad_cislo);
-
                 //pageManager
                 //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
-
                 $this->_helper->redirector($fromAction);
-
-
             } else {
                 $form->populate($formData);
-
                 //pageManager
                 //$_SESSION[pageManager][ignore] = 1;
             }
         }
     }
-
     public function editAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
@@ -190,8 +153,6 @@ class VydajeController extends Zend_Controller_Action
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
         $stroje = new Application_Model_DbTable_Stroje();
-
-
         //metoda ktorou vytiahneme do premennej zoznam
         $skladyMoznosti = $skladyMoznosti->getMoznosti();
         $podskladyMoznosti = $podskladyMoznosti->getMoznosti();
@@ -202,13 +163,8 @@ class VydajeController extends Zend_Controller_Action
         $materialyTypyMoznosti = $materialyTypy->getMoznosti();
         $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
         $strojeMoznosti = $stroje->getMoznosti();
-
-
-
         //samostatne premenne ktore posielame na form
         $potvrdzujuceTlacidlo = 'Upraviť';
-
-
         $form = new Application_Form_Vydaj(array(
             'skladyMoznosti' => $skladyMoznosti,
             'podskladyMoznosti' => $podskladyMoznosti,
@@ -221,17 +177,11 @@ class VydajeController extends Zend_Controller_Action
             'strojeMoznosti' => $strojeMoznosti,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
         ));
-
-
         $this->view->form = $form;
-
-
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
 //            print_r($formData);
-
             if ($form->isValid($formData)) {
-
                 $id = (int)$form->getValue('ts_vydaje_id');
                 $datum_vydaju = $form->getValue('datum_vydaju_d');
                 $sklad = $form->getValue('sklad_enum');
@@ -250,7 +200,6 @@ class VydajeController extends Zend_Controller_Action
                 $poznamka = $form->getValue('poznamka');
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
-
                 $vydaje = new Application_Model_DbTable_Vydaje();
                 $vydaje->editVydaj(
                     $id,
@@ -271,15 +220,11 @@ class VydajeController extends Zend_Controller_Action
                     $poznamka,
                     $chyba,
                     $stav_transakcie);
-
                 //pageManager
                 //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
-
                 $this->_helper->redirector($fromAction);
-
             } else {
                 $form->populate($formData);
-
                 //pageManager
                 //$_SESSION[pageManager][ignore] = 1;
             }
@@ -290,34 +235,25 @@ class VydajeController extends Zend_Controller_Action
                 $vydaje = new Application_Model_DbTable_Vydaje();
                 $form->populate($vydaje->getVydajFormatted($id));
                 $this->view->data = $vydaje->getVydaj($id);
-
-
                 //pageManager
                 //$_SESSION[pageManager][ignore] = 1;
             }
-
         }
     }
-
     public function deleteAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-
-       //inicializacia pre vypis premennych - pre getNazov() metody
+        //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
         $podskladyModel = new Application_Model_DbTable_Podsklady();
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
         $prepravciModel = new Application_Model_DbTable_Prepravci();
         $strojeModel = new Application_Model_DbTable_Stroje();
-
         $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
         $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
-
-
-
         $ciselniky = array(
             'skladyModel' => $skladyModel,
             'podskladyModel' => $podskladyModel,
@@ -330,62 +266,50 @@ class VydajeController extends Zend_Controller_Action
             'transakcieStavyModel' => $transakcieStavyModel,
             'strojeMoznosti' => $strojeModel
         );
-
         $this->view->ciselniky = $ciselniky;
         $this->view->title = "Zmazať výdaj?";
-
-
-     if ($this->getRequest()->isPost()) {
-        $del = $this->getRequest()->getPost('del');
-        if ($del == 'Áno') {
-            $id = $this->getRequest()->getPost('ts_vydaje_id');
-            $vydaje = new Application_Model_DbTable_Vydaje();
-            $vydaje->deleteVydaj($id);
-        }
-         $this->_helper->redirector($fromAction);
-         //pageManager
-         //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
-            } else {
-                $id = $this->_getParam('ts_vydaje_id', 0);
+        if ($this->getRequest()->isPost()) {
+            $del = $this->getRequest()->getPost('del');
+            if ($del == 'Áno') {
+                $id = $this->getRequest()->getPost('ts_vydaje_id');
                 $vydaje = new Application_Model_DbTable_Vydaje();
-                $this->view->vydaj = $vydaje->getVydaj($id);
-
-                //pageManager
-                //$_SESSION[pageManager][ignore] = 1;
+                $vydaje->deleteVydaj($id);
             }
+            $this->_helper->redirector($fromAction);
+            //pageManager
+            //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+        } else {
+            $id = $this->_getParam('ts_vydaje_id', 0);
+            $vydaje = new Application_Model_DbTable_Vydaje();
+            $this->view->vydaj = $vydaje->getVydaj($id);
+            //pageManager
+            //$_SESSION[pageManager][ignore] = 1;
+        }
     }
-
     public function printAction()
     {
-
-
         $id = $this->_getParam('ts_vydaje_id', 0);
         $vydaje = new Application_Model_DbTable_Vydaje();
         $this->view->vydaj = $vydaje->getVydaj($id);
-
         // Disable the main layout renderer
 //        $this->_helper->layout->disableLayout();
         // Do not even attempt to render a view
 //        $this->_helper->viewRenderer->setNoRender(true);
     }
-
     public function previewAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-
         //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
         $podskladyModel = new Application_Model_DbTable_Podsklady();
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
         $prepravciModel = new Application_Model_DbTable_Prepravci();
         $strojeModel = new Application_Model_DbTable_Stroje();
-
         $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
         $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
-
         $ciselniky = array(
             'skladyModel' => $skladyModel,
             'podskladyModel' => $podskladyModel,
@@ -397,24 +321,17 @@ class VydajeController extends Zend_Controller_Action
             'materialyDruhyModel' => $materialyDruhyModel,
             'transakcieStavyModel' => $transakcieStavyModel
         );
-
-
-
-
         $id = $this->_getParam('id');
         $vydaje = new Application_Model_DbTable_Vydaje();
         $vydaj = $vydaje->getVydajByDokladCislo($id);
-
         $this->view->vydaj = $vydaj;
         $this->view->ciselniky = $ciselniky;
     }
-
     public function waitingsAction()
     {
         //$param = "stav_transakcie = 1";
         //$title = "Výdaje - čaká na schválenie";
         //$this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
-
         // vytvorenie instancií modelov
         $vydaje = new Application_Model_DbTable_Vydaje();
         $sklady = new Application_Model_DbTable_Sklady();
@@ -424,12 +341,10 @@ class VydajeController extends Zend_Controller_Action
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
-
         // priradenie modelov do premenných a poslanie na view script
         //$param = $this->_getParam('param', null);
         //$title = $this->_getParam('title', null);
         //if (!isset($title)){$title = 'Výdaje - zoznam';}
-
         // priradenie modelov do premenných a poslanie na view script
         $this->view->vydaje = $vydaje->fetchAll("stav_transakcie = 1");
         $this->view->sklady = $sklady;
@@ -439,17 +354,14 @@ class VydajeController extends Zend_Controller_Action
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
         $this->view->transakcieStavy = $transakcieStavy;
-
         //názov stránky
         $this->view->title = "Výdaje - čaká na schválenie";
     }
-
     public function errorsAction()
     {
         //$param = "chyba = 1";
         //$title = "Výdaje - chyby";
         //$this->_forward('list', 'vydaje', null, array('param' => $param, 'title' => $title));
-
         // vytvorenie instancií modelov
         $vydaje = new Application_Model_DbTable_Vydaje();
         $sklady = new Application_Model_DbTable_Sklady();
@@ -459,12 +371,10 @@ class VydajeController extends Zend_Controller_Action
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
-
         // priradenie modelov do premenných a poslanie na view script
         //$param = $this->_getParam('param', null);
         //$title = $this->_getParam('title', null);
         //if (!isset($title)){$title = 'Výdaje - zoznam';}
-
         // priradenie modelov do premenných a poslanie na view script
         $this->view->vydaje = $vydaje->fetchAll("chyba = 1");
         $this->view->sklady = $sklady;
@@ -474,28 +384,19 @@ class VydajeController extends Zend_Controller_Action
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
         $this->view->transakcieStavy = $transakcieStavy;
-
         //názov stránky
         $this->view->title = "Výdaje - chyby";
-
     }
-
-
+    public function printtonAction()
+    {
+        // action body
+    }
+    public function printprmAction()
+    {
+        // action body
+    }
+    public function printm3Action()
+    {
+        // action body
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

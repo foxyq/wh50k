@@ -1,47 +1,34 @@
 <?php
 $this->headTitle($this->title);
-
 $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
-    $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
+$this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 ?>
 
 
 <script type="text/javascript" language="javascript" class="init">
-
-
     $(document).ready(function() {
         $('#fancy_table').DataTable( {
-
-
             "order": [[ 1, "desc" ]],
             columnDefs: [
                 { "sType": "title-string", "aTargets": [ 8 ]  }
 //                    { "sType": "alt-string", "aTargets" : 11 }
             ],
-
-
             initComplete: function () {
                 var api = this.api();
                 var abc = 0;
                 api.columns().indexes().flatten().each( function ( i ) {
-
-
                     var column = api.column( i );
-
                     if (i != abc) {
-
                         var select = $('<select><option value=""></option></select>')
                             .appendTo( $(column.footer()).empty() )
                             .on( 'change', function () {
                                 var val = $.fn.DataTable.util.escapeRegex(
                                     $(this).val()
                                 );
-
                                 column
                                     .search( val ? '^'+val+'$' : '', true, false )
                                     .draw();
                             } );
-
                         column.data().unique().sort().each( function ( d, j ) {
                             select.append( '<option value="'+d+'">'+d+'</option>' )
                         } );
@@ -49,36 +36,25 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
                 } );
             }
         } );
-
     } );
-
-
 </script>
 <!--
 <div class="alert alert-dismissable alert-info">
-
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-        'action'=>'add', 'fromAction' => 'errors'));?>">
+    'action'=>'add', 'fromAction' => 'errors'));?>">
         <?php echo '<img src="'.$this->baseUrl().'/images/pridat.png" alt="pridat">'; ?>
         Pridať nový výdaj</a>
-
     <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
 </div>
 -->
 
 
 <?php
-
 $notifikacie     = new Application_Model_Notifikacie();
-
-
 $notif_info = $notifikacie->getStatusArray();
-
 $count_notif = $notif_info['total'];
-
 $vydaje_w = $notif_info['vydaje_waitings'];
 $vydaje_e = $notif_info['vydaje_errors'];
-
 ?>
 
 
@@ -106,80 +82,80 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
 
 
-    </p>
+</p>
 
 
 <div class="table-responsive">
     <table id="fancy_table" class="table table-hover table-bordered table-striped" >
 
         <thead>
-          <tr class="tableizer-firstrow">
-              <!--        <th>ID</th>-->
-                <th>Detail</th>
-              <th>Dátum výdaju</th>
-<!--              <th>doklad číslo</th>-->
-              <th>sklad</th>
-              <th class="col-podsklad">podsklad</th>
-              <th>zákazník</th>
-              <th>prepravca</th>
-<!--              <th> SPZ</th>-->
-              <th>tony m</th>
-              <th>vlhkosť</th>
-              <!--        <th>tony v</th>-->
-              <!--        <th>m3 m</th>-->
-              <!--        <th>m3 v</th>-->
-              <!--        <th>prm m</th>-->
-              <!--        <th>prm v</th>-->
-              <th>číslo dokladu</th>
-              <th>material typ</th>
-<!--              <th>material druh</th>-->
-              <th class="col-stav">stav</th>
-<!--              <th >chyba</th>-->
-              <th class="col-upravy">úpravy</th>
-          </tr>
+        <tr class="tableizer-firstrow">
+            <!--        <th>ID</th>-->
+            <th>Detail</th>
+            <th>Dátum výdaju</th>
+            <!--              <th>doklad číslo</th>-->
+            <th>sklad</th>
+            <th class="col-podsklad">podsklad</th>
+            <th>zákazník</th>
+            <th>prepravca</th>
+            <!--              <th> SPZ</th>-->
+            <th>tony m</th>
+            <th>vlhkosť</th>
+            <!--        <th>tony v</th>-->
+            <!--        <th>m3 m</th>-->
+            <!--        <th>m3 v</th>-->
+            <!--        <th>prm m</th>-->
+            <!--        <th>prm v</th>-->
+            <th>číslo dokladu</th>
+            <th>material typ</th>
+            <!--              <th>material druh</th>-->
+            <th class="col-stav">stav</th>
+            <!--              <th >chyba</th>-->
+            <th class="col-upravy">úpravy</th>
+        </tr>
         </thead>
 
-    <tfoot>
-    <tr>
-<!--        <th>ID</th>-->
-        <th></th>
-        <th>Dátum výdaju</th>
-<!--        <th>doklad číslo</th>-->
-        <th>sklad</th>
-        <th>podsklad</th>
-        <th>zákazník</th>
-        <th>prepravca</th>
-<!--        <th> SPZ</th>-->
-        <th>tony m</th>
-<!--        <th>tony v</th>-->
-<!--        <th>m3 m</th>-->
-<!--        <th>m3 v</th>-->
-<!--        <th>prm m</th>-->
-<!--        <th>prm v</th>-->
+        <tfoot>
+        <tr>
+            <!--        <th>ID</th>-->
+            <th></th>
+            <th>Dátum výdaju</th>
+            <!--        <th>doklad číslo</th>-->
+            <th>sklad</th>
+            <th>podsklad</th>
+            <th>zákazník</th>
+            <th>prepravca</th>
+            <!--        <th> SPZ</th>-->
+            <th>tony m</th>
+            <!--        <th>tony v</th>-->
+            <!--        <th>m3 m</th>-->
+            <!--        <th>m3 v</th>-->
+            <!--        <th>prm m</th>-->
+            <!--        <th>prm v</th>-->
 
-        <th>material typ</th>
-<!--        <th>material druh</th>-->
-        <th>stav </th>
-<!--        <th>chyba</th>-->
-<!--        <th>úpravy</th>-->
-    </tr>
-    </tfoot>
+            <th>material typ</th>
+            <!--        <th>material druh</th>-->
+            <th>stav </th>
+            <!--        <th>chyba</th>-->
+            <!--        <th>úpravy</th>-->
+        </tr>
+        </tfoot>
 
-    <tbody>
+        <tbody>
 
-    <?php foreach($this->vydaje as $vydaj) : ?>
-        <?php if ($vydaj->chyba == 1 ) echo "<tr class='danger'> ";
-        else echo   "<tr>";
-        ?>
+        <?php foreach($this->vydaje as $vydaj) : ?>
+            <?php if ($vydaj->chyba == 1 ) echo "<tr class='danger'> ";
+            else echo   "<tr>";
+            ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
             <td class="center"> <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-            'action'=>'preview', 'id'=>$vydaj->doklad_cislo,'fromAction' => 'errors'));?>">
+                'action'=>'preview', 'id'=>$vydaj->doklad_cislo,'fromAction' => 'errors'));?>">
                      <?php echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
                 </a></td>
             <td>
             <?php
-                $date = date('Y/M/d', strtotime($this->escape($vydaj->datum_vydaju_d)));
-                echo $date ;?>
+            $date = date('Y/M/d', strtotime($this->escape($vydaj->datum_vydaju_d)));
+            echo $date ;?>
             </td>
 <!--               <td>--><?php //echo $this->escape($vydaj->doklad_cislo);?><!--</td>-->
             <td><?php echo $this->escape($this->sklady->getSkratka($vydaj->sklad_enum));?></td>
@@ -190,12 +166,12 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <td><?php echo number_format($this->escape($vydaj->q_tony_merane), 2, ",", " ");?></td>
             <td>
                 <?php
-                    if ($vydaj->q_vlhkost == 0.00){
-                        echo "-";
-                    }else {
-                        echo number_format($this->escape($vydaj->q_vlhkost), 2, ",", " ") . "%";
-                    }
-                ?>
+            if ($vydaj->q_vlhkost == 0.00){
+                echo "-";
+            }else {
+                echo number_format($this->escape($vydaj->q_vlhkost), 2, ",", " ") . "%";
+            }
+            ?>
             </td>
             <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
@@ -209,25 +185,20 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <td class="center">
 
 <!--            --><?php //echo $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie));?>
-                <?php
-
-
-                if  (strcmp('schvalene', $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie)) ) == 0 ) {
-
+            <?php
+            if  ( $vydaj->stav_transakcie == 2 ) {
 //                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
-                    echo '<div class="schvalene" title="schvalene" alt="schvalene"></div>';
-                }
-                else if (strcmp('caka na schvalenie', $this->escape($this->transakcieStavy->getNazov($vydaj->stav_transakcie)) ) == 0 ) {
-
+                echo '<div class="schvalene" title="schvalene" alt="schvalene"></div>';
+            }
+            else if ( $vydaj->stav_transakcie == 1  ) {
 //                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
-                    echo '<div class="caka" title="caka" alt="caka"></div>';
-                }
-                else {
-
+                echo '<div class="caka" title="caka" alt="caka"></div>';
+            }
+            else {
 //                    echo '<img src="'.$this->baseUrl().'/images/zrusene.png" alt="zrusene">';
-                    echo '<div class="zrusene" title="zrusene" alt="zrusene"></div>';
-                }
-                ?>
+                echo '<div class="zrusene" title="zrusene" alt="zrusene"></div>';
+            }
+            ?>
 
 
             </td>
@@ -240,29 +211,29 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <td>
 
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                    'action'=>'print', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'cislo_listku'=>$vydaj->doklad_cislo,
-                    'spz'=>$vydaj->prepravca_spz));?>" target="_blank" >
+                'action'=>'print', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'cislo_listku'=>$vydaj->doklad_cislo,
+                'spz'=>$vydaj->prepravca_spz));?>" target="_blank" >
 
                      <?php echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
 
                 </a>
 
                  <?php
-                    if ($vydaj->chyba == 0){
+            if ($vydaj->chyba == 0){
                 ?>
                 <a href="<?php echo $this->url(array('controller'=>'vydaje', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'no-errors'));?>">
 
                     <?php echo '<img src="'.$this->baseUrl().'/images/oznacit.png" alt="zmazat">'; ?>
 
                 </a>
-                <?php } else{
-                        echo $this->chyba;
-                    }?>
+            <?php } else{
+                echo $this->chyba;
+            }?>
 
 
             </td>
         </tr>
     <?php endforeach; ?>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 </div>
