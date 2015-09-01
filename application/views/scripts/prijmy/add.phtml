@@ -41,6 +41,25 @@
 
         document.getElementById('q_tony_merane').readOnly = true;
 
+        //    button click
+        $("#manualCalc").button().click(function(){
+
+            document.getElementById('q_tony_nadrozmer').readOnly = false;
+            document.getElementById('q_tony_tara').readOnly = false;
+            document.getElementById('q_tony_brutto').readOnly = false;
+            document.getElementById('q_tony_merane').readOnly = false;
+            document.getElementById('q_prm_merane').readOnly = false;
+            document.getElementById('q_m3_merane').readOnly = false;
+
+
+            $('.in').unbind('keyup');
+            alert("Automatické prepočitavanie parametrov vypnuté. Pre zapnutie, prosím, znova načítajte stránku.");
+
+
+
+        });
+
+
         window.setInterval(function(){
 //deklaracie ....
             var tonym = +$("#q_tony_merane").val();
@@ -106,6 +125,8 @@
 
 
         }, 1000);
+
+
 
         <?php
             $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
@@ -354,6 +375,12 @@
                         <?php echo $this->form->q_vlhkost; // render the user name field here ?>
                     </div>
 
+                    <div class="col-lg-6">
+                        <dt><label>&nbsp;</label></dt>
+                        <a href="#" id="manualCalc" type="button" class="btn btn-default">Manuálne hodnoty</a>
+
+                    </div>
+
                 </div>
 
 
@@ -393,7 +420,7 @@
 
 
                     <div class="col-lg-6">
-                            <dt>&nbsp;</dt>
+                        <dt>&nbsp;</dt>
                         <a href="<?php
                         //pageManager
                         echo $this->url(array(

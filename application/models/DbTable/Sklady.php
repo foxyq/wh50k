@@ -1,4 +1,4 @@
-<?php
+w<?php
 
 class Application_Model_DbTable_Sklady extends Zend_Db_Table_Abstract
 {

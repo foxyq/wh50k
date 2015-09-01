@@ -2,6 +2,7 @@
 
 class PrijmyController extends Zend_Controller_Action
 {
+
     protected $_request = null;
 
     public function init()
@@ -460,8 +461,29 @@ class PrijmyController extends Zend_Controller_Action
 
     }
 
+    public function printtonAction()
+    {
+        // action body
+    }
+
+    public function printm3Action()
+    {
+        // action body
+    }
+
+    public function printprmAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
+
+
 
 
 

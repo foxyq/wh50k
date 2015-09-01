@@ -27,6 +27,9 @@
           <actionMethod actionName="preview"/>
           <actionMethod actionName="waitings"/>
           <actionMethod actionName="errors"/>
+          <actionMethod actionName="printton"/>
+          <actionMethod actionName="printm3"/>
+          <actionMethod actionName="printprm"/>
         </controllerFile>
         <controllerFile controllerName="Vydaje">
           <actionMethod actionName="index"/>
@@ -38,6 +41,9 @@
           <actionMethod actionName="preview"/>
           <actionMethod actionName="waitings"/>
           <actionMethod actionName="errors"/>
+          <actionMethod actionName="printton"/>
+          <actionMethod actionName="printprm"/>
+          <actionMethod actionName="printm3"/>
         </controllerFile>
         <controllerFile controllerName="Zakaznici">
           <actionMethod actionName="index"/>
@@ -439,6 +445,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="nopermission"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Prijmy">
+            <viewScriptFile forActionName="printton"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Prijmy">
+            <viewScriptFile forActionName="printm3"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Prijmy">
+            <viewScriptFile forActionName="printprm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Vydaje">
+            <viewScriptFile forActionName="printton"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Vydaje">
+            <viewScriptFile forActionName="printprm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Vydaje">
+            <viewScriptFile forActionName="printm3"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

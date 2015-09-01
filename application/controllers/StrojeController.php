@@ -13,7 +13,10 @@ class StrojeController extends Zend_Controller_Action
         $stroje = new Application_Model_DbTable_Stroje();
         $vydaje = new Application_Model_DbTable_Vydaje();
 
+
         $strojeIds = $stroje->getIds();
+        $stroje = $stroje->getMoznosti();
+
         $vytazenieStrojov = array();
 
         foreach ($strojeIds AS $strojId){
@@ -23,6 +26,7 @@ class StrojeController extends Zend_Controller_Action
 
         $this->view->title = "Stroje - prehľad";
         $this->view->vytazenieStrojov = $vytazenieStrojov;
+        $this->view->stroje = stroje;
     }
 
     public function addAction()

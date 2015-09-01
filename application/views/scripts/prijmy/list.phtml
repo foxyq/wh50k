@@ -77,6 +77,8 @@
 
     <?php
 
+
+
     $notifikacie     = new Application_Model_Notifikacie();
 
 
@@ -99,6 +101,7 @@
             'action'=>'list'));?>" type="button" class="btn btn-info">
             Všetky príjmy
         </a>
+
 
 
         <?php if ($prijmy_w >0) { ?>
@@ -229,12 +232,12 @@
             <td>
                 <?php
 
-            if  (strcmp('schvalene', $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie)) ) == 0 ) {
+            if  ( $prijem->stav_transakcie == 2 ) {
 
 //                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
                 echo '<div class="schvalene"></div>';
             }
-            else if (strcmp('caka na schvalenie', $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie)) ) == 0 ) {
+            else if ( $prijem->stav_transakcie == 1) {
 
 //                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
                 echo '<div class="caka"></div>';
@@ -270,9 +273,36 @@
                 </a>
 
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'print', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo, 'fromAction' => 'list',
-                    'spz'=>$prijem->prepravca_spz)) ;?>" target="_blank">
+                'spz'=>$prijem->prepravca_spz)) ;?>" target="_blank">
                     <?php echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
                 </a>
+
+
+                <?php
+
+                $skladID = $prijem->sklad_enum;
+
+//                $sklad =
+
+
+                ?>
+
+<!---->
+<!--                 <a href="--><?php //echo $this->url(array('controller'=>'Prijmy', 'action'=>'printton', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo, 'fromAction' => 'list',
+//                'spz'=>$prijem->prepravca_spz)) ;?><!--" target="_blank">-->
+<!--                    printton-->
+<!--                </a>-->
+<!---->
+<!--                <a href="--><?php //echo $this->url(array('controller'=>'Prijmy', 'action'=>'printprm', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo, 'fromAction' => 'list',
+//                'spz'=>$prijem->prepravca_spz)) ;?><!--" target="_blank">-->
+<!--                   printprm-->
+<!--                </a>-->
+<!---->
+<!--                <a href="--><?php //echo $this->url(array('controller'=>'Prijmy', 'action'=>'printm3', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo, 'fromAction' => 'list',
+//                'spz'=>$prijem->prepravca_spz)) ;?><!--" target="_blank">-->
+<!--                    printm3-->
+<!--                </a>-->
+
             </td>
 
         </tr>

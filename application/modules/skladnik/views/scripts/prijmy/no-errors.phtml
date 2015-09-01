@@ -223,12 +223,12 @@
             <td>
                 <?php
 
-            if  (strcmp('schvalene', $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie)) ) == 0 ) {
+            if  ( $prijem->stav_transakcie == 2  ) {
 
 //                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
                 echo '<div class="schvalene"></div>';
             }
-            else if (strcmp('caka na schvalenie', $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie)) ) == 0 ) {
+            else if ( $prijem->stav_transakcie == 1 ) {
 
 //                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
                 echo '<div class="caka"></div>';
@@ -240,7 +240,8 @@
             }
             ?>
 
-               <?php //echo $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie));?>
+
+            <?php //echo $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie));?>
 
             </td>
 <!--            <td>-->

@@ -480,8 +480,29 @@ class VydajeController extends Zend_Controller_Action
 
     }
 
+    public function printtonAction()
+    {
+        // action body
+    }
+
+    public function printprmAction()
+    {
+        // action body
+    }
+
+    public function printm3Action()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
+
+
 
 
 
