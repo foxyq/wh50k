@@ -18,8 +18,7 @@ class ZakazniciController extends Zend_Controller_Action
 
         foreach ($zakazniciIds AS $zakaznikId){
 
-            $dodaneMnozstvoZakaznikom[$zakaznikId]['id'] = $zakaznikId;
-
+            $dodaneMnozstvoZakaznikom[$zakaznikId]['nazov'] = $zakaznici->getNazov($zakaznikId);
             $dodaneMnozstvoZakaznikom[$zakaznikId]['q_tony_merane'] = $vydaje->getSumByColumn('q_tony_merane', 'zakaznik_enum', $zakaznikId);
 
         }
