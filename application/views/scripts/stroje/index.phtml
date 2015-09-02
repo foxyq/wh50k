@@ -61,11 +61,13 @@ var_dump( $this->vytazenieStrojov);
 
 <?php foreach($this->vytazenieStrojov as $stroj) : ?>
         <tr>
-            <td><?php echo $this->escape($this->strojeModel->getNazov($stroj['id']));?></td>
-            <td><?php echo number_format($this->escape($stroj['vytazenie']),2, ",", " "). " t";?></td>
+            <td><?php echo $stroj['id'];?></td>
+            <td><?php echo $stroj;?></td>
 
 
         </tr>
     <?php endforeach; ?>
+
+    <?php print_r($this->vytazenieStrojov); ?>
 
 </table>
