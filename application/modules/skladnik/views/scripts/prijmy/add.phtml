@@ -5,9 +5,37 @@
 <div>
     <h2>Príjmy</h2>
     <hr>
-    <ul>
-        <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addton'?>">Pridať príjem v tonách</a></li>
-        <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addm3'?>">Pridať príjem v m<sup>3</sup></a></li>
-        <li><a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addprm'?>">Pridať príjem v PRM</a></li>
-    </ul>
+
+    <div class="row">
+
+        <div class="col-lg-3">
+            <br>
+            <a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addton'?>" type="button"
+               class="btn btn-success">Pridať príjem v tonách</a>
+
+
+
+        </div>
+
+        <div class="col-lg-3">
+            <br>
+            <a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addm3'?>" type="button"
+               class="btn btn-info">
+                Pridať príjem v m<sup>3</sup>
+            </a>
+
+        </div>
+
+
+        <div class="col-lg-3">
+            <br>
+            <a href="<?php echo $this->baseUrl().'/skladnik/prijmy/addprm'?>" type="button"
+               class="btn btn-danger">
+                Pridať príjem v PRM
+            </a>
+        </div>
+
+    </div>
+
+
 </div>

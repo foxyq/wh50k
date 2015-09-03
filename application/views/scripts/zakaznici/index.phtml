@@ -4,20 +4,9 @@ $zakazniciModel = $this->zakazniciModel;
 
 ?>
 
-<?php echo json_encode($this->dodaneMnozstvoZakaznikom);?>
-<?php echo '<br><br>';
-    var_dump($this->dodaneMnozstvoZakaznikom);?>
-
 
 <script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
 <script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
-
-
-<div class="row">
-
-    <div id="morris-area-chart"></div>
-
-</div>
 
 <div class="row">
 
@@ -32,29 +21,35 @@ $zakazniciModel = $this->zakazniciModel;
 
         <?php foreach($this->dodaneMnozstvoZakaznikom as $zakaznik) : ?>
             <tr>
-                <td><?php echo $this->escape($zakazniciModel->getNazov($zakaznik['id']));?></td>
+                <td><?php echo ($zakaznik['nazov']);?></td>
                 <td><?php echo number_format($this->escape($zakaznik['q_tony_merane']),2, ",", " "). " t";?></td>
 
 
             </tr>
         <?php endforeach; ?>
 
-
+    </table>
 </div>
 
 
+<div class="row">
+    <div class="col-lg-12">
+        <div id="pie-chart"></div>
+    </div>
+</div>
+
 <script>
-    // Area Chart
-    Morris.Bar({
-        element: 'morris-area-chart',
-        data: <?php echo ($this->dodaneMnozstvoZakaznikom);?>,
-        xkey: 'id',
-        ykeys: ['q_tony_merane'],
-        labels: ['Stav (t)'],
-        pointSize: 2,
-        hideHover: 'auto',
-        smooth: true,
-        resize: true,
-        barColors: ['#000']
+
+    Morris.Donut({
+        element: 'pie-chart',
+        data: [ <?php $counter = 0;
+    foreach($this->dodaneMnozstvoZakaznikom as $stroj) : ?>
+            { label: <?php echo '"'.$stroj[nazov].'"';?>, value: <?php echo $stroj[q_tony_merane]; ?> } <?php $counter++; if ($counter < count($this->dodaneMnozstvoZakaznikom) ) echo ','; ?>
+            <?php endforeach; ?>
+        ]
+
     });
+
 </script>
+
+
