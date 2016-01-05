@@ -55,6 +55,9 @@ class ZakazniciController extends Zend_Controller_Action
         $zakaznici = new Application_Model_DbTable_Zakaznici();
         $this->view->zakaznici = $zakaznici->fetchAll();
 
+        $merneJednotky = new Application_Model_DbTable_MerneJednotky();
+        $this->view->merneJednotky = $merneJednotky;
+
         $this->view->title = "Zákazníci - zoznam";
     }
 

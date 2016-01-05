@@ -16,6 +16,7 @@ $this->headTitle($this->title);
         <th>ID</th>
         <th>Meno</th>
         <th>Názov spoločnosti</th>
+        <th>Merná jednotka</th>
         <th>Úpravy</th>
     </tr>
 
@@ -25,8 +26,8 @@ $this->headTitle($this->title);
             <td><?php echo $this->escape($zakaznik->zakaznici_id);?></td>
             <td><?php echo $this->escape($zakaznik->meno);?></td>
             <td><?php echo $this->escape($zakaznik->nazov_spolocnosti);?></td>
+            <td><?php echo $this->escape($this->merneJednotky->getSkratka($zakaznik->merna_jednotka_enum));?></td>
             <td>
-
                 <a href="<?php echo $this->url(array('controller'=>'Zakaznici',
                     'action'=>'edit', 'id'=>$zakaznik->zakaznici_id));?>">Upraviť</a>
             </td>
