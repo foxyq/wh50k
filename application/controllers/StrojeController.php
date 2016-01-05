@@ -21,7 +21,7 @@ class StrojeController extends Zend_Controller_Action
         }
         $this->view->title = "Stroje - prehľad";
         $this->view->vytazenieStrojov = $vytazenieStrojov;
-        $this->view->stroje = stroje;
+        $this->view->stroje = $stroje;
     }
     public function addAction()
     {
