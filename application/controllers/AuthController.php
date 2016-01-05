@@ -40,6 +40,7 @@ class AuthController extends Zend_Controller_Action
             $result = Zend_Auth::getInstance()->authenticate($adapter);
 
             if (!$result->isValid()) {
+                //TODO - tu hlasku ze spatne prihlasenie
                 d($result->getMessages());
             } else {
                 $storage = Zend_Auth::getInstance()->getStorage();
