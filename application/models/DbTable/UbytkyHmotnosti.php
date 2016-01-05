@@ -89,7 +89,7 @@ class Application_Model_DbTable_UbytkyHmotnosti extends Zend_Db_Table_Abstract
         $lastElementTony = end($transakcie);
 
 
-        $lastStavSkladuArray = $defaultneKonverzie->getPrepoctyArrayDefault($lastElementTony[q_konecny_stav_tony], 1);
+        $lastStavSkladuArray = $defaultneKonverzie->getPrepoctyArrayDefault($lastElementTony['q_konecny_stav_tony'], 1);
 
         return $lastStavSkladuArray;
     }
