@@ -34,11 +34,12 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         return $ids;
     }
 
-    public function addZakaznik($meno, $nazov_spolocnosti)
+    public function addZakaznik($meno, $nazov_spolocnosti, $merna_jednotka)
     {
         $data = array(
             'meno' => $meno,
             'nazov_spolocnosti' => $nazov_spolocnosti,
+            'merna_jednotka_enum' => $merna_jednotka
         );
         $this->insert($data);
     }
@@ -48,11 +49,12 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         $this->delete('zakaznici_id =' . (int)$id);
     }
 
-    public function updateZakaznik($id, $meno, $nazov_spolocnosti)
+    public function updateZakaznik($id, $meno, $nazov_spolocnosti, $merna_jednotka)
     {
         $data = array(
             'meno' => $meno,
             'nazov_spolocnosti' => $nazov_spolocnosti,
+            'merna_jednotka_enum' => $merna_jednotka
         );
         $this->update($data, 'zakaznici_id = '. (int)$id);
     }

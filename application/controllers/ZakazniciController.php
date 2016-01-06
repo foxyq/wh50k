@@ -30,7 +30,14 @@ class ZakazniciController extends Zend_Controller_Action
 
     public function addAction()
     {
-        $form = new Application_Form_Zakaznik();
+
+        $merneJednotkyMoznosti = new  Application_Model_DbTable_MerneJednotky();
+        $merneJednotkyMoznosti = $merneJednotkyMoznosti->getMoznosti();
+
+        $form = new Application_Form_Zakaznik(array(
+            'merneJednotkyMoznosti' => $merneJednotkyMoznosti
+        ));
+
 
         $form->submit->setLabel('Pridať zákanzíka');
         $this->view->form = $form;
@@ -40,8 +47,9 @@ class ZakazniciController extends Zend_Controller_Action
             if ($form->isValid($formData)) {
                 $meno = $form->getValue('meno');
                 $nazov_spolocnosti= $form->getValue('nazov_spolocnosti');
+                $merna_jednotka= $form->getValue('merna_jednotka_enum');
                 $zakaznici = new Application_Model_DbTable_Zakaznici();
-                $zakaznici->addZakaznik($meno, $nazov_spolocnosti);
+                $zakaznici->addZakaznik($meno, $nazov_spolocnosti, $merna_jednotka);
 
                 $this->_helper->redirector('list');
             } else {
@@ -81,7 +89,13 @@ class ZakazniciController extends Zend_Controller_Action
     public function editAction()
     {
         {
-            $form = new Application_Form_Zakaznik();
+            $merneJednotkyMoznosti = new  Application_Model_DbTable_MerneJednotky();
+            $merneJednotkyMoznosti = $merneJednotkyMoznosti->getMoznosti();
+
+            $form = new Application_Form_Zakaznik(array(
+            'merneJednotkyMoznosti' => $merneJednotkyMoznosti
+            ));
+
             $form->submit->setLabel('Uložiť');
             $this->view->form = $form;
 
@@ -91,8 +105,9 @@ class ZakazniciController extends Zend_Controller_Action
                     $id = (int)$form->getValue('zakaznici_id');
                     $meno = $form->getValue('meno');
                     $nazov_spolocnosti = $form->getValue('nazov_spolocnosti');
+                    $merna_jednotka= $form->getValue('merna_jednotka_enum');
                     $zakaznici = new Application_Model_DbTable_Zakaznici();
-                    $zakaznici->updateZakaznik($id, $meno, $nazov_spolocnosti);
+                    $zakaznici->updateZakaznik($id, $meno, $nazov_spolocnosti, $merna_jednotka);
 
                     $this->_helper->redirector('list');
                 } else {

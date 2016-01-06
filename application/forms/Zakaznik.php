@@ -25,10 +25,15 @@ class Application_Form_Zakaznik extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty');
 
+        $merna_jednotka = new Zend_Form_Element_Select('merna_jednotka_enum');
+        $merna_jednotka->setMultiOptions($this->getAttrib('merneJednotkyMoznosti'));
+        $merna_jednotka->setLabel('Merná jednotka')
+            ->setAttrib('class', 'form-control');
+
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
 
-        $this->addElements(array($id, $meno, $nazov_spolocnosti, $submit));
+        $this->addElements(array($id, $meno, $nazov_spolocnosti, $merna_jednotka, $submit));
     }
 
 
