@@ -20,6 +20,7 @@ class AuthController extends Zend_Controller_Action
         // prihlasi s hashom
         $form = $this->view->form = new Application_Form_Login();
         $this->view->loginTitle = "Prihlásenie do aplikácie";
+        //$this->view->wrongCredentials = false;
 
         $this->_helper->layout()->disableLayout();
         if ($this->getRequest()->isPost()
@@ -41,7 +42,10 @@ class AuthController extends Zend_Controller_Action
 
             if (!$result->isValid()) {
                 //TODO - tu hlasku ze spatne prihlasenie
-                d($result->getMessages());
+                //TODO - okienko "Zadali ste neplatné prihlasovacie údaje"
+                $this->view->wrongCredentials = true;
+
+                //d($result->getMessages());
             } else {
                 $storage = Zend_Auth::getInstance()->getStorage();
                 $storage->write(

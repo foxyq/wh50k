@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ZakazniciController.php" afterPath="$PROJECT_DIR$/application/controllers/ZakazniciController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/configs/application.ini" afterPath="$PROJECT_DIR$/application/configs/application.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/AuthController.php" afterPath="$PROJECT_DIR$/application/controllers/AuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/auth/login.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/auth/login.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -30,55 +30,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="list.phtml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml">
+      <file leaf-file-name="Bootstrap.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39917126" vertical-offset="0" max-vertical-offset="724">
-              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SkladyController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/SkladyController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.5" vertical-offset="615" max-vertical-offset="1513">
-              <caret line="102" column="36" selection-start-line="102" selection-start-column="36" selection-end-line="103" selection-end-column="52" />
-              <folding>
-                <element signature="n#indexAction#0;n#SkladyController#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Zakaznici.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/DbTable/Zakaznici.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="578">
+            <state vertical-scroll-proportion="0.115384616" vertical-offset="3" max-vertical-offset="986">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZakazniciController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/ZakazniciController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.884615" vertical-offset="0" max-vertical-offset="1037">
-              <caret line="58" column="52" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="52" />
               <folding>
-                <element signature="n#indexAction#0;n#ZakazniciController#0;n#!!top" expanded="true" />
+                <element signature="n#_initViewHelpers#0;n#Bootstrap#0;n#!!top" expanded="true" />
+                <element signature="n#_getPublicPath#0;n#Bootstrap#0;n#!!top" expanded="true" />
+                <element signature="n#_getApplicationUrl#0;n#Bootstrap#0;n#!!top" expanded="true" />
+                <element signature="n#_initAutoLoad#0;n#Bootstrap#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/list.phtml">
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="799">
-              <caret line="32" column="74" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="74" />
+            <state vertical-scroll-proportion="-4.5" vertical-offset="155" max-vertical-offset="1649">
+              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/auth/login.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.37834036" vertical-offset="887" max-vertical-offset="2193">
+              <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -135,7 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/forms/Vydaj.php" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Vydaje.php" />
         <option value="$PROJECT_DIR$/public/js/morris-data.js" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
@@ -168,7 +148,6 @@
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/no-errors.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" />
-        <option value="$PROJECT_DIR$/public/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Sklady.php" />
@@ -179,13 +158,15 @@
         <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/index.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/layout.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml" />
         <option value="$PROJECT_DIR$/application/configs/application.ini" />
         <option value="$PROJECT_DIR$/application/plugins/AccessCheck.php" />
         <option value="$PROJECT_DIR$/application/controllers/ZakazniciController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml" />
+        <option value="$PROJECT_DIR$/public/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/auth/login.phtml" />
       </list>
     </option>
   </component>
@@ -254,6 +235,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wh50k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wh50k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -342,6 +341,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sklady" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wh50k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wh50k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -828,7 +853,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452026996940</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Zakaznici - merna jednotka HOTOVO">
+      <created>1452037258585</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1452037258585</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -916,7 +947,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="2015_07_30" />
     <MESSAGE value="2015_07_30 - opravene errors" />
     <MESSAGE value="2015_08_01 - CRUD ciselnikov, merneJednotky model repoaired" />
     <MESSAGE value="2015_08_01_v2 - CRUD ciselnikov, merneJednotky model repoaired" />
@@ -941,7 +971,8 @@
     <MESSAGE value="zakaznici a stroje Index arrays" />
     <MESSAGE value="novorocny PUSH" />
     <MESSAGE value="taby komentar" />
-    <option name="LAST_COMMIT_MESSAGE" value="taby komentar" />
+    <MESSAGE value="Zakaznici - merna jednotka HOTOVO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zakaznici - merna jednotka HOTOVO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -966,13 +997,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/prepravci/edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14786418" vertical-offset="0" max-vertical-offset="913">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/prepravci/add.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14786418" vertical-offset="0" max-vertical-offset="913">
@@ -1026,13 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.68784225" vertical-offset="2792" max-vertical-offset="4110">
           <caret line="228" column="9" selection-start-line="228" selection-start-column="9" selection-end-line="228" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06688963" vertical-offset="0" max-vertical-offset="897">
-          <caret line="4" column="45392" selection-start-line="4" selection-start-column="45392" selection-end-line="4" selection-end-column="45392" />
         </state>
       </provider>
     </entry>
@@ -1169,13 +1186,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/auth/login.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="1904">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/layouts/scripts/upozornenie.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
@@ -1213,17 +1223,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/plugins/Auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#preDispatch#0;n#Application_Plugin_Auth#0;n#!!top" expanded="false" />
-            <element signature="n#_isRestrictedRequest#0;n#Application_Plugin_Auth#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/layout.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.095639944" vertical-offset="3468" max-vertical-offset="6052">
@@ -1232,28 +1231,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7513812" vertical-offset="0" max-vertical-offset="1683">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding>
-            <element signature="n#init#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#indexAction#0;n#AuthController#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Notifikacie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="724">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1301,24 +1281,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Sklady.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="724">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/SkladyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.5" vertical-offset="615" max-vertical-offset="1513">
-          <caret line="102" column="36" selection-start-line="102" selection-start-column="36" selection-end-line="103" selection-end-column="52" />
-          <folding>
-            <element signature="n#indexAction#0;n#SkladyController#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/list.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="799">
@@ -1332,7 +1294,7 @@
         <state vertical-scroll-proportion="-22.884615" vertical-offset="0" max-vertical-offset="1037">
           <caret line="58" column="52" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="52" />
           <folding>
-            <element signature="n#indexAction#0;n#ZakazniciController#0;n#!!top" expanded="true" />
+            <element signature="n#indexAction#0;n#ZakazniciController#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1347,8 +1309,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39917126" vertical-offset="0" max-vertical-offset="724">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.42265195" vertical-offset="0" max-vertical-offset="724">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/plugins/Auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#preDispatch#0;n#Application_Plugin_Auth#0;n#!!top" expanded="false" />
+            <element signature="n#_isRestrictedRequest#0;n#Application_Plugin_Auth#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.115384616" vertical-offset="3" max-vertical-offset="986">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#_initViewHelpers#0;n#Bootstrap#0;n#!!top" expanded="true" />
+            <element signature="n#_getPublicPath#0;n#Bootstrap#0;n#!!top" expanded="true" />
+            <element signature="n#_getApplicationUrl#0;n#Bootstrap#0;n#!!top" expanded="true" />
+            <element signature="n#_initAutoLoad#0;n#Bootstrap#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1614654" vertical-offset="0" max-vertical-offset="737">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/shCore.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6715">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Sklady.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="724">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/SkladyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42265195" vertical-offset="0" max-vertical-offset="724">
+          <caret line="102" column="36" selection-start-line="102" selection-start-column="36" selection-end-line="103" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.5" vertical-offset="155" max-vertical-offset="1649">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/auth/login.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37834036" vertical-offset="887" max-vertical-offset="2193">
+          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
           <folding />
         </state>
       </provider>
