@@ -11,7 +11,8 @@ class Application_Plugin_AccessCheck extends Zend_Controller_Plugin_Abstract{
     }
 
     public function preDispatch(Zend_Controller_Request_Abstract $request){
-        //$resource = $request->getModuleName()getControllerName();
+        //Toto vsetko nechaj zakomentovane
+        //$resource = $request->getModuleName()->getControllerName();
         //$modulName = $request->getModuleName();
 
         /*

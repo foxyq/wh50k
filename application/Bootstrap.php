@@ -38,13 +38,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     protected function _initAutoLoad(){
 
         //Acl nacitanie pluginu
-        /*
         $acl = new Application_Model_LibraryAcl();
         $auth = Zend_Auth::getInstance();
-
         $fc = Zend_Controller_Front::getInstance();
         $fc->registerPlugin(new Application_Plugin_AccessCheck($acl, $auth));
-        */
+        //koniec nacitania pluginu
+
 
 
     }
