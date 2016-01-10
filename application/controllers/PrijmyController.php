@@ -377,14 +377,62 @@ class PrijmyController extends Zend_Controller_Action
     }
     public function printtonAction()
     {
-        // action body
+        $sklady = new Application_Model_DbTable_Sklady();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $uzivatelia = new Application_Model_DbTable_Users();
+
+        $this->view->sklady = $sklady;
+        $this->view->dodavatelia = $dodavatelia;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->uzivatelia = $uzivatelia;
+
+        $id = $this->_getParam('id', 0);
+        $prijmy = new Application_Model_DbTable_Prijmy();
+        $this->view->prijem = $prijmy->getPrijem($id);
     }
     public function printm3Action()
     {
-        // action body
+        $sklady = new Application_Model_DbTable_Sklady();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $uzivatelia = new Application_Model_DbTable_Users();
+
+        $this->view->sklady = $sklady;
+        $this->view->uzivatelia = $uzivatelia;
+        $this->view->dodavatelia = $dodavatelia;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+
+        $id = $this->_getParam('id', 0);
+        $prijmy = new Application_Model_DbTable_Prijmy();
+        $this->view->prijem = $prijmy->getPrijem($id);
     }
     public function printprmAction()
     {
-        // action body
+        $sklady = new Application_Model_DbTable_Sklady();
+        $uzivatelia = new Application_Model_DbTable_Users();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+
+        $this->view->sklady = $sklady;
+        $this->view->dodavatelia = $dodavatelia;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->users = $uzivatelia;
+
+        $id = $this->_getParam('id', 0);
+        $prijmy = new Application_Model_DbTable_Prijmy();
+        $this->view->prijem = $prijmy->getPrijem($id);
     }
 }

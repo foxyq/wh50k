@@ -291,10 +291,7 @@ class VydajeController extends Zend_Controller_Action
         $id = $this->_getParam('ts_vydaje_id', 0);
         $vydaje = new Application_Model_DbTable_Vydaje();
         $this->view->vydaj = $vydaje->getVydaj($id);
-        // Disable the main layout renderer
-//        $this->_helper->layout->disableLayout();
-        // Do not even attempt to render a view
-//        $this->_helper->viewRenderer->setNoRender(true);
+
     }
     public function previewAction()
     {
@@ -389,14 +386,62 @@ class VydajeController extends Zend_Controller_Action
     }
     public function printtonAction()
     {
-        // action body
+        $sklady = new Application_Model_DbTable_Sklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $uzivatelia = new Application_Model_DbTable_Users();
+
+        $this->view->sklady = $sklady;
+        $this->view->zakaznici = $zakaznici;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->uzivatelia = $uzivatelia;
+
+        $id = $this->_getParam('id', 0);
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $this->view->vydaj = $vydaje->getVydaj($id);
     }
     public function printprmAction()
     {
-        // action body
+        $sklady = new Application_Model_DbTable_Sklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $uzivatelia = new Application_Model_DbTable_Users();
+
+        $this->view->sklady = $sklady;
+        $this->view->zakaznici = $zakaznici;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->uzivatelia = $uzivatelia;
+
+        $id = $this->_getParam('id', 0);
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $this->view->vydaj = $vydaje->getVydaj($id);
     }
     public function printm3Action()
     {
-        // action body
+        $sklady = new Application_Model_DbTable_Sklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $uzivatelia = new Application_Model_DbTable_Users();
+
+        $this->view->sklady = $sklady;
+        $this->view->zakaznici = $zakaznici;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->uzivatelia = $uzivatelia;
+
+        $id = $this->_getParam('id', 0);
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $this->view->vydaj = $vydaje->getVydaj($id);
     }
 }
