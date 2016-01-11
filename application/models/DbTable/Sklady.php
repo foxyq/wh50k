@@ -86,6 +86,18 @@ class Application_Model_DbTable_Sklady extends Zend_Db_Table_Abstract
         return $ids;
     }
 
+    public function getTonWarehousesIds(){
+        //keď id tony je 1
+        $sql = "merna_jednotka_enum = 1";
+        $sklady = $this->fetchAll($sql)->toArray();
+        $ids = array();
+
+        foreach ($sklady as $sklad) {
+            $ids[] = $sklad['sklady_id'];
+        }
+        return $ids;
+    }
+
     public function getMernaJednotka($idSkladu)
     {
         $sql = "sklady_id = " . $idSkladu;

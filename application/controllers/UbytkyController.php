@@ -28,9 +28,16 @@ class UbytkyController extends Zend_Controller_Action
         $prijmy = new Application_Model_DbTable_Prijmy();
 
         $this->view->ubytky = $ubytky->fetchAll();
+
+        $ubytkyVPoli = array();
+        foreach ($sklady->getIds() as $skladId){
+            $ubytkyVPoli[$skladId] = $ubytky->fetchAll('sklad_enum = '.$skladId);
+        }
+        $this->view->ubytkyVPoli = $ubytkyVPoli;
+
         $this->view->sklady = $sklady;
         $this->view->prijmy = $prijmy;
-        $this->view->title = 'Prehľad úbytkov';
+        $this->view->title = 'Prehľad úbytkov a vývoja stavu skladov';
 
 
     }
@@ -38,7 +45,7 @@ class UbytkyController extends Zend_Controller_Action
     public function refreshdataAction()
     {
         $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
-        $ubytky->refreshTableDataByDate('2015-08-01', date('Y-m-d'));
+        $ubytky->refreshTableDataByDate(Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('calendar_start_date'), date('Y-m-d'));
         $this->_helper->redirector('list');
     }
 
@@ -49,7 +56,7 @@ class UbytkyController extends Zend_Controller_Action
         $fromController = Zend_Controller_Front::getInstance()->getRequest()->getParam('fromController');
 
         $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
-        $ubytky->refreshTableDataByDate('2015-08-01', date('Y-m-d'));
+        $ubytky->refreshTableDataByDate(Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('calendar_start_date'), date('Y-m-d'));
         $this->_helper->redirector($fromAction, $fromController);
     }
 

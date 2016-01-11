@@ -2,7 +2,11 @@
 
 class Application_Model_DbTable_UbytkyHmotnosti extends Zend_Db_Table_Abstract
 {
-
+    /*
+     * Úbytky sa počítajú LEN pre sklady s mernou jednotkou TONY (id = 1)
+     * V prípade m3 alebo PRM ako mernej jednotky skladu sa vývoj skladu ukladá tiež do tabuľky úbytky hmoty do
+     * q_konecny_stav_tony ale ukladajú sa tam m3 alebo PRM hodnoty.
+     */
     protected $_name = 'ts_ubytky_hmotnosti';
 
     //vymaze vsetky data v tabulke
@@ -32,45 +36,93 @@ class Application_Model_DbTable_UbytkyHmotnosti extends Zend_Db_Table_Abstract
         $id = 1;
 
         foreach ($skladyIds AS $skladId){
-            $date = new DateTime($start);
-            do {
-                if ($date == $startDate){
-                    $stavRano = 0;
-                }
-                $prijem = $prijmy->getSumByDateAndStock('q_tony_merane', 'datum_prijmu_d', $date->format('Y-m-d'), 'sklad_enum', $skladId);
-                $vydaj = $vydaje->getSumByDateAndStock('q_tony_merane', 'datum_vydaju_d', $date->format('Y-m-d'), 'sklad_enum', $skladId);
-                $parameterUbytku = $parametreUbytkov->getParameter($date->format('Y-m-d'));
-                $dennyPohyb = $prijem - $vydaj;
-                $stavVecer = $stavRano + $dennyPohyb;
-                if($stavVecer < 0)
-                {
-                    $stavVecer = 0;
-                    $poznamka = 'Nedostatok na sklade.';
-                }
-                $stavCelyDen = min($stavRano, $stavVecer);
-                $ubytok = $stavCelyDen * $parameterUbytku;
-                $konecnyStav = $stavVecer - $ubytok;
+            //ak je sklad v tonách
+            if ($sklady->getMernaJednotka($skladId) == 1) {
+                $date = new DateTime($start);
+                do {
+                    if ($date == $startDate) {
+                        $stavRano = 0;
+                    }
+                    $prijem = $prijmy->getSumByDateAndStock('q_tony_merane', 'datum_prijmu_d', $date->format('Y-m-d'), 'sklad_enum', $skladId);
+                    $vydaj = $vydaje->getSumByDateAndStock('q_tony_merane', 'datum_vydaju_d', $date->format('Y-m-d'), 'sklad_enum', $skladId);
+                    $parameterUbytku = $parametreUbytkov->getParameter($date->format('Y-m-d'));
+                    $dennyPohyb = $prijem - $vydaj;
+                    $stavVecer = $stavRano + $dennyPohyb;
+                    if ($stavVecer < 0) {
+                        $stavVecer = 0;
+                        $poznamka = 'Nedostatok na sklade.';
+                    }
+                    $stavCelyDen = min($stavRano, $stavVecer);
+                    $ubytok = $stavCelyDen * $parameterUbytku;
+                    $konecnyStav = $stavVecer - $ubytok;
 
-                $this->insert(array
-                (
-                    'ts_ubytky_hmotnosti_id' => $id,
-                    'datum_ubytku_d' => $date->format('Y-m-d'),
-                    'sklad_enum' => $skladId,
-                    'q_rano_tony' => $stavRano,
-                    'q_denny_pohyb_tony' => $dennyPohyb,
-                    'q_vecer_tony' => $stavVecer,
-                    'q_cely_den_tony' => $stavCelyDen,
-                    'q_ubytok_tony' => $ubytok,
-                    'q_konecny_stav_tony' => $konecnyStav,
-                    'poznamka' => $poznamka
-                ));
+                    $this->insert(array
+                    (
+                        'ts_ubytky_hmotnosti_id' => $id,
+                        'datum_ubytku_d' => $date->format('Y-m-d'),
+                        'sklad_enum' => $skladId,
+                        'q_rano_tony' => $stavRano,
+                        'q_denny_pohyb_tony' => $dennyPohyb,
+                        'q_vecer_tony' => $stavVecer,
+                        'q_cely_den_tony' => $stavCelyDen,
+                        'q_ubytok_tony' => $ubytok,
+                        'q_konecny_stav_tony' => $konecnyStav,
+                        'poznamka' => $poznamka,
+                        'merna_jednotka_enum' => $sklady->getMernaJednotka($skladId)
+                    ));
 
-                $date->modify('+1 day');
-                $id++;
-                $stavRano = $konecnyStav;
-                $poznamka = null;
+                    $date->modify('+1 day');
+                    $id++;
+                    $stavRano = $konecnyStav;
+                    $poznamka = null;
+                } while ($endDate >= $date);
+            }else{
+                //ak sklad nie je v tonách
+                if ($sklady->getMernaJednotka($skladId) == 3){
+                    $stlpec = 'q_m3_merane';
+                }else{
+                    $stlpec = 'q_prm_merane';
+                }
+                $date = new DateTime($start);
+                do {
+                    if ($date == $startDate) {
+                        $stavRano = 0;
+                    }
+                    $prijem = $prijmy->getSumByDateAndStock($stlpec, 'datum_prijmu_d', $date->format('Y-m-d'), 'sklad_enum', $skladId);
+                    $vydaj = $vydaje->getSumByDateAndStock($stlpec, 'datum_vydaju_d', $date->format('Y-m-d'), 'sklad_enum', $skladId);
+                    //$parameterUbytku = $parametreUbytkov->getParameter($date->format('Y-m-d'));
+                    $parameterUbytku = 0;
+                    $dennyPohyb = $prijem - $vydaj;
+                    $stavVecer = $stavRano + $dennyPohyb;
+                    if ($stavVecer < 0) {
+                        $stavVecer = 0;
+                        $poznamka = 'Nedostatok na sklade.';
+                    }
+                    $stavCelyDen = min($stavRano, $stavVecer);
+                    $ubytok = $stavCelyDen * $parameterUbytku;
+                    $konecnyStav = $stavVecer - $ubytok;
+
+                    $this->insert(array
+                    (
+                        'ts_ubytky_hmotnosti_id' => $id,
+                        'datum_ubytku_d' => $date->format('Y-m-d'),
+                        'sklad_enum' => $skladId,
+                        'q_rano_tony' => $stavRano,
+                        'q_denny_pohyb_tony' => $dennyPohyb,
+                        'q_vecer_tony' => $stavVecer,
+                        'q_cely_den_tony' => $stavCelyDen,
+                        'q_ubytok_tony' => $ubytok,
+                        'q_konecny_stav_tony' => $konecnyStav,
+                        'poznamka' => $poznamka,
+                        'merna_jednotka_enum' => $sklady->getMernaJednotka($skladId)
+                    ));
+
+                    $date->modify('+1 day');
+                    $id++;
+                    $stavRano = $konecnyStav;
+                    $poznamka = null;
+                } while ($endDate >= $date);
             }
-            while ($endDate>=$date);
         }
 
     }

@@ -16,6 +16,7 @@ class SkladyController extends Zend_Controller_Action
         $vydaje = new Application_Model_DbTable_Vydaje();
         $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
 
+        $this->view->skladyModel = $sklady;
         $this->view->sklady = $sklady->fetchAll();
         $this->view->skladyModel = $sklady;
         $this->view->prijmy = $prijmy;

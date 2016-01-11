@@ -52,7 +52,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                                 echo $aktualnyStavSkladu;
                                             ?>
                                             <span style="font-size:10pt;">
-                                                t
+                                                <?php
+                                                    print_r($this->skladyModel->getMernaJednotkaSkratka($skladId));?>
                                             </span>
                                             </span>
                                         </div>
@@ -66,7 +67,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                             </div>
                             <div class="panel-body" style="margin-left: 15px; margin-right: 15px;">
 
-
+                                    <!--TOTO NIE JE MOZNE VYPISOVAT ZATIAL PRETOZE BERIEME LEN V MERNEJ JEDNOTKE SKLADU NIE VSETKY CALCULATED APOD.
                                     <div class="row">
                                         <table style="border-style: none; width: 100%; font-size: large;">
                                             <tr>
@@ -101,7 +102,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                             </tr>
                                         </table>
                                     </div>
-
+                                    -->
 
 
 
