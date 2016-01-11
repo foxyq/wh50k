@@ -226,43 +226,35 @@ $prijmy_e = $notif_info['prijmy_errors'];
 <!--            </td>-->
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>">
-
                     <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
-
                 </a>
 
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>">
-
                     <?php echo '<img src="'.$this->baseUrl().'/images/upravit.png" alt="upravit">'; ?>
-
                 </a>
-
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'print', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo, 'fromAction' => 'list',
-                'spz'=>$prijem->prepravca_spz)) ;?>" target="_blank">
-                    <?php echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
-                </a>
-
 
                 <?php
-            $skladID = $prijem->sklad_enum;
-//                $sklad =
-            ?>
+                $skladID = $prijem->sklad_enum;
+                $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
+                ?>
 
-<!---->
-<!--                 <a href="--><?php //echo $this->url(array('controller'=>'Prijmy', 'action'=>'printton', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo, 'fromAction' => 'list',
-//                'spz'=>$prijem->prepravca_spz)) ;?><!--" target="_blank">-->
-<!--                    printton-->
-<!--                </a>-->
-<!---->
-<!--                <a href="--><?php //echo $this->url(array('controller'=>'Prijmy', 'action'=>'printprm', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo, 'fromAction' => 'list',
-//                'spz'=>$prijem->prepravca_spz)) ;?><!--" target="_blank">-->
-<!--                   printprm-->
-<!--                </a>-->
-<!---->
-<!--                <a href="--><?php //echo $this->url(array('controller'=>'Prijmy', 'action'=>'printm3', 'id'=>$prijem->ts_prijmy_id, 'cislo_listku'=>$prijem->doklad_cislo, 'fromAction' => 'list',
-//                'spz'=>$prijem->prepravca_spz)) ;?><!--" target="_blank">-->
-<!--                    printm3-->
-<!--                </a>-->
+
+                <?php  if ($merna_jednotka == 1 )
+                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printton", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
+                                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+                //<!--                    printton-->
+                            ?>
+
+                <?php  if ($merna_jednotka == 2 )
+                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printprm", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
+                                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+                //<!--                   printprm-->
+                                ?>
+                <?php  if ($merna_jednotka == 3 )
+                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printm3", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
+                                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+                //<!--                    printm3-->
+                                ?>
 
             </td>
 
