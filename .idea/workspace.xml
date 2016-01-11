@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
+    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="novorocny PUSH">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -44,6 +44,7 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
+      <command text="zf create action errors Vydaje" />
       <command text="zf create action errors Prijmy" />
       <command text="zf create db-table MerneJednotky merne_jednotky" />
       <command text="zf create controller MaterialyTypy" />
@@ -68,7 +69,6 @@
       <command text="zf create action secret Index 1 skladnik" />
       <command text="zf create controller Prijmy 1 skladnik" />
       <command text="zf create controller Vydaje 1 skladnik" />
-      <command text="zf create model SkladyStavy" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -94,6 +94,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/preview.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/preview.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/delete.phtml" />
+        <option value="$PROJECT_DIR$/application/forms/Vydaj.php" />
+        <option value="$PROJECT_DIR$/application/models/DbTable/Vydaje.php" />
+        <option value="$PROJECT_DIR$/public/js/morris-data.js" />
+        <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
+        <option value="$PROJECT_DIR$/public/css/sb-admin.css" />
+        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/add.phtml" />
+        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addm3.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/VydajeController.php" />
         <option value="$PROJECT_DIR$/application/forms/Prijem.php" />
         <option value="$PROJECT_DIR$/application/forms/Dodavatel.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/dodavatelia/add.phtml" />
@@ -104,6 +115,7 @@
         <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/stroje/edit.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/stroje/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/materialy-druhy/edit.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/materialy-druhy/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prepravci/edit.phtml" />
@@ -118,33 +130,21 @@
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/no-errors.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" />
+        <option value="$PROJECT_DIR$/public/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/index/index.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/stroje/index.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/index.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/layout.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml" />
-        <option value="$PROJECT_DIR$/public/css/bootstrap.min.css" />
-        <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/auth/login.phtml" />
-        <option value="$PROJECT_DIR$/application/forms/Zakaznik.php" />
-        <option value="$PROJECT_DIR$/application/models/DbTable/Zakaznici.php" />
-        <option value="$PROJECT_DIR$/application/controllers/ZakazniciController.php" />
-        <option value="$PROJECT_DIR$/application/plugins/AccessCheck.php" />
-        <option value="$PROJECT_DIR$/application/Bootstrap.php" />
-        <option value="$PROJECT_DIR$/application/models/LibraryAcl.php" />
-        <option value="$PROJECT_DIR$/application/controllers/StrojeController.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/stroje/add.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/PrijmyController.php" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Sklady.php" />
-        <option value="$PROJECT_DIR$/application/configs/application.ini" />
-        <option value="$PROJECT_DIR$/application/controllers/SkladyController.php" />
-        <option value="$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/sklady/index.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/UbytkyController.php" />
+        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/index/index.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/StrojeController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/stroje/index.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/ZakazniciController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/index.phtml" />
+        <option value="$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
+        <option value="$PROJECT_DIR$/application/configs/application.ini" />
+        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/layout.phtml" />
       </list>
     </option>
   </component>
@@ -310,7 +310,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$APPLICATION_CONFIG_DIR$/options/git.xml" />
-    <property name="options.lastSelected" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
@@ -567,49 +567,7 @@
       <option name="project" value="LOCAL" />
       <updated>1452018276974</updated>
     </task>
-    <task id="LOCAL-00034" summary="taby komentar">
-      <created>1452026996940</created>
-      <option name="number" value="00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1452026996940</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Zakaznici - merna jednotka HOTOVO">
-      <created>1452037258585</created>
-      <option name="number" value="00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1452037258585</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Prihlasovanie - &quot;Nespravne prihlasovacie údaje.&quot; hláška">
-      <created>1452120096274</created>
-      <option name="number" value="00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1452120096274</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Zákazník - pridaná funkcionalita add/edit/list na mernu jednotku">
-      <created>1452123151798</created>
-      <option name="number" value="00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1452123151798</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Implementovaná ACL systém.">
-      <created>1452161107411</created>
-      <option name="number" value="00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1452161107411</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Zmena systému úbytkov, prehľad stavov apod. - všetko teraz závisí od mernej jednotky skladu - tony -&gt; úbytkovo, ostatné bez úbytkov">
-      <created>1452533861813</created>
-      <option name="number" value="00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1452533861813</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Zmena systému úbytkov, prehľad stavov apod. - všetko teraz závisí od mernej jednotky skladu - tony -&gt; úbytkovo, ostatné bez úbytkov">
-      <created>1452533914510</created>
-      <option name="number" value="00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1452533914510</updated>
-    </task>
-    <option name="localTasksCounter" value="41" />
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -634,7 +592,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1432" y="-308" width="1936" height="1216" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32851985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -697,6 +655,12 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="CRUD vedlajsej funkcionality" />
+    <MESSAGE value="2015_07_30" />
+    <MESSAGE value="2015_07_30 - opravene errors" />
+    <MESSAGE value="2015_08_01 - CRUD ciselnikov, merneJednotky model repoaired" />
+    <MESSAGE value="2015_08_01_v2 - CRUD ciselnikov, merneJednotky model repoaired" />
+    <MESSAGE value="2015_08_01 - sklady/status cely hotovo, notifikacie errors ubytkov" />
     <MESSAGE value="2015_08_02 - plugin pageManager (vracanie na predosle page) aplikovaný na všetky akcie v prjmy a vydaje" />
     <MESSAGE value="2015_08_02 - logika - vytazenie strojov, dodane mnozstvo zakaznikom" />
     <MESSAGE value="2015_08_04 finalna verzia formov pre prijmy, ready na realease 1.0 pre klienta" />
@@ -716,17 +680,15 @@
     <MESSAGE value="&quot;What?!&quot; - Lil Jon" />
     <MESSAGE value="zakaznici a stroje Index arrays" />
     <MESSAGE value="novorocny PUSH" />
-    <MESSAGE value="taby komentar" />
-    <MESSAGE value="Zakaznici - merna jednotka HOTOVO" />
-    <MESSAGE value="Prihlasovanie - &quot;Nespravne prihlasovacie údaje.&quot; hláška" />
-    <MESSAGE value="Zákazník - pridaná funkcionalita add/edit/list na mernu jednotku" />
-    <MESSAGE value="Implementovaná ACL systém." />
-    <MESSAGE value="Zmena systému úbytkov, prehľad stavov apod. - všetko teraz závisí od mernej jednotky skladu - tony -&gt; úbytkovo, ostatné bez úbytkov" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zmena systému úbytkov, prehľad stavov apod. - všetko teraz závisí od mernej jednotky skladu - tony -&gt; úbytkovo, ostatné bez úbytkov" />
+    <option name="LAST_COMMIT_MESSAGE" value="novorocny PUSH" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/PrijmyController.php</url>
+          <line>41</line>
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/controllers/PrijmyController.php</url>
           <line>137</line>
