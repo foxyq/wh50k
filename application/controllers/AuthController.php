@@ -41,8 +41,6 @@ class AuthController extends Zend_Controller_Action
             $result = Zend_Auth::getInstance()->authenticate($adapter);
 
             if (!$result->isValid()) {
-                //TODO - tu hlasku ze spatne prihlasenie
-                //TODO - okienko "Zadali ste neplatné prihlasovacie údaje"
                 $this->view->wrongCredentials = true;
 
                 //d($result->getMessages());
@@ -60,22 +58,24 @@ class AuthController extends Zend_Controller_Action
                 $userType = $usersModel->getUserType($zendAuthEmail);
 
                 //redirector na úvodné stránky na základe typu účtu užívateľa
+                //TODO - toto bude treba niekedy v buducnosti asi prerobit - dlho bude vypocitavat
                 switch ($userType){
                     //superadmin
                     case 1:
                         echo "Nacitam profil";
                         $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
-                        $ubytky->refreshTableDataByDate('2015-08-01', date('Y-m-d'));
+                        $ubytky->refreshTableDataByDate(Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('calendar_start_date'), date('Y-m-d'));
 
                         $this->_redirect('/default');
                         break;
                     //admin
                     case 2:
                         $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
-                        $ubytky->refreshTableDataByDate('2015-08-01', date('Y-m-d'));
+                        $ubytky->refreshTableDataByDate(Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('calendar_start_date'), date('Y-m-d'));
 
                         $this->_redirect('/default');
                         break;
+                    //skladnik
                     case 3:
                         $this->_redirect('/skladnik');
                         break;

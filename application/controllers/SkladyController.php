@@ -29,20 +29,33 @@ class SkladyController extends Zend_Controller_Action
 
         foreach ($skladyIdArray as $skladId)
         {
+            switch ($sklady->getMernaJednotka($skladId))
+            {
+                case 1:
+                    $stlpec = 'q_tony_merane';
+                    break;
+                case 2:
+                    $stlpec = 'q_prm_merane';
+                    break;
+                case 3:
+                    $stlpec = 'q_m3_merane';
+                    break;
+            }
+
             //den
-            $pohyby[$skladId]['den']['prijmy'] = $prijmy->getSumByDateAndStock("q_tony_merane", "sklad_enum", $skladId, "datum_prijmu_d", "'".date('Y-m-d')."'");
-            $pohyby[$skladId]['den']['vydaje'] = $vydaje->getSumByDateAndStock("q_tony_merane", "sklad_enum", $skladId, "datum_vydaju_d", "'".date('Y-m-d')."'");
+            $pohyby[$skladId]['den']['prijmy'] = $prijmy->getSumByDateAndStock($stlpec, "sklad_enum", $skladId, "datum_prijmu_d", "'".date('Y-m-d')."'");
+            $pohyby[$skladId]['den']['vydaje'] = $vydaje->getSumByDateAndStock($stlpec, "sklad_enum", $skladId, "datum_vydaju_d", "'".date('Y-m-d')."'");
             $pohyby[$skladId]['den']['total'] = $pohyby[$skladId]['den']['prijmy'] - $pohyby[$skladId]['den']['vydaje'];
 
             //tyzden
-            $pohyby[$skladId]['tyzden']['prijmy'] = $prijmy->getSumByColumnBetween("q_tony_merane", "datum_prijmu_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
-            $pohyby[$skladId]['tyzden']['vydaje'] = $vydaje->getSumByColumnBetween("q_tony_merane", "datum_vydaju_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['tyzden']['prijmy'] = $prijmy->getSumByColumnBetween($stlpec, "datum_prijmu_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['tyzden']['vydaje'] = $vydaje->getSumByColumnBetween($stlpec, "datum_vydaju_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
             $pohyby[$skladId]['tyzden']['total'] = $pohyby[$skladId]['tyzden']['prijmy'] - $pohyby[$skladId]['tyzden']['vydaje'];
 
 
             //mesiac
-            $pohyby[$skladId]['mesiac']['prijmy'] = $prijmy->getSumByColumnBetween("q_tony_merane", "datum_prijmu_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
-            $pohyby[$skladId]['mesiac']['vydaje'] = $vydaje->getSumByColumnBetween("q_tony_merane", "datum_vydaju_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['mesiac']['prijmy'] = $prijmy->getSumByColumnBetween($stlpec, "datum_prijmu_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['mesiac']['vydaje'] = $vydaje->getSumByColumnBetween($stlpec, "datum_vydaju_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
             $pohyby[$skladId]['mesiac']['total'] = $pohyby[$skladId]['mesiac']['prijmy'] - $pohyby[$skladId]['mesiac']['vydaje'];
         }
 

@@ -152,7 +152,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form{
         $stav_transakcie = new Zend_Form_Element_Select('stav_transakcie');
         $stav_transakcie->setMultiOptions($this->getAttrib('transakcieStavyMoznosti'));
         $stav_transakcie->setLabel('Stav transakcie')
-            ->setAttrib('class', 'form-control');
+            ->setAttrib('class', 'form-control')
+            ->addValidator('DefinedQuantity');;
 
         $potvrdzujuceTlacidlo = new Zend_Form_Element_Submit('potvrdzujuceTlacidlo');
         $potvrdzujuceTlacidlo->setLabel($this->getAttrib('potvrdzujuceTlacidlo'));

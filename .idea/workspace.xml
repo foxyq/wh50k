@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/Zend/Validate/DefinedQuantity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Prijem.php" afterPath="$PROJECT_DIR$/application/forms/Prijem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/AuthController.php" afterPath="$PROJECT_DIR$/application/controllers/AuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Zend/Validate/DefinedQuantity.php" afterPath="$PROJECT_DIR$/library/Zend/Validate/DefinedQuantity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/SkladyController.php" afterPath="$PROJECT_DIR$/application/controllers/SkladyController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Vydaj.php" afterPath="$PROJECT_DIR$/application/forms/Vydaj.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,99 +30,7 @@
     <favorites_list name="wh50k" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/index.phtml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-22.884615" vertical-offset="0" max-vertical-offset="4692">
-                  <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Prijem.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/forms/Prijem.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-31.538462" vertical-offset="2189" max-vertical-offset="3757">
-                  <caret line="177" column="46" selection-start-line="177" selection-start-column="46" selection-end-line="177" selection-end-column="46" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DefinedQuantity.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/library/Zend/Validate/DefinedQuantity.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.83870965" vertical-offset="476" max-vertical-offset="1547">
-                  <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#getLocale#0;n#Zend_Validate_DefinedQuantity#0;n#!!top" expanded="true" />
-                    <element signature="n#setLocale#0;n#Zend_Validate_DefinedQuantity#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Vydaj.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/forms/Vydaj.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-10.461538" vertical-offset="374" max-vertical-offset="3298">
-                  <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PrijmyController.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/controllers/PrijmyController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-35.307693" vertical-offset="0" max-vertical-offset="2074">
-                  <caret line="87" column="61" selection-start-line="87" selection-start-column="61" selection-end-line="87" selection-end-column="61" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Vydaj.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/forms/Vydaj.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.230769" vertical-offset="153" max-vertical-offset="3298">
-                  <caret line="17" column="77" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="77" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Abstract.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/library/Zend/Validate/Abstract.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-24.346153" vertical-offset="1373" max-vertical-offset="4675">
-                  <caret line="162" column="6" selection-start-line="162" selection-start-column="6" selection-end-line="162" selection-end-column="6" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Int.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/library/Zend/Validate/Int.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.58064514" vertical-offset="0" max-vertical-offset="1190">
-                  <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf />
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
@@ -172,7 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/preview.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/vydaje/delete.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Vydaje.php" />
         <option value="$PROJECT_DIR$/public/js/morris-data.js" />
@@ -216,13 +124,14 @@
         <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/index.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/layout.phtml" />
         <option value="$PROJECT_DIR$/application/configs/application.ini" />
         <option value="$PROJECT_DIR$/application/views/scripts/sklady/index.phtml" />
-        <option value="$PROJECT_DIR$/application/forms/Vydaj.php" />
         <option value="$PROJECT_DIR$/application/forms/Prijem.php" />
+        <option value="$PROJECT_DIR$/application/forms/Vydaj.php" />
         <option value="$PROJECT_DIR$/library/Zend/Validate/DefinedQuantity.php" />
+        <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
+        <option value="$PROJECT_DIR$/application/controllers/SkladyController.php" />
       </list>
     </option>
   </component>
@@ -274,60 +183,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="library" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Validate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -407,15 +262,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -433,11 +280,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="skladnik" />
+              <option name="myItemId" value="DbTable" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -772,7 +619,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452777955447</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Prijmy/Vydaje custom validator - in progress&#10;">
+      <created>1452783683149</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1452783683149</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -797,7 +650,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1432" y="-308" width="1936" height="1216" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32851985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -806,7 +659,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14947917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14947917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46529564" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -860,7 +713,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="2015_07_30 - opravene errors" />
     <MESSAGE value="2015_08_01 - CRUD ciselnikov, merneJednotky model repoaired" />
     <MESSAGE value="2015_08_01_v2 - CRUD ciselnikov, merneJednotky model repoaired" />
     <MESSAGE value="2015_08_01 - sklady/status cely hotovo, notifikacie errors ubytkov" />
@@ -885,7 +737,8 @@
     <MESSAGE value="novorocny PUSH" />
     <MESSAGE value="Upraveny system ubytkov - tony -&gt; ubytky, ostatne -&gt; bez ubytkov, ubytky su v taboch apod. Vsetko zavisi od MJ skladu." />
     <MESSAGE value="Sklady/Index priroeny hlaska o PO sklade, sql dump&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sklady/Index priroeny hlaska o PO sklade, sql dump&#10;" />
+    <MESSAGE value="Prijmy/Vydaje custom validator - in progress&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prijmy/Vydaje custom validator - in progress&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -901,13 +754,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/zakaznici/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/MaterialyDruhyController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
@@ -1013,13 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16160221" vertical-offset="155" max-vertical-offset="1649">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
@@ -1118,20 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/SkladyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="1343">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.73077" vertical-offset="1207" max-vertical-offset="3468">
-          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2580645" vertical-offset="85" max-vertical-offset="1938">
@@ -1139,41 +964,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/UbytkyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.121442124" vertical-offset="8" max-vertical-offset="1088">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Sklady.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="663">
-          <caret line="88" column="42" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/VydajeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16129032" vertical-offset="0" max-vertical-offset="1054">
           <caret line="295" column="35" selection-start-line="295" selection-start-column="35" selection-end-line="295" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1887">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.884615" vertical-offset="0" max-vertical-offset="4692">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1204,26 +998,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Vydaj.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538" vertical-offset="374" max-vertical-offset="3298">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/Zend/Validate/Isbn.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.048387095" vertical-offset="51" max-vertical-offset="1887">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Prijem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.538462" vertical-offset="2189" max-vertical-offset="3757">
-          <caret line="177" column="46" selection-start-line="177" selection-start-column="46" selection-end-line="177" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -1244,6 +1022,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/auth/login.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.003842459" vertical-offset="1152" max-vertical-offset="2193">
+          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/db/database_2016_01_14.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="21522">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/Vydaj.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="153" max-vertical-offset="3315">
+          <caret line="17" column="77" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/Zend/Validate/DefinedQuantity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46774194" vertical-offset="136" max-vertical-offset="1207">
+          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/Prijem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6407301" vertical-offset="2342" max-vertical-offset="3757">
+          <caret line="177" column="12" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1887">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/library/Zend/Validate/Abstract.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-24.346153" vertical-offset="1373" max-vertical-offset="4675">
@@ -1254,28 +1080,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/library/Zend/Validate/Int.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58064514" vertical-offset="0" max-vertical-offset="1190">
+        <state vertical-scroll-proportion="-23.538462" vertical-offset="0" max-vertical-offset="1190">
           <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/auth/login.phtml">
+    <entry file="file://$PROJECT_DIR$/application/controllers/UbytkyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.003842459" vertical-offset="1152" max-vertical-offset="2193">
-          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="748">
+          <caret line="58" column="133" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="133" />
+          <folding>
+            <element signature="n#refreshdataAction#0;n#UbytkyController#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37096775" vertical-offset="102" max-vertical-offset="1734">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+          <folding>
+            <element signature="n#logoutAction#0;n#AuthController#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.192308" vertical-offset="0" max-vertical-offset="952">
+          <caret line="185" column="26" selection-start-line="185" selection-start-column="26" selection-end-line="185" selection-end-column="26" />
+          <folding>
+            <element signature="n#refreshTableDataByDate#0;n#Application_Model_DbTable_UbytkyHmotnosti#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9032258" vertical-offset="1530" max-vertical-offset="4692">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/Zend/Validate/DefinedQuantity.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/SkladyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83870965" vertical-offset="476" max-vertical-offset="1547">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33870968" vertical-offset="0" max-vertical-offset="2312">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="n#getLocale#0;n#Zend_Validate_DefinedQuantity#0;n#!!top" expanded="true" />
-            <element signature="n#setLocale#0;n#Zend_Validate_DefinedQuantity#0;n#!!top" expanded="true" />
+            <element signature="n#addAction#0;n#SkladyController#0;n#!!top" expanded="true" />
+            <element signature="n#listAction#0;n#SkladyController#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Sklady.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43548387" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="88" column="42" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

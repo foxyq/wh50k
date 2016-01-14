@@ -13,84 +13,23 @@ require_once 'Zend/Locale/Format.php';
 /**
  * @category   Zend
  * @package    Zend_Validate
- * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com) + PKY team
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * Tento validator bol vytvoreny PKY teamom a postavený naj jadre Int validatora
  */
 class Zend_Validate_DefinedQuantity extends Zend_Validate_Abstract
 {
-    const INVALID = 'intInvalid';
-    const NOT_INT = 'notInt';
+    //tu musis definovat konstantu
+    const NOT_DEFINED = 'notDef';
 
     /**
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID => "Invalid type given. String or integer expected",
-        self::NOT_INT => "'%value%' does not appear to be an integer",
+        self::NOT_DEFINED => "Transakcia nemôže byť schválená bez kvantity!"
     );
 
-    protected $_locale;
 
-    /**
-     * Constructor for the integer validator
-     *
-     * @param string|Zend_Config|Zend_Locale $locale
-     */
-    public function __construct($locale = null)
-    {
-        if ($locale instanceof Zend_Config) {
-            $locale = $locale->toArray();
-        }
-
-        if (is_array($locale)) {
-            if (array_key_exists('locale', $locale)) {
-                $locale = $locale['locale'];
-            } else {
-                $locale = null;
-            }
-        }
-
-        if (empty($locale)) {
-            require_once 'Zend/Registry.php';
-            if (Zend_Registry::isRegistered('Zend_Locale')) {
-                $locale = Zend_Registry::get('Zend_Locale');
-            }
-        }
-
-        if ($locale !== null) {
-            $this->setLocale($locale);
-        }
-    }
-
-    /**
-     * Returns the set locale
-     */
-    public function getLocale()
-    {
-        return $this->_locale;
-    }
-
-    /**
-     * Sets the locale to use
-     *
-     * @param string|Zend_Locale $locale
-     * @return $this
-     */
-    public function setLocale($locale = null)
-    {
-        require_once 'Zend/Locale.php';
-        $this->_locale = Zend_Locale::findLocale($locale);
-        return $this;
-    }
-
-    /**
-     * Defined by Zend_Validate_Interface
-     *
-     * Returns true if and only if $value is a valid integer
-     *
-     * @param  string|integer $value
-     * @return boolean
-     */
     public function isValid($value)
     {
         //nastav $array ako vsetky parametre z formularu
@@ -100,10 +39,27 @@ class Zend_Validate_DefinedQuantity extends Zend_Validate_Abstract
         $tony = $array['q_tony_merane'];
         $m3 = $array['q_m3_merane'];
         $prm = $array['q_prm_merane'];
+        $sucet_kvantit = $tony + $m3 + $prm;
+        $stav_transakcie = $array['stav_transakcie'];
 
-        //porovnaj
+        //porovnanie ak stav transakcie je na hodnote "SCHVALENE"
+        if ($stav_transakcie == 2){
+            //ak stav na "SCHVALENE" tak cekni ci je aspon jedna hodnota definovana
+            if($sucet_kvantit == 0){
+                //ak je sucet 0 tak to znamena ze nie je definovana ziadna kvantita
+                $this->_error(self::NOT_DEFINED);
+                return false;
+            }else{
+                //ak je aspon jedna hodnota viac nez 0
+                return true;
+            }
+        }else{
+            //ak je iny stav ako "SCHVALENE" nemusime cekovat nic
+            return true;
+        }
 
-        print_r($array."**tony: ".$tony."**m3: ".$m3."**PRM: ".$prm);
-        //print_r($array['stav_transakcie']);
+        //TESTING printing
+        //print_r($array."**tony: ".$tony."**m3: ".$m3."**PRM: ".$prm);
+        //print_r($array);
     }
 }
