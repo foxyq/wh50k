@@ -1,8 +1,6 @@
 <?php
 
-class Application_Form_Vydaj extends ZendX_JQuery_Form
-
-{
+class Application_Form_Vydaj extends ZendX_JQuery_Form{
 
     public function init()
     {
@@ -11,15 +9,33 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $id = new Zend_Form_Element_Hidden('ts_vydaje_id');
         $id->addFilter('Int');
 
-         $filterCisla = new Zend_Filter_PregReplace(array('match' => '/,/', 'replace' => '.'));
+        /*
+         * definicia filtrov
+         */
+        $filterCislaDesatinaCiarka = new Zend_Filter_PregReplace(array('match' => '/,/', 'replace' => '.'));
+        $filterTagy = new Zend_Filter_StripTags();
+        $strToUpper = new Zend_Filter_StringToUpper();
+        $filterOdstranCiarku = new Zend_Filter_PregReplace(array('match'=>'/-/', 'replace'=>''));
+        $filterOdstranMedzery = new Zend_Filter_PregReplace(array('match'=>'/ /', 'replace'=>''));
+
+        /*
+         * definicia validatorov
+         */
+        $validatorDatum = new Zend_Validate_Date();
+        $validatorDatum->setMessage('Dátum nevyhovuje formátu rrrr-mm-dd', Zend_Validate_Date::FALSEFORMAT);
+        $validatorPercentaRange = new Zend_Validate_Between(array('min' => 0, 'max' => 99.99));
+        $validatorPercentaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 99,99.");
+        $validatorCislaRange = new Zend_Validate_Between(array('min' => 0, 'max' => 999.99));
+        $validatorCislaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 999,99.");
+        $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[1-Z]{2}[0-9]{3}[A-Z]{2}/"));
+        $validatorSPZ->setMessage('Zadajte ŠPZ v tvare ZV123BU.', Zend_Validate_Regex::NOT_MATCH);
+
 
         $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
         $submitButtonClass = "success";
         if ($actionName == 'edit'){
             $submitButtonClass = "primary";
         }
-
-        //echo Zend_Date::now()->toString('yyyy-MM-dd');
 
         $datum_vydaju = new ZendX_JQuery_Form_Element_DatePicker("datum_vydaju_d",
                             "12.12.2014", array(), array());
@@ -32,6 +48,7 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
+            ->addValidator($validatorDatum)
             ->setAttrib('class', 'form-control');
 
         $sklad = new Zend_Form_Element_Select('sklad_enum');
@@ -50,7 +67,6 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $zakaznik->setLabel("Zákazník")
             ->setAttrib('class', 'form-control');
 
-
         $prepravca = new Zend_Form_Element_Select('prepravca_enum');
         $prepravca->setMultiOptions($this->getAttrib('prepravciMoznosti'));
         $prepravca->setLabel('Prepravca');
@@ -58,59 +74,56 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
 
         $prepravca_spz = new Zend_Form_Element_Text('prepravca_spz');
         $prepravca_spz->setLabel('ŠPZ');
-        $prepravca_spz->setRequired(true);
-        $prepravca_spz->setAttrib('class', 'form-control');
-
-        //$prepravca_spz->addValidator('regex', false, array('^(B(A|B|C|J|L|N|R|S|Y)|CA|D(K|S|T)|G(A|L)|H(C|E)|IL|K(A|I|E|K|M|N|S)|L(E|C|M|V)|M(A|I|L|T|Y)|N(I|O|M|R|Z)|P(B|D|E|O|K|N|P|T|U|V)|R(A|K|S|V)|S(A|B|C|E|I|K|L|O|N|P|V)|T(A|C|N|O|R|S|T|V)|V(K|T)|Z(A|C|H|I|M|V))([ ]{0,1})([0-9]{3})([A-Z]{2})$'));
-
+        $prepravca_spz->setRequired(true)
+            ->setAttrib('class', 'form-control')
+            ->addFilter($strToUpper)
+            ->addFilter($filterOdstranCiarku)
+            ->addFilter($filterOdstranMedzery)
+            ->addValidator($validatorSPZ);
 
         $stroj_enum = new Zend_Form_Element_Select('$stroj_enum');
         $stroj_enum->setMultiOptions($this->getAttrib('strojeMoznosti'));
         $stroj_enum->setLabel('Stroj');
         $stroj_enum->setAttrib('class', 'form-control');
 
+        /*
+         * KVANTITA
+         */
+        $q_m3_merane = new Zend_Form_Element_Text('q_m3_merane');
+        $q_m3_merane->setLabel('Merané m3' )
+            ->setAttrib('class', 'form-control in')
+            ->setAttrib('tabindex', '-1')
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
-//        $q_tony_merane_brutto = new Zend_Dojo_Form_Element_NumberSpinner('$q_tony_merane_brutto ');
-//        $q_tony_merane_brutto ->addFilter('Int');
-//
-//        $q_tony_merane_tara = new Zend_Dojo_Form_Element_NumberSpinner('q_tony_merane_tara');
-//        $q_tony_merane_tara->addFilter('Int');
-//
-//        $q_tony_vypocet= new Zend_Dojo_Form_Element_NumberSpinner('$q_tony_vypocet ');
-//        $q_tony_vypocet ->addFilter('Int');
-//
-        $q_m3_merane = new Zend_Dojo_Form_Element_NumberSpinner('$q_m3_merane ');
-        $q_m3_merane
-            ->setLabel('Merané m3')
-            ->setAttrib('class', 'form-control')
+        $q_prm_merane = new Zend_Form_Element_Text('q_prm_merane');
+        $q_prm_merane->setLabel('Merané PRM')
+            ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
-//
-//        $q_m3_vypocet = new Zend_Dojo_Form_Element_NumberSpinner('$q_m3_vypocet');
-//        $q_m3_vypocet->addFilter('Int');
-//
-        $q_prm_merane = new Zend_Dojo_Form_Element_NumberSpinner('$q_prm_merane');
-        $q_prm_merane
-            ->setLabel('PRM merané')
-            ->setAttrib('class', 'form-control')
-            ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
-//
-//        $q_prm_vypocet = new Zend_Dojo_Form_Element_NumberSpinner('$q_prm_vypocet');
-//        $q_prm_vypocet->addFilter('Int');
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
         $q_tony_merane = new Zend_Form_Element_Text('q_tony_merane');
-        $q_tony_merane->setLabel('Tony merané')
-            ->setAttrib('class', 'form-control')
+        $q_tony_merane->setLabel('Tony netto')
+            ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorCislaRange);
+            //->addValidator('float');
 
-        $q_vlhkost = new Zend_Dojo_Form_Element_NumberSpinner('$q_vlhkost');
-        $q_vlhkost
-            ->setLabel('Vlhkosť')
-            ->setAttrib('class', 'form-control')
+        $q_vlhkost = new Zend_Form_Element_Text('q_vlhkost');
+        $q_vlhkost->setLabel('Vlhkosť')
+            ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
-            ->addFilter($filterCisla);
+            ->addFilter($filterCislaDesatinaCiarka)
+            ->addValidator($validatorPercentaRange);
+            //->addValidator('Float');
+
+        /*
+         * DOPLNUJUCE INFO
+         */
 
 
         $doklad_typ = new Zend_Form_Element_Select('doklad_typ_enum');
@@ -123,14 +136,14 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form
         $material_typ->setLabel('Materiál typ')
             ->setAttrib('class', 'form-control');
 
-
         $material_druh = new Zend_Form_Element_Select('material_druh_enum');
         $material_druh->setMultiOptions($this->getAttrib('materialyDruhyMoznosti'));
         $material_druh->setLabel('Materiál druh')->setAttrib('class', 'form-control');
 
         $poznamka = new Zend_Form_Element_Text('poznamka');
         $poznamka->setLabel('Poznámka')
-            ->setAttrib('class', 'form-control');
+            ->setAttrib('class', 'form-control')
+            ->addFilter($filterTagy);
 
         $chyba = new Zend_Form_Element_Checkbox('chyba');
         $chyba->setLabel('Chyba');

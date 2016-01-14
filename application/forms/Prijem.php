@@ -1,8 +1,6 @@
 <?php
 
-class Application_Form_Prijem extends Zend_Form
-{
-
+class Application_Form_Prijem extends Zend_Form{
 
     public function init()
     {
@@ -11,14 +9,18 @@ class Application_Form_Prijem extends Zend_Form
         $id = new Zend_Form_Element_Hidden('ts_prijmy_id');
         $id->addFilter('Int');
 
-        //definicia filtrov
+        /*
+         * definicia filtrov
+         */
         $filterCislaDesatinaCiarka = new Zend_Filter_PregReplace(array('match' => '/,/', 'replace' => '.'));
         $filterTagy = new Zend_Filter_StripTags();
         $strToUpper = new Zend_Filter_StringToUpper();
         $filterOdstranCiarku = new Zend_Filter_PregReplace(array('match'=>'/-/', 'replace'=>''));
         $filterOdstranMedzery = new Zend_Filter_PregReplace(array('match'=>'/ /', 'replace'=>''));
 
-        //definicia validatorov
+        /*
+         * definicia validatorov
+         */
         $validatorDatum = new Zend_Validate_Date();
         $validatorDatum->setMessage('Dátum nevyhovuje formátu rrrr-mm-dd', Zend_Validate_Date::FALSEFORMAT);
         $validatorPercentaRange = new Zend_Validate_Between(array('min' => 0, 'max' => 99.99));
@@ -26,9 +28,7 @@ class Application_Form_Prijem extends Zend_Form
         $validatorCislaRange = new Zend_Validate_Between(array('min' => 0, 'max' => 999.99));
         $validatorCislaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 999,99.");
         $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[1-Z]{2}[0-9]{3}[A-Z]{2}/"));
-        $validatorSPZ->setMessage('Zadali ste ŠPZ v nesprávnom tvare', Zend_Validate_Regex::NOT_MATCH);
-
-
+        $validatorSPZ->setMessage('Zadajte ŠPZ v tvare ZV123BU.', Zend_Validate_Regex::NOT_MATCH);
 
 
         $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
@@ -157,7 +157,6 @@ class Application_Form_Prijem extends Zend_Form
         $material_typ->setLabel('Materiál typ')
             ->setAttrib('class', 'form-control');
 
-
         $material_druh = new Zend_Form_Element_Select('material_druh_enum');
         $material_druh->setMultiOptions($this->getAttrib('materialyDruhyMoznosti'));
         $material_druh->setLabel('Materiál druh')
@@ -175,7 +174,8 @@ class Application_Form_Prijem extends Zend_Form
         $stav_transakcie = new Zend_Form_Element_Select('stav_transakcie');
         $stav_transakcie->setMultiOptions($this->getAttrib('transakcieStavyMoznosti'));
         $stav_transakcie->setLabel('Stav transakcie')
-            ->setAttrib('class', 'form-control');
+            ->setAttrib('class', 'form-control')
+            ->addValidator('DefinedQuantity');
 
         $potvrdzujuceTlacidlo = new Zend_Form_Element_Submit('potvrdzujuceTlacidlo');
         $potvrdzujuceTlacidlo->setLabel($this->getAttrib('potvrdzujuceTlacidlo'));
