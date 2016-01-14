@@ -17,14 +17,10 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
                         <a href="<?php echo $this->url(array('controller'=>'ubytky',
                             'action'=>'refreshdataexternal', 'fromAction'=>'index', 'fromController'=>'sklady'));?>"><button type="button" class="btn btn-success">Aktualizovať data</button></a>
-                        <br><br>
 
-                        <div class="alert alert-info alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                <i class="fa fa-info-circle"></i> Stav skladu <strong>PREŠOV</strong> dočasne zahŕňa len <strong>PRÍJMY</strong> na sklad! Výdaje sa nezapočítavajú.
-                        </div>
+
+                        <hr>
                     </div>
-
 
                     <?php
                     $skladyIds = $this->skladyModel->getIds();
@@ -107,45 +103,15 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                         </table>
                                     </div>
                                     -->
-                                <div class="row " >
-                                        <table class="center table-hover" style="border-style: none; width: 100%">
-                                            <tr class="tleft" style="font-weight: bold;">
-                                                <td>Pohyb</td>
-                                                <td>Príjmy</td>
-                                                <td>Výdaje</td>
-                                                <td>Celkovo</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="tleft">Deň</td>
-                                                <td><?php echo $this->pohyby[$skladId]['den']['prijmy'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['den']['vydaje'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['den']['total'];?></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="tleft">Týždeň</td>
-                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['prijmy'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['vydaje'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['total'];?></td>
-                                            </tr>
-                                             <tr>
-                                                <td class="tleft">Mesiac</td>
-                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['prijmy'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['vydaje'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['total'];?></td>
-                                            </tr>
-                                        </table>
-
-                                  </div>
 
 
 
 
 
-                                <div id="hidden_field<?php echo $counter;?>">
+
                                     <div class="row">
                                         <hr>
                                     </div>
-                                    <!--
                                     <div class="row " >
                                         <table class="center table-hover" style="border-style: none; width: 100%">
                                             <tr class="tleft" style="font-weight: bold;">
@@ -175,8 +141,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                         </table>
 
                                   </div>
-                                  -->
-
+                                <div id="hidden_field<?php echo $counter;?>">
                                         <div class="row">
                                                 <hr>
                                         </div>
@@ -225,8 +190,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
         $dataSkladu = new Application_Model_DbTable_UbytkyHmotnosti();
         $dataSkladu = $dataSkladu->getLastXValues( $skladId, 5);
-        $skladyModel = new Application_Model_DbTable_Sklady();
 
+//        print_r($dataSkladu);
         ?>
 
 
@@ -239,7 +204,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
             xkey: 'datum',
             ykeys: ['stav'],
-            labels: ['Stav (t)'],
+            labels: ['Stav'],
             pointSize: 2,
             hideHover: 'auto',
             smooth: true,

@@ -27,6 +27,8 @@ class Application_Form_Prijem extends Zend_Form{
         $validatorPercentaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 99,99.");
         $validatorCislaRange = new Zend_Validate_Between(array('min' => 0, 'max' => 999.99));
         $validatorCislaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 999,99.");
+        $validatorSelecty= new Zend_Validate_Between(array('min' => 1, 'max' => 99));
+        $validatorSelecty->setMessage("Hodnota je povinná");
         $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[1-Z]{2}[0-9]{3}[A-Z]{2}/"));
         $validatorSPZ->setMessage('Zadajte ŠPZ v tvare ZV123BU.', Zend_Validate_Regex::NOT_MATCH);
 
@@ -53,23 +55,36 @@ class Application_Form_Prijem extends Zend_Form{
 
 
         $sklad = new Zend_Form_Element_Select('sklad_enum');
-        $sklad->setMultiOptions($this->getAttrib('skladyMoznosti'));
+        $sklad->addMultiOptions(array(
+            '0' => '' ));
+        $sklad->addMultiOptions( $this->getAttrib('skladyMoznosti'));
         $sklad->setLabel('Sklad')
+            ->addValidator($validatorSelecty)
             ->setAttrib('class', 'form-control');
 
+
         $podsklad = new Zend_Form_Element_Select('podsklad_enum');
-        $podsklad->setMultiOptions($this->getAttrib('podskladyMoznosti'));
+        $podsklad->addMultiOptions(array(
+            '0' => '' ));
+        $podsklad->addMultiOptions($this->getAttrib('podskladyMoznosti'));
         $podsklad->setLabel('Podsklad')
+            ->addValidator($validatorSelecty)
             ->setAttrib('class', 'form-control');
 
         $dodavatel = new Zend_Form_Element_Select('dodavatel_enum');
-        $dodavatel->setMultiOptions($this->getAttrib('dodavateliaMoznosti'));
+        $dodavatel->addMultiOptions(array(
+            '0' => '' ));
+        $dodavatel->addMultiOptions($this->getAttrib('dodavateliaMoznosti'));
         $dodavatel->setLabel('Dodávateľ')
+            ->addValidator($validatorSelecty)
             ->setAttrib('class', 'form-control');
 
         $prepravca = new Zend_Form_Element_Select('prepravca_enum');
-        $prepravca->setMultiOptions($this->getAttrib('prepravciMoznosti'));
+        $prepravca->addMultiOptions(array(
+            '0' => '' ));
+        $prepravca->addMultiOptions($this->getAttrib('prepravciMoznosti'));
         $prepravca->setLabel('Prepravca')
+            ->addValidator($validatorSelecty)
             ->setAttrib('class', 'form-control');
 
         $prepravca_spz = new Zend_Form_Element_Text('prepravca_spz');
@@ -147,20 +162,29 @@ class Application_Form_Prijem extends Zend_Form{
          * DOPLNUJUCE INFO
          */
 
-        $doklad_typ = new Zend_Form_Element_Select('doklad_typ_enum');
-        $doklad_typ->setMultiOptions($this->getAttrib('dokladyTypyMoznosti'));
-        $doklad_typ->setLabel('Doklad typ')
-            ->setAttrib('class', 'form-control');
+//        $doklad_typ = new Zend_Form_Element_Select('doklad_typ_enum');
+//
+//
+//        $doklad_typ->setMultiOptions($this->getAttrib('dokladyTypyMoznosti'));
+//        $doklad_typ->setLabel('Doklad typ')
+//            ->setAttrib('class', 'form-control');
+
 
         $material_typ = new Zend_Form_Element_Select('material_typ_enum');
-        $material_typ->setMultiOptions($this->getAttrib('materialyTypyMoznosti'));
+        $material_typ->addMultiOptions(array(
+            '0' => '' ));
+        $material_typ->addMultiOptions($this->getAttrib('materialyTypyMoznosti'));
         $material_typ->setLabel('Materiál typ')
+            ->addValidator($validatorSelecty)
             ->setAttrib('class', 'form-control');
 
         $material_druh = new Zend_Form_Element_Select('material_druh_enum');
-        $material_druh->setMultiOptions($this->getAttrib('materialyDruhyMoznosti'));
+        $material_druh->addMultiOptions(array(
+            '0' => '' ));
+        $material_druh->addMultiOptions($this->getAttrib('materialyDruhyMoznosti'));
         $material_druh->setLabel('Materiál druh')
             ->setAttrib('class', 'form-control')
+            ->addValidator($validatorSelecty)
             ->setAttrib('onchange', 'getComboA(this)');
 
         $poznamka = new Zend_Form_Element_Text('poznamka');
@@ -172,9 +196,12 @@ class Application_Form_Prijem extends Zend_Form{
         $chyba->setLabel('Chyba');
 
         $stav_transakcie = new Zend_Form_Element_Select('stav_transakcie');
-        $stav_transakcie->setMultiOptions($this->getAttrib('transakcieStavyMoznosti'));
+        $stav_transakcie->addMultiOptions(array(
+            '0' => '' ));
+        $stav_transakcie->addMultiOptions($this->getAttrib('transakcieStavyMoznosti'));
         $stav_transakcie->setLabel('Stav transakcie')
             ->setAttrib('class', 'form-control')
+            ->addValidator($validatorSelecty)
             ->addValidator('DefinedQuantity');
 
         $potvrdzujuceTlacidlo = new Zend_Form_Element_Submit('potvrdzujuceTlacidlo');

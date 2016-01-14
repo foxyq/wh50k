@@ -59,16 +59,53 @@ echo $this->doctype(); ?>
 
 <!--    ************** KONIEC CSS INCLUDES ************ -->
 
+
+<!--    <script>-->
+<!---->
+<!--        function onReady(callback) {-->
+<!--            var intervalID = window.setInterval(checkReady, 300);-->
+<!---->
+<!--            function checkReady() {-->
+<!--                if (document.getElementsByTagName('body')[0] !== undefined) {-->
+<!--                    window.clearInterval(intervalID);-->
+<!--                    callback.call(this);-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!---->
+<!--        function show(id, value) {-->
+<!--            document.getElementById(id).style.display = value ? 'block' : 'none';-->
+<!--        }-->
+<!---->
+<!--        onReady(function () {-->
+<!--            show('page', true);-->
+<!--            show('loading', false);-->
+<!--        });-->
+<!---->
+<!--//    </script>-->
+
+
+<!--    <script type="text/javascript">-->
+<!--        $(window).load(function() {-->
+<!--        $("#loading").fadeOut("slow");-->
+<!--            })-->
+<!--//   </script>-->
+
+
+
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 
+
 </head>
+
 <body>
 
-
+<!--<div id="loading"></div>-->
+<div id="page">
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -349,6 +386,7 @@ echo $this->doctype(); ?>
 
 
 
-
+</div>
 </body>
+
 </html>

@@ -106,11 +106,12 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <th>prepravca</th>
             <!--    <th>SPZ</th>-->
             <th>tony m</th>
-            <th class="col-tony-nadrozmer">tony nadrozmer</th>
+            <th class="col-tony-nadrozmer">nadrozmer</th>
+            <th>m3 m</th>
             <th>vlhkosť</th>
             <th>číslo dokladu</th>
             <!--    <th>t v</th>-->
-            <!--    <th>m3 m</th>-->
+
             <!--    <th>m3 v</th>-->
             <!--    <th>PRM m</th>-->
             <!--    <th>PRM v</th>-->
@@ -128,25 +129,28 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <!--        <th>ID</th>-->
             <!--        <th>doklad číslo</th>-->
             <th></th>
-            <th>dátum</th>
+            <th>datum</th>
             <th>sklad</th>
             <th>podsklad</th>
-            <th>dodávateľ</th>
+            <th>dod</th>
             <th>prepravca</th>
             <!--        <th>SPZ</th>-->
             <th>t m</th>
             <th>t nadrozmer</th>
             <!--        <th>t v</th>-->
-            <!--        <th>m3 m</th>-->
+                    <th>m3 m</th>
             <!--        <th>m3 v</th>-->
             <!--        <th>PRM m</th>-->
             <!--        <th>PRM v</th>-->
 
             <!--        <th>materiál typ</th>-->
-            <th>materiál druh</th>
-            <!--        <th>stav</th>-->
-            <!--        <th>chyba</th>-->
-            <!--        <th  >úpravy</th>-->
+            <th>material druh</th>
+                    <th></th>
+                    <th>chyba</th>
+<!--                    <th  >úpravy</th>-->
+<!--            <th></th>-->
+<!--            <th></th>-->
+
         </tr>
         </tfoot>
 
@@ -163,7 +167,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
                 'action'=>'preview', 'id'=>$prijem->doklad_cislo, 'fromAction' => 'list'));?>">
                      <?php echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
                 </a>
-</TD>
+            </TD>
             <td>
 
                 <?php
@@ -179,6 +183,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
 <!--            <td>--><?php //echo $this->escape($prijem->prepravca_spz);?><!--</td>-->
             <td><?php echo number_format($this->escape($prijem->q_tony_merane), 2, ",", " ");?></td>
             <td><?php echo number_format($this->escape($prijem->q_tony_nadrozmer), 2, ",", " ");?></td>
+            <td><?php echo $this->escape($prijem->q_m3_merane);?></td>
             <td>
                 <?php
             if ($prijem->q_vlhkost == 0.00){
@@ -191,7 +196,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <td><?php echo $this->escape($prijem->doklad_cislo);?></td>
 
 <!--            <td>--><?php //echo $this->escape($prijem->q_tony_vypocet);?><!--</td>-->
-<!--            <td>--><?php //echo $this->escape($prijem->q_m3_merane);?><!--</td>-->
+
 <!--            <td>--><?php //echo $this->escape($prijem->q_m3_vypocet);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($prijem->q_prm_merane);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($prijem->q_prm_vypocet);?><!--</td>-->
@@ -242,19 +247,19 @@ $prijmy_e = $notif_info['prijmy_errors'];
                 <?php  if ($merna_jednotka == 1 )
                                 echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printton", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
                                     )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
-                //<!--                    printton-->
+//                <!--                    printton-->
                             ?>
 
                 <?php  if ($merna_jednotka == 2 )
                                 echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printprm", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
                                     )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
-                //<!--                   printprm-->
+//                <!--                   printprm-->
                                 ?>
                 <?php  if ($merna_jednotka == 3 )
                                 echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printm3", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
                                     )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
-                //<!--                    printm3-->
-                                ?>
+//                <!--                    printm3-->
+//                                ?>
 
             </td>
 

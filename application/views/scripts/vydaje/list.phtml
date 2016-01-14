@@ -102,9 +102,9 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <th>tony m</th>
             <th>vlhkosť</th>
             <!--        <th>tony v</th>-->
-            <!--        <th>m3 m</th>-->
+                    <th>m<sup>3</sup></th>
             <!--        <th>m3 v</th>-->
-            <!--        <th>prm m</th>-->
+                    <th>PRM </th>
             <!--        <th>prm v</th>-->
             <th>číslo dokladu</th>
             <th>material typ</th>
@@ -124,20 +124,21 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <th>sklad</th>
             <th>podsklad</th>
             <th>zákazník</th>
-            <th>prepravca</th>
+            <th></th>
             <!--        <th> SPZ</th>-->
             <th>tony m</th>
+            <th>vlhkost</th>
             <!--        <th>tony v</th>-->
-            <!--        <th>m3 m</th>-->
+                    <th>m3 m</th>
             <!--        <th>m3 v</th>-->
-            <!--        <th>prm m</th>-->
+                    <th>prm m</th>
             <!--        <th>prm v</th>-->
 
-            <th>material typ</th>
-            <!--        <th>material druh</th>-->
-            <th>stav </th>
-            <!--        <th>chyba</th>-->
-            <!--        <th>úpravy</th>-->
+            <th>assss</th>
+                    <th>material typ</th>
+            <th></th>
+
+<!--                    <th>úpravy</th>-->
         </tr>
         </tfoot>
 
@@ -173,13 +174,13 @@ $vydaje_e = $notif_info['vydaje_errors'];
             }
             ?>
             </td>
-            <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
-<!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
-<!--            <td>--><?php //echo $this->escape($vydaj->q_m3_merane);?><!--</td>-->
-<!--            <td>--><?php //echo $this->escape($vydaj->q_m3_vypocet);?><!--</td>-->
-<!--            <td>--><?php //echo $this->escape($vydaj->q_prm_merane);?><!--</td>-->
-<!--            <td>--><?php //echo $this->escape($vydaj->q_prm_vypocet);?><!--</td>-->
 
+<!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
+            <td><?php echo $this->escape($vydaj->q_m3_merane);?></td>
+<!--            <td>--><?php //echo $this->escape($vydaj->q_m3_vypocet);?><!--</td>-->
+            <td><?php echo $this->escape($vydaj->q_prm_merane);?></td>
+<!--            <td>--><?php //echo $this->escape($vydaj->q_prm_vypocet);?><!--</td>-->
+            <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
             <td><?php echo $this->escape($this->materialyTypy->getNazov($vydaj->material_typ_enum));?></td>
 <!--            <td>--><?php //echo $this->escape($this->materialyDruhy->getNazov($vydaj->material_druh_enum));?><!--</td>-->
             <td class="center">
