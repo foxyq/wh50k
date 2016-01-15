@@ -17,7 +17,7 @@ class StrojeController extends Zend_Controller_Action
 
         foreach ($strojeIds AS $strojId){
             $vytazenieStrojov[$strojId]['nazov'] = $strojeModel->getNazov($strojId);
-            $vytazenieStrojov[$strojId]['vytazenie'] = $vydaje->getSumByColumn('q_tony_merane', 'stroj_enum', $strojId);
+            $vytazenieStrojov[$strojId]['vytazenie'] = $vydaje->getRowCountByColumn('stroj_enum', $strojId);
         }
         $this->view->title = "Stroje - prehľad";
         $this->view->vytazenieStrojov = $vytazenieStrojov;

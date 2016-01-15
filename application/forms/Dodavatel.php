@@ -11,16 +11,22 @@ class Application_Form_Dodavatel extends Zend_Form
         $id->addFilter('Int');
 
         $meno = new Zend_Form_Element_Text('meno');
-        $meno->setLabel('Meno');
-        $meno->setRequired(true);
+        $meno->setLabel('Meno')
+             ->setRequired(true)
+             ->addValidator(new Zend_Validate_StringLength(array(
+                 'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('dodavatelia_meno'))));
 
         $nazov_spolocnosti = new Zend_Form_Element_Text('nazov_spolocnosti');
-        $nazov_spolocnosti->setLabel('Názov spoločnosti');
-        $nazov_spolocnosti->setRequired(true);
+        $nazov_spolocnosti->setLabel('Názov spoločnosti')
+                          ->setRequired(true)
+                          ->addValidator(new Zend_Validate_StringLength(array(
+                              'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('dodavatelia_nazov'))));;
 
         $ico = new Zend_Form_Element_Text('ico');
-        $ico->setLabel('IČO');
-        $ico->setRequired(true);
+        $ico->setLabel('IČO')
+            ->setRequired(true)
+            ->addValidator(new Zend_Validate_StringLength(array(
+                 'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('dodavatelia_ico'))));
 
         $potvrdzujuceTlacidlo = new Zend_Form_Element_Submit('potvrdzujuceTlacidlo');
         $potvrdzujuceTlacidlo->setLabel($this->getAttrib('potvrdzujuceTlacidlo'));

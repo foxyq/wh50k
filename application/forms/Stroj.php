@@ -15,7 +15,10 @@ class Application_Form_Stroj extends Zend_Form
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('stroje_nazov'))));
+
 
         $typ_stroja = new Zend_Form_Element_Select('typ_stroja');
         $typ_stroja->setMultiOptions($this->getAttrib('strojeTypyMoznosti'));

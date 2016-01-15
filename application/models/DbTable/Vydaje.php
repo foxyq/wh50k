@@ -175,6 +175,14 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         return $sum;
     }
 
+    //get Count of rows where column equals $column_value
+    //toto nie je optimalne pri velkom mnozstve dat to bude dlho trvat
+    public function getRowCountByColumn($column, $column_value){
+        $vydaje = $this->fetchAll($column.' = '. $column_value . ' AND stav_transakcie = 2');
+        $rowCount = count($vydaje);
+        return $rowCount;
+    }
+
     //get SUM of column1 by column2 (date) and column3 (stock)
     public function getSumByDateAndStock($column1, $column2, $column2_value, $column3, $column3_value){
         $vydaje = $this->fetchAll($column2." = '".$column2_value."' AND ".$column3." = ".$column3_value." AND stav_transakcie = 2");

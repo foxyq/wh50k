@@ -16,14 +16,20 @@ class Application_Form_Sklad extends Zend_Form
             //->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_kod'))));
+
 
         $nazov_skladu = new Zend_Form_Element_Text('nazov_skladu');
         $nazov_skladu->setLabel('Názov')
             //->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_nazov'))));
+
 
 
         $skratka_skladu = new Zend_Form_Element_Text('skratka_skladu');
@@ -31,7 +37,10 @@ class Application_Form_Sklad extends Zend_Form
             //->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_skratka'))));
+
 
 
 
@@ -52,7 +61,10 @@ class Application_Form_Sklad extends Zend_Form
             //->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_adresa'))));
+
 
 
 

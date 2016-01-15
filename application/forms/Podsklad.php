@@ -15,14 +15,20 @@ class Application_Form_Podsklad extends Zend_Form
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_nazov'))));
+
 
         $kod = new Zend_Form_Element_Text('kod_podskladu');
         $kod->setLabel('Kód')
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_kod'))));
+
 
         $mesto = new Zend_Form_Element_Select('mesto_enum');
         $mesto->setMultiOptions($this->getAttrib('mestaMoznosti'));
@@ -34,7 +40,10 @@ class Application_Form_Podsklad extends Zend_Form
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_adresa'))));
+
 
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');

@@ -15,14 +15,20 @@ class Application_Form_MaterialDruh extends Zend_Form
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('materialy_druhy_nazov'))));
+
 
         $skratka = new Zend_Form_Element_Text('skratka');
         $skratka->setLabel('Skratka')
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addValidator('NotEmpty');
+            ->addValidator('NotEmpty')
+            ->addValidator(new Zend_Validate_StringLength(array(
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('materialy_druhy_skratka'))));
+
 
 
 
