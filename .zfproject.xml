@@ -104,6 +104,24 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="edit"/>
         </controllerFile>
+        <controllerFile controllerName="Nastavenia">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Profil">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="ExternaDodavka">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="list"/>
+          <actionMethod actionName="waitings"/>
+          <actionMethod actionName="errors"/>
+        </controllerFile>
+        <controllerFile controllerName="ExternaVyroba">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="list"/>
+          <actionMethod actionName="errors"/>
+          <actionMethod actionName="waitings"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Zakaznik"/>
@@ -144,6 +162,8 @@
           <dbTableFile dbTableName="MerneJednotky"/>
           <dbTableFile dbTableName="User"/>
           <dbTableFile dbTableName="Users"/>
+          <dbTableFile dbTableName="ExternaDodavka"/>
+          <dbTableFile dbTableName="ExternaVyroba"/>
         </dbTableDirectory>
         <modelFile modelName="Notifikacie"/>
         <modelFile modelName="LibraryAcl"/>
@@ -180,6 +200,12 @@
               <actionMethod actionName="noErrors"/>
               <actionMethod actionName="errors"/>
               <actionMethod actionName="markAsError"/>
+            </controllerFile>
+            <controllerFile controllerName="Nastavenia">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Profil">
+              <actionMethod actionName="index"/>
             </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
@@ -257,6 +283,12 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Vydaje">
                 <viewScriptFile forActionName="markAsError"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Nastavenia">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Profil">
+                <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
@@ -464,6 +496,36 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Vydaje">
             <viewScriptFile forActionName="printm3"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Nastavenia">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Profil">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="waitings"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="errors"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="errors"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="waitings"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

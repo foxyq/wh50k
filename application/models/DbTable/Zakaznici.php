@@ -71,6 +71,13 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
+    public function getMernaJednotka($idZakaznika)
+    {
+        $sql = "zakaznici_id = " . $idZakaznika;
+        $zakaznici = $this->fetchAll($sql)->toArray();
+        return $zakaznici[0]['merna_jednotka_enum'];
+    }
+
 
 
 

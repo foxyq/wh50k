@@ -19,10 +19,7 @@ try {
     $page = $pdf->pages[0];
 
     // musis definovat font, tak nejaky drahy idealne z macu :D
-//    $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
-//    $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
-
-    $font = Zend_Pdf_Font::fontWithPath('../public/fonts/arial.ttf');
+    $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
 
     //get parametre na tlac z URL
 
@@ -41,7 +38,6 @@ try {
 
     $meno = $this->escape($this->uzivatelia->getMeno($this->escape($this->vydaj['vytvoril_u'])));
 
-
     //  do tej page, ktoru som si vyssie vybral, vpisujem moje stringy na x,y, poziciu
     $page->setFont($font, 9)
         ->drawText( strval($cislo_listku) , 455, 747)
@@ -52,7 +48,7 @@ try {
         ->drawText($meno, 385,534)
         ->drawText($datum, 200, 585)
         ->drawText($cas, 200, 571)
-        ->drawText($druh, 200, 558);
+        ->drawText($druh, 200, 556);
 
 //    $page->setFont($font, 12)
 //        ->drawText( $m3 , 355, 582);

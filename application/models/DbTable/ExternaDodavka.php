@@ -1,0 +1,224 @@
+<?php
+
+class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
+{
+
+    protected $_name = 'tx_dodavka';
+
+    public function getXDodavka($id)
+    {
+        $id = (int)$id;
+        $row = $this->fetchRow('tx_dodavka_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        return $row->toArray();
+    }
+
+    public function getXDodavkaFormatted($id)
+    {
+        $id = (int)$id;
+        $row = $this->fetchRow('tx_dodavka_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        $row['q_tony_merane']=number_format($row['q_tony_merane'], 2, ",", "");
+        $row['q_tony_merane_brutto']=number_format($row['q_tony_merane_brutto'], 2, ",", "");
+        $row['q_tony_merane_tara']=number_format($row['q_tony_merane_tara'], 2, ",", "");
+        $row['q_tony_nadrozmer']=number_format($row['q_tony_nadrozmer'], 2, ",", "");
+        $row['q_m3_merane']=number_format($row['q_m3_merane'], 2, ",", "");
+        $row['q_prm_merane']=number_format($row['q_prm_merane'], 2, ",", "");
+
+        return $row;
+    }
+
+    public function getXDodavkaByDokladCislo($id)
+    {
+        $id = $id;
+        $row = $this->fetchRow("doklad_cislo = '" . $id."'");
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        return $row;
+    }
+
+     public function getAutor($id){
+        $id = (int)$id;
+        $row = $this->fetchRow('tx_dodavka_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+        $row = $row->toArray();
+        return $row['vytvoril_u'];
+    }
+
+    public function addXDodavka($datum_xdodavky,
+                              $zakaznik,
+                              $prepravca,
+                              $prepravca_spz,
+                              $q_tony_merane,
+                              $q_m3_merane,
+                              $q_prm_merane,
+                              $q_vlhkost,
+                              $doklad_typ,
+                              $material_typ,
+                              $material_druh,
+                              $poznamka,
+                              $chyba,
+                              $stav_transakcie,
+                             $doklad_cislo){
+
+        $identity = (array) Zend_Auth::getInstance()->getIdentity();
+        $identity = (int) $identity['id'];
+
+        $data = array(
+            'datum_xdodavky_d' => $datum_xdodavky,
+            'zakaznik_enum' => $zakaznik,
+            'prepravca_enum' => $prepravca,
+            'prepravca_spz' => $prepravca_spz,
+            'q_tony_merane' => $q_tony_merane,
+            'q_m3_merane' => $q_m3_merane,
+            'q_prm_merane' => $q_prm_merane,
+            'q_vlhkost' => $q_vlhkost,
+            'doklad_typ_enum' => $doklad_typ,
+            'material_typ_enum' => $material_typ,
+            'material_druh_enum' => $material_druh,
+            'poznamka' => $poznamka,
+            'chyba' => $chyba,
+            'stav_transakcie' => $stav_transakcie,
+            'doklad_cislo' => $doklad_cislo,
+            'vytvoril_u' => $identity,
+            'posledna_uprava_u' => $identity,
+
+
+        );
+        $this->insert($data);
+    }
+
+
+    public function editXDodavka(
+                            $id,
+                            $datum_xdodavky,
+                             $zakaznik,
+                             $prepravca,
+                             $prepravca_spz,
+                             $q_tony_merane,
+                             $q_m3_merane,
+                             $q_prm_merane,
+                             $q_vlhkost,
+                             $doklad_typ,
+                             $material_typ,
+                             $material_druh,
+                             $poznamka,
+                             $chyba,
+                             $stav_transakcie){
+
+        $identity = (array) Zend_Auth::getInstance()->getIdentity();
+        $identity = (int) $identity['id'];
+
+        $data = array(
+            'datum_xvyroby_d' => $datum_xdodavky,
+            'zakaznik_enum' => $zakaznik,
+            'prepravca_enum' => $prepravca,
+            'prepravca_spz' => $prepravca_spz,
+            'q_tony_merane' => $q_tony_merane,
+            'q_m3_merane' => $q_m3_merane,
+            'q_prm_merane' => $q_prm_merane,
+            'q_vlhkost' => $q_vlhkost,
+            'doklad_typ_enum' => $doklad_typ,
+            'material_typ_enum' => $material_typ,
+            'material_druh_enum' => $material_druh,
+            'poznamka' => $poznamka,
+            'chyba' => $chyba,
+            'stav_transakcie' => $stav_transakcie,
+
+            'vytvoril_u' => self::getAutor($id),
+            'posledna_uprava_u' => $identity
+
+        );
+        $this->update($data, 'tx_dodavka_id ='. (int)$id);
+    }
+
+    public function deleteXDodavka($id)
+    {
+        $this->delete('tx_dodavka_id =' . (int)$id);
+    }
+
+    //get SUM of column1 by column2
+    //toto nie je optimalne pri velkom mnozstve dat to bude dlho trvat
+    public function getSumByColumn($column1, $column2, $column2_value){
+        $dodavky = $this->fetchAll($column2.' = '. $column2_value);
+        $sum = 0;
+        foreach ($dodavky as $dodavka){
+            $sum = $sum + $dodavka[$column1];
+        }
+        return $sum;
+    }
+
+    //get Count of rows where column equals $column_value
+    //toto nie je optimalne pri velkom mnozstve dat to bude dlho trvat
+    public function getRowCountByColumn($column, $column_value){
+        $dodavky = $this->fetchAll($column.' = '. $column_value . ' AND stav_transakcie = 2');
+        $rowCount = count($dodavky);
+        return $rowCount;
+    }
+
+    //get SUM of column1 by column2 (date) and column3 (stock)
+    public function getSumByDateAndStock($column1, $column2, $column2_value, $column3, $column3_value){
+        $dodavky = $this->fetchAll($column2." = '".$column2_value."' AND ".$column3." = ".$column3_value." AND stav_transakcie = 2");
+        $sum = 0;
+        foreach ($dodavky as $dodavka){
+            $sum = $sum + $dodavka[$column1];
+        }
+        return $sum;
+    }
+
+    //$column1 - co sledujeme
+    //$column2 - parametre od do
+    //$column3 - goup by - standardne id skladu
+    public function getSumByColumnBetween($column1, $column2, $column2_value1, $column2_value2, $column3, $column3_value1){
+
+        if ($column2_value1 > $column2_value2){
+            $pomocna = $column2_value2;
+            $column2_value2 = $column2_value1;
+            $column2_value1 = $pomocna;
+        }
+
+        $sql = $column3." = ".$column3_value1." AND (".$column2." BETWEEN '".$column2_value1."' AND '".$column2_value2."')";
+        $dodavky = $this->fetchAll($sql);
+
+        $sum = 0;
+        foreach ($dodavky as $dodavka){
+            $sum = $sum + $dodavka[$column1];
+        }
+        return $sum;
+    }
+
+    public function getNumberOfErrors(){
+            $select = $this->select();
+            $select->from($this, array('count(*) as amount'))->where("chyba = 1");
+            $rows = $this->fetchAll($select);
+
+            return($rows[0]->amount);
+    }
+
+    public function getNumberOfWaitings(){
+            $select = $this->select();
+            $select->from($this, array('count(*) as amount'))->where("stav_transakcie = 1");
+            $rows = $this->fetchAll($select);
+
+            return($rows[0]->amount);
+    }
+
+    public function markAsError($id){
+        $id = (int) $id;
+        $data = array('chyba'=>1);
+        $this->update($data, 'tx_dodavka_id ='. (int)$id);
+    }
+
+
+
+}
+

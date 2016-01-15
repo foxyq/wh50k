@@ -10,13 +10,6 @@ class Application_Form_MaterialDruh extends Zend_Form
         $id = new Zend_Form_Element_Hidden('materialy_druhy_id');
         $id->addFilter('Int');
 
-
-        $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
-        $submitButtonClass = "success";
-        if ($actionName == 'edit'){
-            $submitButtonClass = "primary";
-        }
-
         $nazov = new Zend_Form_Element_Text('nazov');
         $nazov->setLabel('Názov')
             ->setRequired(true)
@@ -24,8 +17,7 @@ class Application_Form_MaterialDruh extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('materialy_druhy_nazov'))))
-            ->setAttrib('class', 'form-control');
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('materialy_druhy_nazov'))));
 
 
         $skratka = new Zend_Form_Element_Text('skratka');
@@ -35,15 +27,13 @@ class Application_Form_MaterialDruh extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('materialy_druhy_skratka'))))
-            ->setAttrib('class', 'form-control');
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('materialy_druhy_skratka'))));
 
 
 
 
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setAttrib('id', 'submitbutton')
-            ->setAttrib('class', 'form-control btn-'.$submitButtonClass);;
+        $submit->setAttrib('id', 'submitbutton');
 
         $this->addElements(array($id, $nazov, $skratka, $submit));
     }

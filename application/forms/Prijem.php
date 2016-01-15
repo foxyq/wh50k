@@ -196,8 +196,6 @@ class Application_Form_Prijem extends Zend_Form{
         $chyba->setLabel('Chyba');
 
         $stav_transakcie = new Zend_Form_Element_Select('stav_transakcie');
-        $stav_transakcie->addMultiOptions(array(
-            '0' => '' ));
         $stav_transakcie->addMultiOptions($this->getAttrib('transakcieStavyMoznosti'));
         $stav_transakcie->setLabel('Stav transakcie')
             ->setAttrib('class', 'form-control')

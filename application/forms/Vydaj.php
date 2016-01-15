@@ -27,7 +27,7 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form{
         $validatorPercentaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 99,99.");
         $validatorCislaRange = new Zend_Validate_Between(array('min' => 0, 'max' => 999.99));
         $validatorCislaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 999,99.");
-        $validatorSelecty= new Zend_Validate_Between(array('min' => 1, 'max' => 99));
+        $validatorSelecty= new Zend_Validate_Between(array('min' => 1, 'max' => 999));
         $validatorSelecty->setMessage("Hodnota je povinná");
         $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[1-Z]{2}[0-9]{3}[A-Z]{2}/"));
         $validatorSPZ->setMessage('Zadajte ŠPZ v tvare ZV123BU.', Zend_Validate_Regex::NOT_MATCH);
@@ -104,8 +104,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form{
             '0' => '' ));
         $stroj_enum->addMultiOptions($this->getAttrib('strojeMoznosti'));
         $stroj_enum->setLabel('Stroj');
-        $stroj_enum->addValidator($validatorSelecty);
-        $stroj_enum->setAttrib('class', 'form-control');
+        $stroj_enum->addValidator($validatorSelecty)
+                    ->setAttrib('class', 'form-control');
 
         /*
          * KVANTITA
@@ -161,8 +161,8 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form{
         $material_druh->addMultiOptions(array(
             '0' => '' ));
         $material_druh->addMultiOptions($this->getAttrib('materialyDruhyMoznosti'));
-        $material_druh->setLabel('Materiál druh')
-            ->setAttrib('class', 'form-control')
+        $material_druh->setLabel('Materiál druh');
+        $material_druh->setAttrib('class', 'form-control')
             ->addValidator($validatorSelecty);
 
         $doklad_typ = new Zend_Form_Element_Select('doklad_typ_enum');
@@ -181,8 +181,6 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form{
 //            ->setAttrib('class', 'form-control');
 
         $stav_transakcie = new Zend_Form_Element_Select('stav_transakcie');
-        $stav_transakcie->addMultiOptions(array(
-            '0' => '' ));
         $stav_transakcie->addMultiOptions($this->getAttrib('transakcieStavyMoznosti'));
         $stav_transakcie->setLabel('Stav transakcie')
             ->setAttrib('class', 'form-control')

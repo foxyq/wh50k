@@ -15,10 +15,16 @@ class Application_Model_LibraryAcl extends Zend_Acl
         //definicia default resources - aby vedel Acl pracovat s pristupom kazdy controller musi tu byt definovany ako resource
         $this->add(new Zend_Acl_Resource('default:index'));
         $this->add(new Zend_Acl_Resource('default:error'));
+        $this->add(new Zend_Acl_Resource('default:nastavenia'));
+        $this->add(new Zend_Acl_Resource('default:profil'));
+
         //TRANSAKCIE resources
         $this->add(new Zend_Acl_Resource('default:prijmy'));
         $this->add(new Zend_Acl_Resource('default:vydaje'));
         $this->add(new Zend_Acl_Resource('default:ubytky'));
+        $this->add(new Zend_Acl_Resource('default:externadodavka'));
+        $this->add(new Zend_Acl_Resource('default:externavyroba'));
+
         //ADMINISTRACIA resources
         $this->add(new Zend_Acl_Resource('default:dodavatelia'));
         $this->add(new Zend_Acl_Resource('default:prepravci'));
@@ -31,6 +37,9 @@ class Application_Model_LibraryAcl extends Zend_Acl
 
         //definicia skladnik resources
         $this->add(new Zend_Acl_Resource('skladnik:index'));
+        $this->add(new Zend_Acl_Resource('skladnik:profil'));
+        $this->add(new Zend_Acl_Resource('skladnik:nastavenia'));
+
         //TRANSAKCIE resources
         $this->add(new Zend_Acl_Resource('skladnik:prijmy'));
         $this->add(new Zend_Acl_Resource('skladnik:vydaje'));
@@ -73,6 +82,9 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->allow('2', 'default:prijmy');
         $this->allow('2', 'default:vydaje');
         $this->allow('2', 'default:ubytky');
+        $this->allow('2', 'default:externadodavka');
+        $this->allow('2', 'default:externavyroba');
+
         //administracia
         $this->allow('2', 'default:dodavatelia');
         $this->allow('2', 'default:prepravci');
@@ -82,6 +94,8 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->allow('2', 'default:stroje');
         $this->allow('2', 'default:materialydruhy');
         $this->allow('2', 'default:materialytypy');
+        $this->allow('2', 'default:nastavenia');
+        $this->allow('2', 'default:profil');
 
         /*
          *++++++++++++
@@ -92,6 +106,8 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->allow('3', 'default:error');
         $this->allow('3', 'skladnik:prijmy');
         $this->allow('3', 'skladnik:vydaje');
+        $this->allow('3', 'skladnik:profil');
+        $this->allow('3', 'skladnik:nastavenia');
 
         //priradenie vsetkym prava na auth - login aj logout
         $this->allow(null, 'default:auth');

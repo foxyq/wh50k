@@ -10,13 +10,6 @@ class Application_Form_Podsklad extends Zend_Form
         $id = new Zend_Form_Element_Hidden('podsklady_id');
         $id->addFilter('Int');
 
-
-        $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
-        $submitButtonClass = "success";
-        if ($actionName == 'edit'){
-            $submitButtonClass = "primary";
-        }
-
         $nazov = new Zend_Form_Element_Text('nazov_podskladu');
         $nazov->setLabel('Názov')
             ->setRequired(true)
@@ -24,8 +17,7 @@ class Application_Form_Podsklad extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_nazov'))))
-            ->setAttrib('class', 'form-control');
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_nazov'))));
 
 
         $kod = new Zend_Form_Element_Text('kod_podskladu');
@@ -35,8 +27,7 @@ class Application_Form_Podsklad extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_kod'))))
-            ->setAttrib('class', 'form-control');
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_kod'))));
 
 
         $mesto = new Zend_Form_Element_Select('mesto_enum');
@@ -51,13 +42,11 @@ class Application_Form_Podsklad extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_adresa'))))
-            ->setAttrib('class', 'form-control');
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_adresa'))));
 
 
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setAttrib('id', 'submitbutton')
-            ->setAttrib('class', 'form-control btn-'.$submitButtonClass);
+        $submit->setAttrib('id', 'submitbutton');
 
         $this->addElements(array($id, $nazov, $kod, $mesto, $adresa, $submit));
     }

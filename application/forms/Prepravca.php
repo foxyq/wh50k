@@ -7,12 +7,6 @@ class Application_Form_Prepravca extends Zend_Form
     {
 
 
-        $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
-        $submitButtonClass = "success";
-        if ($actionName == 'edit'){
-            $submitButtonClass = "primary";
-        }
-
         $this->setName('prepravca');
 
         $id = new Zend_Form_Element_Hidden('prepravci_id');
@@ -25,8 +19,7 @@ class Application_Form_Prepravca extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('prepravcovia_kod'))))
-            ->setAttrib('class', 'form-control');;;
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('prepravcovia_kod'))));
 
         $meno = new Zend_Form_Element_Text('meno');
         $meno->setLabel('Meno')
@@ -35,12 +28,10 @@ class Application_Form_Prepravca extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('prepravcovia_meno'))))
-            ->setAttrib('class', 'form-control');
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('prepravcovia_meno'))));
 
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setAttrib('id', 'submitbutton')
-            ->setAttrib('class', 'form-control btn-'.$submitButtonClass);
+        $submit->setAttrib('id', 'submitbutton');
 
         $this->addElements(array($id, $kod, $meno, $submit));
     }

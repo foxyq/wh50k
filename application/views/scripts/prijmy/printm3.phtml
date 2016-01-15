@@ -19,8 +19,7 @@ try {
     $page = $pdf->pages[0];
 
     // musis definovat font, tak nejaky drahy idealne z macu :D
-//    $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
-    $font = Zend_Pdf_Font::fontWithPath('../public/fonts/arial.ttf');
+    $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
 
     //get parametre na tlac z URL
 
@@ -53,7 +52,7 @@ try {
         ->drawText($druh, 200, 556);
 
     $page->setFont($font, 12)
-        ->drawText( $m3 , 350, 582)
+        ->drawText( $m3 , 355, 582)
         ->drawText( $prm , 465, 582);
 
 

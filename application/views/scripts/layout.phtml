@@ -243,26 +243,21 @@ echo $this->doctype(); ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                         <?php
-                            $arr = (array)$_SESSION['Zend_Auth']['storage'];
-                            echo $arr['name'];
-
-//                        $this->escape($this->uzivatelia->getMeno($this->escape($arr['name'] )));
-
-
-
+                            //$array = (array)$_SESSION['Zend_Auth']['storage'];
+                            //echo $array['name'];
                         ?>
                         <b class="caret"></b>
                     </a>
 
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profil</a>
+                            <a href="<?php echo $this->url(array('controller' => 'profil', 'action' => 'index'));?>"><i class="fa fa-fw fa-user"></i> Profil</a>
                         </li>
                      <!--    <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Správy</a>
                         </li> -->
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Nastavenia</a>
+                            <a href="<?php echo $this->url(array('controller' => 'nastavenia', 'action' => 'index'));?>"><i class="fa fa-fw fa-gear"></i> Nastavenia</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -294,6 +289,12 @@ echo $this->doctype(); ?>
                             </li>
                             <li>
                                 <a href="<?php echo $this->baseUrl().'/ubytky/list'?>">Úbytky hmotnosti</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->baseUrl().'/externaDodavka/list'?>">Externá dodavka</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->baseUrl().'/externaVyroba/list'?>">Externá výroba</a>
                             </li>
                         </ul>
 
@@ -369,6 +370,7 @@ echo $this->doctype(); ?>
 
                 <div class="row">
                     <div class="col-lg-12">
+
 
                           <h1><?php echo $this->escape($this->title); ?></h1>
                             <?php echo $this->layout()->content; ?>
