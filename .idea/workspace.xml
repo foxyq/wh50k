@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/errors.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/errors.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/waitings.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/waitings.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -602,7 +597,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452898940812</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Externe transakcie - db, modely, list, waitings, errors - REAL 3&#10;">
+      <created>1452906576644</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1452906576644</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -629,6 +630,7 @@
     <frame x="1432" y="-308" width="1936" height="1216" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32851985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -644,7 +646,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46841156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998195" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -667,7 +668,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="2015_08_02 - plugin pageManager (vracanie na predosle page) aplikovaný na všetky akcie v prjmy a vydaje" />
     <MESSAGE value="2015_08_02 - logika - vytazenie strojov, dodane mnozstvo zakaznikom" />
     <MESSAGE value="2015_08_04 finalna verzia formov pre prijmy, ready na realease 1.0 pre klienta" />
     <MESSAGE value="CSS uprava" />
@@ -692,7 +692,8 @@
     <MESSAGE value="Prijmy/Vydaje custom validator - DONE&#10;" />
     <MESSAGE value="Externe transakcie - db, modely, list, waitings, errors&#10;" />
     <MESSAGE value="Externe transakcie - db, modely, list, waitings, errors - REAL&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Externe transakcie - db, modely, list, waitings, errors - REAL&#10;" />
+    <MESSAGE value="Externe transakcie - db, modely, list, waitings, errors - REAL 3&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Externe transakcie - db, modely, list, waitings, errors - REAL 3&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
