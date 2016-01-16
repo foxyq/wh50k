@@ -1,125 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="Externe transakcie - db, modely, list, waitings, errors - REAL&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150601-001.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150804-faef783.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150808-77204d.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150809-fb89f7f.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150813-2c2e183.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150813-5c0b797.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150813-65a24e6.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150813-72cdcc1.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150813-78a75fc.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150813-cb821d1.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150813-d4cebf3.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150814-1bc02e6.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP150901-f4b4a4c.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP151201-a80847.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP151230-0519551.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP151231-4fd52e6.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160101-6dc71c3.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP180730-7ceaf8.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP200730-2d30ff1.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP200730-c24a219.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP240806-c534d95.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV150707-c5c8dd.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV150730-a3f0ff.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV150808-37c91e.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV150810-4122152.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV150813-fceb547.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV151020-4f35433.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV151021-64c4246.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV170730-e003ff.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV180730-86ade8.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV220730-c369fc.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV350808-ef8a37.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/DbTable/ExternaDodavka.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/NastaveniaController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/skladnik/controllers/NastaveniaController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/ProfilController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/skladnik/controllers/ProfilController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/errors.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/errors.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/nastavenia/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/profil/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/nastavenia/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/profil/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/list.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/waitings.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/waitings.phtml" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\application\models\Pokus.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\fonts\arial.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\fonts\times.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\images\loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SP160105-2dcbf0a.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SP160105-b1e3c1e.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SP160105-f87eb13.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SP160110-0cc006d.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SP160110-2b18379.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SP160110-dfb72ae.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SP160114-e11aefb.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SV160110-c1f204b.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SV160115-594abbb.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\prijmovy_listok-SV160115-ce147da.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SP160105-0c95b6a.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SP160105-2dcbf0a.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SP160105-b1e3c1e.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SP160105-f87eb13.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SP160110-0cc006d.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SP160110-2b18379.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SV160107-5d0ec48.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SV160114-1a8cf8d.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SV160115-ccc9986.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SV160115-ce147da.pdf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Ampps\www\wh50k\public\pdf\vazny_listok-SV160415-e55657f.pdf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.zfproject.xml" afterPath="$PROJECT_DIR$/.zfproject.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Dodavatel.php" afterPath="$PROJECT_DIR$/application/forms/Dodavatel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DodavateliaController.php" afterPath="$PROJECT_DIR$/application/controllers/DodavateliaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/LibraryAcl.php" afterPath="$PROJECT_DIR$/application/models/LibraryAcl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/MaterialDruh.php" afterPath="$PROJECT_DIR$/application/forms/MaterialDruh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Notifikacie.php" afterPath="$PROJECT_DIR$/application/models/Notifikacie.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Podsklad.php" afterPath="$PROJECT_DIR$/application/forms/Podsklad.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Prepravca.php" afterPath="$PROJECT_DIR$/application/forms/Prepravca.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Prijem.php" afterPath="$PROJECT_DIR$/application/forms/Prijem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Sklad.php" afterPath="$PROJECT_DIR$/application/forms/Sklad.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Stroj.php" afterPath="$PROJECT_DIR$/application/forms/Stroj.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Vydaj.php" afterPath="$PROJECT_DIR$/application/forms/Vydaj.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Zakaznici.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Zakaznici.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Zakaznik.php" afterPath="$PROJECT_DIR$/application/forms/Zakaznik.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/dodavatelia/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/dodavatelia/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/materialy-druhy/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/materialy-druhy/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/podsklady/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/podsklady/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prepravci/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prepravci/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/sklady/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/sklady/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/stroje/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/stroje/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/dodavatelia/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/dodavatelia/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/materialy-druhy/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/materialy-druhy/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/podsklady/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/podsklady/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prepravci/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prepravci/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/sklady/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/sklady/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/stroje/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/stroje/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/layout.phtml" afterPath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/layout.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/layout.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/dodavatelia/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/dodavatelia/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/preview.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/preview.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/preview.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/preview.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/printm3.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/printm3.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/printm3.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/printm3.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/printprm.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/printprm.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/printprm.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/printprm.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/printton.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/printton.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/printton.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/printton.phtml" />
+    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/errors.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/errors.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/vydaje/waitings.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/vydaje/waitings.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -195,9 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/scripts/dodavatelia/edit.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/sklady/edit.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/sklady/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/stroje/edit.phtml" />
@@ -214,8 +98,6 @@
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/errors.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/errors.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/no-errors.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" />
         <option value="$PROJECT_DIR$/public/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" />
@@ -246,6 +128,11 @@
         <option value="$PROJECT_DIR$/application/controllers/StrojeController.php" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Vydaje.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/stroje/index.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/errors.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/waitings.phtml" />
       </list>
     </option>
   </component>
@@ -282,6 +169,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -310,38 +198,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pdf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -360,7 +216,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -378,29 +238,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DbTable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
+              <option name="myItemId" value="vydaje" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,7 +288,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -455,6 +300,22 @@
     <property name="TODO_SCOPE" value="Project Files" />
     <property name="SearchEverywhereHistoryKey" value="layout&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/layouts/scripts/layout.phtml&#10;layou&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/views/scripts/layout.phtml&#10;boo&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/public/css/bootstrap.min.css&#10;sb&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/public/css/sb-admin.css&#10;vydaje&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/models/DbTable/Vydaje.php&#10;vydaj&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/forms/Vydaj.php&#10;preview&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/views/scripts/vydaje/preview.phtml&#10;prije&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/forms/Prijem.php&#10;previ&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/views/scripts/prijmy/preview.phtml&#10;add&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/views/scripts/prijmy/add.phtml&#10;vydaje/list&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/views/scripts/vydaje/list.phtml&#10;list&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/views/scripts/prijmy/list.phtml&#10;app&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/configs/application.ini&#10;boot&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/public/css/bootstrap.min.css&#10;min&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/public/css/bootstrap.min.css&#10;lege&#9;null&#9;null&#10;boots&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/public/css/bootstrap.min.css&#10;wh50&#9;FILE&#9;file://C:/Ampps/www/wh50k/.idea/wh50k.iml&#10;sklad&#9;FILE&#9;file:///Applications/AMPPS/www/wh50k/application/controllers/SkladyController.php" />
     <property name="jsx.switch.disabled" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="278" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="307" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="309" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="983" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="301" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="300" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="301" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="975" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -466,179 +327,6 @@
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="C:\Ampps\www\wh50k\application\modules\skladnik\layouts" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree">
-    <UpdateInfo date="Moments ago" ActionInfo="_Update">
-      <UpdatedFiles>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated from server" />
-          <option name="myStatusName" value="Changed on server" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CHANGED_ON_SERVER" />
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Updated" />
-            <option name="myStatusName" value="Changed" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="UPDATED" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/.DS_Store</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/.DS_Store</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/controllers/DodavateliaController.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/Dodavatel.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/MaterialDruh.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/Podsklad.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/Prepravca.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/Sklad.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/Stroj.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/forms/Zakaznik.php</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/modules/skladnik/views/scripts/layout.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/dodavatelia/add.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/dodavatelia/edit.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/dodavatelia/list.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/layout.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/materialy-druhy/add.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/materialy-druhy/edit.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/podsklady/add.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/podsklady/edit.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/prepravci/add.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/prepravci/edit.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/prijmy/preview.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/prijmy/printm3.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/prijmy/printprm.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/prijmy/printton.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/sklady/add.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/sklady/edit.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/stroje/add.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/stroje/edit.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/vydaje/preview.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/vydaje/printm3.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/vydaje/printprm.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/vydaje/printton.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml</PATH>
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Created" />
-            <option name="myStatusName" value="Created" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="CREATED" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/fonts/arial.ttf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/fonts/times.ttf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/images/loading.gif</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160105-0c95b6a.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160105-2dcbf0a.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160105-b1e3c1e.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160105-f87eb13.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160110-0cc006d.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160110-2b18379.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160110-dfb72ae.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160114-e11aefb.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SV160110-c1f204b.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SV160115-594abbb.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/prijmovy_listok-SV160115-ce147da.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SP160105-0c95b6a.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SP160105-2dcbf0a.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SP160105-b1e3c1e.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SP160105-f87eb13.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SP160110-0cc006d.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SP160110-2b18379.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SV160107-5d0ec48.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SV160114-1a8cf8d.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SV160115-ccc9986.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SV160115-ce147da.pdf</PATH>
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/public/pdf/vazny_listok-SV160415-e55657f.pdf</PATH>
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Deleted" />
-            <option name="myStatusName" value="Deleted" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="true" />
-            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" value="Restored" />
-            <option name="myStatusName" value="Will be restored" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" value="RESTORED" />
-          </FILE-GROUP>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Modified" />
-          <option name="myStatusName" value="Modified" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MODIFIED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Skipped" />
-          <option name="myStatusName" value="Skipped" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="SKIPPED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with conflicts" />
-          <option name="myStatusName" value="Will be merged with conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_CONFLICTS" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with tree conflicts" />
-          <option name="myStatusName" value="Merged with tree conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged with property conflicts" />
-          <option name="myStatusName" value="Will be merged with property conflicts" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Merged" />
-          <option name="myStatusName" value="Will be merged" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="MERGED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Not in repository" />
-          <option name="myStatusName" value="Not in repository" />
-          <option name="mySupportsDeletion" value="true" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UNKNOWN" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Locally added" />
-          <option name="myStatusName" value="Locally added" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="LOCALLY_ADDED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Locally removed" />
-          <option name="myStatusName" value="Locally removed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="LOCALLY_REMOVED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Switched" />
-          <option name="myStatusName" value="Switched" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="SWITCHED" />
-        </FILE-GROUP>
-      </UpdatedFiles>
-    </UpdateInfo>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -908,7 +596,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452897931821</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Externe transakcie - db, modely, list, waitings, errors - REAL&#10;">
+      <created>1452898940812</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1452898940812</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -935,7 +629,6 @@
     <frame x="1432" y="-308" width="1936" height="1216" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32851985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -943,8 +636,6 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19895834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46480143" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -952,9 +643,12 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46841156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998195" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33419022" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1009,109 +703,11 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/plugins/Auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1614654" vertical-offset="0" max-vertical-offset="737">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/shCore.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6715">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/add.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Zakaznici.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4930939" vertical-offset="51" max-vertical-offset="1071">
-          <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/plugins/AccessCheck.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="850">
-          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ErrorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/StrojeTypy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/stroje/add.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.046961326" vertical-offset="0" max-vertical-offset="724">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12445095" vertical-offset="0" max-vertical-offset="683">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2580645" vertical-offset="85" max-vertical-offset="1938">
-          <caret line="21" column="158" selection-start-line="21" selection-start-column="158" selection-end-line="21" selection-end-column="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/VydajeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16129032" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="295" column="35" selection-start-line="295" selection-start-column="35" selection-end-line="295" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/PrijmyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.307693" vertical-offset="0" max-vertical-offset="2074">
-          <caret line="87" column="61" selection-start-line="87" selection-start-column="61" selection-end-line="87" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/Zend/Validate/Barcode/Code25.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
@@ -1305,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1037">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,7 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="901">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,7 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2601">
           <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1329,11 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1496">
           <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding>
-            <element signature="n#addAction#0;n#StrojeController#0;n#!!top" expanded="true" />
-            <element signature="n#listAction#0;n#StrojeController#0;n#!!top" expanded="true" />
-            <element signature="n#editAction#0;n#StrojeController#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1341,9 +929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1666">
           <caret line="180" column="90" selection-start-line="180" selection-start-column="90" selection-end-line="180" selection-end-column="90" />
-          <folding>
-            <element signature="n#getSumByColumn#0;n#Application_Model_DbTable_Vydaje#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1351,7 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1359,7 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="935">
           <caret line="21" column="9" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1367,7 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.576923" vertical-offset="0" max-vertical-offset="1870">
           <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1375,7 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32258064" vertical-offset="0" max-vertical-offset="1054">
           <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,9 +964,121 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62903225" vertical-offset="0" max-vertical-offset="2023">
           <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.06451613" vertical-offset="68" max-vertical-offset="1428">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/errors.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4420">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Notifikacie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#editAction#0;n#DodavateliaController#0;n#!!top" expanded="true" />
+            <element signature="n#getStatusArray#0;n#Application_Model_Notifikacie#0;n#!!top" expanded="true" />
+            <element signature="n#getStatusTotal#0;n#Application_Model_Notifikacie#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/waitings.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4420">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/errors.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4403">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33870968" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="53" column="69" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
+          <folding>
+            <element signature="n#waitingsAction#0;n#ExternaVyrobaController#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/layout.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.451613" vertical-offset="4692" max-vertical-offset="6800">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="4692">
+          <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="270" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-39.23077" vertical-offset="3570" max-vertical-offset="4692">
+          <caret line="270" column="6" selection-start-line="270" selection-start-column="6" selection-end-line="270" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9677419" vertical-offset="3570" max-vertical-offset="4692">
+          <caret line="270" column="6" selection-start-line="270" selection-start-column="6" selection-end-line="270" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/vydaje/waitings.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5" vertical-offset="3366" max-vertical-offset="4488">
+          <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/vydaje/errors.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9677419" vertical-offset="3366" max-vertical-offset="4488">
+          <caret line="258" column="6" selection-start-line="258" selection-start-column="6" selection-end-line="258" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32258064" vertical-offset="0" max-vertical-offset="4488">
+          <caret line="20" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="258" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
