@@ -122,6 +122,10 @@
           <actionMethod actionName="errors"/>
           <actionMethod actionName="waitings"/>
         </controllerFile>
+        <controllerFile controllerName="Objednavky">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="list"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Zakaznik"/>
@@ -164,6 +168,7 @@
           <dbTableFile dbTableName="Users"/>
           <dbTableFile dbTableName="ExternaDodavka"/>
           <dbTableFile dbTableName="ExternaVyroba"/>
+          <dbTableFile dbTableName="Objednavky"/>
         </dbTableDirectory>
         <modelFile modelName="Notifikacie"/>
         <modelFile modelName="LibraryAcl"/>
@@ -526,6 +531,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
             <viewScriptFile forActionName="waitings"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Objednavky">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Objednavky">
+            <viewScriptFile forActionName="list"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

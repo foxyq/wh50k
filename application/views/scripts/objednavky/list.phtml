@@ -1,0 +1,40 @@
+<?php
+$this->headTitle($this->title);
+?>
+
+<p>
+    <a href="<?php echo $this->url(array('controller'=>'Objednavky',
+        'action'=>'add'));?>">
+        <button type="button" class="btn btn-success">Pridať objednávku</button>
+    </a>
+</p>
+
+
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>rok</th>
+        <th>mesiac</th>
+        <th>množstvo</th>
+        <th>zákazník</th>
+        <th>MJ</th>
+        <th>úpravy</th>
+    </tr>
+
+
+    <?php foreach($this->objednavky as $objednavka) : ?>
+        <tr>
+            <td><?php echo $this->escape($objednavka->objednavky_id);?></td>
+            <td><?php echo $this->escape($objednavka->rok);?></td>
+            <td><?php echo $this->escape($objednavka->mesiac);?></td>
+            <td><?php echo number_format($this->escape($objednavka->mnozstvo), 2, ",", " ");?></td>
+            <td><?php echo $this->escape($this->zakazniciModel->getNazov($objednavka->zakaznik_enum));?></td>
+            <td><?php echo $this->escape($this->merneJednotkyModel->getSkratka($objednavka->merna_jednotka_enum));?></td>
+            <td>
+                <a href="<?php echo $this->url(array('controller'=>'Objednavka',
+                    'action'=>'edit', 'id'=>$objednavka->objednavky_id));?>">Upraviť</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+
+</table>

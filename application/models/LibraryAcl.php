@@ -25,6 +25,10 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->add(new Zend_Acl_Resource('default:externadodavka'));
         $this->add(new Zend_Acl_Resource('default:externavyroba'));
 
+        //OBJEDNAVKY
+        $this->add(new Zend_Acl_Resource('default:objednavky'));
+
+
         //ADMINISTRACIA resources
         $this->add(new Zend_Acl_Resource('default:dodavatelia'));
         $this->add(new Zend_Acl_Resource('default:prepravci'));
@@ -84,6 +88,9 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->allow('2', 'default:ubytky');
         $this->allow('2', 'default:externadodavka');
         $this->allow('2', 'default:externavyroba');
+
+        //objednavky
+        $this->allow('2', 'default:objednavky');
 
         //administracia
         $this->allow('2', 'default:dodavatelia');

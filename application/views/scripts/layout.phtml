@@ -301,6 +301,23 @@ echo $this->doctype(); ?>
 
                     </li>
                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#objednavky"><i class="fa fa-fw fa-arrows-v"></i> Objednávky <i class="fa fa-fw fa-caret-down"></i></a>
+
+
+                        <ul id="objednavky" class="collapse">
+                            <li>
+                                <a href="<?php echo $this->baseUrl().'/objednavky/list'?>">Prehľad objednávok</a>
+                            </li>
+                            <li>
+                                <a href="#">ďalší odkaz</a>
+                            </li>
+                            <li>
+                                <a href="#">ďalší odkaz</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
     
                         <a href="javascript:;" data-toggle="collapse" data-target="#administracia"><i class="fa fa-fw fa-edit"></i> Administrácia <i class="fa fa-fw fa-caret-down"></i></a>
 
