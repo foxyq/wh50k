@@ -57,7 +57,7 @@ class DodavateliaController extends Zend_Controller_Action
 
     public function editAction()
     {
-        $potvrdzujuceTlacidlo = 'Vložiť';
+        $potvrdzujuceTlacidlo = 'Upraviť';
 
         $form = new Application_Form_Dodavatel(array(
 

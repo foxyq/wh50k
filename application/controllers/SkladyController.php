@@ -48,14 +48,14 @@ class SkladyController extends Zend_Controller_Action
             $pohyby[$skladId]['den']['total'] = $pohyby[$skladId]['den']['prijmy'] - $pohyby[$skladId]['den']['vydaje'];
 
             //tyzden
-            $pohyby[$skladId]['tyzden']['prijmy'] = $prijmy->getSumByColumnBetween($stlpec, "datum_prijmu_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
-            $pohyby[$skladId]['tyzden']['vydaje'] = $vydaje->getSumByColumnBetween($stlpec, "datum_vydaju_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['tyzden']['prijmy'] = $prijmy->getSubmittedSumByColumnBetween($stlpec, "datum_prijmu_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['tyzden']['vydaje'] = $vydaje->getSubmittedSumByColumnBetween($stlpec, "datum_vydaju_d", date('Y-m-d', strtotime('-7 days')), date('Y-m-d'), "sklad_enum", $skladId);
             $pohyby[$skladId]['tyzden']['total'] = $pohyby[$skladId]['tyzden']['prijmy'] - $pohyby[$skladId]['tyzden']['vydaje'];
 
 
             //mesiac
-            $pohyby[$skladId]['mesiac']['prijmy'] = $prijmy->getSumByColumnBetween($stlpec, "datum_prijmu_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
-            $pohyby[$skladId]['mesiac']['vydaje'] = $vydaje->getSumByColumnBetween($stlpec, "datum_vydaju_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['mesiac']['prijmy'] = $prijmy->getSubmittedSumByColumnBetween($stlpec, "datum_prijmu_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
+            $pohyby[$skladId]['mesiac']['vydaje'] = $vydaje->getSubmittedSumByColumnBetween($stlpec, "datum_vydaju_d", date('Y-m-d', strtotime('-30 days')), date('Y-m-d'), "sklad_enum", $skladId);
             $pohyby[$skladId]['mesiac']['total'] = $pohyby[$skladId]['mesiac']['prijmy'] - $pohyby[$skladId]['mesiac']['vydaje'];
         }
 

@@ -11,6 +11,12 @@ class Application_Form_Sklad extends Zend_Form
         $id = new Zend_Form_Element_Hidden('sklady_id');
         $id->addFilter('Int');
 
+        $actionName = strtolower(Zend_Controller_Front::getInstance()->getRequest()->getActionName());
+        $submitButtonClass = "success";
+        if ($actionName == 'edit'){
+            $submitButtonClass = "primary";
+        }
+
         $kod_skladu = new Zend_Form_Element_Text('kod_skladu');
         $kod_skladu->setLabel('Kód')
             //->setRequired(true)
@@ -18,7 +24,8 @@ class Application_Form_Sklad extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_kod'))));
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_kod'))))
+        ->setAttrib('class', 'form-control');
 
 
         $nazov_skladu = new Zend_Form_Element_Text('nazov_skladu');
@@ -39,7 +46,8 @@ class Application_Form_Sklad extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_skratka'))));
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_skratka'))))
+        ->setAttrib('class', 'form-control');
 
 
 
@@ -63,13 +71,15 @@ class Application_Form_Sklad extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty')
             ->addValidator(new Zend_Validate_StringLength(array(
-                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_adresa'))));
+                     'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('sklady_adresa'))))
+        ->setAttrib('class', 'form-control');
 
 
 
 
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setAttrib('id', 'submitbutton');
+        $submit->setAttrib('id', 'submitbutton')
+        ->setAttrib('class', 'form-control btn-'.$submitButtonClass);
 
         $this->addElements(array($id, $kod_skladu, $nazov_skladu, $skratka_skladu, $mesto_enum, $merna_jednotka, $adresa, $submit));
     }

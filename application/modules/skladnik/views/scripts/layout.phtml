@@ -87,8 +87,8 @@ echo $this->doctype(); ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                         <?php
-                            //$array = (array)$_SESSION[Zend_Auth][storage];
-                            //echo $array[name];
+                            $array = (array)$_SESSION[Zend_Auth][storage];
+                            echo $array[name];
                         ?>
                         <b class="caret"></b>
                     </a>
@@ -121,10 +121,10 @@ echo $this->doctype(); ?>
                         <a href="<?php echo $this->baseUrl().'/skladnik/index/index'?>"><i class="fa fa-fw fa-dashboard"></i> Nástenka</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#trans"><i class="fa fa-fw fa-arrows-v"></i> Príjmy<i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#prijmy"><i class="fa fa-fw fa-arrows-v"></i> Príjmy<i class="fa fa-fw fa-caret-down"></i></a>
                           
                         
-                        <ul id="trans" class="collapse">
+                        <ul id="prijmy" class="collapse">
                             <li>
                                 <a href="<?php echo $this->baseUrl().'/skladnik/prijmy/add'?>">Pridať príjem</a>
                             </li>
@@ -134,8 +134,8 @@ echo $this->doctype(); ?>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#administracia"><i class="fa fa-fw fa-edit"></i> Výdaje<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="administracia" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#vydaje"><i class="fa fa-fw fa-edit"></i> Výdaje<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="vydaje" class="collapse">
                             <li>
                                 <a href="<?php echo $this->baseUrl().'/skladnik/vydaje/add'?>">Pridať výdaj</a>
                             </li>

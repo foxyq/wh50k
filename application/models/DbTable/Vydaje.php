@@ -215,6 +215,29 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         return $sum;
     }
 
+
+    //$column1 - co sledujeme
+    //$column2 - parametre od do
+    //$column3 - goup by - standardne id skladu
+    public function getSubmittedSumByColumnBetween($column1, $column2, $column2_value1, $column2_value2, $column3, $column3_value1){
+
+        if ($column2_value1 > $column2_value2){
+            $pomocna = $column2_value2;
+            $column2_value2 = $column2_value1;
+            $column2_value1 = $pomocna;
+        }
+
+        $sql = $column3." = ".$column3_value1." AND (".$column2." BETWEEN '".$column2_value1."' AND '".$column2_value2."') AND stav_transakcie = 2";
+        //$prijmy = $this->fetchAll($column2.' > '. $column2_value1);
+        $vydaje = $this->fetchAll($sql);
+
+        $sum = 0;
+        foreach ($vydaje as $vydaj){
+            $sum = $sum + $vydaj[$column1];
+        }
+        return $sum;
+    }
+
     public function getNumberOfErrors(){
             $select = $this->select();
             $select->from($this, array('count(*) as amount'))->where("chyba = 1");

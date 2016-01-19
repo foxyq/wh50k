@@ -183,6 +183,17 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         return $sum;
     }
 
+    public function getSubmittedSumByColumn($column1, $column2, $column2_value){
+       $prijmy = $this->fetchAll($column2.' = '.$column2_value. " AND stav_transakcie = 2");
+        $sum = 0;
+        foreach ($prijmy as $prijem){
+            $sum = $sum + $prijem[$column1];
+        }
+        return $sum;
+    }
+
+
+
     //get SUM of column1 by column2 (date) and column3 (stock)
     public function getSumByDateAndStock($column1, $column2, $column2_value, $column3, $column3_value){
        $prijmy = $this->fetchAll($column2." = '".$column2_value."' AND ".$column3." = ".$column3_value." AND stav_transakcie = 2");
@@ -214,6 +225,29 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         }
         return $sum;
     }
+
+    //$column1 - co sledujeme
+    //$column2 - parametre od do
+    //$column3 - goup by - standardne id skladu
+    public function getSubmittedSumByColumnBetween($column1, $column2, $column2_value1, $column2_value2, $column3, $column3_value1){
+
+        if ($column2_value1 > $column2_value2){
+            $pomocna = $column2_value2;
+            $column2_value2 = $column2_value1;
+            $column2_value1 = $pomocna;
+        }
+
+        $sql = $column3." = ".$column3_value1." AND (".$column2." BETWEEN '".$column2_value1."' AND '".$column2_value2.".') AND stav_transakcie = 2";
+        //$prijmy = $this->fetchAll($column2.' > '. $column2_value1);
+        $prijmy = $this->fetchAll($sql);
+
+        $sum = 0;
+        foreach ($prijmy as $prijem){
+            $sum = $sum + $prijem[$column1];
+        }
+        return $sum;
+    }
+
 
     public function getColumnById($column, $id){
         $sql = "ts_prijmy_id = " . $id;
