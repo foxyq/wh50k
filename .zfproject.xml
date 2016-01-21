@@ -129,6 +129,7 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="preview"/>
+          <actionMethod actionName="calendar"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -556,6 +557,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Objednavky">
             <viewScriptFile forActionName="preview"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Objednavky">
+            <viewScriptFile forActionName="calendar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

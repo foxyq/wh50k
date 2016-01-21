@@ -73,5 +73,34 @@ class Application_Model_DbTable_Objednavky extends Zend_Db_Table_Abstract
             return false;
         }
     }
+
+     //pre validator
+    public function existujeObjednavkaSId($objednavkaId){
+        //echo $rok_enum."+".$mesiac_enum."+".$zakaznik_enum;
+        $sql = "objednavky_id = ".$objednavkaId;
+        $objednavky = $this->fetchAll($sql);
+        $pocetObjednavok = count($objednavky);
+        //echo "existuje duplicita? = ".$pocetObjednavok;
+        if ($pocetObjednavok > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+     //pre validator
+    public function checkObjednavkaById($objednavkaId, $zakaznik_enum, $rok_enum, $mesiac_enum){
+        //echo $rok_enum."+".$mesiac_enum."+".$zakaznik_enum;
+        $sql = "objednavky_id = ".$objednavkaId;
+        $objednavky = $this->fetchAll($sql)->toArray();
+        //print_r( $objednavky[0]['zakaznik_enum']);
+        if ($objednavky[0]['zakaznik_enum'] == $zakaznik_enum && $objednavky[0]['rok_enum'] == $rok_enum && $objednavky[0]['mesiac_enum'] == $mesiac_enum){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 }
 

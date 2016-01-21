@@ -53,7 +53,14 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                             ?>
                                             <span style="font-size:10pt;">
                                                 <?php
-                                                    print_r($this->skladyModel->getMernaJednotkaSkratka($skladId));?>
+                                                    //print_r($this->skladyModel->getMernaJednotkaSkratka($skladId));
+                                                    $mernaJednotka = $this->skladyModel->getMernaJednotkaSkratka($skladId);
+                                                    if ($mernaJednotka == 'm3'){
+                                                        echo "m<sup>3</sup>";
+                                                    }else{
+                                                        echo $mernaJednotka;
+                                                    }
+                                                ?>
                                             </span>
                                             </span>
                                         </div>
@@ -110,7 +117,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
 
                                     <div class="row">
-                                        <hr>
+
                                     </div>
                                     <div class="row " >
                                         <table class="center table-hover" style="border-style: none; width: 100%">
@@ -122,21 +129,21 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                             </tr>
                                             <tr>
                                                 <td class="tleft">Deň</td>
-                                                <td><?php echo $this->pohyby[$skladId]['den']['prijmy'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['den']['vydaje'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['den']['total'];?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['total'], 2, ',', ' ');?></td>
                                             </tr>
                                             <tr>
                                                 <td class="tleft">Týždeň</td>
-                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['prijmy'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['vydaje'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['tyzden']['total'];?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 2, ',', ' ');?></td>
                                             </tr>
                                              <tr>
                                                 <td class="tleft">Mesiac</td>
-                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['prijmy'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['vydaje'];?></td>
-                                                <td><?php echo $this->pohyby[$skladId]['mesiac']['total'];?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 2, ',', ' ');?></td>
                                             </tr>
                                         </table>
 

@@ -181,8 +181,15 @@ class ObjednavkyController extends Zend_Controller_Action
         $this->view->objednavkaId = $id;
     }
 
+    public function calendarAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 

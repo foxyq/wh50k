@@ -39,13 +39,19 @@ class Zend_Validate_OrderDuplicity extends Zend_Validate_Abstract
         $rok_enum = $array['rok_enum'];
         $mesiac_enum = $array['mesiac_enum'];
         $zakaznik_enum = $array['zakaznik_enum'];
+        $objednavka_id = $array['objednavky_id'];
 
         $objednavkyModel = new Application_Model_DbTable_Objednavky();
         $existujeDuplicita = $objednavkyModel->existujeObjednavka($rok_enum, $mesiac_enum, $zakaznik_enum);
+        $existujeObjednavkaSId = $objednavkyModel->existujeObjednavkaSId($objednavka_id);
+        $checkObjednavkaById = $objednavkyModel->checkObjednavkaById($objednavka_id, $zakaznik_enum, $rok_enum, $mesiac_enum);
 
         //porovnanie ak stav transakcie je na hodnote "SCHVALENE"
-        if ($existujeDuplicita == 1){
+        if ($existujeDuplicita){
             //ak uz existuje hodnota v db tak error
+            if ($checkObjednavkaById){
+                return true;
+            }
             $this->_error(self::ORDER_DUPLICITY);
             return false;
         }else{
