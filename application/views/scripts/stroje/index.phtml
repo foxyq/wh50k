@@ -14,10 +14,10 @@ $this->headTitle($this->title);
         <th>počet spracovaných transakcií</th>
     </tr>
 
-    <?php foreach($this->vytazenieStrojov as $stroj) : ?>
+    <?php foreach($this->strojeModel->getIds() as $strojId) : ?>
         <tr>
-            <td><?php echo $stroj['nazov'];?></td>
-            <td><?php echo $stroj['vytazenie'];?></td>
+            <td><?php echo $this->strojeModel->getNazov($strojId);?></td>
+            <td><?php echo $this->strojeModel->getCountTransactionsByStrojId($strojId);?></td>
         </tr>
     <?php endforeach; ?>
 </table>
@@ -35,8 +35,8 @@ $this->headTitle($this->title);
     Morris.Donut({
         element: 'pie-chart',
         data: [ <?php $counter = 0;
-    foreach($this->vytazenieStrojov as $stroj) : ?>
-            { label: <?php echo '"'.$stroj[nazov].'"';?>, value: <?php echo $stroj[vytazenie]; ?> } <?php $counter++; if ($counter < count($this->vytazenieStrojov) ) echo ','; ?>
+    foreach($this->strojeModel->getIds() as $strojId) : ?>
+            { label: <?php echo '"'.$this->strojeModel->getNazov($strojId).'"';?>, value: <?php echo $this->strojeModel->getCountTransactionsByStrojId($strojId); ?> } <?php $counter++; if ($counter < count($this->strojeModel->getIds()) ) echo ','; ?>
             <?php endforeach; ?>
         ]
 

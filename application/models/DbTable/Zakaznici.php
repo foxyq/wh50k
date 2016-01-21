@@ -78,6 +78,17 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         return $zakaznici[0]['merna_jednotka_enum'];
     }
 
+    public function getCountTransactionsByStrojId($zakaznikId){
+        $vydajeModel = new Application_Model_DbTable_Vydaje();
+        $xvyrobyModel = new Application_Model_DbTable_ExternaVyroba();
+        $xdodavkyModel = new Application_Model_DbTable_ExternaDodavka();
+
+        $pocetVydajov = $vydajeModel->getRowCountByColumn('zakaznik_enum', $zakaznikId);
+        $pocetXVyrob = $xvyrobyModel->getRowCountByColumn('zakaznik_enum', $zakaznikId);
+        $pocetXDodaviek = $xdodavkyModel->getRowCountByColumn('zakaznik_enum', $zakaznikId);
+
+        return $pocetVydajov + $pocetXVyrob + $pocetXDodaviek;
+    }
 
 
 

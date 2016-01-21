@@ -248,6 +248,35 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         return $sum;
     }
 
+    //toto netreba pre plnenie objednavok
+    //$quantity_column_name - ex. 'prm_merane', 'm3_merane'
+    //$stock_id
+    public function getSubmittedQuantityByStockYearMonth($merna_jednotka, $stock_id, $year, $month){
+        $dateFrom = "'".$year."-".$month."-"."01'";
+        $dateTo = "'".$year."-".$month."-"."31'";
+        $column = 'q_tony_merane';
+        switch ($merna_jednotka){
+            case 1:
+                $column = 'q_tony_merane';
+                break;
+            case 2:
+                $column = 'q_prm_merane';
+                break;
+            case 3:
+                $column = 'q_m3_merane';
+                break;
+        }
+
+        $sql = "sklad_enum = ".$stock_id." AND (datum_prijmu_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $prijmy = $this->fetchAll($sql);
+
+        $sum = 0;
+        foreach ($prijmy as $prijem){
+            $sum = $sum + $prijem[$column];
+        }
+        return $sum;
+    }
+
 
     public function getColumnById($column, $id){
         $sql = "ts_prijmy_id = " . $id;

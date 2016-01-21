@@ -196,6 +196,38 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
         return $sum;
     }
 
+    //$quantity_column_name - ex. 'prm_merane', 'm3_merane'
+    //$zakaznik_id
+    public function getSubmittedQuantityByStockYearMonth($merna_jednotka, $zakaznik_id, $yearId, $monthId){
+        $rokyModel = new Application_Model_DbTable_Roky();
+
+        $year = $rokyModel->getNazov($yearId);
+        $month = $monthId;
+        $dateFrom = "'".$year."-".$month."-"."01'";
+        $dateTo = "'".$year."-".$month."-"."31'";
+        $column = 'q_tony_merane';
+        switch ($merna_jednotka){
+            case 1:
+                $column = 'q_tony_merane';
+                break;
+            case 2:
+                $column = 'q_prm_merane';
+                break;
+            case 3:
+                $column = 'q_m3_merane';
+                break;
+        }
+
+        $sql = "zakaznik_enum = ".$zakaznik_id." AND (datum_xdodavky_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $xdodavky = $this->fetchAll($sql);
+
+        $sum = 0;
+        foreach ($xdodavky as $xdodavka){
+            $sum = $sum + $xdodavka[$column];
+        }
+        return $sum;
+    }
+
     public function getNumberOfErrors(){
             $select = $this->select();
             $select->from($this, array('count(*) as amount'))->where("chyba = 1");

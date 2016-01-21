@@ -125,6 +125,10 @@
         <controllerFile controllerName="Objednavky">
           <actionMethod actionName="index"/>
           <actionMethod actionName="list"/>
+          <actionMethod actionName="add"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="preview"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -138,6 +142,7 @@
         <formFile formName="Stroj"/>
         <formFile formName="Podsklad"/>
         <formFile formName="MaterialDruh"/>
+        <formFile formName="Objednavka"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -169,6 +174,8 @@
           <dbTableFile dbTableName="ExternaDodavka"/>
           <dbTableFile dbTableName="ExternaVyroba"/>
           <dbTableFile dbTableName="Objednavky"/>
+          <dbTableFile dbTableName="Roky"/>
+          <dbTableFile dbTableName="Mesiace"/>
         </dbTableDirectory>
         <modelFile modelName="Notifikacie"/>
         <modelFile modelName="LibraryAcl"/>
@@ -537,6 +544,18 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Objednavky">
             <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Objednavky">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Objednavky">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Objednavky">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Objednavky">
+            <viewScriptFile forActionName="preview"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

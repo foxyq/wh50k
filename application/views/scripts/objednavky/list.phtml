@@ -1,5 +1,6 @@
 <?php
 $this->headTitle($this->title);
+$prijmy = new Application_Model_DbTable_Prijmy();
 ?>
 
 <p>
@@ -13,10 +14,15 @@ $this->headTitle($this->title);
 <table class="table table-striped table-bordered table-hover">
     <tr>
         <th>ID</th>
+        <th>detail</th>
         <th>rok</th>
         <th>mesiac</th>
-        <th>množstvo</th>
         <th>zákazník</th>
+        <th>množstvo</th>
+        <th>výdaje</th>
+        <th>xvýroba</th>
+        <th>xdodávka</th>
+        <th>na dodanie</th>
         <th>MJ</th>
         <th>úpravy</th>
     </tr>
@@ -25,14 +31,30 @@ $this->headTitle($this->title);
     <?php foreach($this->objednavky as $objednavka) : ?>
         <tr>
             <td><?php echo $this->escape($objednavka->objednavky_id);?></td>
-            <td><?php echo $this->escape($objednavka->rok);?></td>
-            <td><?php echo $this->escape($objednavka->mesiac);?></td>
-            <td><?php echo number_format($this->escape($objednavka->mnozstvo), 2, ",", " ");?></td>
+            <td>
+                <a href="<?php echo $this->url(array('controller'=>'Objednavky',
+                    'action'=>'preview', 'id'=>$objednavka->objednavky_id));?>"> <i style="font-size: x-large; color: #080808" class="fa fa-eye"></i></a>
+            </td>
+            <td><?php echo $this->escape($this->rokyModel->getNazov($objednavka->rok_enum));?></td>
+            <td><?php echo $this->escape($this->mesiaceModel->getNazov($objednavka->mesiac_enum));?></td>
+
             <td><?php echo $this->escape($this->zakazniciModel->getNazov($objednavka->zakaznik_enum));?></td>
+            <td><?php echo number_format($this->escape($objednavka->mnozstvo), 2, ",", " ");?></td>
+
+            <?php $vydaje = $this->vydajeModel->getSubmittedQuantityByStockYearMonth($objednavka->merna_jednotka_enum,$objednavka->zakaznik_enum,$objednavka->rok_enum,$objednavka->mesiac_enum);?>
+            <?php $xvyroby = $this->xvyrobyModel->getSubmittedQuantityByStockYearMonth($objednavka->merna_jednotka_enum,$objednavka->zakaznik_enum,$objednavka->rok_enum,$objednavka->mesiac_enum);?>
+            <?php $xdodavky = $this->xdodavkyModel->getSubmittedQuantityByStockYearMonth($objednavka->merna_jednotka_enum,$objednavka->zakaznik_enum,$objednavka->rok_enum,$objednavka->mesiac_enum);?>
+            <td><?php echo number_format($vydaje, 2, ",", " ");?></td>
+            <td><?php echo number_format($xvyroby, 2, ",", " ");?></td>
+            <td><?php echo number_format($xdodavky, 2, ",", " ");?></td>
+            <td><?php echo number_format($objednavka->mnozstvo - $vydaje - $xvyroby - $xdodavky, 2, ",", " ")?></td>
+
             <td><?php echo $this->escape($this->merneJednotkyModel->getSkratka($objednavka->merna_jednotka_enum));?></td>
             <td>
-                <a href="<?php echo $this->url(array('controller'=>'Objednavka',
-                    'action'=>'edit', 'id'=>$objednavka->objednavky_id));?>">Upraviť</a>
+                <a href="<?php echo $this->url(array('controller'=>'Objednavky',
+                    'action'=>'edit', 'id'=>$objednavka->objednavky_id));?>"> <i style="font-size: x-large; color: #080808" class="fa fa-pencil-square-o"></i></a>
+                <a href="<?php echo $this->url(array('controller'=>'Objednavky',
+                    'action'=>'delete', 'id'=>$objednavka->objednavky_id));?>"> <i style="font-size: x-large; color: #080808" class="fa fa-trash-o"></i></a>
             </td>
         </tr>
     <?php endforeach; ?>

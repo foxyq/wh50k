@@ -1,0 +1,118 @@
+<script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
+
+<h2 xmlns="http://www.w3.org/1999/html">Objednávky - detail</h2>
+<!--<hr>-->
+<div class="col-lg-5">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Detail objednávky </h3>
+        </div>
+        <div class="panel-body">
+        <?php
+            $objednavka = $this->objednavkyModel->getObjednavka($this->objednavkaId);
+        ?>
+
+            <div class="row">
+                <fieldset>
+                    <legend>Zákazník</legend>
+
+                    <div class="col-lg-6">
+                        názov:
+                        <?php echo $this->zakazniciModel->getNazov($objednavka['zakaznik_enum']);?>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="row">
+                <fieldset>
+                    <legend>Obdobie</legend>
+
+                    <div class="col-lg-6">
+                        rok:
+                        <?php echo $this->rokyModel->getNazov($objednavka['rok_enum']);?>
+                    </div>
+
+                    <div class="col-lg-6">
+                        mesiac:
+                        <?php echo $this->mesiaceModel->getNazov($objednavka['mesiac_enum']);?>
+                    </div>
+
+                </fieldset>
+            </div>
+
+            <div class="row">
+                <fieldset>
+                    <legend>Kvantita</legend>
+
+                    <div class="col-lg-6">
+                        objednané množstvo:
+                        <?php echo number_format($objednavka['mnozstvo'], 2, ",", " ");?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <div class="row">
+                <fieldset>
+                    <legend>Plnenie</legend>
+                    <?php
+                        $vydaje = $this->vydajeModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
+                        $xvyroby = $this->xvyrobyModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
+                        $xdodavky = $this->xdodavkyModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
+
+                        $percentaVydaje = $vydaje*100/$objednavka['mnozstvo'];
+                        $percentaXVyrobky = $xvyroby*100/$objednavka['mnozstvo'];
+                        $percentaXDodavky = $xdodavky*100/$objednavka['mnozstvo'];
+
+
+
+                    ?>
+                    <div class="col-lg-6">
+                        vlastné:
+                        <?php echo number_format($vydaje , 2, ",", " ");?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                    </div>
+
+                    <div class="col-lg-6">
+                        externé:
+                        <?php echo number_format($xvyroby + $xdodavky, 2, ",", " ");?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                    </div>
+
+
+
+                </div>
+
+
+
+                </fieldset>
+d
+
+            <div class="row">
+                <fieldset>
+                    <legend>Na dodanie</legend>
+
+                    <div class="col-lg-6">
+                        zostáva:
+                        <?php echo number_format($objednavka['mnozstvo'] - $xvyroby - $xdodavky - $vydaje, 2, ",", " ");?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="progress" style="margin-top: 15pt; margin-bottom: 15pt; margin-left: 5pt; margin-right: 5pt">
+                    <div class="progress-bar progress-bar-success" style="width: <?php echo $percentaVydaje;?>%">vlastné<span class="sr-only">35% Complete (success)</span>
+                    </div>
+                    <div class="progress-bar progress-bar-info" style="width: <?php echo ($percentaXVyrobky + $percentaXDodavky);?>%">externé<span class="sr-only">20% Complete (warning)</span>
+                    </div>
+                    <div class="progress-bar progress-bar-danger" style="width: <?php echo (100-$percentaXDodavky-$percentaXVyrobky-$percentaVydaje)?>%">zostáva<span class='sr-only'>10% Complete (danger)</span>
+                    </div>
+                </div>
+
+
+
+
+        </div>
+    </div>

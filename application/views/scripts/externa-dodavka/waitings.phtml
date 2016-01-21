@@ -91,21 +91,21 @@ $externe_dodavky_e = $notif_info['externe_dodavky_errors'];
         <thead>
         <tr class="tableizer-firstrow">
             <!--        <th>ID</th>-->
-            <th>Detail</th>
-            <th>Dátum výdaju</th>
+            <th>detail</th>
+            <th>dátum</th>
             <!--              <th>doklad číslo</th>-->
             <th>zákazník</th>
             <th>prepravca</th>
             <!--              <th> SPZ</th>-->
-            <th>tony m</th>
-            <th>vlhkosť</th>
+            <th>tony</th>
             <!--        <th>tony v</th>-->
                     <th>m<sup>3</sup></th>
             <!--        <th>m3 v</th>-->
-                    <th>PRM </th>
+                    <th>PRM</th>
             <!--        <th>prm v</th>-->
-            <th>číslo dokladu</th>
-            <th>material typ</th>
+            <th>vlhkosť</th>
+            <th>doklad</th>
+            <th>materiál</th>
             <!--              <th>material druh</th>-->
             <th class="col-stav">stav</th>
             <!--              <th >chyba</th>-->
@@ -159,6 +159,13 @@ $externe_dodavky_e = $notif_info['externe_dodavky_errors'];
             <td><?php echo $this->escape($this->prepravci->getNazov($externa_dodavka->prepravca_enum));?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->prepravca_spz);?><!--</td>-->
             <td><?php echo number_format($this->escape($externa_dodavka->q_tony_merane), 2, ",", " ");?></td>
+
+
+<!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
+            <td><?php echo $this->escape($externa_dodavka->q_m3_merane);?></td>
+<!--            <td>--><?php //echo $this->escape($vydaj->q_m3_vypocet);?><!--</td>-->
+            <td><?php echo $this->escape($externa_dodavka->q_prm_merane);?></td>
+<!--            <td>--><?php //echo $this->escape($vydaj->q_prm_vypocet);?><!--</td>-->
             <td>
                 <?php
             if ($externa_dodavka->q_vlhkost == 0.00){
@@ -168,12 +175,6 @@ $externe_dodavky_e = $notif_info['externe_dodavky_errors'];
             }
             ?>
             </td>
-
-<!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
-            <td><?php echo $this->escape($externa_dodavka->q_m3_merane);?></td>
-<!--            <td>--><?php //echo $this->escape($vydaj->q_m3_vypocet);?><!--</td>-->
-            <td><?php echo $this->escape($externa_dodavka->q_prm_merane);?></td>
-<!--            <td>--><?php //echo $this->escape($vydaj->q_prm_vypocet);?><!--</td>-->
             <td><?php echo $this->escape($externa_dodavka->doklad_cislo);?></td>
             <td><?php echo $this->escape($this->materialyTypy->getNazov($externa_dodavka->material_typ_enum));?></td>
 <!--            <td>--><?php //echo $this->escape($this->materialyDruhy->getNazov($vydaj->material_druh_enum));?><!--</td>-->

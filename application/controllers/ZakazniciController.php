@@ -10,7 +10,8 @@ class ZakazniciController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        /*
         $vydaje = new Application_Model_DbTable_Vydaje();
 
         $zakazniciIds = $zakaznici->getIds();
@@ -23,10 +24,11 @@ class ZakazniciController extends Zend_Controller_Action
             $dodaneMnozstvoZakaznikom[$zakaznikId]['q_tony_merane'] = $vydaje->getSumByColumn('q_tony_merane', 'zakaznik_enum', $zakaznikId);
 
         }
+        */
 
         $this->view->title = "Zákazníci - prehľad";
-        $this->view->dodaneMnozstvoZakaznikom = $dodaneMnozstvoZakaznikom;
-        $this->view->zakazniciModel = $zakaznici;
+        //$this->view->dodaneMnozstvoZakaznikom = $dodaneMnozstvoZakaznikom;
+        $this->view->zakazniciModel = $zakazniciModel;
     }
 
     public function addAction()
@@ -72,6 +74,7 @@ class ZakazniciController extends Zend_Controller_Action
 
     public function deleteAction()
     {
+        //tato funkcionalita sa nepouziva ale asi  bude buggovat
         if ($this->getRequest()->isPost()) {
             $del = $this->getRequest()->getPost('del');
             if ($del == 'Yes') {
@@ -81,6 +84,7 @@ class ZakazniciController extends Zend_Controller_Action
             }
             $this->_helper->redirector('index');
         } else {
+            //tu bude mozno problem pretoze nebude vediet najst 'zakaznici_id' ale len 'id'
             $id = $this->_getParam('zakaznici_id', 0);
             $zakaznici = new Application_Model_DbTable_Zakaznici();
             $this->view->zakaznik = $zakaznici->getZakaznik($id);

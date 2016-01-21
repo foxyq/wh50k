@@ -13,14 +13,8 @@ class StrojeController extends Zend_Controller_Action
         $stroje = $stroje->getMoznosti();
         $strojeModel = new Application_Model_DbTable_Stroje();
 
-        $vytazenieStrojov = array();
-
-        foreach ($strojeIds AS $strojId){
-            $vytazenieStrojov[$strojId]['nazov'] = $strojeModel->getNazov($strojId);
-            $vytazenieStrojov[$strojId]['vytazenie'] = $vydaje->getRowCountByColumn('stroj_enum', $strojId);
-        }
         $this->view->title = "Stroje - prehľad";
-        $this->view->vytazenieStrojov = $vytazenieStrojov;
+        $this->view->strojeModel = $strojeModel;
         $this->view->stroje = $stroje;
     }
     public function addAction()

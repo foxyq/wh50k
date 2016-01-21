@@ -1,0 +1,17 @@
+<?php
+$this->title = "Výmaz Objednávky";
+$this->headTitle($this->title);
+
+?>
+<p>Naozaj chcete vymazať objednávku:
+    '<?php echo $this->escape($this->objednavka['objednavky_id']); ?>',
+    '<?php echo $this->escape($this->objednavka['zakaznik_enum']); ?>'?
+</p>
+<form action="<?php echo $this->url(array('action'=>'delete')); ?>"
+      method="post">
+    <div>
+        <input type="hidden" name="objednavky_id" value="<?php echo $this->objednavka['objednavky_id']; ?>" />
+        <input type="submit" name="del" value="Yes" />
+        <input type="submit" name="del" value="No" />
+    </div>
+</form>

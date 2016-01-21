@@ -243,8 +243,8 @@ echo $this->doctype(); ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                         <?php
-                            //$array = (array)$_SESSION['Zend_Auth']['storage'];
-                            //echo $array['name'];
+                            $array = (array)$_SESSION['Zend_Auth']['storage'];
+                            echo $array['name'];
                         ?>
                         <b class="caret"></b>
                     </a>
@@ -261,7 +261,7 @@ echo $this->doctype(); ?>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'));?>"><i class="fa fa-fw fa-power-off"></i> Odhlásiť</a>
+                            <a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'logout'));?>"><i class="fa fa-fw fa-sign-out"></i> Odhlásiť</a>
                         </li>
                     </ul>
                 </li>
@@ -277,42 +277,39 @@ echo $this->doctype(); ?>
                         <a href="<?php echo $this->baseUrl().'/ubytky/list'?>"><i class="fa fa-fw fa-dashboard"></i> Nástenka</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#trans"><i class="fa fa-fw fa-arrows-v"></i> Transakcie <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#trans"><i class="fa fa-fw fa-exchange"></i> Transakcie <i class="fa fa-fw fa-caret-down"></i></a>
                           
                         
                         <ul id="trans" class="collapse">
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/prijmy/list'?>">Príjmy</a>
+                                <a href="<?php echo $this->baseUrl().'/prijmy/list'?>"><i class="fa fa-fw fa-plus-square"></i> Príjmy</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/vydaje/list'?>">Výdaje</a>
+                                <a href="<?php echo $this->baseUrl().'/vydaje/list'?>"><i class="fa fa-fw fa-minus-square"></i> Výdaje</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/ubytky/list'?>">Úbytky hmotnosti</a>
+                                <a href="<?php echo $this->baseUrl().'/ubytky/list'?>"><i class="fa fa-fw fa-line-chart"></i> Úbytky hmotnosti</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/externaDodavka/list'?>">Externá dodavka</a>
+                                <a href="<?php echo $this->baseUrl().'/externaDodavka/list'?>"><i class="fa fa-fw fa-th-large"></i> Externá dodavka</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/externaVyroba/list'?>">Externá výroba</a>
+                                <a href="<?php echo $this->baseUrl().'/externaVyroba/list'?>"><i class="fa fa-fw fa-cogs"></i> Externá výroba</a>
                             </li>
                         </ul>
 
 
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#objednavky"><i class="fa fa-fw fa-arrows-v"></i> Objednávky <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#objednavky"><i class="fa fa-fw fa-truck"></i> Objednávky <i class="fa fa-fw fa-caret-down"></i></a>
 
 
                         <ul id="objednavky" class="collapse">
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/objednavky/list'?>">Prehľad objednávok</a>
+                                <a href="<?php echo $this->baseUrl().'/objednavky/list'?>"><i class="fa fa-fw fa-list"></i> Prehľad objednávok</a>
                             </li>
                             <li>
-                                <a href="#">ďalší odkaz</a>
-                            </li>
-                            <li>
-                                <a href="#">ďalší odkaz</a>
+                                <a href="<?php echo $this->baseUrl().'/objednavky/add'?>"><i class="fa fa-fw fa-plus"></i> Pridať objednávku</a>
                             </li>
                         </ul>
                     </li>
@@ -324,22 +321,22 @@ echo $this->doctype(); ?>
 
                         <ul id="administracia" class="collapse">
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/dodavatelia/list'?>">Dodávatelia</a>
+                                <a href="<?php echo $this->baseUrl().'/dodavatelia/list'?>"><i class="fa fa-fw fa-edit"></i> Dodávatelia</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/prepravci/list'?>">Prepravcovia</a>
+                                <a href="<?php echo $this->baseUrl().'/prepravci/list'?>"><i class="fa fa-fw fa-truck"></i> Prepravcovia</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/zakaznici/list'?>">Zákazníci</a>
+                                <a href="<?php echo $this->baseUrl().'/zakaznici/list'?>"><i class="fa fa-group"></i> Zákazníci</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/sklady/list'?>">Sklady</a>
+                                <a href="<?php echo $this->baseUrl().'/sklady/list'?>"><i class="fa fa-fw fa-university"></i> Sklady</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/podsklady/list'?>">Podsklady</a>
+                                <a href="<?php echo $this->baseUrl().'/podsklady/list'?>"><i class="fa fa-fw fa-sitemap"></i> Podsklady</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/stroje/list'?>">Stroje</a>
+                                <a href="<?php echo $this->baseUrl().'/stroje/list'?>"><i class="fa fa-fw fa-cogs"></i> Stroje</a>
                             </li>
 <!--                            <li>-->
 <!--                                <a href="#">Miesta Štiepenia</a>-->
@@ -348,10 +345,10 @@ echo $this->doctype(); ?>
 <!--                                <a href="#">Objednávky Odberateľov</a>-->
 <!--                            </li>-->
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/materialyDruhy/list'?>">Druhy materiálov</a>
+                                <a href="<?php echo $this->baseUrl().'/materialyDruhy/list'?>"><i class="fa fa-fw fa-tree"></i> Druhy materiálov</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/materialyTypy/list'?>">Typy materiálov</a>
+                                <a href="<?php echo $this->baseUrl().'/materialyTypy/list'?>"><i class="fa fa-fw fa-cubes"></i> Typy materiálov</a>
                             </li>
 
                         </ul>
@@ -365,13 +362,13 @@ echo $this->doctype(); ?>
                         
                         <ul id="prehlady" class="collapse">
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/sklady'?>">Stav Skladov</a>
+                                <a href="<?php echo $this->baseUrl().'/sklady'?>"><i class="fa fa-fw fa-university"></i> Stav Skladov</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/zakaznici'?>">Množstvo dodané zákazníkom</a>
+                                <a href="<?php echo $this->baseUrl().'/zakaznici'?>"><i class="fa fa-fw fa-group"></i> Dodané zákazníkom</a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/stroje'?>">Vyťaženie Strojov</a>
+                                <a href="<?php echo $this->baseUrl().'/stroje'?>"><i class="fa fa-fw fa-cogs"></i> Vyťaženie Strojov</a>
                             </li>
                         </ul>
                     </li>

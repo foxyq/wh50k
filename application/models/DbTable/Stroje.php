@@ -72,6 +72,15 @@ class Application_Model_DbTable_Stroje extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
+    public function getCountTransactionsByStrojId($strojId){
+        $vydajeModel = new Application_Model_DbTable_Vydaje();
+        $xvyrobyModel = new Application_Model_DbTable_ExternaVyroba();
+
+        $pocetVydajov = $vydajeModel->getRowCountByColumn('stroj_enum', $strojId);
+        $pocetXVyrob = $xvyrobyModel->getRowCountByColumn('stroj_enum', $strojId);
+
+        return $pocetVydajov + $pocetXVyrob;
+    }
 
 }
 
