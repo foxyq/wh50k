@@ -14,6 +14,7 @@ try {
     // musis definovat font, tak nejaky drahy idealne z macu :D
 //    $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
     $font = Zend_Pdf_Font::fontWithPath('../public/fonts/arial.ttf');
+
     //get parametre na tlac z URL
     $id = $this->escape($this->prijem['ts_prijmy_id']);
     $cislo_listku = $this->escape($this->prijem['doklad_cislo']);

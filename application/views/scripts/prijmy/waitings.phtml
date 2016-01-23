@@ -90,7 +90,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
 
 
 <div id=".col-lg-12"  class="table-responsive">
-    <table id="fancy_table"  class="table table-striped table-bordered table-hover">
+    <table id="fancy_table"  class="table table-striped table-hover">
 
 
 
@@ -98,18 +98,18 @@ $prijmy_e = $notif_info['prijmy_errors'];
         <tr class="tableizer-firsrow">
             <!--    <th>ID</th>-->
             <!--        <th>doklad číslo</th>-->
-            <TH>detail</TH>
-            <th>dátum</th>
-            <th>sklad</th>
-            <th class="col-podsklad">podsklad</th>
-            <th>dodávateľ</th>
-            <th>prepravca</th>
+            <TH>Detail</TH>
+            <th>Dátum</th>
+            <th>Sklad</th>
+            <th class="col-podsklad">Podsklad</th>
+            <th>Dodávateľ</th>
+            <th>Prepravca</th>
             <!--    <th>SPZ</th>-->
-            <th>tony</th>
+            <th>Tony</th>
             <th>m<sup>3</sup></th>
-            <th>vlhkosť</th>
-            <th class="col-tony-nadrozmer">nadrozmer</th>
-            <th>doklad</th>
+            <th>Vlhkosť</th>
+            <th class="col-tony-nadrozmer">Nadrozmer</th>
+            <th>Doklad</th>
             <!--    <th>t v</th>-->
 
             <!--    <th>m3 v</th>-->
@@ -117,10 +117,10 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <!--    <th>PRM v</th>-->
 
             <!--    <th>materiál typ</th>-->
-            <th>materiál</th>
-            <th class="col-stav">stav</th>
+            <th>Materiál</th>
+            <th class="col-stav">Stav</th>
             <!--    <th class="col-chyba">chyba</th>-->
-            <th class="col-upravy">úpravy</th>
+            <th class="col-upravy">Úpravy</th>
         </tr>
         </thead>
 
@@ -165,7 +165,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
 <!--            <td>--><?php //echo $this->escape($prijem->doklad_cislo);?><!--</td>-->
             <TD class="center"><a href="<?php echo $this->url(array('controller'=>'prijmy',
                 'action'=>'preview', 'id'=>$prijem->doklad_cislo, 'fromAction' => 'list'));?>">
-                     <?php echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
+                <i class="fa fa-eye"></i>
                 </a>
             </TD>
             <td>
@@ -230,13 +230,9 @@ $prijmy_e = $notif_info['prijmy_errors'];
 //                    ?>
 <!--            </td>-->
             <td>
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>">
-                    <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
-                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>"><i class="fa fa-trash-o"></i></a>
 
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>">
-                    <?php echo '<img src="'.$this->baseUrl().'/images/upravit.png" alt="upravit">'; ?>
-                </a>
+                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>"><i class="fa fa-pencil-square-o"></i></a>
 
                 <?php
                 $skladID = $prijem->sklad_enum;
@@ -246,18 +242,18 @@ $prijmy_e = $notif_info['prijmy_errors'];
 
                 <?php  if ($merna_jednotka == 1 )
                                 echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printton", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
-                                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
 //                <!--                    printton-->
                             ?>
 
                 <?php  if ($merna_jednotka == 2 )
                                 echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printprm", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
-                                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
 //                <!--                   printprm-->
                                 ?>
                 <?php  if ($merna_jednotka == 3 )
                                 echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printm3", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
-                                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
 //                <!--                    printm3-->
 //                                ?>
 

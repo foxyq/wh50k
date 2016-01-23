@@ -86,30 +86,30 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
 
 
 <div class="table-responsive">
-    <table id="fancy_table" class="table table-hover table-bordered table-striped" >
+    <table id="fancy_table" class="table table-hover table-striped" >
 
         <thead>
         <tr class="tableizer-firstrow">
             <!--        <th>ID</th>-->
-            <th>detail</th>
-            <th>dátum</th>
+            <th>Detail</th>
+            <th>Dátum</th>
             <!--              <th>doklad číslo</th>-->
-            <th>zákazník</th>
-            <th>prepravca</th>
+            <th>Zákazník</th>
+            <th>Prepravca</th>
             <!--              <th> SPZ</th>-->
-            <th>tony</th>
+            <th>Tony</th>
             <!--        <th>tony v</th>-->
                     <th>m<sup>3</sup></th>
             <!--        <th>m3 v</th>-->
                     <th>PRM </th>
-            <th>vlhkosť</th>
+            <th>Vlhkosť</th>
             <!--        <th>prm v</th>-->
-            <th>doklad</th>
-            <th>materiál</th>
+            <th>Doklad</th>
+            <th>Materiál</th>
             <!--              <th>material druh</th>-->
-            <th class="col-stav">stav</th>
+            <th class="col-stav">Stav</th>
             <!--              <th >chyba</th>-->
-            <th class="col-upravy">úpravy</th>
+            <th class="col-upravy">Úpravy</th>
         </tr>
         </thead>
 
@@ -145,9 +145,9 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
             else echo   "<tr>";
             ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
-            <td class="center"> <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                'action'=>'preview', 'id'=>$externa_vyroba->doklad_cislo));?>">
-                     <?php echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
+            <td class="center"> <a href="<?php echo $this->url(array('controller'=>'externaVyroba',
+                'action'=>'preview', 'id'=>$externa_vyroba->tx_vyroba_id));?>">
+                     <i class="fa fa-eye"></i>
                 </a></td>
             <td>
             <?php
@@ -206,44 +206,35 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
 //                ?><!--</td>-->
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'ExternaVyroba',
-                'action'=>'delete', 'tx_vyroba_id'=>$externa_vyroba->tx_vyroba_id, 'fromAction' => 'list'));?>">
-                    <?php echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
-                </a>
+                'action'=>'delete', 'tx_vyroba_id'=>$externa_vyroba->tx_vyroba_id, 'fromAction' => 'list'));?>"><i class="fa fa-trash"></i></a>
 
                 <a href="<?php echo $this->url(array('controller'=>'ExternaVyroba',
-                'action'=>'edit', 'tx_vyroba_id'=>$externa_vyroba->tx_vyroba_id,  'fromAction' => 'list'));?>">
+                'action'=>'edit', 'tx_vyroba_id'=>$externa_vyroba->tx_vyroba_id,  'fromAction' => 'list'));?>"><i class="fa fa-pencil-square-o"></i></a>
+                <a href="<?php echo $this->url(array('controller'=>'ExternaVyroba',
+                'action'=>'print', 'tx_vyroba_id'=>$externa_vyroba->tx_vyroba_id ));?>" target="_blank" ><i class="fa fa-print"></i></a>
 
-                      <?php echo '<img src="'.$this->baseUrl().'/images/upravit.png" alt="upravit">'; ?>
 
-            </a>
-<!--                <a href="--><?php //echo $this->url(array('controller'=>'Vydaje',
-//                'action'=>'print', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'cislo_listku'=>$vydaj->doklad_cislo,
-//                'spz'=>$vydaj->prepravca_spz));?><!--" target="_blank" >-->
-<!---->
-<!--                     --><?php //echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
-<!---->
-<!--                </a>-->
 
 
                 <?php
-            $merna_jednotka = $this->zakaznici->getMernaJednotka($externa_vyroba->zakaznik_enum);
+//            $merna_jednotka = $this->zakaznici->getMernaJednotka($externa_vyroba->zakaznik_enum);
             ?>
 
 
             <?php  if ($merna_jednotka == 1 )
-                echo '<a href="'.$this->url(array("controller"=>"ExternaVyroba", "action"=>"printton", "id"=>$externa_vyroba->tx_vyroba_id, "fromAction" => "list",
-                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+//                echo '<a href="'.$this->url(array("controller"=>"ExternaVyroba", "action"=>"printton", "id"=>$externa_vyroba->tx_vyroba_id, "fromAction" => "list",
+//                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
             //<!--                    printton-->
             ?>
 
             <?php  if ($merna_jednotka == 2 )
-                echo '<a href="'.$this->url(array("controller"=>"ExternaVyroba", "action"=>"printprm", "id"=>$externa_vyroba->tx_vyroba_id, "fromAction" => "list",
-                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+//                echo '<a href="'.$this->url(array("controller"=>"ExternaVyroba", "action"=>"printprm", "id"=>$externa_vyroba->tx_vyroba_id, "fromAction" => "list",
+//                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
             //<!--                   printprm-->
             ?>
             <?php  if ($merna_jednotka == 3 )
-                echo '<a href="'.$this->url(array("controller"=>"ExternaVyroba", "action"=>"printm3", "id"=>$externa_vyroba->tx_vyroba_id, "fromAction" => "list",
-                    )).'" target="_blank"><img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit"></a>'
+//                echo '<a href="'.$this->url(array("controller"=>"ExternaVyroba", "action"=>"printm3", "id"=>$externa_vyroba->tx_vyroba_id, "fromAction" => "list",
+//                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
             //<!--                    printm3-->
             ?>
 
