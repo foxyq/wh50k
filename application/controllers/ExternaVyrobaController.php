@@ -322,7 +322,12 @@ class ExternaVyrobaController extends Zend_Controller_Action
     public function previewAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
+        $fromController = $this->_getParam('fromController', 'ExternaVyroba');
+        $fromId = $this->_getParam('fromId', null);
         $this->view->fromAction = $fromAction;
+        $this->view->fromController = $fromController;
+        $this->view->fromId = $fromId;
+
         //inicializacia pre vypis premennych - pre getNazov() metody
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
         $prepravciModel = new Application_Model_DbTable_Prepravci();

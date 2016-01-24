@@ -144,7 +144,7 @@ $externe_dodavky_e = $notif_info['externe_dodavky_errors'];
             ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
             <td class="center"> <a href="<?php echo $this->url(array('controller'=>'externaDodavka',
-                    'action'=>'preview', 'id'=>$externa_dodavka->doklad_cislo));?>">
+                    'action'=>'preview', 'id'=>$externa_dodavka->doklad_cislo, 'fromAction' => 'list'));?>">
                     <i class="fa fa-eye"></i>
                 </a></td>
             <td>

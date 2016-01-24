@@ -151,7 +151,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
             ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
             <td class="center"> <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                'action'=>'preview', 'id'=>$vydaj->doklad_cislo));?>">
+                'action'=>'preview', 'id'=>$vydaj->doklad_cislo, 'fromAction' => 'errors'));?>">
                      <i class="fa fa-eye"></i>
                 </a></td>
             <td>

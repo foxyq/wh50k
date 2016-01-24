@@ -140,8 +140,8 @@ class ObjednavkyController extends Zend_Controller_Action
     {
         if ($this->getRequest()->isPost()) {
             $del = $this->getRequest()->getPost('del');
-            if ($del == 'Yes') {
-                $id = $this->getRequest()->getPost('objednavky_id');
+            if ($del == 'Áno') {
+                $id = $this->getRequest()->getPost('id');
                 $objednavky = new Application_Model_DbTable_Objednavky();
                 $objednavky->deleteObjednavka($id);
             }
@@ -149,14 +149,27 @@ class ObjednavkyController extends Zend_Controller_Action
         } else {
             $id = $this->_getParam('id', 0);
             $objednavky = new Application_Model_DbTable_Objednavky();
+
+            $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+            $rokyModel = new Application_Model_DbTable_Roky();
+            $mesiaceModel = new Application_Model_DbTable_Mesiace();
+            $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
+
             $this->view->objednavka = $objednavky->getObjednavka($id);
+            $this->view->objednavkaId = $id;
+            $this->view->zakazniciModel = $zakazniciModel;
+            $this->view->mesiaceModel = $mesiaceModel;
+            $this->view->rokyModel = $rokyModel;
+            $this->view->merneJednotkyModel = $merneJednotkyModel;
         }
     }
 
     public function previewAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
+        $fromController = $this->_getParam('fromController', 'objednavky');
         $this->view->fromAction = $fromAction;
+        $this->view->fromController = $fromController;
 
         //inicializacia modelov pre vypis
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
@@ -178,6 +191,7 @@ class ObjednavkyController extends Zend_Controller_Action
         $this->view->xvyrobyModel = $xvyrobyModel;
 
         $id = $this->_getParam('id');
+        $this->view->objednavka = $objednavkyModel->getObjednavka($id);
         $this->view->objednavkaId = $id;
     }
 

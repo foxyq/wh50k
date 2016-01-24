@@ -44,8 +44,8 @@ class VydajeController extends Zend_Controller_Action
     }
     public function addAction()
     {
-        $fromAction = $this->_getParam('fromAction', 'list');
-        $this->view->fromAction = $fromAction;
+
+
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
@@ -295,6 +295,13 @@ class VydajeController extends Zend_Controller_Action
     }
     public function previewAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $fromController = $this->_getParam('fromController', 'Vydaje');
+        $fromId = $this->_getParam('fromId', null);
+        $this->view->fromAction = $fromAction;
+        $this->view->fromController = $fromController;
+        $this->view->fromId = $fromId;
+
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
         //inicializacia pre vypis premennych - pre getNazov() metody

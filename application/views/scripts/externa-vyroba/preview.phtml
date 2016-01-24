@@ -150,8 +150,9 @@
                 <div class="col-lg-6">
                     <!--            <dt>&nbsp;</dt>-->
                     <a href="<?php echo $this->url(array(
-                        'controller' => 'externaVyroba',
-                        'action' => $this->fromAction
+                        'controller' => $this->fromController,
+                        'action' => $this->fromAction,
+                        'id' => $this->fromId
                     ), null, true) ?>"  type="button" class="btn btn-warning form-control">Späť</a>
                 </div>
 

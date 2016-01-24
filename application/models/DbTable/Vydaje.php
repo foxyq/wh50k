@@ -15,6 +15,22 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
+    public function getVydajeByZakaznikIdAndDate($zakaznikId, $yearId, $monthId){
+        $rokyModel = new Application_Model_DbTable_Roky();
+
+        $year = $rokyModel->getNazov($yearId);
+        $month = $monthId;
+        $dateFrom = "'".$year."-".$month."-"."01'";
+        $dateTo = "'".$year."-".$month."-"."31'";
+        $column = 'q_tony_merane';
+
+        $sql = "zakaznik_enum = ".$zakaznikId." AND (datum_vydaju_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $vydaje = $this->fetchAll($sql);
+
+        return $vydaje;
+
+    }
+
     public function getVydajFormatted($id)
     {
         $id = (int)$id;

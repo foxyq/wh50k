@@ -145,8 +145,8 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
             else echo   "<tr>";
             ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
-            <td class="center"> <a href="<?php echo $this->url(array('controller'=>'externaVyroba   ',
-                'action'=>'preview', 'id'=>$externa_vyroba->tx_vyroba_id));?>">
+            <td class="center"> <a href="<?php echo $this->url(array('controller'=>'externaVyroba',
+                'action'=>'preview', 'id'=>$externa_vyroba->tx_vyroba_id, 'fromAction' => 'errors'));?>">
                   <i class="fa fa-eye"></i>
                 </a></td>
             <td>

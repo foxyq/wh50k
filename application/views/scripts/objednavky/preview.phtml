@@ -4,15 +4,14 @@
 <h2 xmlns="http://www.w3.org/1999/html">Objednávky - detail</h2>
 <!--<hr>-->
 <div class="col-lg-5">
-    <div class="panel panel-info">
+    <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Detail objednávky </h3>
+            <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Detail objednávky </h3>
         </div>
         <div class="panel-body">
         <?php
             $objednavka = $this->objednavkyModel->getObjednavka($this->objednavkaId);
         ?>
-
             <div class="row">
                 <fieldset>
                     <legend>Zákazník</legend>
@@ -110,9 +109,79 @@
                     <div class="progress-bar progress-bar-danger" style="width: <?php echo (100-$percentaXDodavky-$percentaXVyrobky-$percentaVydaje)?>%">zostáva<span class='sr-only'>10% Complete (danger)</span>
                     </div>
                 </div>
+            <br>
+
+            <div class="col-lg-6 right">
+                    <a href="<?php echo $this->url(array(
+                        'controller' => $this->fromController,
+                        'action' => $this->fromAction
+                    ), null, true) ?>"  type="button" class="btn btn-warning form-control">Späť</a>
+                </div>
 
 
 
 
         </div>
     </div>
+</div>
+
+<?php
+    $vydajeObjednavky = $this->vydajeModel->getVydajeByZakaznikIdAndDate($this->objednavka['zakaznik_enum'], $this->objednavka['rok_enum'], $this->objednavka['mesiac_enum']);
+    $xdodavkyObjednavky = $this->xdodavkyModel->getXDodavkyByZakaznikIdAndDate($this->objednavka['zakaznik_enum'], $this->objednavka['rok_enum'], $this->objednavka['mesiac_enum']);
+    $xvyrobyObjednavky = $this->xvyrobyModel->getXVyrobyByZakaznikIdAndDate($this->objednavka['zakaznik_enum'], $this->objednavka['rok_enum'], $this->objednavka['mesiac_enum']);
+    $skladyModel = new Application_Model_DbTable_Sklady();
+    $stlpecKvantity = 'q_tony_merane';
+    $mernaJednotkaId = $this->objednavka['merna_jednotka_enum'];
+
+    switch ($mernaJednotkaId){
+        case 1:
+            $stlpecKvantity = 'q_tony_merane';
+            break;
+        case 2:
+            $stlpecKvantity = 'q_prm_merane';
+            break;
+        case 3:
+            $stlpecKvantity = 'q_m3_merane';
+            break;
+    }
+
+?>
+
+<div class="col-lg-5">
+    <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-truck fa-fw"></i> Plnenie objednávky</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <?php foreach ($vydajeObjednavky AS $vydajObjednavky):?>
+                                        <a href="<?php echo $this->url(array( "controller"=>"vydaje" , "action"=>"preview", "id"=>$vydajObjednavky->doklad_cislo, "fromController"=>"objednavky", "fromAction"=>"preview", "fromId"=>$this->objednavkaId), 'default');  ?>" class="list-group-item">
+                                            <span class="badge"><?php echo date("d.m.Y", strtotime($vydajObjednavky->datum_vydaju_d));?></span>
+                                            <i class="fa fa-fw fa-minus-square"></i> <?php echo "Výdaj ".number_format($vydajObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId)." zo skladu ".$skladyModel->getNazov($vydajObjednavky->sklad_enum);?>
+                                        </a>
+                                    <?php endforeach; ?>
+
+                                </div>
+                                <div class="list-group">
+                                    <?php foreach ($xdodavkyObjednavky AS $xdodavkaObjednavky):?>
+                                        <a href="<?php echo $this->url(array( "controller"=>"externaDodavka" , "action"=>"preview", "id"=>$xdodavkaObjednavky->doklad_cislo, "fromController"=>"objednavky", "fromAction"=>"preview", "fromId"=>$this->objednavkaId), 'default');  ?>" class="list-group-item">
+                                            <span class="badge"><?php echo date("d.m.Y", strtotime($xdodavkaObjednavky->datum_xdodavky_d));?></span>
+                                            <i class="fa fa-fw fa-th-large"></i> <?php echo "Ex. dodávka ".number_format($xdodavkaObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId);?>
+                                        </a>
+                                    <?php endforeach; ?>
+
+                                </div>
+                                <div class="list-group">
+                                    <?php foreach ($xvyrobyObjednavky AS $xvyrobaObjednavky):?>
+                                        <a href="<?php echo $this->url(array( "controller"=>"externaVyroba" , "action"=>"preview", "id"=>$xvyrobaObjednavky->tx_vyroba_id, "fromController"=>"objednavky", "fromAction"=>"preview", "fromId"=>$this->objednavkaId), 'default');  ?>" class="list-group-item">
+                                            <span class="badge"><?php echo date("d.m.Y", strtotime($xvyrobaObjednavky->datum_xvyroby_d));?></span>
+                                            <i class="fa fa-fw fa-cogs"></i> <?php echo "Ex. výroba ".number_format($xvyrobaObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId);?>
+                                        </a>
+                                    <?php endforeach; ?>
+
+                                </div>
+                            </div>
+                        </div>
+</div>
+</div>
+

@@ -15,6 +15,21 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
+    public function getXVyrobyByZakaznikIdAndDate($zakaznikId, $yearId, $monthId){
+        $rokyModel = new Application_Model_DbTable_Roky();
+
+        $year = $rokyModel->getNazov($yearId);
+        $month = $monthId;
+        $dateFrom = "'".$year."-".$month."-"."01'";
+        $dateTo = "'".$year."-".$month."-"."31'";
+
+        $sql = "zakaznik_enum = ".$zakaznikId." AND (datum_xvyroby_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $xvyroby = $this->fetchAll($sql);
+
+        return $xvyroby;
+
+    }
+
     public function getXVyrobaFormatted($id)
     {
         $id = (int)$id;

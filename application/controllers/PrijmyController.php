@@ -299,7 +299,12 @@ class PrijmyController extends Zend_Controller_Action
     public function previewAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
+        $fromController = $this->_getParam('fromController', 'prijmy');
+        $fromId = $this->_getParam('fromId', null);
         $this->view->fromAction = $fromAction;
+        $this->view->fromController = $fromController;
+        $this->view->fromId = $fromId;
+
         //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
         $podskladyModel = new Application_Model_DbTable_Podsklady();

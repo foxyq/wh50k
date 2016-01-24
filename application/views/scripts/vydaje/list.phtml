@@ -151,7 +151,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
             ?>
 <!--            <td>--><?php //echo $this->escape($vydaj->ts_vydaje_id);?><!--</td>-->
             <td class="center"> <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                'action'=>'preview', 'id'=>$vydaj->doklad_cislo));?>"><i class="fa fa-eye"></i>
+                'action'=>'preview', 'id'=>$vydaj->doklad_cislo, 'fromAction' => 'list'));?>"><i class="fa fa-eye"></i>
 <!--                     --><?php //echo '<img src="'.$this->baseUrl().'/images/zobrazit.png" alt="detail">'; ?>
                 </a></td>
             <td>
