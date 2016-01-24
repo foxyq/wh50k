@@ -11,6 +11,7 @@ class Application_Model_Notifikacie
         $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
         $externeDodavky = new Application_Model_DbTable_ExternaDodavka();
         $externeVyroby = new Application_Model_DbTable_ExternaVyroba();
+        $objednavky = new Application_Model_DbTable_Objednavky();
 
         $status['prijmy_waitings'] = $prijmy->getNumberOfWaitings();
         $status['prijmy_errors'] = $prijmy->getNumberOfErrors();
@@ -21,6 +22,7 @@ class Application_Model_Notifikacie
         $status['externe_dodavky_errors'] = $externeDodavky->getNumberOfErrors();
         $status['externe_vyroby_waitings'] = $externeVyroby->getNumberOfWaitings();
         $status['externe_vyroby_errors'] = $externeVyroby->getNumberOfErrors();
+        $status['objednavky_nekompatibilne'] = $objednavky->getCountNekompatibilneObjednavky();
 
         $status['total'] =
             (int)$prijmy->getNumberOfWaitings() +
@@ -31,7 +33,8 @@ class Application_Model_Notifikacie
             (int)$externeDodavky->getNumberOfErrors() +
             (int)$externeVyroby->getNumberOfWaitings() +
             (int)$externeVyroby->getNumberOfErrors() +
-            (int)$ubytky->getErrorNedostatokNaSklade();
+            (int)$ubytky->getErrorNedostatokNaSklade() +
+            (int)$objednavky->getCountNekompatibilneObjednavky();
 
         return $status;
 

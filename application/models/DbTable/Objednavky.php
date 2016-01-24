@@ -101,6 +101,20 @@ class Application_Model_DbTable_Objednavky extends Zend_Db_Table_Abstract
         }
     }
 
+    //vracia pocet objednavok kde definovane MJ je rozne od MJ zakaznika
+    public function getCountNekompatibilneObjednavky(){
+        $sum = 0;
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $objednavky = $this->fetchAll();
+
+        foreach ($objednavky AS $objednavka){
+            if ($objednavka->merna_jednotka_enum <> $zakazniciModel->getMernaJednotka($objednavka->zakaznik_enum)){
+                    $sum++;
+                }
+        }
+        return $sum;
+    }
+
 
 }
 
