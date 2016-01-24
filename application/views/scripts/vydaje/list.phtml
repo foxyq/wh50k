@@ -187,15 +187,18 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <?php
             if  ( $vydaj->stav_transakcie == 2 ) {
 //                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
-                echo '<div class="schvalene" title="schvalene" alt="schvalene"></div>';
+//                echo '<div class="schvalene" title="schvalene" alt="schvalene"></div>';
+                echo '<i class="fa fa-check-circle-o"></i>';
             }
             else if ($vydaj->stav_transakcie == 1 ) {
 //                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
-                echo '<div class="caka" title="caka" alt="caka"></div>';
+//                echo '<div class="caka" title="caka" alt="caka"></div>';
+                echo '<i class="fa fa-clock-o"></i>';
             }
             else {
 //                    echo '<img src="'.$this->baseUrl().'/images/zrusene.png" alt="zrusene">';
-                echo '<div class="zrusene" title="zrusene" alt="zrusene"></div>';
+//                echo '<div class="zrusene" title="zrusene" alt="zrusene"></div>';
+                echo '<i class="fa fa-times-circle-o"></i>';
             }
             ?>
 

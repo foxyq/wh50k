@@ -212,6 +212,9 @@
               <actionMethod actionName="pokus"/>
               <actionMethod actionName="errors"/>
               <actionMethod actionName="noErrors"/>
+              <actionMethod actionName="printton"/>
+              <actionMethod actionName="printprm"/>
+              <actionMethod actionName="printm3"/>
             </controllerFile>
             <controllerFile controllerName="Vydaje">
               <actionMethod actionName="index"/>
@@ -222,6 +225,9 @@
               <actionMethod actionName="noErrors"/>
               <actionMethod actionName="errors"/>
               <actionMethod actionName="markAsError"/>
+              <actionMethod actionName="printton"/>
+              <actionMethod actionName="printm3"/>
+              <actionMethod actionName="printprm"/>
             </controllerFile>
             <controllerFile controllerName="Nastavenia">
               <actionMethod actionName="index"/>
@@ -311,6 +317,24 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Profil">
                 <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="printton"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="printprm"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Prijmy">
+                <viewScriptFile forActionName="printm3"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Vydaje">
+                <viewScriptFile forActionName="printton"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Vydaje">
+                <viewScriptFile forActionName="printm3"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Vydaje">
+                <viewScriptFile forActionName="printprm"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

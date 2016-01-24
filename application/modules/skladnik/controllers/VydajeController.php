@@ -299,8 +299,77 @@ class Skladnik_VydajeController extends Zend_Controller_Action
         die('mrtvlka');
     }
 
+    public function printtonAction()
+    {
+        $sklady = new Application_Model_DbTable_Sklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $uzivatelia = new Application_Model_DbTable_Users();
+
+        $this->view->sklady = $sklady;
+        $this->view->zakaznici = $zakaznici;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->uzivatelia = $uzivatelia;
+
+        $id = $this->_getParam('id', 0);
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $this->view->vydaj = $vydaje->getVydaj($id);
+    }
+
+    public function printm3Action()
+    {
+        $sklady = new Application_Model_DbTable_Sklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $uzivatelia = new Application_Model_DbTable_Users();
+
+        $this->view->sklady = $sklady;
+        $this->view->zakaznici = $zakaznici;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->uzivatelia = $uzivatelia;
+
+        $id = $this->_getParam('id', 0);
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $this->view->vydaj = $vydaje->getVydaj($id);
+    }
+
+    public function printprmAction()
+    {
+        $sklady = new Application_Model_DbTable_Sklady();
+        $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $prepravci = new Application_Model_DbTable_Prepravci();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $uzivatelia = new Application_Model_DbTable_Users();
+
+        $this->view->sklady = $sklady;
+        $this->view->zakaznici = $zakaznici;
+        $this->view->prepravci = $prepravci;
+        $this->view->materialyTypy = $materialyTypy;
+        $this->view->materialyDruhy = $materialyDruhy;
+        $this->view->uzivatelia = $uzivatelia;
+
+        $id = $this->_getParam('id', 0);
+        $vydaje = new Application_Model_DbTable_Vydaje();
+        $this->view->vydaj = $vydaje->getVydaj($id);
+    }
+
 
 }
+
+
+
+
+
+
 
 
 

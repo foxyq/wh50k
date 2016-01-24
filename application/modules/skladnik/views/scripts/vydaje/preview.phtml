@@ -151,10 +151,13 @@
 
                 <div class="col-lg-6 tright">
                     <?php if ($this->vydaj['chyba'] == 0 ){?>
-                        <a href="<?php
-                            echo $this->url(array('controller'=>'vydaje', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$this->vydaj['ts_vydaje_id'], 'fromAction' => $this->fromAction));?>" class="btn-danger btn" >
-                        Označiť ako chybu
-                        </a>
+
+                        <a href="#" class="btn-danger btn" data-toggle="modal" data-target="#myModal">Chyba</a>
+
+                        <!--                        <a href="--><?php
+//                            echo $this->url(array('controller'=>'vydaje', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$this->vydaj['ts_vydaje_id'], 'fromAction' => $this->fromAction));?><!--" class="btn-danger btn" >-->
+<!--                        Chyba-->
+<!--                        </a>-->
                     <?php } ?>
 
                     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
@@ -173,10 +176,29 @@
                         'controller' => 'vydaje',
                         'action' => $this->fromAction,
                         'module' => 'skladnik'
-                    ), null, true) ?>"  type="button" class="btn btn-warning form-control">Na zoznam</a>
+                    ), null, true) ?>"  type="button" class="btn btn-warning form-control">Späť</a>
                 </div>
 
             </div>
 
         </div>
+    </div>
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Označiť výdaj ako chybný?</h4>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Nie</button>
+                    <a href="<?php echo $this->url(array('controller'=>'vydaje', 'action'=>'mark-as-error', 'module'=>'skladnik', 'id'=>$this->vydaj['ts_vydaje_id'], 'fromAction' => $this->fromAction));?>" class="btn btn-primary" >Áno</a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+
     </div>

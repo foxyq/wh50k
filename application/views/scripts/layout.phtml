@@ -142,6 +142,7 @@ echo $this->doctype(); ?>
                     $ex_dod_e = $notif_info['externe_dodavky_errors'];
                     $ex_vyr_w = $notif_info['externe_vyroby_waitings'];
                     $ex_vyr_e = $notif_info['externe_vyroby_errors'];
+                    $obj_nekomp = $notif_info['objednavky_nekompatibilne'];
 
                     ?>
 
@@ -281,7 +282,22 @@ echo $this->doctype(); ?>
                             ), null, true) ?>"> <span class="label label-info tleft">Chybných úbytkov</span> <span class="notif_count right"> <?php echo $ubytky_ch; ?> </span>  </a>
                         </li>
 
+
+
                     <?php }
+
+                    if ($obj_nekomp > 0 ) { ?>
+
+                        <li>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'Objednavky',
+                                'action' => 'list'
+                            ), null, true) ?>"> <span class="label label-default tleft">Chybných objednávok</span> <span class="notif_count right"> <?php echo $obj_nekomp; ?> </span>  </a>
+                        </li>
+
+
+
+                    <?php  }
 
                     if ($count_notif >0) {
                         ?>
@@ -445,7 +461,10 @@ echo $this->doctype(); ?>
 
 
                           <h1><?php echo $this->escape($this->title); ?></h1>
-                        <?php echo $this->layout()->content; ?>
+                        <?php
+
+
+                        echo $this->layout()->content; ?>
 
                     </div>
                 </div>

@@ -184,15 +184,15 @@ $externe_dodavky_e = $notif_info['externe_dodavky_errors'];
             <?php
             if  ( $externa_dodavka->stav_transakcie == 2 ) {
 //                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
-                echo '<div class="schvalene" title="schvalene" alt="schvalene"></div>';
+                echo '<i class="fa fa-check-circle-o"></i>';
             }
             else if ($externa_dodavka->stav_transakcie == 1 ) {
 //                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
-                echo '<div class="caka" title="caka" alt="caka"></div>';
+                echo '<i class="fa fa-clock-o"></i>';
             }
             else {
 //                    echo '<img src="'.$this->baseUrl().'/images/zrusene.png" alt="zrusene">';
-                echo '<div class="zrusene" title="zrusene" alt="zrusene"></div>';
+                echo '<i class="fa fa-times-circle-o"></i>';
             }
             ?>
 
@@ -225,19 +225,19 @@ $externe_dodavky_e = $notif_info['externe_dodavky_errors'];
 
 
             <?php  if ($merna_jednotka == 1 )
-                echo '<a href="'.$this->url(array("controller"=>"ExternaDodavka", "action"=>"printton", "id"=>$externa_dodavka->tx_dodavka_id, "fromAction" => "list",
-                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
+//                echo '<a href="'.$this->url(array("controller"=>"ExternaDodavka", "action"=>"printton", "id"=>$externa_dodavka->tx_dodavka_id, "fromAction" => "list",
+//                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
             //<!--                    printton-->
             ?>
 
             <?php  if ($merna_jednotka == 2 )
-                echo '<a href="'.$this->url(array("controller"=>"ExternaDodavka", "action"=>"printprm", "id"=>$externa_dodavka->tx_dodavka_id, "fromAction" => "list",
-                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
+//                echo '<a href="'.$this->url(array("controller"=>"ExternaDodavka", "action"=>"printprm", "id"=>$externa_dodavka->tx_dodavka_id, "fromAction" => "list",
+//                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
             //<!--                   printprm-->
             ?>
             <?php  if ($merna_jednotka == 3 )
-                echo '<a href="'.$this->url(array("controller"=>"Externadodavka", "action"=>"printm3", "id"=>$externa_dodavka->tx_dodavka_id, "fromAction" => "list",
-                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
+//                echo '<a href="'.$this->url(array("controller"=>"Externadodavka", "action"=>"printm3", "id"=>$externa_dodavka->tx_dodavka_id, "fromAction" => "list",
+//                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
             //<!--                    printm3-->
             ?>
 

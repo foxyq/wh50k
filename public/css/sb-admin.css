@@ -309,6 +309,9 @@ th.col-podsklad{
 th.col-tony-nadrozmer{
     min-width: 85px;
 }
+th.col-doklad{
+    min-width: 125px;
+}
 .schvalene, .caka, .zrusene {
     background: url('../images/iconss.png') no-repeat;
     margin: 4px auto 0px auto;
@@ -326,7 +329,15 @@ th.col-tony-nadrozmer{
 }
 .zrusene{
     background-position: 0px 0px;
-
+}
+#fancy_table .fa-check-circle-o{
+color: green;
+}
+#fancy_table .fa-times-circle-o{
+    color: red;
+}
+#fancy_table .fa-clock-o{
+    color:orange;
 }
 .left {
     float: left;

@@ -184,15 +184,15 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
             <?php
             if  ( $externa_vyroba->stav_transakcie == 2 ) {
 //                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
-                echo '<div class="schvalene" title="schvalene" alt="schvalene"></div>';
+                echo '<i class="fa fa-check-circle-o"></i>';
             }
             else if ($externa_vyroba->stav_transakcie == 1 ) {
 //                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
-                echo '<div class="caka" title="caka" alt="caka"></div>';
+                echo '<i class="fa fa-clock-o"></i>';
             }
             else {
 //                    echo '<img src="'.$this->baseUrl().'/images/zrusene.png" alt="zrusene">';
-                echo '<div class="zrusene" title="zrusene" alt="zrusene"></div>';
+                echo '<i class="fa fa-times-circle-o"></i>';
             }
             ?>
 
@@ -210,8 +210,8 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
 
                 <a href="<?php echo $this->url(array('controller'=>'ExternaVyroba',
                 'action'=>'edit', 'tx_vyroba_id'=>$externa_vyroba->tx_vyroba_id,  'fromAction' => 'list'));?>"><i class="fa fa-pencil-square-o"></i></a>
-                <a href="<?php echo $this->url(array('controller'=>'ExternaVyroba',
-                'action'=>'print', 'tx_vyroba_id'=>$externa_vyroba->tx_vyroba_id ));?>" target="_blank" ><i class="fa fa-print"></i></a>
+<!--                <a href="--><?php //echo $this->url(array('controller'=>'ExternaVyroba',
+//                'action'=>'print', 'tx_vyroba_id'=>$externa_vyroba->tx_vyroba_id ));?><!--" target="_blank" ><i class="fa fa-print"></i></a>-->
 
 
 

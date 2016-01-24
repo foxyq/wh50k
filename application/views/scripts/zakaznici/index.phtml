@@ -1,5 +1,7 @@
 <?php
 $this->headTitle($this->title);
+$this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
+$this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 $zakazniciModel = $this->zakazniciModel;
 
 ?>
@@ -8,7 +10,42 @@ $zakazniciModel = $this->zakazniciModel;
 <script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
 <script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
 
-<div class="row">
+
+<script type="text/javascript" language="javascript" class="init">
+    $(document).ready(function() {
+        $('#fancy_table').DataTable( {
+            "order": [[ 1, "desc" ]],
+            columnDefs: [
+                { "sType": "title-string", "aTargets": [ 0 ]  }
+//                    { "sType": "alt-string", "aTargets" : 1 }
+            ],
+            initComplete: function () {
+                var api = this.api();
+                var abc = 0;
+                api.columns().indexes().flatten().each( function ( i ) {
+                    var column = api.column( i );
+                    if (i != abc) {
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo( $(column.footer()).empty() )
+                            .on( 'change', function () {
+                                var val = $.fn.DataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+                                column
+                                    .search( val ? '^'+val+'$' : '', true, false )
+                                    .draw();
+                            } );
+                        column.data().unique().sort().each( function ( d, j ) {
+                            select.append( '<option value="'+d+'">'+d+'</option>' )
+                        } );
+                    }
+                } );
+            }
+        } );
+    } );
+</script>
+
+<div class="row table-responsive">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -17,7 +54,7 @@ $zakazniciModel = $this->zakazniciModel;
             <div class="panel-body overflow">
                 <div id="morris-bar-chart"></div>
                 <div class="text-right">
-                    <a href="#tabulka">Prejsť na tabuľku <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#fancy_table">Prejsť na tabuľku <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -25,25 +62,40 @@ $zakazniciModel = $this->zakazniciModel;
 </div>
 
 <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
+        <div class="table-responsive">
+            <table id="fancy_table" class="table table-striped table-hover">
 
-    <table id="tabulka" class="table table-striped table-bordered table-hover">
-        <tr>
-            <th>Zakaznik</th>
-            <th>počet dodávok</th>
+                <thead>
+                <tr class="tableizer-firstrow">
 
-        </tr>
+                    <th>Zakaznik</th>
+                    <th>počet dodávok</th>
+                </tr>
+                </thead>
 
-        <?php foreach($this->zakazniciModel->getIds() as $zakaznikId) : ?>
-            <tr>
-                <td><?php echo $this->zakazniciModel->getNazov($zakaznikId);?></td>
-                <td><?php echo $this->zakazniciModel->getCountTransactionsByStrojId($zakaznikId);?></td>
-            </tr>
-        <?php endforeach; ?>
+        <!--        <tfoot>-->
+        <!--        <tr>-->
+        <!--            <th>zakaznik</th>-->
+        <!--            <th>počet dodávok</th>-->
+        <!--            </tr>-->
+        <!--        </tfoot>-->
 
-    </table>
+                <tbody>
+
+                <?php foreach($this->zakazniciModel->getIds() as $zakaznikId) : ?>
+                    <tr>
+                        <td><?php echo $this->zakazniciModel->getNazov($zakaznikId);?></td>
+                        <td><?php echo $this->zakazniciModel->getCountTransactionsByStrojId($zakaznikId);?></td>
+                    </tr>
+                <?php endforeach; ?>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
 
 <script>
 
