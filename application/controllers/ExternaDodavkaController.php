@@ -96,8 +96,261 @@ class ExternaDodavkaController extends Zend_Controller_Action
         $this->view->title = "Externá dodávka - chyby";
     }
 
+    public function addAction()
+    {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+        //instancia modelu z ktoreho budeme tahat zoznam
+
+        $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
+        $prepravciMoznosti = new Application_Model_DbTable_Prepravci();
+        $dokladyTypyMoznosti = new Application_Model_DbTable_DokladyTypy();
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+
+        //metoda ktorou vytiahneme do premennej zoznam
+
+        $zakazniciMoznosti = $zakazniciMoznosti->getMoznosti();
+        $prepravciMoznosti = $prepravciMoznosti->getMoznosti();
+
+        $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
+        $materialyTypyMoznosti = $materialyTypy->getMoznosti();
+        $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
+
+        //samostatne premenne ktore posielame na form
+        $potvrdzujuceTlacidlo = 'Vložiť';
+        $form = new Application_Form_Dodavka(array(
+            'zakazniciMoznosti' => $zakazniciMoznosti,
+            'prepravciMoznosti' => $prepravciMoznosti,
+            'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
+            'materialyTypyMoznosti' => $materialyTypyMoznosti,
+            'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
+            'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo,
+        ));
+        $this->view->form = $form;
+
+
+        if ($this->getRequest()->isPost()) {
+            $formData = $this->getRequest()->getPost();
+//            var_dump($this->getRequest()->getPost());
+            if ($form->isValid($formData)) {
+
+                $datum_xdodavky = $form->getValue('datum_xdodavky_d');
+                $zakaznik = $form->getValue('zakaznik_enum');
+                $prepravca = $form->getValue('prepravca_enum');
+                $prepravca_spz = $form->getValue('prepravca_spz');
+                $q_tony_merane = $form->getValue('q_tony_merane');
+                $q_m3_merane = $form->getValue('q_m3_merane');
+                $q_prm_merane = $form->getValue('q_prm_merane');
+                $q_vlhkost = $form->getValue('q_vlhkost');
+                $doklad_typ = $form->getValue('doklad_typ_enum');
+                $material_typ = $form->getValue('material_typ_enum');
+                $material_druh = $form->getValue('material_druh_enum');
+                $poznamka = $form->getValue('poznamka');
+                $chyba = $form->getValue('chyba');
+                $stav_transakcie = $form->getValue('stav_transakcie');
+                $code = str_replace('-', '', $datum_xdodavky);
+                $code = substr( $code, 2);
+                $doklad_cislo = 'ED'.$code.'-'.substr(uniqid(),6);
+
+                $dodavka = new Application_Model_DbTable_ExternaDodavka();
+
+                $dodavka->addXDodavka($datum_xdodavky,
+                    $zakaznik,
+                    $prepravca,
+                    $prepravca_spz,
+                    $q_tony_merane,
+                    $q_m3_merane,
+                    $q_prm_merane,
+                    $q_vlhkost,
+                    $doklad_typ,
+                    $material_typ,
+                    $material_druh,
+                    $poznamka,
+                    $chyba,
+                    $stav_transakcie,
+                    $doklad_cislo);
+
+                $this->_helper->redirector($fromAction);
+            } else {
+                $form->populate($formData);
+                //pageManager
+                //$_SESSION[pageManager][ignore] = 1;
+            }
+        }
+    }
+
+    public function editAction()
+    {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+        //instancia modelu z ktoreho budeme tahat zoznam
+
+        $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
+        $prepravciMoznosti = new Application_Model_DbTable_Prepravci();
+
+        $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
+        $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
+        $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+
+        //metoda ktorou vytiahneme do premennej zoznam
+
+        $zakazniciMoznosti = $zakazniciMoznosti->getMoznosti();
+        $prepravciMoznosti = $prepravciMoznosti->getMoznosti();
+        $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
+        $materialyTypyMoznosti = $materialyTypy->getMoznosti();
+        $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
+
+        //samostatne premenne ktore posielame na form
+        $potvrdzujuceTlacidlo = 'Upraviť';
+        $form = new Application_Form_Dodavka(array(
+            'zakazniciMoznosti' => $zakazniciMoznosti,
+            'prepravciMoznosti' => $prepravciMoznosti,
+            'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
+            'materialyTypyMoznosti' => $materialyTypyMoznosti,
+            'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
+            'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
+        ));
+        $this->view->form = $form;
+        if ($this->getRequest()->isPost()) {
+            $formData = $this->getRequest()->getPost();
+
+            if ($form->isValid($formData)) {
+//                $id = (int)$form->getValue('id');
+                $id = $this->_getParam('tx_dodavka_id', 0);
+                $datum_xdodavky = $form->getValue('datum_xdodavky_d');
+                $zakaznik = $form->getValue('zakaznik_enum');
+                $prepravca = $form->getValue('prepravca_enum');
+                $prepravca_spz = $form->getValue('prepravca_spz');
+                $q_tony_merane = $form->getValue('q_tony_merane');
+                $q_m3_merane = $form->getValue('q_m3_merane');
+                $q_prm_merane = $form->getValue('q_prm_merane');
+                $q_vlhkost = $form->getValue('q_vlhkost');
+                $material_typ = $form->getValue('material_typ_enum');
+                $material_druh = $form->getValue('material_druh_enum');
+
+                $poznamka = $form->getValue('poznamka');
+                $chyba = $form->getValue('chyba');
+                $stav_transakcie = $form->getValue('stav_transakcie');
+
+                $dodavka = new Application_Model_DbTable_ExternaDodavka();
+                $dodavka->editXDodavka(
+                    $id,
+                    $datum_xdodavky,
+                    $zakaznik,
+                    $prepravca,
+                    $prepravca_spz,
+                    $q_tony_merane,
+                    $q_m3_merane,
+                    $q_prm_merane,
+                    $q_vlhkost,
+                    $material_typ,
+                    $material_druh,
+                    $poznamka,
+                    $chyba,
+                    $stav_transakcie);
+
+//                print_r($id);
+                $this->_helper->redirector($fromAction);
+            } else {
+                $form->populate($formData);
+            }
+        } else {
+            $id = $this->_getParam('tx_dodavka_id', 0);
+
+            if ($id > 0) {
+                $dodavka = new Application_Model_DbTable_ExternaDodavka();
+                $form->populate($dodavka->getXDodavkaFormatted($id));
+                $this->view->data = $dodavka->getXDodavka($id);
+
+            }
+        }
+    }
+
+    public function previewAction()
+    {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+        //inicializacia pre vypis premennych - pre getNazov() metody
+
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $prepravciModel = new Application_Model_DbTable_Prepravci();
+        $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
+        $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
+        $ciselniky = array(
+            'zakazniciModel' => $zakazniciModel,
+            'prepravciModel' => $prepravciModel,
+            'materialyTypyModel' => $materialyTypyModel,
+            'materialyDruhyModel' => $materialyDruhyModel,
+            'transakcieStavyModel' => $transakcieStavyModel
+        );
+
+        $id = $this->_getParam('id');
+        $dodavky = new Application_Model_DbTable_ExternaDodavka();
+        $dodavka = $dodavky->getXDodavkaByDokladCislo($id);
+        $this->view->dodavka = $dodavka;
+        $this->view->ciselniky = $ciselniky;
+    }
+
+    public function deleteAction()
+    {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+        //inicializacia pre vypis premennych - pre getNazov() metody
+
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $prepravciModel = new Application_Model_DbTable_Prepravci();
+        $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
+        $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
+        $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
+        $ciselniky = array(
+
+            'zakazniciModel' => $zakazniciModel,
+            'prepravciModel' => $prepravciModel,
+            'materialyTypyModel' => $materialyTypyModel,
+            'materialyDruhyModel' => $materialyDruhyModel,
+            'transakcieStavyModel' => $transakcieStavyModel,
+            'strojeMoznosti' => $strojeModel
+        );
+        $this->view->ciselniky = $ciselniky;
+        $this->view->title = "Zmazať externú dodávku?";
+        if ($this->getRequest()->isPost()) {
+            $del = $this->getRequest()->getPost('del');
+            if ($del == 'Áno') {
+                $id = $this->getRequest()->getPost('tx_dodavka_id');
+                $dodavka = new Application_Model_DbTable_ExternaDodavka();
+                $dodavka->deleteXDodavka($id);
+            }
+            $this->_helper->redirector($fromAction);
+
+
+        } else {
+            $id = $this->_getParam('tx_dodavka_id', 0);
+            $dodavka = new Application_Model_DbTable_ExternaDodavka();
+            $this->view->dodavka = $dodavka->getXDodavka($id);
+
+        }
+    }
+
+    public function printAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -115,12 +115,22 @@
           <actionMethod actionName="list"/>
           <actionMethod actionName="waitings"/>
           <actionMethod actionName="errors"/>
+          <actionMethod actionName="add"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="preview"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="print"/>
         </controllerFile>
         <controllerFile controllerName="ExternaVyroba">
           <actionMethod actionName="index"/>
           <actionMethod actionName="list"/>
           <actionMethod actionName="errors"/>
           <actionMethod actionName="waitings"/>
+          <actionMethod actionName="print"/>
+          <actionMethod actionName="add"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="preview"/>
         </controllerFile>
         <controllerFile controllerName="Objednavky">
           <actionMethod actionName="index"/>
@@ -129,7 +139,6 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="preview"/>
-          <actionMethod actionName="calendar"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -558,8 +567,35 @@
           <viewControllerScriptsDirectory forControllerName="Objednavky">
             <viewScriptFile forActionName="preview"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Objednavky">
-            <viewScriptFile forActionName="calendar"/>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="preview"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaDodavka">
+            <viewScriptFile forActionName="print"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="print"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ExternaVyroba">
+            <viewScriptFile forActionName="preview"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

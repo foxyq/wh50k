@@ -108,7 +108,7 @@ li.message-footer {
 }
 
 ul.alert-dropdown {
-    width: 200px;
+    width: 250px;
 }
 
 /* Side Navigation */
@@ -310,16 +310,19 @@ th.col-tony-nadrozmer{
     min-width: 85px;
 }
 .schvalene, .caka, .zrusene {
-    background: url('../images/icons.png') no-repeat;
+    background: url('../images/iconss.png') no-repeat;
     margin: 4px auto 0px auto;
-    width: 25px;
-    height: 25px;
+    /*width: 25px;*/
+    width: 15px;
+    height: 15px;
 }
 .schvalene{
-    background-position:  -65px 0;
+    /*background-position:  -65px 0;*/
+    background-position:  -40px 0;
 }
 .caka{
-    background-position:  -33px 0;
+    /*background-position:  -33px 0;*/
+    background-position:  -20px 0;
 }
 .zrusene{
     background-position: 0px 0px;
@@ -355,6 +358,14 @@ td.center img{
 }
 .btn-first {
     margin-right: 25px;
+}
+.overflow,
+#morris-bar-chart svg {
+    overflow: visible !important;
+}
+#fancy_table i {
+    color: #333;
+    font-size: 20px;
 }
 
 #page {

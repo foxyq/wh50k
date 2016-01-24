@@ -94,6 +94,7 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
 
 
         );
+//        var_dump($data);
         $this->insert($data);
     }
 
@@ -108,7 +109,6 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
                              $q_m3_merane,
                              $q_prm_merane,
                              $q_vlhkost,
-                             $doklad_typ,
                              $material_typ,
                              $material_druh,
                              $poznamka,
@@ -119,7 +119,7 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
         $identity = (int) $identity['id'];
 
         $data = array(
-            'datum_xvyroby_d' => $datum_xdodavky,
+            'datum_xdodavky_d' => $datum_xdodavky,
             'zakaznik_enum' => $zakaznik,
             'prepravca_enum' => $prepravca,
             'prepravca_spz' => $prepravca_spz,
@@ -127,14 +127,11 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
             'q_m3_merane' => $q_m3_merane,
             'q_prm_merane' => $q_prm_merane,
             'q_vlhkost' => $q_vlhkost,
-            'doklad_typ_enum' => $doklad_typ,
             'material_typ_enum' => $material_typ,
             'material_druh_enum' => $material_druh,
             'poznamka' => $poznamka,
             'chyba' => $chyba,
             'stav_transakcie' => $stav_transakcie,
-
-            'vytvoril_u' => self::getAutor($id),
             'posledna_uprava_u' => $identity
 
         );

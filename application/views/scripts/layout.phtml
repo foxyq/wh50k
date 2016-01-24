@@ -129,9 +129,8 @@ echo $this->doctype(); ?>
                     <?php
 
                     $notifikacie     = new Application_Model_Notifikacie();
-
-
                     $notif_info = $notifikacie->getStatusArray();
+
 
                     $count_notif = $notif_info['total'];
                     $prijmy_w = $notif_info['prijmy_waitings'];
@@ -139,6 +138,10 @@ echo $this->doctype(); ?>
                     $vydaje_w = $notif_info['vydaje_waitings'];
                     $vydaje_e = $notif_info['vydaje_errors'];
                     $ubytky_ch = $notif_info['ubytky_chyba'];
+                    $ex_dod_w = $notif_info['externe_dodavky_waitings'];
+                    $ex_dod_e = $notif_info['externe_dodavky_errors'];
+                    $ex_vyr_w = $notif_info['externe_vyroby_waitings'];
+                    $ex_vyr_e = $notif_info['externe_vyroby_errors'];
 
                     ?>
 
@@ -146,7 +149,7 @@ echo $this->doctype(); ?>
 
                         <?php if ($count_notif > 0)
 
-                        echo '<span id="notif-number">'.$count_notif .'</span>';
+                        echo '<span id="notif-number">'.$count_notif .' </span>';
 
                         ?>
 
@@ -178,7 +181,7 @@ echo $this->doctype(); ?>
                         </li>
                     <?php }
 
-                    if ($count_notif > 0) {
+                    if ($prijmy_w + $prijmy_e > 0) {
                     ?>
                         <li class="divider"></li>
 
@@ -208,9 +211,69 @@ echo $this->doctype(); ?>
 
                         <?php }
 
-                    if ($ubytky_ch > 0 ) {
+                    if ($vydaje_e + $vydaje_w > 0) {
+
+                        echo '<li class="divider"></li>';
+
+                    } ?>
+
+                        <?php if ($ex_dod_w > 0) { ?>
+                            <li>
+                                <a href="<?php echo $this->url(array(
+                                    'controller' => 'externaDodavka',
+                                    'action' => 'waitings'
+                                ), null, true) ?>">  <span class="label label-warning tleft">Čakajúcich externých dodávok</span> <span class="notif_count right"> <?php echo $ex_dod_w; ?></span> </a>
+                            </li>
+
+                        <?php }
+
+                        if ($ex_dod_e > 0) { ?>
+                            <li>
+                                <a href="<?php echo $this->url(array(
+                                    'controller' => 'externaDodavka',
+                                    'action' => 'errors'
+                                ), null, true) ?>">  <span class="label label-danger tleft">Chybných externých dodávok</span> <span class="notif_count right"> <?php echo $ex_dod_e; ?> </span></a>
+                            </li>
+                        <?php }
+
+                        if ($ex_dod_e + $ex_dod_w > 0) {
+                            ?>
+                            <li class="divider"></li>
+
+                        <?php }
+
+                        if ($ex_vyr_w >0) {
+                            ?>
+
+                            <li>
+                                <a href="<?php echo $this->url(array(
+                                    'controller' => 'externaVyroba',
+                                    'action' => 'waitings'
+                                ), null, true) ?>"> <span class="label label-warning tleft">Čakajúcej externej výroby</span> <span class="notif_count right"> <?php echo $ex_vyr_w; ?> </span> </a>
+                            </li>
+
+                        <?php }
+
+                        if ($ex_vyr_e > 0 ) {
+                            ?>
+
+                            <li>
+                                <a href="<?php echo $this->url(array(
+                                    'controller' => 'externaVyroba',
+                                    'action' => 'errors'
+                                ), null, true) ?>"> <span class="label label-danger tleft">Chybnej externej výroby</span> <span class="notif_count right"> <?php echo $ex_vyr_e; ?> </span>  </a>
+                            </li>
+
+                        <?php }
+
+                        if ($ex_vyr_e + $ex_vyr_w> 0) {
+
+                            echo '<li class="divider"></li>';
+
+                        } ?>
+
+                    <?php if ($ubytky_ch > 0 ) {
                         ?>
-                        <li class="divider"></li>
                         <li>
                             <a href="<?php echo $this->url(array(
                                 'controller' => 'ubytky',
@@ -222,15 +285,7 @@ echo $this->doctype(); ?>
 
                     if ($count_notif >0) {
                         ?>
-<!--                        <li>-->
-<!--                            <a href="#"> &nbsp;  <span class="label label-primary">taketo mame este farby</span></a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a href="#"> &nbsp; <span class="label label-success">alebo taketo</span></a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a href="#"><span class="label label-info">666 </span> &nbsp;  aj takto sa da </a>-->
-<!--                        </li>-->
+
                         <li class="divider"></li>
 
                         <li>
@@ -390,7 +445,7 @@ echo $this->doctype(); ?>
 
 
                           <h1><?php echo $this->escape($this->title); ?></h1>
-                            <?php echo $this->layout()->content; ?>
+                        <?php echo $this->layout()->content; ?>
 
                     </div>
                 </div>
