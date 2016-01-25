@@ -95,7 +95,8 @@ class IndexController extends Zend_Controller_Action
         $this->view->xvyrobyModel = $xvyrobyModel;
         $this->view->xdodavkyModel = $xdodavkyModel;
 
-        $this->view->title = "Nástenka";
+//        $this->view->title = "Nástenka";
+        $this->view->title = "";
 
 
 

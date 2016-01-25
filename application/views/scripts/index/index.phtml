@@ -1,5 +1,8 @@
 <?php
-$this->headTitle($this->title);
+//$this->headTitle($this->title);
+
+$this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
+$this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 //definicia farieb skladov - farby sa opakuju v slucke ale ak chces viac roznych treba definovat v css a potom sem nahodit string do pola - automaticky sa to strieba v poradi
 $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow', '5' => 'purple', '6' => 'aqua');
 //print_r($this->vyvojStavuSkladov);
@@ -45,6 +48,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 </script>
 
 <!--SKLADY-->
+<h2><i class="fa fa-bank"></i> Stav skladov</h2><br>
 <div class="row">
 
                     <?php
@@ -114,9 +118,9 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                             </div>
                             <div class="panel-body" style="margin-left: 15px; margin-right: 15px;">
 
-                                    <div class="row">
+                                <div class="row">
 
-                                    </div>
+                                </div>
 
                                     <div class="row " >
                                         <table class="center table-hover" style="border-style: none; width: 100%">
@@ -128,58 +132,36 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                             </tr>
                                             <tr>
                                                 <td class="tleft">Deň</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['total'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['total'], 0, ',', ' ');?></td>
                                             </tr>
                                             <tr>
                                                 <td class="tleft">Týždeň</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 0, ',', ' ');?></td>
                                             </tr>
                                              <tr>
                                                 <td class="tleft">Mesiac</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 0, ',', ' ');?></td>
                                             </tr>
                                         </table>
 
                                   </div>
-                                <div id="hidden_field<?php echo $counter;?>">
-                                        <div class="row">
-                                                <hr>
-                                        </div>
-
-                                    <div class="row">
-
-                                        <div id="morris-area-chart-<?php echo $counter ?>"></div>
-
-                                    </div>
-                                </div>
-
-
-
-
-
 
                             </div>
                             <div class="panel-heading center">
-
-                                <button id="button-<?php echo $counter;?>" class="btn btn-default" type="button">
-                                    <i class="fa fa-bars"></i>
-                                </button>
-
-                                <script>
-
-                                    $("#button-<?php echo $counter;?>").click( function() {
-
-                                        $("#hidden_field<?php echo $counter;?>").fadeToggle("slide");
-                                        $("#hidden_field<?php echo $counter;?>").removeClass("hidden");
-                                    });
-
-                                </script>
+                                <div class="row">
+                                    <div class="col-xs-12 text-right">
+                                            <span class="white">
+                                                <a href="<?php echo $this->url(array('controller'=>'Ubytky',
+                                                    'action'=>'list', "fromAction"=>"index", "fromController"=>"index"));?>" class="right" >Detail <i class="fa fa-arrow-circle-right"></i></a>
+                                            </span>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -187,18 +169,14 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                     <?php
                     $counter++;
                     endforeach; ?>
-<!-- GRAFY DATA LOAD ... -->
 
+    <!-- GRAFY DATA LOAD ... -->
     <?php foreach ($skladyIds AS $skladId) : ?>
 
         <?php
-
         $dataSkladu = new Application_Model_DbTable_UbytkyHmotnosti();
         $dataSkladu = $dataSkladu->getLastXValues( $skladId, 5);
-
-//        print_r($dataSkladu);
         ?>
-
 
         <script>
         // Area Chart
@@ -230,14 +208,14 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
     </script>
 
-<!--    --><?php //echo json_encode($dataSkladu);
-//     print_r ($dataSkladu);
-
-    endforeach ?>
+<?php endforeach ?>
 
 
     </div>
 
+<!--<hr>-->
+
+<h2><i class="fa fa-money"></i> Objednávky</h2><br>
 <!--OBJEDNAVKY-->
 <div id=".col-lg-12"  class="table-responsive">
 <table id="fancy_table"  class="table table-striped table-hover">
@@ -245,10 +223,11 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
     <thead>
     <tr class="tableizer-firsrow">
-    <!--<th>ID</th>-->
+
         <th>Detail</th>
         <th>Zákazník</th>
-        <th>Obdobie</th>
+        <th>Rok</th>
+        <th>Mesiac</th>
         <th>Plnenie</th>
         <th>Objednané</th>
         <th>Dodané</th>
@@ -262,7 +241,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
     <!--<th></th>-->
         <th></th>
         <th>Zákazník</th>
-        <th>Obdobie</th>
+        <th>Rok</th>
+        <th>Mesiac</th>
         <th>Plnenie</th>
         <th>Objednané</th>
         <th>Dodané</th>
@@ -302,7 +282,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
             ?>
 
             <td><?php echo $this->escape($this->zakazniciModel->getNazov($objednavka->zakaznik_enum));?></td>
-            <td><?php echo $this->escape($this->rokyModel->getNazov($objednavka->rok_enum).".".$this->mesiaceModel->getNazov($objednavka->mesiac_enum));?></td>
+            <td><?php echo $this->escape($this->rokyModel->getNazov($objednavka->rok_enum)); ?> </td>
+            <td><?php echo $this->mesiaceModel->getNazov($objednavka->mesiac_enum);?></td>
             <td class="<?php echo $farbaClass?>"
                 ><?php echo number_format(($dodane/$objednavka->mnozstvo)*100, 2, ",", " ")." %" ;?></td>
             <td><?php echo number_format($this->escape($objednavka->mnozstvo), 2, ",", " ");?></td>

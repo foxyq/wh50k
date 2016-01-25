@@ -354,6 +354,11 @@ color: green;
 .center{
     text-align: center;
 }
+.white,
+.white a,
+.white a:hover{
+    color: #ffffff;
+}
 td.center img{
     float: none;
 }
