@@ -9,3 +9,22 @@
         <li>alebo niečo úplne iné</li>
     </ul>
 </div>
+
+<?php
+$mailTransport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', array(
+    'auth'     => 'login',
+    'username' => 'foxyzv@gmail.com',
+    'password' => '64018628',
+    'port'     => '587',
+    'ssl'      => 'tls',
+));
+Zend_Mail::setDefaultTransport($mailTransport);
+
+$mail = new Zend_Mail();
+$mail->setFrom('foxyzv@gmail.com');
+$mail->setBodyHtml('some message - it may be html formatted text');
+$mail->addTo('foxyzv@gmail.com', 'recipient');
+$mail->setSubject('subject');
+$mail->send();
+
+?>

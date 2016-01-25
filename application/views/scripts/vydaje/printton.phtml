@@ -50,20 +50,18 @@ try {
     $netto = $this->vydaj['q_tony_merane'];
 
     //  do tej page, ktoru som si vyssie vybral, vpisujem moje stringy na x,y, poziciu
-    $page->setFont($font, 9)
-        ->drawText( strval($cislo_listku) , 450, 747)
-        ->drawText($spz, 400, 707)
-        ->drawText($dodavatel, 400, 685)
-        ->drawText($dodavatel, 410, 490)
-        ->drawText($datum, 200, 585)
-        ->drawText($cas, 200, 571)
-        ->drawText($druh, 200, 556)
-        ->drawText($sklad, 200, 530);
+    $meno = $this->escape($this->uzivatelia->getMeno($this->escape($this->vydaj['vytvoril_u'])));
 
-//    $page->setFont($font, 12)
-//        ->drawText( $brutto , 200, 514)
-//        ->drawText( $tara , 345, 514)
-//        ->drawText( $netto , 460, 514);
+    $page->setFont($font, 9)
+        ->drawText( strval($cislo_listku) , 450, 774)
+        ->drawText($spz, 400, 670)
+        ->drawText($dodavatel, 400, 693)
+        ->drawText($dodavatel, 410, 509)
+        ->drawText($datum, 200, 598)
+        ->drawText($cas, 200, 582)
+        ->drawText($druh, 390, 598)
+        ->drawText($meno, 390,583)
+        ->drawText($sklad, 200, 567);
 
     // viem tu premennu $pdf pridat ako novu stranu (append) ale to teraz nie
     // $pdf->pages[] = $page;

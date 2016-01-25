@@ -137,7 +137,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
             <th>assss</th>
                     <th>material typ</th>
-            <th></th>
+
 
 <!--                    <th>úpravy</th>-->
         </tr>
@@ -211,25 +211,16 @@ $vydaje_e = $notif_info['vydaje_errors'];
 //                ?><!--</td>-->
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                'action'=>'delete', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'list'));?>">
-                   <i class="fa fa-trash-o"></i>
-                </a>
+                'action'=>'delete', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'fromAction' => 'list'));?>"><i class="fa fa-trash-o"></i></a>
 
                 <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-                'action'=>'edit', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id,  'fromAction' => 'list'));?>">
-            <i class="fa fa-pencil-square-o"></i></a>
-<!--                <a href="--><?php //echo $this->url(array('controller'=>'Vydaje',
-//                'action'=>'print', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'cislo_listku'=>$vydaj->doklad_cislo,
-//                'spz'=>$vydaj->prepravca_spz));?><!--" target="_blank" >-->
-<!---->
-<!--                     --><?php //echo '<img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">'; ?>
-<!---->
-<!--                </a>-->
-
+                'action'=>'edit', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id,  'fromAction' => 'list'));?>"><i class="fa fa-pencil-square-o"></i></a>
 
                 <?php
-            $skladID = $vydaj->sklad_enum;
-            $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
+//            $skladID = $vydaj->sklad_enum;
+//            $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
+            $zak_id = $vydaj->zakaznik_enum;
+            $merna_jednotka = $this->zakaznici->getMernaJednotka($zak_id);
             ?>
 
 

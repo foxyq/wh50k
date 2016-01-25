@@ -133,7 +133,7 @@ class PrijmyController extends Zend_Controller_Action
             } else {
                 $form->populate($formData);
                 //pageManager
-                $_SESSION[pageManager][ignore] = 1;
+//                $_SESSION[pageManager][ignore] = 1;
             }
         }
     }
@@ -353,7 +353,7 @@ class PrijmyController extends Zend_Controller_Action
         $this->view->materialyDruhy = $materialyDruhy;
         $this->view->transakcieStavy = $transakcieStavy;
         //názov stránky
-        $this->view->title = "Príjmy - čaká na schválenie";
+        $this->view->title ='Príjmy - čaká na schválenie';
     }
     public function errorsAction()
     {

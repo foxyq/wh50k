@@ -22,7 +22,6 @@ try {
 //    $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
     $font = Zend_Pdf_Font::fontWithPath('../public/fonts/arial.ttf');
 
-
     //get parametre na tlac z URL
 
     $id = $this->escape($this->vydaj['ts_vydaje_id']);
@@ -42,15 +41,15 @@ try {
 
     //  do tej page, ktoru som si vyssie vybral, vpisujem moje stringy na x,y, poziciu
     $page->setFont($font, 9)
-        ->drawText( strval($cislo_listku) , 450, 774)
-        ->drawText($spz, 400, 670)
-        ->drawText($dodavatel, 400, 693)
-        ->drawText($dodavatel, 415, 509)
-        ->drawText($sklad, 200,567)
-        ->drawText($meno, 390,583)
-        ->drawText($datum, 200, 598)
-        ->drawText($cas, 200, 582)
-        ->drawText($druh, 390, 598);
+        ->drawText( strval($cislo_listku) , 455, 747)
+        ->drawText($spz, 400, 707)
+        ->drawText($dodavatel, 400, 685)
+        ->drawText($dodavatel, 420, 480)
+        ->drawText($sklad, 200,533)
+        ->drawText($meno, 385,534)
+        ->drawText($datum, 200, 585)
+        ->drawText($cas, 200, 571)
+        ->drawText($druh, 200, 556);
 
 //    $page->setFont($font, 12)
 //        ->drawText( $m3 , 355, 582);

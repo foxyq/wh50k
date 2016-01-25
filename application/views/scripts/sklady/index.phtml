@@ -8,12 +8,10 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 <script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
 <script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
 
+<h1>Sklady - aktuálny stav</h1>
 
 <div class="row">
-
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h2>Sklady - aktuálny stav</h2>
-
 
                         <a href="<?php echo $this->url(array('controller'=>'ubytky',
                             'action'=>'refreshdataexternal', 'fromAction'=>'index', 'fromController'=>'sklady'));?>"><button type="button" class="btn btn-success">Aktualizovať data</button></a>
@@ -129,21 +127,21 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                             </tr>
                                             <tr>
                                                 <td class="tleft">Deň</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['total'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['total'], 0, ',', ' ');?></td>
                                             </tr>
                                             <tr>
                                                 <td class="tleft">Týždeň</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 0, ',', ' ');?></td>
                                             </tr>
                                              <tr>
                                                 <td class="tleft">Mesiac</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 2, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 2, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 0, ',', ' ');?></td>
+                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 0, ',', ' ');?></td>
                                             </tr>
                                         </table>
 

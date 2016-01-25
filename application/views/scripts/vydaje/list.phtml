@@ -10,7 +10,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
         $('#fancy_table').DataTable( {
             "order": [[ 1, "desc" ]],
             columnDefs: [
-                { "sType": "title-string", "aTargets": [ 8 ]  }
+                { "sType": "string", "aTargets": [ 9 ]  }
 //                    { "sType": "alt-string", "aTargets" : 11 }
             ],
             initComplete: function () {
@@ -94,7 +94,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <th>Detail</th>
             <th>Dátum</th>
             <!--              <th>doklad číslo</th>-->
-            <th>sklad</th>
+            <th>Sklad</th>
             <th class="col-podsklad">Podsklad</th>
             <th>Zákazník</th>
             <th>Prepravca</th>
@@ -137,7 +137,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
             <th>assss</th>
                     <th>material typ</th>
-            <th></th>
+
 
 <!--                    <th>úpravy</th>-->
         </tr>
@@ -230,8 +230,10 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
 
                 <?php
-            $skladID = $vydaj->sklad_enum;
-            $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
+//            $skladID = $vydaj->sklad_enum;
+//            $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
+            $zak_id = $vydaj->zakaznik_enum;
+            $merna_jednotka = $this->zakaznici->getMernaJednotka($zak_id);
             ?>
 
 

@@ -10,8 +10,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
         $('#fancy_table').DataTable( {
             "order": [[ 1, "desc" ]],
             columnDefs: [
-                { "sType": "title-string", "aTargets": [ 8 ]  }
-//                    { "sType": "alt-string", "aTargets" : 11 }
+                { "sType": "numeric", "aTargets": [ 10 ]  }
             ],
             initComplete: function () {
                 var api = this.api();
@@ -132,7 +131,7 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
 
             <th>assss</th>
                     <th>materiál</th>
-            <th></th>
+
 
 <!--                    <th>úpravy</th>-->
         </tr>
