@@ -14,7 +14,7 @@
         ?>
             <div class="row">
                 <fieldset>
-                    <legend>Zákazník</legend>
+                    <legend><i class="fa fa-user"></i> Zákazník</legend>
 
                     <div class="col-lg-6">
                         názov:
@@ -25,7 +25,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Obdobie</legend>
+                    <legend><i class="fa fa-calendar-o"></i> Obdobie</legend>
 
                     <div class="col-lg-6">
                         rok:
@@ -42,7 +42,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Kvantita</legend>
+                    <legend><i class="fa fa-cubes"></i> Kvantita</legend>
 
                     <div class="col-lg-6">
                         objednané množstvo:
@@ -55,7 +55,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Plnenie</legend>
+                    <legend><i class="fa fa-truck"></i> Plnenie</legend>
                     <?php
                         $vydaje = $this->vydajeModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
                         $xvyroby = $this->xvyrobyModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
@@ -91,7 +91,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Na dodanie</legend>
+                    <legend><i class="fa fa-mail-forward"></i> Na dodanie</legend>
 
                     <div class="col-lg-6">
                         zostáva:
@@ -110,6 +110,14 @@
                     </div>
                 </div>
             <br>
+
+            <div class="col-lg-6 tleft">
+                    <a href="<?php echo $this->url(array(
+                        'controller' => 'objednavky',
+                        'action' => 'edit',
+                        'id' => $this->objednavkaId
+                    ), null, true) ?>"  type="button" class="btn btn-info">Upraviť</a>
+                </div>
 
             <div class="col-lg-6 right">
                     <a href="<?php echo $this->url(array(

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="Objednavky - detail transakcii&#10;Transakcie - spat tlacidlo system">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/IndexController.php" afterPath="$PROJECT_DIR$/application/controllers/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/index/index.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/layout.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
+    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -30,79 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="layout.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/layout.phtml">
+      <file leaf-file-name="preview.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-139.26923" vertical-offset="2091" max-vertical-offset="8347">
-              <caret line="339" column="0" selection-start-line="339" selection-start-column="0" selection-end-line="339" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.884615" vertical-offset="1071" max-vertical-offset="3604">
-              <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#IndexController#0;n#!!top" expanded="true" />
-                <element signature="n#previewAction#0;n#IndexController#0;n#!!top" expanded="true" />
-                <element signature="n#hashAction#0;n#IndexController#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObjednavkyController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/ObjednavkyController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1666">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="n#indexAction#0;n#ObjednavkyController#0;n#!!top" expanded="true" />
-                <element signature="n#listAction#0;n#ObjednavkyController#0;n#!!top" expanded="true" />
-                <element signature="n#previewAction#0;n#ObjednavkyController#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/objednavky/list.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.192308" vertical-offset="184" max-vertical-offset="1105">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="135" selection-end-column="6" />
-              <folding>
-                <element signature="n#table#0;n#div#1;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1444082" vertical-offset="2754" max-vertical-offset="5151">
-              <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
-              <folding>
-                <element signature="n#script#2;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1453724849844" expanded="true" signature="14397:14436" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/index.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.769231" vertical-offset="1990" max-vertical-offset="4216">
-              <caret line="132" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.18458198" vertical-offset="1326" max-vertical-offset="3417">
+              <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -205,7 +135,6 @@
         <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/preview.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-vyroba/preview.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/preview.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml" />
         <option value="$PROJECT_DIR$/application/controllers/ObjednavkyController.php" />
         <option value="$PROJECT_DIR$/application/models/DbTable/ExternaDodavka.php" />
         <option value="$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php" />
@@ -213,6 +142,7 @@
         <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml" />
       </list>
     </option>
   </component>
@@ -1137,7 +1067,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453664717213</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Dashboard v1">
+      <created>1453724918417</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1453724918417</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1202,7 +1138,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="prijmy/add Jquery vymakute" />
     <MESSAGE value="prijmy - vydaje komplet UI, funkcnost" />
     <MESSAGE value="jedno s druhym vsetko vporiadku" />
     <MESSAGE value="sklady grafy funkcne + formatting" />
@@ -1227,7 +1162,8 @@
     <MESSAGE value="Modul objednavky a ostatne zmeny v systeme" />
     <MESSAGE value="Objednavky - notifikacie, varovanie - okno" />
     <MESSAGE value="Objednavky - detail transakcii&#10;Transakcie - spat tlacidlo system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Objednavky - detail transakcii&#10;Transakcie - spat tlacidlo system" />
+    <MESSAGE value="Dashboard v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard v1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1551,14 +1487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.461538" vertical-offset="1901" max-vertical-offset="3281">
-          <caret line="137" column="46" selection-start-line="137" selection-start-column="46" selection-end-line="137" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/MerneJednotky.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
@@ -1660,18 +1588,10 @@
         <state vertical-scroll-proportion="-22.884615" vertical-offset="1071" max-vertical-offset="3604">
           <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
-            <element signature="n#init#0;n#IndexController#0;n#!!top" expanded="true" />
-            <element signature="n#previewAction#0;n#IndexController#0;n#!!top" expanded="true" />
-            <element signature="n#hashAction#0;n#IndexController#0;n#!!top" expanded="true" />
+            <element signature="n#init#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#previewAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#hashAction#0;n#IndexController#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.769231" vertical-offset="1990" max-vertical-offset="4216">
-          <caret line="132" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1705,19 +1625,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27578717" vertical-offset="1990" max-vertical-offset="4216">
+          <caret line="132" column="35" selection-start-line="0" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1444082" vertical-offset="2754" max-vertical-offset="5151">
-          <caret line="132" column="22" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
-          <folding>
-            <element signature="n#script#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1453724849844" expanded="true" signature="14397:14436" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.38762215" vertical-offset="799" max-vertical-offset="5695">
+          <caret line="68" column="73" selection-start-line="68" selection-start-column="73" selection-end-line="68" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18458198" vertical-offset="1326" max-vertical-offset="3417">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
