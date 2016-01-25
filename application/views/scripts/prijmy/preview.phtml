@@ -1,27 +1,27 @@
 <h2 xmlns="http://www.w3.org/1999/html">Príjmy - detail</h2>
 <!--<hr>-->
 <div class="col-lg-5">
-    <div class="panel panel-info">
+    <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Detail transakcie <?php echo $this->prijem['doklad_cislo'];?></h3>
+            <h3 class="panel-title"><i class="fa fa-plus-square"></i> Detail príjmu <?php echo $this->prijem['doklad_cislo'];?></h3>
         </div>
         <div class="panel-body">
 
 
             <div class="row">
                 <fieldset>
-                    <legend>Dátum príjmu</legend>
+                    <legend><i class="fa fa-calendar"></i> Dátum príjmu</legend>
 
                     <div class="col-lg-6">
                         Dátum:
-                        <?php echo $this->prijem['datum_prijmu_d']; // render the user name field here ?>
+                        <?php echo date("d.m.Y", strtotime($this->prijem['datum_prijmu_d']));?>
                     </div>
                 </fieldset>
             </div>
 
             <div class="row">
                 <fieldset>
-                    <legend>Sklady</legend>
+                    <legend><i class="fa fa-bank"></i> Sklad</legend>
                     <div class="col-lg-6">
                         Sklad:
                         <?php echo $this->ciselniky['skladyModel']->getNazov($this->prijem['sklad_enum']); // render the user name field here ?>
@@ -36,7 +36,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Dodanie</legend>
+                    <legend><i class="fa fa-truck"></i> Dodanie</legend>
                     <div class="col-lg-6">
                         Dodávateľ:
                         <?php echo $this->ciselniky['dodavateliaModel']->getNazov($this->prijem['dodavatel_enum']); // render the user name field here ?>
@@ -58,7 +58,7 @@
             <!---->
             <div class="row">
                 <fieldset>
-                    <legend>Váha</legend>
+                    <legend><i class="fa fa-database"></i> Váha</legend>
                     <div class="col-lg-6">
                         Netto:
                         <?php echo number_format($this->prijem['q_tony_merane'], 2, ",", " ").'t'; // render the user name field here ?>
@@ -97,7 +97,7 @@
             </div>
             <div class="row">
                 <fieldset>
-                    <legend>Priestor</legend>
+                    <legend><i class="fa fa-cubes"></i> Priestor</legend>
                     <div class="col-lg-6">
                     PRM:
                     <?php echo number_format($this->prijem['q_prm_merane'], 2, ",", " ").' PRM'; // render the user name field here ?>
@@ -116,7 +116,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Materiál</legend>
+                    <legend><i class="fa fa-tree"></i> Materiál</legend>
                     <div class="col-lg-6">
                         Typ:
                         <?php echo $this->ciselniky['materialyTypyModel']->getNazov($this->prijem['material_typ_enum']); // render the user name field here ?>
@@ -131,7 +131,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Doplňujúce informácie</legend>
+                    <legend><i class="fa fa-info-circle"></i> Doplňujúce informácie</legend>
                     <div class="col-lg-6">
                         Stav:
                         <?php echo $this->ciselniky['transakcieStavyModel']->getNazov($this->prijem['stav_transakcie']); // render the user name field here ?>
@@ -142,6 +142,7 @@
                         else echo 'nie'; // render the user name field here ?>
                     </div>
             </div>
+            <br>
 
             <div class="row">
 

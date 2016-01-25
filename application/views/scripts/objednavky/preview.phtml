@@ -17,7 +17,7 @@
                     <legend><i class="fa fa-user"></i> Zákazník</legend>
 
                     <div class="col-lg-6">
-                        názov:
+                        Názov:
                         <?php echo $this->zakazniciModel->getNazov($objednavka['zakaznik_enum']);?>
                     </div>
                 </fieldset>
@@ -28,12 +28,12 @@
                     <legend><i class="fa fa-calendar-o"></i> Obdobie</legend>
 
                     <div class="col-lg-6">
-                        rok:
+                        Rok:
                         <?php echo $this->rokyModel->getNazov($objednavka['rok_enum']);?>
                     </div>
 
                     <div class="col-lg-6">
-                        mesiac:
+                        Mesiac:
                         <?php echo $this->mesiaceModel->getNazov($objednavka['mesiac_enum']);?>
                     </div>
 
@@ -44,8 +44,8 @@
                 <fieldset>
                     <legend><i class="fa fa-cubes"></i> Kvantita</legend>
 
-                    <div class="col-lg-6">
-                        objednané množstvo:
+                    <div class="col-lg-12">
+                        Objednané množstvo:
                         <?php echo number_format($objednavka['mnozstvo'], 2, ",", " ");?>
                         <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
                     </div>
@@ -69,14 +69,22 @@
 
                     ?>
                     <div class="col-lg-6">
-                        vlastné:
+                        Vlastné:
                         <?php echo number_format($vydaje , 2, ",", " ");?>
                         <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
                     </div>
 
+                    <br><br>
+
                     <div class="col-lg-6">
-                        externé:
-                        <?php echo number_format($xvyroby + $xdodavky, 2, ",", " ");?>
+                        Ext. dodávka:
+                        <?php echo number_format($xdodavky, 2, ",", " ");?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                    </div>
+
+                    <div class="col-lg-6">
+                        Ext. výroba:
+                        <?php echo number_format($xvyroby, 2, ",", " ");?>
                         <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
                     </div>
 

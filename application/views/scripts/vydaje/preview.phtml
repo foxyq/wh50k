@@ -1,26 +1,26 @@
 <h2 >Výdaje - detail</h2>
 <!--<hr>-->
 <div class="col-lg-5">
-    <div class="panel panel-info">
+    <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Detail transakcie  <?php echo $this->vydaj['doklad_cislo'];?></h3>
+            <h3 class="panel-title"><i class="fa fa-minus-square"></i> Detail výdaju  <?php echo $this->vydaj['doklad_cislo'];?></h3>
         </div>
         <div class="panel-body">
 
             <div class="row">
                 <fieldset>
-                    <legend>Dátum výdaju</legend>
+                    <legend><i class="fa fa-calendar"></i> Dátum výdaju</legend>
 
                     <div class="col-lg-6">
                         Dátum:
-                        <?php echo $this->vydaj['datum_vydaju_d']; // render the user name field here ?>
+                        <?php echo date("d.m.Y", strtotime($this->vydaj['datum_vydaju_d'])); // render the user name field here ?>
                     </div>
                 </fieldset>
             </div>
 
             <div class="row">
                 <fieldset>
-                    <legend>Sklady</legend>
+                    <legend><i class="fa fa-bank"></i> Sklady</legend>
                     <div class="col-lg-6">
                         Sklad:
 
@@ -37,7 +37,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Dodanie</legend>
+                    <legend><i class="fa fa-truck"></i> Dodanie</legend>
                     <div class="col-lg-6">
                         Zákazník:
                         <?php echo $this->ciselniky['zakazniciModel']->getNazov($this->vydaj['zakaznik_enum']); // render the user name field here ?>
@@ -59,7 +59,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Množstvo</legend>
+                    <legend><i class="fa fa-cubes"></i> Množstvo</legend>
                     <div class="col-lg-6">
                             Váha:
                         <?php echo number_format($this->vydaj['q_tony_merane'], 2, ",", " ").' t'; // render the user name field here ?>
@@ -89,7 +89,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Materiál</legend>
+                    <legend><i class="fa fa-tree"></i> Materiál</legend>
                     <div class="col-lg-6">
                         Typ:
                         <?php echo $this->ciselniky['materialyTypyModel']->getNazov($this->vydaj['material_typ_enum']); // render the user name field here ?>
@@ -110,7 +110,7 @@
 
             <div class="row">
                 <fieldset>
-                    <legend>Doplňujúce informácie</legend>
+                    <legend><i class="fa fa-info-circle"></i> Doplňujúce informácie</legend>
                     <div class="col-lg-6">
                         Stav:
                         <?php echo $this->ciselniky['transakcieStavyModel']->getNazov($this->vydaj['stav_transakcie']); // render the user name field here ?>
@@ -121,7 +121,7 @@
                         else echo 'nie'; // render the user name field here ?>
                     </div>
             </div>
-
+            <br>
             <div class="row">
 
                 <div class="col-lg-12">
