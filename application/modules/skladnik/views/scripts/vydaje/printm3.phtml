@@ -33,7 +33,7 @@ try {
     $dodavatel = $this->escape($this->zakaznici->getNazov($this->vydaj['zakaznik_enum']));
 
     $timestamp = $this->escape($this->vydaj['vznik_zaznamu_dtm']);
-    $datum = date('d-m-Y', strtotime($timestamp));
+    $datum = date('d.m.Y', strtotime($timestamp));
     $cas = date('h:i:s', strtotime($timestamp));
 
     $m3 = $this->vydaj['q_m3_merane'];
@@ -42,15 +42,15 @@ try {
 
     //  do tej page, ktoru som si vyssie vybral, vpisujem moje stringy na x,y, poziciu
     $page->setFont($font, 9)
-        ->drawText( strval($cislo_listku) , 455, 747)
-        ->drawText($spz, 400, 707)
-        ->drawText($dodavatel, 400, 685)
-        ->drawText($dodavatel, 420, 480)
-        ->drawText($sklad, 200,533)
-        ->drawText($meno, 385,534)
-        ->drawText($datum, 200, 585)
-        ->drawText($cas, 200, 571)
-        ->drawText($druh, 200, 556);
+        ->drawText( strval($cislo_listku) , 450, 774)
+        ->drawText($spz, 400, 670)
+        ->drawText($dodavatel, 400, 693)
+        ->drawText($dodavatel, 415, 509)
+        ->drawText($sklad, 200,567)
+        ->drawText($meno, 390,583)
+        ->drawText($datum, 200, 598)
+        ->drawText($cas, 200, 582)
+        ->drawText($druh, 390, 598);
 
 //    $page->setFont($font, 12)
 //        ->drawText( $m3 , 355, 582);

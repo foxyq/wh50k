@@ -38,7 +38,7 @@ try {
     $spz = $this->escape($this->vydaj['prepravca_spz']);
 
     $timestamp = $this->escape($this->vydaj['vznik_zaznamu_dtm']);
-    $datum = date('d-m-Y', strtotime($timestamp));
+    $datum = date('d.m.Y', strtotime($timestamp));
     $cas = date('h:i:s', strtotime($timestamp));
 
     $druh =  $this->escape($this->materialyDruhy->getNazov($this->vydaj['material_druh_enum']));

@@ -32,7 +32,7 @@ try {
     $dodavatel = $this->escape($this->zakaznici->getNazov($this->vydaj['zakaznik_enum']));
 
     $timestamp = $this->escape($this->vydaj['vznik_zaznamu_dtm']);
-    $datum = date('d-m-Y', strtotime($timestamp));
+    $datum = date('d.m.Y', strtotime($timestamp));
     $cas = date('h:i:s', strtotime($timestamp));
 
     $m3 = $this->vydaj['q_m3_merane'];

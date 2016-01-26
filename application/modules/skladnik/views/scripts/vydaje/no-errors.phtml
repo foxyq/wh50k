@@ -219,8 +219,10 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
 
                 <?php
-            $skladID = $vydaj->sklad_enum;
-            $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
+//            $skladID = $vydaj->sklad_enum;
+//            $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
+            $zak_id = $vydaj->zakaznik_enum;
+            $merna_jednotka = $this->zakaznici->getMernaJednotka($zak_id);
             ?>
 
 

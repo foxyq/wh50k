@@ -445,7 +445,7 @@ class PrijmyController extends Zend_Controller_Action
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
-        $this->view->users = $uzivatelia;
+        $this->view->uzivatelia = $uzivatelia;
 
         $id = $this->_getParam('id', 0);
         $prijmy = new Application_Model_DbTable_Prijmy();

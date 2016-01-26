@@ -14,7 +14,7 @@
              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
              <i class="fa fa-warning"></i> Červenou farbou sú označené dni s <strong>neplatým denným pohybom.</strong>.
         </div>
-    <?}php
+    <?php }
 ?>
 
 <!--Taby-->
@@ -29,7 +29,7 @@
     <?php
     foreach($this->sklady->getIds() as $skladId):?>
         <div id="<?php echo "menu".$skladId;?>" <?php if ($skladId == 1){echo "class=\"tab-pane fade in active\"";} else { echo "class=\"tab-pane fade\"";}?>>
-            <div id="".col-lg-12">
+            <div id="" class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
                 <tr>
                     <th>ID</th>

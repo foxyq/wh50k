@@ -21,7 +21,9 @@ try {
     $spz = $this->escape($this->prijem['prepravca_spz']);
     $druh =  $this->escape($this->materialyDruhy->getNazov($this->prijem['material_druh_enum']));
     $sklad = $this->escape($this->sklady->getNazov($this->prijem['sklad_enum']));
-    $dodavatel = $this->escape($this->dodavatelia->getNazov($this->prijem['dodavatel_enum']));
+    //$dodavatel = $this->escape($this->dodavatelia->getNazov($this->prijem['dodavatel_enum']));
+    $dodavatel = $this->dodavatelia->getNazov($this->prijem['dodavatel_enum']);
+
     $timestamp = $this->escape($this->prijem['vznik_zaznamu_dtm']);
     $datum = date('d.m.Y', strtotime($timestamp));
     $cas = date('h:i:s', strtotime($timestamp));
