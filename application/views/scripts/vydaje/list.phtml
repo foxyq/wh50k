@@ -41,7 +41,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 <!--
 <div class="alert alert-dismissable alert-info">
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-    'action'=>'add', 'fromAction' => 'list'));?>">
+    'action'=>'add', 'fromAction' => 'list', "fromController" => 'vydaje'));?>">
         <?php echo '<img src="'.$this->baseUrl().'/images/pridat.png" alt="pridat">'; ?>
         Pridať nový výdaj</a>
     <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
@@ -60,7 +60,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
 
 <p>
     <a href="<?php echo $this->url(array('controller'=>'Vydaje',
-        'action'=>'add', 'fromAction' => 'list'));?>" type="button" class="btn btn-success">
+        'action'=>'add', 'fromAction' => 'list', "fromController" => 'vydaje'));?>" type="button" class="btn btn-success">
         Pridať výdaj
     </a>
 

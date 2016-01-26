@@ -45,7 +45,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 <!--
     <div class="alert alert-dismissable alert-info">
         <a href="<?php echo $this->url(array('controller'=>'prijmy',
-    'action'=>'add'));?>">
+    'action'=>'add', "fromController" => 'prijmy', "fromAction" => 'list'));?>">
             <?php echo '<img src="'.$this->baseUrl().'/images/pridat.png" alt="pridat">'; ?>
             Pridať záznam</a>
         <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>

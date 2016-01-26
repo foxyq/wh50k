@@ -41,7 +41,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 <!--
 <div class="alert alert-dismissable alert-info">
     <a href="<?php echo $this->url(array('controller'=>'ExternaVyroba',
-    'action'=>'add', 'fromAction' => 'list'));?>">
+    'action'=>'add', 'fromAction' => 'waitings', "fromController" => 'externaVyroba'));?>">
         <?php echo '<img src="'.$this->baseUrl().'/images/pridat.png" alt="pridat">'; ?>
         Pridať nový výdaj</a>
     <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
@@ -60,7 +60,7 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
 
 <p>
     <a href="<?php echo $this->url(array('controller'=>'ExternaVyroba',
-        'action'=>'add', 'fromAction' => 'list'));?>" type="button" class="btn btn-success">
+        'action'=>'add','fromAction' => 'waitings', "fromController" => 'externaVyroba'));?>" type="button" class="btn btn-success">
         Pridať výrobu
     </a>
 

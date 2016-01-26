@@ -7,6 +7,15 @@
 <a href="<?php echo $this->url(array('controller'=>'ubytky',
             'action'=>'refreshData'));?>"><button type="button" class="btn btn-success">Prepočítať tabuľku</button></a>
 <br><br>
+<?php
+    $status = $this->notifikacieModel->getStatusArray();
+    if ($status['ubytky_chyba'] > 0) {?>
+      <div class="alert alert-danger alert-dismissable">
+             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             <i class="fa fa-warning"></i> Červenou farbou sú označené dni s <strong>neplatým denným pohybom.</strong>.
+        </div>
+    <?}php
+?>
 
 <!--Taby-->
 <ul class="nav nav-tabs">
@@ -38,7 +47,13 @@
 
 
                 <?php foreach($this->ubytkyVPoli[$skladId] as $ubytok) : ?>
-                    <tr>
+                    <tr
+                        <?php
+                            if (strpos($ubytok->poznamka, 'Nedostatok na sklade.') !== FALSE){
+                                echo "class='danger'";
+                            }
+                        ?>
+                        >
                         <td><?php echo $this->escape($ubytok->ts_ubytky_hmotnosti_id);?></td>
                         <td><?php echo $this->escape($ubytok->datum_ubytku_d);?></td>
                         <td><?php echo $this->escape($this->sklady->getSkratka($ubytok->sklad_enum));?></td>

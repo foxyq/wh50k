@@ -41,6 +41,11 @@ class ObjednavkyController extends Zend_Controller_Action
 
     public function addAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'objednavky');
+        $this->view->fromController = $fromController;
+
         /*
          * Data pre ciselniky
          */
