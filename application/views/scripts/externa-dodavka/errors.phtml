@@ -206,10 +206,10 @@ $externe_dodavky_e = $notif_info['externe_dodavky_errors'];
 //                ?><!--</td>-->
             <td>
                 <a href="<?php echo $this->url(array('controller'=>'ExternaDodavka',
-                'action'=>'delete', 'tx_dodavka_id'=>$externa_dodavka->tx_dodavka_id, 'fromAction' => 'list'));?>"><i class="fa fa-trash"></i></a>
+                'action'=>'delete', 'tx_dodavka_id'=>$externa_dodavka->tx_dodavka_id, 'fromAction' => 'errors'));?>"><i class="fa fa-trash"></i></a>
 
                 <a href="<?php echo $this->url(array('controller'=>'ExternaDodavka',
-                'action'=>'edit', 'tx_dodavka_id'=>$externa_dodavka->tx_dodavka_id,  'fromAction' => 'list'));?>"><i class="fa fa-pencil-square-o"></i></a>
+                'action'=>'edit', 'tx_dodavka_id'=>$externa_dodavka->tx_dodavka_id,  'fromAction' => 'errors'));?>"><i class="fa fa-pencil-square-o"></i></a>
 <!--                <a href="--><?php //echo $this->url(array('controller'=>'Vydaje',
 //                'action'=>'print', 'ts_vydaje_id'=>$vydaj->ts_vydaje_id, 'cislo_listku'=>$vydaj->doklad_cislo,
 //                'spz'=>$vydaj->prepravca_spz));?><!--" target="_blank" >-->

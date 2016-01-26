@@ -231,9 +231,9 @@ $prijmy_e = $notif_info['prijmy_errors'];
 //                    ?>
 <!--            </td>-->
             <td>
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>"><i class="fa fa-trash-o"></i></a>
+                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?>"><i class="fa fa-trash-o"></i></a>
 
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>"><i class="fa fa-pencil-square-o"></i></a>
+                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?>"><i class="fa fa-pencil-square-o"></i></a>
 
                 <?php
                 $skladID = $prijem->sklad_enum;
@@ -242,18 +242,18 @@ $prijmy_e = $notif_info['prijmy_errors'];
 
 
                 <?php  if ($merna_jednotka == 1 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printton", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
+                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printton", "id"=>$prijem->ts_prijmy_id, "fromAction" => "waitings",
                                     )).'" target="_blank"><i class="fa fa-print"></i></a>'
 //                <!--                    printton-->
                             ?>
 
                 <?php  if ($merna_jednotka == 2 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printprm", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
+                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printprm", "id"=>$prijem->ts_prijmy_id, "fromAction" => "waitings",
                                     )).'" target="_blank"><i class="fa fa-print"></i></a>'
 //                <!--                   printprm-->
                                 ?>
                 <?php  if ($merna_jednotka == 3 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printm3", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
+                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printm3", "id"=>$prijem->ts_prijmy_id, "fromAction" => "waitings",
                                     )).'" target="_blank"><i class="fa fa-print"></i></a>'
 //                <!--                    printm3-->
 //                                ?>

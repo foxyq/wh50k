@@ -71,6 +71,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
     public function errorsAction()
     {
 
+
         // vytvorenie instancií modelov
         $externeDodavky = new Application_Model_DbTable_ExternaDodavka();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
@@ -187,6 +188,8 @@ class ExternaDodavkaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'externaDodavka');
+        $this->view->fromController = $fromController;
         //instancia modelu z ktoreho budeme tahat zoznam
 
         $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
@@ -305,6 +308,8 @@ class ExternaDodavkaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'externaDodavka');
+        $this->view->fromController = $fromController;
         //inicializacia pre vypis premennych - pre getNazov() metody
 
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();

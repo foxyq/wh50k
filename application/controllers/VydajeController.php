@@ -147,6 +147,8 @@ class VydajeController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'vydaje');
+        $this->view->fromController = $fromController;
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
@@ -248,6 +250,8 @@ class VydajeController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'vydaje');
+        $this->view->fromController = $fromController;
         //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
         $podskladyModel = new Application_Model_DbTable_Podsklady();

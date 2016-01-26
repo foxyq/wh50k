@@ -40,13 +40,15 @@ class PrijmyController extends Zend_Controller_Action
     }
     public function addAction()
     {
-        /* ak chces pouzit vo forme zoznam z tabuliek, musis najpr vytvorit instanciu modelu
-        a metodou getMoznosti dostanes do premennej pole s moznostami so strukturou id a nazov
-        nasledne toto pole das do pola ktore je ako parameter pre form*/
+
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
         $fromController = $this->_getParam('fromController', 'prijmy');
         $this->view->fromController = $fromController;
+        /* ak chces pouzit vo forme zoznam z tabuliek, musis najpr vytvorit instanciu modelu
+        a metodou getMoznosti dostanes do premennej pole s moznostami so strukturou id a nazov
+        nasledne toto pole das do pola ktore je ako parameter pre form*/
+
 
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
@@ -142,11 +144,15 @@ class PrijmyController extends Zend_Controller_Action
     }
     public function editAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'prijmy');
+        $this->view->fromController = $fromController;
+
         //$request = $this->getRequest()->getServer('HTTP_REFERER');
         //print_r($request);
         //TDODO THIS: print_r( $this->_request);
-        $fromAction = $this->_getParam('fromAction', 'list');
-        $this->view->fromAction = $fromAction;
+
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
@@ -247,6 +253,8 @@ class PrijmyController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'prijmy');
+        $this->view->fromController = $fromController;
         //inicializacia pre vypis premennych - pre getNazov() metody
         $skladyModel = new Application_Model_DbTable_Sklady();
         $podskladyModel = new Application_Model_DbTable_Podsklady();
