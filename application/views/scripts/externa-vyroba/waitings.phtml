@@ -162,9 +162,9 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
 
 
 <!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->
-            <td><?php echo $this->escape($externa_vyroba->q_m3_merane);?></td>
+            <td><?php echo number_format($this->escape($externa_vyroba->q_m3_merane), 2, ",", " ");?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->q_m3_vypocet);?><!--</td>-->
-            <td><?php echo $this->escape($externa_vyroba->q_prm_merane);?></td>
+            <td><?php echo number_format($this->escape($externa_vyroba->q_prm_merane), 2, ",", " ");?></td>
             <td>
                 <?php
             if ($externa_vyroba->q_vlhkost == 0.00){

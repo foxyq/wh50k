@@ -12,7 +12,7 @@
 
                     <div class="col-lg-6">
                         Dátum:
-                        <?php echo $this->vyroba['datum_xvyroby_d']; // render the user name field here ?>
+                        <?php echo date("d.m.Y", strtotime($this->vyroba['datum_xvyroby_d'])); // render the user name field here ?>
                     </div>
                 </fieldset>
             </div>

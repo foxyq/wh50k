@@ -103,6 +103,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <!--    <th>SPZ</th>-->
             <th>Tony</th>
             <th class="col-tony-nadrozmer">Nadrozmer</th>
+            <th>m<sup>3</sup></th>
             <th>Vlhkosť</th>
             <th  class="col-doklad">Doklad</th>
             <!--    <th>t v</th>-->
@@ -132,6 +133,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <!--        <th>SPZ</th>-->
             <th>t m</th>
             <th>t nadrozmer</th>
+            <th>m<sup>3</sup></th>
             <!--        <th>t v</th>-->
             <!--        <th>m3 m</th>-->
             <!--        <th>m3 v</th>-->
@@ -179,6 +181,8 @@ $prijmy_e = $notif_info['prijmy_errors'];
 <!--            <td>--><?php //echo $this->escape($prijem->prepravca_spz);?><!--</td>-->
             <td><?php echo number_format($this->escape($prijem->q_tony_merane), 2, ",", " ");?></td>
             <td><?php echo number_format($this->escape($prijem->q_tony_nadrozmer), 2, ",", " ");?></td>
+            <td><?php echo number_format($this->escape($prijem->q_m3_merane), 2, ",", " ");?></td>
+
             <td>
                 <?php
             if ($prijem->q_vlhkost == 0.00){

@@ -6,6 +6,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     protected function _initViewHelpers()
     {
 
+
         $view = new Zend_View();
 //        aj toto je dolezite pre jquery ... kto by to bol povedal
 //        tu sa to nejako inicializuje, a potom vzdy ked to chces pouzit v nejakej metode controlleru
@@ -36,6 +37,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     }
 
     protected function _initAutoLoad(){
+
 
         //Acl nacitanie pluginu
         $acl = new Application_Model_LibraryAcl();

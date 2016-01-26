@@ -20,7 +20,7 @@
 
                     <div class="col-lg-6">
                         Dátum:
-                        <?php echo $this->prijem['datum_prijmu_d']; // render the user name field here ?>
+                        <?php echo date("d.m.Y", strtotime($this->prijem['datum_prijmu_d'])); // render the user name field here ?>
                     </div>
                 </fieldset>
             </div>
@@ -89,11 +89,11 @@
 <!--            </div>-->
             <div class="row">
                 <div class="col-lg-6">
-
+                    PRM:
                     <?php echo number_format($this->prijem['q_prm_merane'], 2, ","," ").'PRM'; // render the user name field here ?>
                 </div>
                 <div class="col-lg-6">
-
+                    m<sup>3</sup>:
                     <?php echo number_format($this->prijem['q_m3_merane'], 2, ","," ").'m<sup>3</sup>'; // render the user name field here ?>
                 </div>
                 </fieldset>
@@ -130,7 +130,7 @@
                         else echo 'nie'; // render the user name field here ?>
                     </div>
             </div>
-
+            <br >
             <div class="row">
                 <div class="col-lg-6">
                     Stav:

@@ -98,11 +98,11 @@ $vydaje_e = $notif_info['vydaje_errors'];
             <th>Prepravca</th>
             <!--              <th> SPZ</th>-->
             <th>Tony</th>
-            <th>Vlhkosť</th>
             <!--        <th>tony v</th>-->
                     <th>m<sup>3</sup></th>
             <!--        <th>m3 v</th>-->
                     <th>PRM</th>
+            <th>Vlhkosť</th>
             <!--        <th>prm v</th>-->
             <th>Doklad</th>
             <th>Materiál</th>
@@ -129,6 +129,7 @@ $vydaje_e = $notif_info['vydaje_errors'];
                     <th>m3 m</th>
             <!--        <th>m3 v</th>-->
                     <th>prm m</th>
+            <th>Vlhkosť</th>
             <!--        <th>prm v</th>-->
 
             <th>material typ</th>
@@ -167,6 +168,8 @@ $vydaje_e = $notif_info['vydaje_errors'];
 <!--            <td>--><?php //echo $this->escape($vydaj->prepravca_spz);?><!--</td>-->
             <td><?php echo number_format($this->escape($vydaj->q_tony_merane), 2, ",", " ");?></td>
 
+            <td><?php echo number_format($this->escape($vydaj->q_m3_merane), 2, ",", " ");?></td>
+            <td><?php echo number_format($this->escape($vydaj->q_prm_merane), 2, ",", " ");?></td>
             <td>
                 <?php
             if ($vydaj->q_vlhkost == 0.00){
@@ -176,8 +179,6 @@ $vydaje_e = $notif_info['vydaje_errors'];
             }
             ?>
             </td>
-            <td><?php echo $this->escape($vydaj->q_m3_merane);?></td>
-            <td><?php echo $this->escape($vydaj->q_prm_merane);?></td>
 
             <td><?php echo $this->escape($vydaj->doklad_cislo);?></td>
 <!--            <td>--><?php //echo $this->escape($vydaj->q_tony_vypocet);?><!--</td>-->

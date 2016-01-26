@@ -12,7 +12,7 @@
 
                     <div class="col-lg-6">
                         Dátum:
-                        <?php echo $this->vydaj['datum_vydaju_d']; // render the user name field here ?>
+                        <?php echo date("d.m.Y", strtotime($this->vydaj['datum_vydaju_d'])); // render the user name field here ?>
                     </div>
                 </fieldset>
             </div>
@@ -121,7 +121,7 @@
                         else echo 'nie'; // render the user name field here ?>
                     </div>
             </div>
-
+            <br >
             <div class="row">
 
                 <div class="col-lg-12">
