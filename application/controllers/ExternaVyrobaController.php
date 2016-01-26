@@ -104,6 +104,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'externaVyroba');
+        $this->view->fromController = $fromController;
         //instancia modelu z ktoreho budeme tahat zoznam
 
         $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();

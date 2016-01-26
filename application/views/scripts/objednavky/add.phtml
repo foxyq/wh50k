@@ -84,7 +84,7 @@ $this->headTitle($this->title);
                         <a href="<?php
                         //pageManager
                         echo $this->url(array(
-                            'controller' => 'prijmy',
+                            'controller' => $this->fromController,
                             'action' => $this->fromAction
                         ), null, true) ?>"  type="button" class="btn btn-warning">Späť</a>
 

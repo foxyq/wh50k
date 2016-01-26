@@ -26,6 +26,7 @@ class UbytkyController extends Zend_Controller_Action
         $ubytky = new Application_Model_DbTable_UbytkyHmotnosti();
         $sklady = new Application_Model_DbTable_Sklady();
         $prijmy = new Application_Model_DbTable_Prijmy();
+        $notifikacieModel = new Application_Model_Notifikacie();
 
         $this->view->ubytky = $ubytky->fetchAll();
 
@@ -37,6 +38,7 @@ class UbytkyController extends Zend_Controller_Action
 
         $this->view->sklady = $sklady;
         $this->view->prijmy = $prijmy;
+        $this->view->notifikacieModel = $notifikacieModel;
         $this->view->title = 'Prehľad úbytkov a vývoja stavu skladov';
 
 

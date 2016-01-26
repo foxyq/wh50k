@@ -45,6 +45,9 @@ class PrijmyController extends Zend_Controller_Action
         nasledne toto pole das do pola ktore je ako parameter pre form*/
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'prijmy');
+        $this->view->fromController = $fromController;
+
         //instancia modelu z ktoreho budeme tahat zoznam
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();

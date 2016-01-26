@@ -44,6 +44,10 @@ class VydajeController extends Zend_Controller_Action
     }
     public function addAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'vydaje');
+        $this->view->fromController = $fromController;
 
 
         //instancia modelu z ktoreho budeme tahat zoznam
