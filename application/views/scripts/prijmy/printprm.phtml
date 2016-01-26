@@ -34,13 +34,13 @@ try {
     $page->setFont($font, 9)
         ->drawText( strval($cislo_listku) , 450, 774)
         ->drawText($spz, 400, 670)
-        ->drawText($dodavatel, 400, 693)
-        ->drawText($dodavatel, 415, 507)
-        ->drawText($sklad, 200,567)
-        ->drawText($meno, 390,582)
+        ->drawText($dodavatel, 400, 693, 'UTF-8')
+        ->drawText($dodavatel, 415, 507, 'UTF-8')
+        ->drawText($sklad, 200,567, 'UTF-8')
+        ->drawText($meno, 390,582, 'UTF-8')
         ->drawText($datum, 200, 598)
         ->drawText($cas, 200, 582)
-        ->drawText($druh, 390, 598);
+        ->drawText($druh, 390, 598, 'UTF-8');
     $page->setFont($font, 12)
         ->drawText( $m3 , 245, 538)
         ->drawText( $prm , 435, 538);
