@@ -3,10 +3,8 @@
 $this->headTitle($this->title);
 $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
+$this->inlineScript()->appendFile($this->baseUrl().'/js/table_features.js'); //tuto su prepocty priemer a sum
 ?>
-
-
-
 
 
 <script type="text/javascript" language="javascript" class="init">
@@ -61,32 +59,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
 ?>
 
 
-<p>
-    <a href="<?php echo $this->url(array('controller'=>'Prijmy',
-        'action'=>'add', 'fromAction' => 'list'));?>" type="button" class="btn btn-success">
-        Pridať príjem
-    </a>
-    <a href="<?php echo $this->url(array('controller'=>'Prijmy',
-        'action'=>'list'));?>" type="button" class="btn btn-info">
-        Všetky príjmy
-    </a>
-
-
-
-    <?php if ($prijmy_w >0) { ?>
-        <a href="<?php echo $this->url(array(
-            'controller' => 'prijmy',
-            'action' => 'waitings'
-        ), null, true) ?>" type="button" class="btn btn-warning">Na schválenie (<?php echo $prijmy_w; ?>) </a>
-    <?php }
-    if ($prijmy_e > 0) {
-        ?>
-        <a href="<?php echo $this->url(array(
-            'controller' => 'prijmy',
-            'action' => 'errors'
-        ), null, true) ?>" type="button" class="btn btn-danger"> Chybné (<?php echo $prijmy_e   ; ?>) </a>
-    <?php } ?>
-</p>
+<?php $this->prijmybuttons($this,$prijmy_w,$prijmy_e);?>
 
 
 <div id=".col-lg-12"  class="table-responsive">
@@ -98,7 +71,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
         <tr class="tableizer-firsrow">
             <!--    <th>ID</th>-->
             <!--        <th>doklad číslo</th>-->
-            <TH>Detail</TH>
+            <TH class="no-print">Detail</TH>
             <th>Dátum</th>
             <th>Sklad</th>
             <th class="col-podsklad">Podsklad</th>
@@ -120,7 +93,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <th>Materiál</th>
             <th class="col-stav">Stav</th>
             <!--    <th class="col-chyba">chyba</th>-->
-            <th class="col-upravy">Úpravy</th>
+            <th class="col-upravy no-print">Úpravy</th>
         </tr>
         </thead>
 
@@ -181,9 +154,9 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <td><?php echo $this->escape($this->dodavatelia->getNazov($prijem->dodavatel_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($prijem->prepravca_enum));?></td>
 <!--            <td>--><?php //echo $this->escape($prijem->prepravca_spz);?><!--</td>-->
-            <td><?php echo number_format($this->escape($prijem->q_tony_merane), 2, ",", " ");?></td>
+            <td class="tonaz"><?php echo number_format($this->escape($prijem->q_tony_merane), 2, ",", " ");?></td>
             <td><?php echo number_format($this->escape($prijem->q_m3_merane), 2, ",", " ");?></td>
-            <td>
+            <td class="vlhkost">
                 <?php
             if ($prijem->q_vlhkost == 0.00){
                 echo "-";
@@ -195,42 +168,14 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <td><?php echo number_format($this->escape($prijem->q_tony_nadrozmer), 2, ",", " ");?></td>
             <td><?php echo $this->escape($prijem->doklad_cislo);?></td>
 
-<!--            <td>--><?php //echo $this->escape($prijem->q_tony_vypocet);?><!--</td>-->
-
-<!--            <td>--><?php //echo $this->escape($prijem->q_m3_vypocet);?><!--</td>-->
-<!--            <td>--><?php //echo $this->escape($prijem->q_prm_merane);?><!--</td>-->
-<!--            <td>--><?php //echo $this->escape($prijem->q_prm_vypocet);?><!--</td>-->
-
-<!--            <td>--><?php //echo $this->escape($this->materialyTypy->getNazov($prijem->material_typ_enum));?><!--</td>-->
             <td><?php echo $this->escape($this->materialyDruhy->getNazov($prijem->material_druh_enum));?></td>
             <td>
-                <?php
-            if  ( $prijem->stav_transakcie == 2 ) {
-//                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
-                echo '<i class="fa fa-check-circle-o"></i>';
-            }
-            else if ( $prijem->stav_transakcie == 1) {
-//                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
-//                echo '<div class="caka"></div>';
-                echo '<i class="fa fa-clock-o"></i>';
-            }
-            else {
-//                    echo '<img src="'.$this->baseUrl().'/images/zrusene.png" alt="zrusene">';
-                echo '<i class="fa fa-times-circle-o"></i>';
-            }
+              <?php
+            $this->stavy($prijem);
             ?>
-
-            <?php //echo $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie));?>
-
             </td>
-<!--            <td>-->
-<!--                --><?php
-//                    if ($this->escape($prijem->chyba) == 1)
-//                        {echo "áno";}
-//                    else {echo "nie";}
-//                    ?>
-<!--            </td>-->
-            <td>
+
+            <td class="no-print">
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?>"><i class="fa fa-trash-o"></i></a>
 
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?>"><i class="fa fa-pencil-square-o"></i></a>
@@ -238,25 +183,8 @@ $prijmy_e = $notif_info['prijmy_errors'];
                 <?php
                 $skladID = $prijem->sklad_enum;
                 $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
-                ?>
-
-
-                <?php  if ($merna_jednotka == 1 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printton", "id"=>$prijem->ts_prijmy_id, "fromAction" => "waitings",
-                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
-//                <!--                    printton-->
-                            ?>
-
-                <?php  if ($merna_jednotka == 2 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printprm", "id"=>$prijem->ts_prijmy_id, "fromAction" => "waitings",
-                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
-//                <!--                   printprm-->
-                                ?>
-                <?php  if ($merna_jednotka == 3 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printm3", "id"=>$prijem->ts_prijmy_id, "fromAction" => "waitings",
-                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
-//                <!--                    printm3-->
-//                                ?>
+                $this->tlacbuttons($this,$merna_jednotka,$prijem->ts_prijmy_id);
+//              ?>
 
             </td>
 
@@ -264,5 +192,6 @@ $prijmy_e = $notif_info['prijmy_errors'];
         <?php endforeach; ?>
         </tbody>
     </table>
-
+    <div id="tonaz">   </div>
+    <div id="priemer"> </div>
 </div>

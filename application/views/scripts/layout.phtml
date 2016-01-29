@@ -42,7 +42,9 @@ echo $this->doctype(); ?>
 <!--   ************ HEAD CSS INCLUDES *****************   -->
 
     <?php  $this->headLink()
-        ->prependStylesheet($this->baseUrl().'/css/sb-admin.css'); ?>
+        ->prependStylesheet($this->baseUrl().'/css/sb-admin.css', 'screen'); ?>
+    <?php  $this->headLink()
+        ->prependStylesheet($this->baseUrl().'/css/print.css', 'print'); ?>
 	<?php $this->headLink()
         ->prependStylesheet($this->baseUrl().'/css/bootstrap.min.css'); ?>
 	<?php  $this->headLink()
@@ -98,18 +100,19 @@ echo $this->doctype(); ?>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link href="/styles/basic.css" media="screen" rel="stylesheet" type="text/css">
 
 
 </head>
 
-<body>
+<body >
 
 <!--<div id="loading"></div>-->
 <div id="page">
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top no-print" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -457,7 +460,7 @@ echo $this->doctype(); ?>
 			<div class="container-fluid">
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 print">
 
 
                           <h1><?php echo $this->escape($this->title); ?></h1>

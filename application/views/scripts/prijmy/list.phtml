@@ -3,48 +3,9 @@
 $this->headTitle($this->title);
 $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
+$this->inlineScript()->appendFile($this->baseUrl().'/js/table_features.js'); //tuto su prepocty priemer a sum
+// ale aby to fungovalo, chce to nejake NUANSY :)
 ?>
-
-
-<script type="text/javascript">
-
-    $(document).ready(function() {
-
-        window.setInterval(function(){
-
-            var vlhkosti = document.getElementsByClassName("vlhkost");
-            var pocet_zobrazenych = 0;
-            var suma_vlhkosti = 0;
-            var tmp = '';
-
-            for(var i=0; i<vlhkosti.length; i++) {
-
-                tmp = vlhkosti[i].innerHTML.toString().replace(/[,]/, ".");
-
-                var res = tmp.replace("%", "");
-                res =  res.replace("-","0");
-
-                suma_vlhkosti +=  Number(res);
-                pocet_zobrazenych++;
-            }
-                var result = suma_vlhkosti / pocet_zobrazenych;
-
-
-                $('#priemer').html( 'VLHKOST priemer= ' +result+ '.....  suma ' + suma_vlhkosti +',  pocet ' + pocet_zobrazenych);
-
-            var tonaze = document.getElementsByClassName("tonaz");
-            var suma_tonaz = 0;
-
-            for( i=0; i<tonaze.length; i++) {
-                suma_tonaz +=  Number(tonaze[i].innerHTML.toString().replace(/[,]/, "."));
-            }
-
-            $('#tonaz').html('Suma zobrazenej tonaze ' + suma_tonaz +'t');
-        }, 500);
-
-    });
-</script>
-
 
 <script type="text/javascript" language="javascript" class="init">
 
@@ -103,33 +64,7 @@ $prijmy_w = $notif_info['prijmy_waitings'];
 $prijmy_e = $notif_info['prijmy_errors'];
 ?>
 
-
-<p>
-    <a href="<?php echo $this->url(array('controller'=>'Prijmy',
-        'action'=>'add', 'fromAction' => 'list'));?>" type="button" class="btn btn-success">
-        Pridať príjem
-    </a>
-    <a href="<?php echo $this->url(array('controller'=>'Prijmy',
-        'action'=>'list'));?>" type="button" class="btn btn-info">
-        Všetky príjmy
-    </a>
-
-
-
-    <?php if ($prijmy_w >0) { ?>
-        <a href="<?php echo $this->url(array(
-            'controller' => 'prijmy',
-            'action' => 'waitings'
-        ), null, true) ?>" type="button" class="btn btn-warning">Na schválenie (<?php echo $prijmy_w; ?>) </a>
-    <?php }
-    if ($prijmy_e > 0) {
-        ?>
-        <a href="<?php echo $this->url(array(
-            'controller' => 'prijmy',
-            'action' => 'errors'
-        ), null, true) ?>" type="button" class="btn btn-danger"> Chybné (<?php echo $prijmy_e   ; ?>) </a>
-    <?php } ?>
-</p>
+<?php $this->prijmybuttons($this,$prijmy_w,$prijmy_e);?>
 
 
 <div id=".col-lg-12"  class="table-responsive">
@@ -141,7 +76,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
         <tr class="tableizer-firsrow">
             <!--    <th>ID</th>-->
             <!--        <th>doklad číslo</th>-->
-            <TH>Detail</TH>
+            <TH class="no-print">Detail</TH>
             <th>Dátum</th>
             <th>Sklad</th>
             <th class="col-podsklad">Podsklad</th>
@@ -163,7 +98,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <th>Materiál</th>
             <th class="col-stav">Stav</th>
             <!--    <th class="col-chyba">chyba</th>-->
-            <th class="col-upravy">Úpravy</th>
+            <th class="col-upravy no-print">Úpravy</th>
 
         </tr>
         </thead>
@@ -207,7 +142,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
 
 <!--            <td>--><?php //echo $this->escape($prijem->ts_prijmy_id);?><!--</td>-->
 <!--            <td>--><?php //echo $this->escape($prijem->doklad_cislo);?><!--</td>-->
-            <TD class="center">
+            <TD class="center no-print">
                 <a href="<?php echo $this->url(array('controller'=>'prijmy',
                     'action'=>'preview', 'id'=>$prijem->doklad_cislo, 'fromAction' => 'list'));?>">
                     <i class="fa fa-eye"></i>
@@ -249,62 +184,23 @@ $prijmy_e = $notif_info['prijmy_errors'];
 <!--            <td>--><?php //echo $this->escape($prijem->q_prm_vypocet);?><!--</td>-->
 
 <!--            <td>--><?php //echo $this->escape($this->materialyTypy->getNazov($prijem->material_typ_enum));?><!--</td>-->
-            <td><?php echo $this->escape($this->materialyDruhy->getNazov($prijem->material_druh_enum));?></td>
+            <td class="center"><?php echo $this->escape($this->materialyDruhy->getNazov($prijem->material_druh_enum));?></td>
             <td>
-               <?php
-            if  ( $prijem->stav_transakcie == 2 ) {
-//                    echo '<img src="'.$this->baseUrl().'/images/schvalene.png" alt="schvalene">';
-                echo '<i class="fa fa-check-circle-o"></i>';
-            }
-            else if ( $prijem->stav_transakcie == 1) {
-//                    echo '<img src="'.$this->baseUrl().'/images/caka.png" alt="caka na schvalenie">';
-//                echo '<div class="caka"></div>';
-                echo '<i class="fa fa-clock-o"></i>';
-            }
-            else {
-//                    echo '<img src="'.$this->baseUrl().'/images/zrusene.png" alt="zrusene">';
-                echo '<i class="fa fa-times-circle-o"></i>';
-            }
+           <?php
+            $this->stavy($prijem);
             ?>
-
-            <?php //echo $this->escape($this->transakcieStavy->getNazov($prijem->stav_transakcie));?>
-
             </td>
-<!--            <td>-->
-<!--                --><?php
-//                    if ($this->escape($prijem->chyba) == 1)
-//                        {echo "áno";}
-//                    else {echo "nie";}
-//                    ?>
-<!--            </td>-->
-            <td>
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>"><i class="fa fa-trash-o"></i></a>
-<!--                    --><?php //echo '<img src="'.$this->baseUrl().'/images/zmazat.png" alt="zmazat">'; ?>
 
+            <td class="no-print">
+                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>"><i class="fa fa-trash-o"></i></a>
 
                 <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'list'));?>"><i class="fa fa-pencil-square-o"></i></a>
-<!--                    --><?php //echo '<img src="'.$this->baseUrl().'/images/upravit.png" alt="upravit">'; ?>
+
                 <?php
                 $skladID = $prijem->sklad_enum;
                 $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
-
-                  if ($merna_jednotka == 1 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printton", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
-                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
-//                <!--                    printton-->
-                            ?>
-
-                <?php  if ($merna_jednotka == 2 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printprm", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
-                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
-//                <!--                   printprm-->
-                                ?>
-                <?php  if ($merna_jednotka == 3 )
-                                echo '<a href="'.$this->url(array("controller"=>"Prijmy", "action"=>"printm3", "id"=>$prijem->ts_prijmy_id, "fromAction" => "list",
-                                    )).'" target="_blank"><i class="fa fa-print"></i></a>'
-//                <!--                    printm3-->
-//                                    <img src="'.$this->baseUrl().'/images/tlacit.png" alt="tlacit">
-//                                ?>
+                $this->tlacbuttons($this,$merna_jednotka,$prijem->ts_prijmy_id);
+                ?>
 
             </td>
 

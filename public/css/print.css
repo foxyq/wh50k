@@ -1,0 +1,20 @@
+
+@media print
+{
+    .no-print,
+    .dataTables_info,
+    .dataTables_paginate,
+    .dataTables_length,
+    .dataTables_filter,
+    #fancy_table tfoot
+    {
+        display: none;
+    }
+    .print,
+    i {
+        display:block;
+    }
+    img { display:none; }
+    img:after,
+    i:after { display:inline; content:attr(alt); }
+}
