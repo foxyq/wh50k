@@ -26,7 +26,7 @@ try {
 
     $timestamp = $this->escape($this->prijem['vznik_zaznamu_dtm']);
     $datum = date('d.m.Y', strtotime($timestamp));
-    $cas = date('h:i:s', strtotime($timestamp));
+    $cas = date('HH:mm:ss', strtotime($timestamp));
     $m3 = number_format($this->prijem['q_m3_merane'],2,',',' ');
     $prm = number_format($this->prijem['q_prm_merane'],2,',',' ');
     $meno = $this->escape($this->uzivatelia->getMeno($this->escape($this->prijem['vytvoril_u'])));

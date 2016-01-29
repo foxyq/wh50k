@@ -6,17 +6,56 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 ?>
 
 
+<script type="text/javascript">
 
+    $(document).ready(function() {
+
+        window.setInterval(function(){
+
+            var vlhkosti = document.getElementsByClassName("vlhkost");
+            var pocet_zobrazenych = 0;
+            var suma_vlhkosti = 0;
+            var tmp = '';
+
+            for(var i=0; i<vlhkosti.length; i++) {
+
+                tmp = vlhkosti[i].innerHTML.toString().replace(/[,]/, ".");
+
+                var res = tmp.replace("%", "");
+                res =  res.replace("-","0");
+
+                suma_vlhkosti +=  Number(res);
+                pocet_zobrazenych++;
+            }
+                var result = suma_vlhkosti / pocet_zobrazenych;
+
+
+                $('#priemer').html( 'VLHKOST priemer= ' +result+ '.....  suma ' + suma_vlhkosti +',  pocet ' + pocet_zobrazenych);
+
+            var tonaze = document.getElementsByClassName("tonaz");
+            var suma_tonaz = 0;
+
+            for( i=0; i<tonaze.length; i++) {
+                suma_tonaz +=  Number(tonaze[i].innerHTML.toString().replace(/[,]/, "."));
+            }
+
+            $('#tonaz').html('Suma zobrazenej tonaze ' + suma_tonaz +'t');
+        }, 500);
+
+    });
+</script>
 
 
 <script type="text/javascript" language="javascript" class="init">
-    $(document).ready(function() {
-        $('#fancy_table').DataTable( {
+
+$(document).ready(function() {
+
+            $('#fancy_table').DataTable( {
             "order": [[ 1, "desc" ]],
             columnDefs: [
                 { "sType": "title-string", "aTargets": [ 12 ]  }
-//                    { "sType": "alt-string", "aTargets" : 11 }
             ],
+//            funkcia pre sorty fancy tables
             initComplete: function () {
                 var api = this.api();
                 var abc = 0;
@@ -41,6 +80,10 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
             }
         } );
     } );
+
+
+
+
 </script>
 <!--
     <div class="alert alert-dismissable alert-info">
@@ -121,6 +164,7 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <th class="col-stav">Stav</th>
             <!--    <th class="col-chyba">chyba</th>-->
             <th class="col-upravy">Úpravy</th>
+
         </tr>
         </thead>
 
@@ -134,19 +178,19 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <th>podsklad</th>
             <th>dod</th>
             <th>prepravca</th>
-            <!--        <th>SPZ</th>-->
+                    <th>SPZ</th>
             <th>t m</th>
             <th>t nadrozmer</th>
-            <!--        <th>t v</th>-->
+                    <th>t v</th>
                     <th>m3 m</th>
-            <!--        <th>m3 v</th>-->
+                    <th>m3 v</th>
             <!--        <th>PRM m</th>-->
             <!--        <th>PRM v</th>-->
 
             <!--        <th>materiál typ</th>-->
-            <th>material druh</th>
-                    <th></th>
-                    <th>chyba</th>
+<!--            <th>material druh</th>-->
+<!--                    <th></th>-->
+<!--                    <th>chyba</th>-->
 <!--                    <th  >úpravy</th>-->
 <!--            <th></th>-->
 <!--            <th></th>-->
@@ -183,14 +227,15 @@ $prijmy_e = $notif_info['prijmy_errors'];
             <td><?php echo $this->escape($this->dodavatelia->getNazov($prijem->dodavatel_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($prijem->prepravca_enum));?></td>
 <!--            <td>--><?php //echo $this->escape($prijem->prepravca_spz);?><!--</td>-->
-            <td><?php echo number_format($this->escape($prijem->q_tony_merane), 2, ",", " ");?></td>
+            <td class="tonaz"><?php echo number_format($this->escape($prijem->q_tony_merane), 2, ",", " ");?></td>
             <td><?php echo number_format($this->escape($prijem->q_m3_merane), 2, ",", " ");?></td>
-            <td>
+            <td class="vlhkost">
                 <?php
             if ($prijem->q_vlhkost == 0.00){
                 echo "-";
             }else {
-                echo number_format($this->escape($prijem->q_vlhkost), 2, ",", " ") . "%";
+                echo number_format($this->escape($prijem->q_vlhkost), 2, ",", " "). "%";
+
             }
             ?>
             </td>
@@ -267,5 +312,8 @@ $prijmy_e = $notif_info['prijmy_errors'];
         <?php endforeach; ?>
         </tbody>
     </table>
+
+    <div id="tonaz">   </div>
+    <div id="priemer"> </div>
 
 </div>
