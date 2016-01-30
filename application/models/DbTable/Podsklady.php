@@ -36,22 +36,24 @@ class Application_Model_DbTable_Podsklady extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
-    public function addPodsklad($nazov, $kod, $mesto, $adresa)
+    public function addPodsklad($nazov, $kod, $sklad, $mesto, $adresa)
     {
         $data = array(
             'nazov_podskladu' => $nazov,
             'kod_podskladu' => $kod,
+            'sklad_enum' => $sklad,
             'mesto_enum' => $mesto,
             'adresa' => $adresa
         );
         $this->insert($data);
     }
 
-    public function updatePodsklad($id, $nazov, $kod, $mesto, $adresa)
+    public function updatePodsklad($id, $nazov, $kod, $sklad, $mesto, $adresa)
     {
         $data = array(
             'nazov_podskladu' => $nazov,
             'kod_podskladu' => $kod,
+            'sklad_enum' => $sklad,
             'mesto_enum' => $mesto,
             'adresa' => $adresa
         );

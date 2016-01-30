@@ -17,6 +17,7 @@ $this->headTitle($this->title);
         -->
         <th>Podsklad</th>
         <th>Kód</th>
+        <th>Patrí skladu</th>
         <th>Mesto</th>
         <th>Adresa</th>
         <th>Úpravy</th>
@@ -30,6 +31,7 @@ $this->headTitle($this->title);
             -->
             <td><?php echo $this->escape($podsklad->nazov_podskladu);?></td>
             <td><?php echo $this->escape($podsklad->kod_podskladu);?></td>
+            <td><?php echo $this->escape($this->skladyModel->getNazov($podsklad->sklad_enum));?></td>
             <td><?php echo $this->escape($this->mesta->getNazov($podsklad->mesto_enum));?></td>
             <td><?php echo $this->escape($podsklad->adresa);?></td>
             <td>

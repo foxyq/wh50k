@@ -37,6 +37,11 @@ class Application_Form_Podsklad extends Zend_Form
                      'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('podsklady_kod'))))
         ->setAttrib('class', 'form-control');
 
+        $sklad = new Zend_Form_Element_Select('sklad_enum');
+        $sklad->setMultiOptions($this->getAttrib('skladyMoznosti'));
+        $sklad->setLabel('Patrí skladu')
+            ->setAttrib('class', 'form-control');
+
 
         $mesto = new Zend_Form_Element_Select('mesto_enum');
         $mesto->setMultiOptions($this->getAttrib('mestaMoznosti'));
@@ -58,7 +63,7 @@ class Application_Form_Podsklad extends Zend_Form
         $submit->setAttrib('id', 'submitbutton')
         ->setAttrib('class', 'form-control btn-'.$submitButtonClass);
 
-        $this->addElements(array($id, $nazov, $kod, $mesto, $adresa, $submit));
+        $this->addElements(array($id, $nazov, $kod, $sklad, $mesto, $adresa, $submit));
     }
 
 

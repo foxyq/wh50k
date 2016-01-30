@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Dodavka.php" afterPath="$PROJECT_DIR$/application/forms/Dodavka.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Objednavka.php" afterPath="$PROJECT_DIR$/application/forms/Objednavka.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Prijem.php" afterPath="$PROJECT_DIR$/application/forms/Prijem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Vydaj.php" afterPath="$PROJECT_DIR$/application/forms/Vydaj.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Vyroba.php" afterPath="$PROJECT_DIR$/application/forms/Vyroba.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Podsklad.php" afterPath="$PROJECT_DIR$/application/forms/Podsklad.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Podsklady.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Podsklady.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/PodskladyController.php" afterPath="$PROJECT_DIR$/application/controllers/PodskladyController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/podsklady/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/podsklady/add.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/podsklady/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/podsklady/edit.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -31,114 +32,7 @@
     <favorites_list name="wh50k" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="MiestoStiepenia.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/MiestoStiepenia.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="799">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Objednavka.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Objednavka.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="1734">
-              <caret line="27" column="86" selection-start-line="27" selection-start-column="86" selection-end-line="27" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Podsklad.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Podsklad.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1224">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#Application_Form_Podsklad#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prepravca.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Prepravca.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="969">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#Application_Form_Prepravca#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prijem.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Prijem.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923" vertical-offset="0" max-vertical-offset="4182">
-              <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sklad.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Sklad.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1632">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#Application_Form_Sklad#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stroj.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Stroj.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="850">
-              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vydaj.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Vydaj.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153" vertical-offset="102" max-vertical-offset="3859">
-              <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vyroba.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Vyroba.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923" vertical-offset="0" max-vertical-offset="3791">
-              <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Zakaznik.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/forms/Zakaznik.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5151515" vertical-offset="0" max-vertical-offset="1683">
-              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
@@ -192,11 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/scripts/externa-vyroba/preview.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/externa-vyroba/add.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/add.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/edit.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/externa-vyroba/edit.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/errors.phtml" />
@@ -209,7 +98,6 @@
         <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prepravci/list.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/sklady/list.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/stroje/list.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/materialy-druhy/list.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/dodavatelia/list.phtml" />
@@ -243,6 +131,12 @@
         <option value="$PROJECT_DIR$/application/forms/Objednavka.php" />
         <option value="$PROJECT_DIR$/application/forms/Prijem.php" />
         <option value="$PROJECT_DIR$/application/forms/Vyroba.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/PodskladyController.php" />
+        <option value="$PROJECT_DIR$/application/forms/Podsklad.php" />
+        <option value="$PROJECT_DIR$/application/models/DbTable/Podsklady.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/podsklady/edit.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/podsklady/add.phtml" />
       </list>
     </option>
   </component>
@@ -362,6 +256,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wh50k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wh50k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="podsklady" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -758,12 +678,6 @@
       <option name="number" value="Default" />
       <updated>1434810288548</updated>
     </task>
-    <task id="LOCAL-00008" summary="2015_07_30">
-      <created>1438287966217</created>
-      <option name="number" value="00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1438287966217</updated>
-    </task>
     <task id="LOCAL-00009" summary="2015_07_30 - opravene errors">
       <created>1438289674680</created>
       <option name="number" value="00009" />
@@ -1052,7 +966,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454187077875</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="OPrava SPZ regexu">
+      <created>1454190974967</created>
+      <option name="number" value="00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1454190974967</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1086,13 +1006,13 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3501805" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32581228" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32581228" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1117,7 +1037,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="zakaznici a stroje Index arrays" />
     <MESSAGE value="novorocny PUSH" />
     <MESSAGE value="Upraveny system ubytkov - tony -&gt; ubytky, ostatne -&gt; bez ubytkov, ubytky su v taboch apod. Vsetko zavisi od MJ skladu." />
     <MESSAGE value="Sklady/Index priroeny hlaska o PO sklade, sql dump&#10;" />
@@ -1142,7 +1061,8 @@
     <MESSAGE value="print test" />
     <MESSAGE value="dodavatel pre xDodavky a xVyroby, + miesto stiepenia, SPZ validator pre SK, CZ, HU, PL, objednavky zmenit hranice farieb plnenia a rozdelit v grafe plnenie vlast., xDod., xVyr., Zostava" />
     <MESSAGE value="Administrácia číselníkov -&gt; materialy typy a miesta stiepenia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Administrácia číselníkov -&gt; materialy typy a miesta stiepenia" />
+    <MESSAGE value="OPrava SPZ regexu" />
+    <option name="LAST_COMMIT_MESSAGE" value="OPrava SPZ regexu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1158,52 +1078,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/waitings.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7343454" vertical-offset="569" max-vertical-offset="2006">
-          <caret line="79" column="102" selection-start-line="79" selection-start-column="102" selection-end-line="79" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/list.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5246679" vertical-offset="790" max-vertical-offset="2006">
-          <caret line="79" column="102" selection-start-line="78" selection-start-column="111" selection-end-line="79" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5907781" vertical-offset="1238" max-vertical-offset="3587">
-          <caret line="109" column="18" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#div#5;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#5;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#5;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#5;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.576923" vertical-offset="4080" max-vertical-offset="5236">
-          <caret line="273" column="35" selection-start-line="273" selection-start-column="35" selection-end-line="273" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/prepravci/list.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="731">
@@ -1216,14 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.26923" vertical-offset="0" max-vertical-offset="867">
           <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="799">
-          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1542,16 +1408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Podsklad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#init#0;n#Application_Form_Podsklad#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/forms/Prepravca.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
@@ -1606,8 +1462,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/forms/Zakaznik.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5151515" vertical-offset="0" max-vertical-offset="1683">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.5967742" vertical-offset="0" max-vertical-offset="1683">
+          <caret line="37" column="134" selection-start-line="37" selection-start-column="134" selection-end-line="37" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="833">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Sklady.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="663">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/PodskladyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-35.846153" vertical-offset="462" max-vertical-offset="1972">
+          <caret line="88" column="63" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
+          <folding>
+            <element signature="n#listAction#0;n#PodskladyController#0;n#!!top" expanded="true" />
+            <element signature="n#addAction#0;n#PodskladyController#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/Podsklad.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-34.0" vertical-offset="17" max-vertical-offset="1309">
+          <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Podsklady.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.115385" vertical-offset="0" max-vertical-offset="833">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding>
+            <element signature="n#addPodsklad#0;n#Application_Model_DbTable_Podsklady#0;n#!!top" expanded="true" />
+            <element signature="n#updatePodsklad#0;n#Application_Model_DbTable_Podsklady#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/podsklady/add.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30645162" vertical-offset="0" max-vertical-offset="1530">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/podsklady/edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29032257" vertical-offset="493" max-vertical-offset="1547">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -16,9 +16,11 @@ class PodskladyController extends Zend_Controller_Action
     public function listAction()
     {
         $podsklady = new Application_Model_DbTable_Podsklady();
+        $skladyModel = new Application_Model_DbTable_Sklady();
         $mesta = new Application_Model_DbTable_Mesta();
 
         $this->view->podsklady = $podsklady->fetchAll();
+        $this->view->skladyModel = $skladyModel;
         $this->view->mesta = $mesta;
 
         $this->view->title = "Podsklady - zoznam";
@@ -27,11 +29,14 @@ class PodskladyController extends Zend_Controller_Action
     public function addAction()
     {
         $mesta = new Application_Model_DbTable_Mesta();
+        $sklady = new Application_Model_DbTable_Sklady();
 
         $mestaMoznosti = $mesta->getMoznosti();
+        $skladyMoznosti = $sklady->getMoznosti();
 
         $form = new Application_Form_Podsklad(array(
-            'mestaMoznosti' => $mestaMoznosti));
+            'mestaMoznosti' => $mestaMoznosti,
+            'skladyMoznosti' => $skladyMoznosti));
 
         $form->submit->setLabel('Pridať podsklad');
 
@@ -43,11 +48,12 @@ class PodskladyController extends Zend_Controller_Action
             if ($form->isValid($formData)) {
                 $nazov_podskladu = $form->getValue('nazov_podskladu');
                 $kod_podskladu= $form->getValue('kod_podskladu');
+                $sklad = $form->getValue('sklad_enum');
                 $mesto_enum= $form->getValue('mesto_enum');
                 $adresa= $form->getValue('adresa');
 
                 $podsklady = new Application_Model_DbTable_Podsklady();
-                $podsklady->addPodsklad($nazov_podskladu, $kod_podskladu, $mesto_enum, $adresa);
+                $podsklady->addPodsklad($nazov_podskladu, $kod_podskladu, $sklad, $mesto_enum, $adresa);
 
                 $this->_helper->redirector('list');
             } else {
@@ -59,11 +65,14 @@ class PodskladyController extends Zend_Controller_Action
     public function editAction()
     {
         $mesta = new Application_Model_DbTable_Mesta();
+        $sklady = new Application_Model_DbTable_Sklady();
 
         $mestaMoznosti = $mesta->getMoznosti();
+        $skladyMoznosti = $sklady->getMoznosti();
 
         $form = new Application_Form_Podsklad(array(
-            'mestaMoznosti' => $mestaMoznosti));
+            'mestaMoznosti' => $mestaMoznosti,
+            'skladyMoznosti' => $skladyMoznosti));
 
         $form->submit->setLabel('Upraviť podsklad');
 
@@ -76,11 +85,12 @@ class PodskladyController extends Zend_Controller_Action
                     $id = (int)$form->getValue('podsklady_id');
                     $nazov_podskladu = $form->getValue('nazov_podskladu');
                     $kod_podskladu= $form->getValue('kod_podskladu');
+                    $sklad = $form->getValue('sklad_enum');
                     $mesto_enum= $form->getValue('mesto_enum');
                     $adresa= $form->getValue('adresa');
 
                     $podsklady = new Application_Model_DbTable_Podsklady();
-                    $podsklady->updatePodsklad($id, $nazov_podskladu, $kod_podskladu, $mesto_enum, $adresa);
+                    $podsklady->updatePodsklad($id, $nazov_podskladu, $kod_podskladu, $sklad, $mesto_enum, $adresa);
 
                     $this->_helper->redirector('list');
                 } else {
