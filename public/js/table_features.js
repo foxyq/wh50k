@@ -19,7 +19,7 @@ $(document).ready(function() {
         }
         var result = suma_vlhkosti / pocet_zobrazenych;
 
-        $('#priemer').html( 'Priemer vlhkostí = ' +result+ '%'); //.....  suma ' + suma_vlhkosti +',  pocet ' + pocet_zobrazenych);
+        $('#priemer').html( 'Priemer vlhkostí = ' +result.toFixed(2) + '%'); //.....  suma ' + suma_vlhkosti +',  pocet ' + pocet_zobrazenych);
 
         var tonaze = document.getElementsByClassName("tonaz");
         var suma_tonaz = 0;
