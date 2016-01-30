@@ -17,4 +17,8 @@
     img { display:none; }
     img:after,
     i:after { display:inline; content:attr(alt); }
+    table,
+    #fancy_table{
+        width: 100%;
+    }
 }

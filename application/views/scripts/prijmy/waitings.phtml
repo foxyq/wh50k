@@ -4,62 +4,19 @@ $this->headTitle($this->title);
 $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 $this->inlineScript()->appendFile($this->baseUrl().'/js/table_features.js'); //tuto su prepocty priemer a sum
-?>
+$this->inlineScript()->appendFile($this->baseUrl().'/js/fancy_table.js');
 
 
-<script type="text/javascript" language="javascript" class="init">
-    $(document).ready(function() {
-        $('#fancy_table').DataTable( {
-            "order": [[ 1, "desc" ]],
-            columnDefs: [
-                { "sType": "title-string", "aTargets": [ 9 ]  }
-//                    { "sType": "alt-string", "aTargets" : 11 }
-            ],
-            initComplete: function () {
-                var api = this.api();
-                var abc = 0;
-                api.columns().indexes().flatten().each( function ( i ) {
-                    var column = api.column( i );
-                    if (i != abc) {
-                        var select = $('<select><option value=""></option></select>')
-                            .appendTo( $(column.footer()).empty() )
-                            .on( 'change', function () {
-                                var val = $.fn.DataTable.util.escapeRegex(
-                                    $(this).val()
-                                );
-                                column
-                                    .search( val ? '^'+val+'$' : '', true, false )
-                                    .draw();
-                            } );
-                        column.data().unique().sort().each( function ( d, j ) {
-                            select.append( '<option value="'+d+'">'+d+'</option>' )
-                        } );
-                    }
-                } );
-            }
-        } );
-    } );
-</script>
-<!--
-    <div class="alert alert-dismissable alert-info">
-        <a href="<?php echo $this->url(array('controller'=>'prijmy',
-    'action'=>'add', "fromController" => 'prijmy', "fromAction" => 'waitings'));?>">
-            <?php echo '<img src="'.$this->baseUrl().'/images/pridat.png" alt="pridat">'; ?>
-            Pridať záznam</a>
-        <a href="<?php echo '../' ?>" type="button" class="btn btn-warning right">Späť</a>
-    </div>
--->
-
-<?php
 $notifikacie     = new Application_Model_Notifikacie();
 $notif_info = $notifikacie->getStatusArray();
 $count_notif = $notif_info['total'];
 $prijmy_w = $notif_info['prijmy_waitings'];
 $prijmy_e = $notif_info['prijmy_errors'];
+
+
+$controller = 'prijmy';
+$this->prijmybuttons($this,$prijmy_w,$prijmy_e,$controller);
 ?>
-
-
-<?php $this->prijmybuttons($this,$prijmy_w,$prijmy_e);?>
 
 
 <div id=".col-lg-12"  class="table-responsive">
@@ -176,14 +133,15 @@ $prijmy_e = $notif_info['prijmy_errors'];
             </td>
 
             <td class="no-print">
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?>"><i class="fa fa-trash-o"></i></a>
+<!--                <a href="--><?php //echo $this->url(array('controller'=>'Prijmy', 'action'=>'delete', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?><!--"><i class="fa fa-trash-o"></i></a>-->
 
-                <a href="<?php echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?>"><i class="fa fa-pencil-square-o"></i></a>
+<!--                <a href="--><?php //echo $this->url(array('controller'=>'Prijmy', 'action'=>'edit', 'id'=>$prijem->ts_prijmy_id, 'fromAction' => 'waitings'));?><!--"><i class="fa fa-pencil-square-o"></i></a>-->
 
                 <?php
                 $skladID = $prijem->sklad_enum;
                 $merna_jednotka = $this->sklady->getMernaJednotka($skladID);
-                $this->tlacbuttons($this,$merna_jednotka,$prijem->ts_prijmy_id);
+
+                $this->tlacbuttons($this,$merna_jednotka,$prijem->ts_prijmy_id,$controller);
 //              ?>
 
             </td>

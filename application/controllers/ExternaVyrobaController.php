@@ -269,7 +269,7 @@ class ExternaVyrobaController extends Zend_Controller_Action
 
             }
         } else {
-            $id = $this->_getParam('tx_vyroba_id', 0);
+            $id = $this->_getParam('id', 0);
             //$id = (int)$this->$form->getValue('tx_vyroba_id');
 
             if ($id > 0) {
@@ -318,7 +318,7 @@ class ExternaVyrobaController extends Zend_Controller_Action
             $this->_helper->redirector($fromAction);
 
         } else {
-            $id = $this->_getParam('tx_vyroba_id', 0);
+            $id = $this->_getParam('id', 0);
             $vyroba = new Application_Model_DbTable_ExternaVyroba();
             $this->view->vyroba = $vyroba->getXVyroba($id);
 

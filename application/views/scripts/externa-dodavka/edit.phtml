@@ -12,7 +12,8 @@
                   method="<?php echo $this->escape($this->form->getMethod()) ?>"
                   enctype="multipart/form-data" class="normal">
 
-                <?php echo $this->form->id; ?>
+<!--                --><?php //echo $this->form->id; ?>
+                <input type="hidden" name="tx_dodavka_id" value="<?php echo $this->dodavka['tx_dodavka_id']; ?>" />
 
                 <div class="row">
                     <fieldset>

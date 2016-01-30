@@ -223,7 +223,8 @@ class ExternaDodavkaController extends Zend_Controller_Action
 
             if ($form->isValid($formData)) {
 //                $id = (int)$form->getValue('id');
-                $id = $this->_getParam('tx_dodavka_id', 0);
+//                $id = $form->getValue('tx_dodavka_id');
+                $id = $this->_getParam('id', 0);
                 $datum_xdodavky = $form->getValue('datum_xdodavky_d');
                 $zakaznik = $form->getValue('zakaznik_enum');
                 $prepravca = $form->getValue('prepravca_enum');
@@ -262,7 +263,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
                 $form->populate($formData);
             }
         } else {
-            $id = $this->_getParam('tx_dodavka_id', 0);
+            $id = $this->_getParam('id', 0);
 
             if ($id > 0) {
                 $dodavka = new Application_Model_DbTable_ExternaDodavka();
@@ -339,7 +340,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
 
 
         } else {
-            $id = $this->_getParam('tx_dodavka_id', 0);
+            $id = $this->_getParam('id', 0);
             $dodavka = new Application_Model_DbTable_ExternaDodavka();
             $this->view->dodavka = $dodavka->getXDodavka($id);
 

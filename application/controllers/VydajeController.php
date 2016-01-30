@@ -235,7 +235,7 @@ class VydajeController extends Zend_Controller_Action
                 //$_SESSION[pageManager][ignore] = 1;
             }
         } else {
-            $id = $this->_getParam('ts_vydaje_id', 0);
+            $id = $this->_getParam('id', 0);
             //$id = (int)$this->$form->getValue('ts_vydaje_id');
             if ($id > 0) {
                 $vydaje = new Application_Model_DbTable_Vydaje();
@@ -287,7 +287,7 @@ class VydajeController extends Zend_Controller_Action
             //pageManager
             //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
         } else {
-            $id = $this->_getParam('ts_vydaje_id', 0);
+            $id = $this->_getParam('id', 0);
             $vydaje = new Application_Model_DbTable_Vydaje();
             $this->view->vydaj = $vydaje->getVydaj($id);
             //pageManager
