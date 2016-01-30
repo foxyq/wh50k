@@ -34,9 +34,30 @@ class Application_Form_Dodavatel extends Zend_Form
 
         $ico = new Zend_Form_Element_Text('ico');
         $ico->setLabel('IČO')
-            ->setRequired(true)
+            ->setRequired(false)
             ->addValidator(new Zend_Validate_StringLength(array(
                  'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('dodavatelia_ico'))))
+        ->setAttrib('class', 'form-control');
+
+        $icDph = new Zend_Form_Element_Text('ic_dph');
+        $icDph->setLabel('IČ DPH')
+            ->setRequired(false)
+            ->addValidator(new Zend_Validate_StringLength(array(
+                 'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('dodavatelia_ic_dph'))))
+        ->setAttrib('class', 'form-control');
+
+        $adresa = new Zend_Form_Element_Text('adresa');
+        $adresa->setLabel('Adresa')
+            ->setRequired(false)
+            ->addValidator(new Zend_Validate_StringLength(array(
+                 'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('dodavatelia_adresa'))))
+        ->setAttrib('class', 'form-control');
+
+        $internyKod = new Zend_Form_Element_Text('interny_kod');
+        $internyKod->setLabel('Interný kód')
+            ->setRequired(false)
+            ->addValidator(new Zend_Validate_StringLength(array(
+                 'max' => Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('dodavatelia_interny_kod'))))
         ->setAttrib('class', 'form-control');
 
         $potvrdzujuceTlacidlo = new Zend_Form_Element_Submit('potvrdzujuceTlacidlo');
@@ -50,6 +71,9 @@ class Application_Form_Dodavatel extends Zend_Form
             $meno,
             $nazov_spolocnosti,
             $ico,
+            $icDph,
+            $adresa,
+            $internyKod,
             $potvrdzujuceTlacidlo
         ));
 

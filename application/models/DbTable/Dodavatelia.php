@@ -39,12 +39,18 @@ class Application_Model_DbTable_Dodavatelia extends Zend_Db_Table_Abstract
     public function addDodavatel (
             $meno,
             $nazov,
-            $ico){
+            $ico,
+            $ic_dph,
+            $adresa,
+            $interny_kod){
 
         $data = array(
             'meno' => $meno,
             'nazov_spolocnosti' => $nazov,
-            'ico' => $ico
+            'ico' => $ico,
+            'ic_dph' => $ic_dph,
+            'adresa' => $adresa,
+            'interny_kod' => $interny_kod
         );
 
         $this->insert($data);
@@ -54,13 +60,19 @@ class Application_Model_DbTable_Dodavatelia extends Zend_Db_Table_Abstract
         $id,
         $meno,
         $nazov,
-        $ico){
+        $ico,
+        $ic_dph,
+        $adresa,
+        $interny_kod){
 
         $data = array(
             'dodavatelia_id' => $id,
             'meno' => $meno,
             'nazov_spolocnosti' => $nazov,
-            'ico' => $ico
+            'ico' => $ico,
+            'ic_dph' => $ic_dph,
+            'adresa' => $adresa,
+            'interny_kod' => $interny_kod
         );
 
         $this->update($data, 'dodavatelia_id=' . (int)$id);

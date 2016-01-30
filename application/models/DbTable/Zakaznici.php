@@ -34,12 +34,16 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         return $ids;
     }
 
-    public function addZakaznik($meno, $nazov_spolocnosti, $merna_jednotka)
+    public function addZakaznik($meno, $nazov_spolocnosti, $merna_jednotka, $ico, $ic_dph, $adresa, $internyKod)
     {
         $data = array(
             'meno' => $meno,
             'nazov_spolocnosti' => $nazov_spolocnosti,
-            'merna_jednotka_enum' => $merna_jednotka
+            'merna_jednotka_enum' => $merna_jednotka,
+            'ico' => $ico,
+            'ic_dph' => $ic_dph,
+            'adresa' => $adresa,
+            'interny_kod' => $internyKod
         );
         $this->insert($data);
     }
@@ -49,12 +53,16 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         $this->delete('zakaznici_id =' . (int)$id);
     }
 
-    public function updateZakaznik($id, $meno, $nazov_spolocnosti, $merna_jednotka)
+    public function updateZakaznik($id, $meno, $nazov_spolocnosti, $merna_jednotka, $ico, $ic_dph, $adresa, $internyKod)
     {
         $data = array(
             'meno' => $meno,
             'nazov_spolocnosti' => $nazov_spolocnosti,
-            'merna_jednotka_enum' => $merna_jednotka
+            'merna_jednotka_enum' => $merna_jednotka,
+            'ico' => $ico,
+            'ic_dph' => $ic_dph,
+            'adresa' => $adresa,
+            'interny_kod' => $internyKod
         );
         $this->update($data, 'zakaznici_id = '. (int)$id);
     }

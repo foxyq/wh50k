@@ -12,7 +12,9 @@
 
 <table class="table table-striped table-bordered table-hover">
     <tr>
+        <!--
         <th>ID</th>
+        -->
         <th>Kód</th>
         <th>Názov</th>
         <th>Skratka</th>
@@ -25,7 +27,9 @@
 
     <?php foreach($this->sklady as $sklad) : ?>
         <tr>
+            <!--
             <td><?php echo $this->escape($sklad->sklady_id);?></td>
+            -->
             <td><?php echo $this->escape($sklad->kod_skladu);?></td>
             <td><?php echo $this->escape($sklad->nazov_skladu);?></td>
             <td><?php echo $this->escape($sklad->skratka_skladu);?></td>

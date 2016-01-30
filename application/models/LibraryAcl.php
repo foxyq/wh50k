@@ -38,6 +38,7 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->add(new Zend_Acl_Resource('default:stroje'));
         $this->add(new Zend_Acl_Resource('default:materialydruhy'));
         $this->add(new Zend_Acl_Resource('default:materialytypy'));
+        $this->add(new Zend_Acl_Resource('default:miestastiepenia'));
 
         //definicia skladnik resources
         $this->add(new Zend_Acl_Resource('skladnik:index'));
@@ -103,6 +104,7 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->allow('2', 'default:materialytypy');
         $this->allow('2', 'default:nastavenia');
         $this->allow('2', 'default:profil');
+        $this->allow('2', 'default:miestastiepenia');
 
         /*
          *++++++++++++

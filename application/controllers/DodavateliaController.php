@@ -22,6 +22,9 @@ class DodavateliaController extends Zend_Controller_Action
             'meno' => $meno,
             'nazov_spolocnosti' => $nazov_spolocnosti,
             'ico' => $ico,
+            'ic_dph' => $icDph,
+            'adresa' => $adresa,
+            'interny_kod' => $internyKod,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
 
         ));
@@ -37,13 +40,20 @@ class DodavateliaController extends Zend_Controller_Action
                 $meno = $form->getValue('meno');
                 $nazov_spolocnosti = $form->getValue('nazov_spolocnosti');
                 $ico = $form->getValue('ico');
+                $ic_dph = $form->getValue('ic_dph');
+                $adresa = $form->getValue('adresa');
+                $internyKod = $form->getValue('interny_kod');
 
                $dodavatelia = new Application_Model_DbTable_Dodavatelia();
 
                 $dodavatelia->addDodavatel(
                     $meno,
                     $nazov_spolocnosti,
-                    $ico
+                    $ico,
+                    $ic_dph,
+                    $adresa,
+                    $internyKod
+
                 );
 
                 $this->_helper->redirector('list');
@@ -64,6 +74,9 @@ class DodavateliaController extends Zend_Controller_Action
             'meno' => $meno,
             'nazov_spolocnosti' => $nazov_spolocnosti,
             'ico' => $ico,
+            'ic_dph' => $icDph,
+            'adresa' => $adresa,
+            'interny_kod' => $internyKod,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
 
         ));
@@ -80,6 +93,9 @@ class DodavateliaController extends Zend_Controller_Action
                 $meno = $form->getValue('meno');
                 $nazov_spolocnosti = $form->getValue('nazov_spolocnosti');
                 $ico = $form->getValue('ico');
+                $ic_dph = $form->getValue('ic_dph');
+                $adresa = $form->getValue('adresa');
+                $internyKod = $form->getValue('interny_kod');
 
                 $dodavatelia = new Application_Model_DbTable_Dodavatelia();
 
@@ -87,7 +103,10 @@ class DodavateliaController extends Zend_Controller_Action
                     $id,
                     $meno,
                     $nazov_spolocnosti,
-                    $ico
+                    $ico,
+                    $ic_dph,
+                    $adresa,
+                    $internyKod
                 );
 
                 $this->_helper->redirector('list');

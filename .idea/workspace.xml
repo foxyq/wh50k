@@ -2,45 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160126-396ca13.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SP160126-9139946.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/prijmovy_listok-SV160113-4d60d40.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SP160104-5d7ee53.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SP160126-7ad0e18.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SP160126-9139946.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SP160126-9c44ac1.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SP160126-e370a35.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SP160126-e6978b9.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV160120-9b3f578.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV160126-81867dc.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/pdf/vazny_listok-SV160126-faa90d3.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/DbTable/MiestaStiepenia.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/forms/MaterialTyp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/MiestaStiepeniaController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/forms/MiestoStiepenia.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/materialy-typy/add.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/add.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/delete.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/materialy-typy/edit.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/edit.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/index.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/list.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.zfproject.xml" afterPath="$PROJECT_DIR$/.zfproject.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Dodavka.php" afterPath="$PROJECT_DIR$/application/forms/Dodavka.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/ExternaDodavka.php" afterPath="$PROJECT_DIR$/application/models/DbTable/ExternaDodavka.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php" afterPath="$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php" afterPath="$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" afterPath="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Objednavka.php" afterPath="$PROJECT_DIR$/application/forms/Objednavka.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Prijem.php" afterPath="$PROJECT_DIR$/application/forms/Prijem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Vydaj.php" afterPath="$PROJECT_DIR$/application/forms/Vydaj.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Vyroba.php" afterPath="$PROJECT_DIR$/application/forms/Vyroba.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/add.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/delete.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/delete.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/errors.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/errors.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/errors.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/errors.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/index/index.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/preview.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/preview.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/preview.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/preview.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/waitings.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/waitings.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/waitings.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-vyroba/waitings.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Dodavatel.php" afterPath="$PROJECT_DIR$/application/forms/Dodavatel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Dodavatelia.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Dodavatelia.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DodavateliaController.php" afterPath="$PROJECT_DIR$/application/controllers/DodavateliaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/LibraryAcl.php" afterPath="$PROJECT_DIR$/application/models/LibraryAcl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/MaterialyTypy.php" afterPath="$PROJECT_DIR$/application/models/DbTable/MaterialyTypy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/MaterialyTypyController.php" afterPath="$PROJECT_DIR$/application/controllers/MaterialyTypyController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Zakaznici.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Zakaznici.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ZakazniciController.php" afterPath="$PROJECT_DIR$/application/controllers/ZakazniciController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/forms/Zakaznik.php" afterPath="$PROJECT_DIR$/application/forms/Zakaznik.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/dodavatelia/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/dodavatelia/add.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/configs/application.ini" afterPath="$PROJECT_DIR$/application/configs/application.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/dodavatelia/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/dodavatelia/edit.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/layout.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/dodavatelia/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/dodavatelia/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/materialy-druhy/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/materialy-druhy/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/materialy-typy/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/materialy-typy/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/prepravci/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/prepravci/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/sklady/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/sklady/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/stroje/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/stroje/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -66,114 +61,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MaterialDruh.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/MaterialDruh.php">
+      <file leaf-file-name="MiestaStiepeniaController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/MiestaStiepeniaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1003">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-27.461538" vertical-offset="255" max-vertical-offset="1530">
+              <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
               <folding>
-                <element signature="n#init#0;n#Application_Form_MaterialDruh#0;n#!!top" expanded="true" />
+                <element signature="n#addAction#0;n#MiestaStiepeniaController#0;n#!!top" expanded="true" />
+                <element signature="n#listAction#0;n#MiestaStiepeniaController#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Objednavka.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Objednavka.php">
+      <file leaf-file-name="list.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/list.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="1734">
-              <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.48387095" vertical-offset="0" max-vertical-offset="1054">
+              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Podsklad.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Podsklad.php">
+      <file leaf-file-name="MiestoStiepenia.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/forms/MiestoStiepenia.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1224">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#Application_Form_Podsklad#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prepravca.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Prepravca.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="969">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#Application_Form_Prepravca#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prijem.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Prijem.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923" vertical-offset="0" max-vertical-offset="4182">
-              <caret line="31" column="112" selection-start-line="31" selection-start-column="112" selection-end-line="31" selection-end-column="112" />
+            <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="799">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sklad.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Sklad.php">
+      <file leaf-file-name="add.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/add.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1632">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#Application_Form_Sklad#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stroj.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Stroj.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="850">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#Application_Form_Stroj#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vydaj.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Vydaj.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923" vertical-offset="0" max-vertical-offset="3859">
-              <caret line="31" column="112" selection-start-line="31" selection-start-column="112" selection-end-line="31" selection-end-column="112" />
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="935">
+              <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vyroba.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/forms/Vyroba.php">
+      <file leaf-file-name="edit.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/edit.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5" vertical-offset="0" max-vertical-offset="3791">
-              <caret line="31" column="112" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="112" />
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="901">
+              <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Zakaznik.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/forms/Zakaznik.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1054">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#init#0;n#Application_Form_Zakaznik#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -182,15 +118,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="zf create form Podsklad" />
-      <command text="zf create form MaterialDruh" />
-      <command text="zf create modul skladnik" />
-      <command text="zf create module skladnik" />
-      <command text="zf create controller Index 1 admin" />
-      <command text="zf create controller Index 1 skladnik" />
-      <command text="zf create action secret Index Skladnik" />
-      <command text="zf create action secret Skladnik/Index" />
-      <command text="zf create action secret Index -m Skladnik" />
       <command text="zf create action secret Index 1 skladnik" />
       <command text="zf create controller Prijmy 1 skladnik" />
       <command text="zf create controller Vydaje 1 skladnik" />
@@ -207,6 +134,15 @@
       <command text="zf create db-table Mesiace mesiace" />
       <command text="zf create action calendar Objednavky" />
       <command text="zf create db-table MiestaStiepenia miesta_stiepenia" />
+      <command text="zf create controller MiestaStiepenia" />
+      <command text="zf create action add MiestaStiepenia" />
+      <command text="zf create action edit MiestaStiepenia" />
+      <command text="zf create action list MiestaStiepenia" />
+      <command text="zf create action delete MiestaStiepenia" />
+      <command text="zf create action edit MaterialyTypy" />
+      <command text="zf create action add MaterialyTypy" />
+      <command text="zf create form MaterialTyp" />
+      <command text="zf create form MiestoStiepenia" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -232,37 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/objednavky/add.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/ObjednavkyController.php" />
-        <option value="$PROJECT_DIR$/application/controllers/PrijmyController.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/add.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/waitings.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/errors.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/VydajeController.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/errors.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/waitings.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/edit.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/list.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/errors.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/no-errors.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/edit.phtml" />
-        <option value="$PROJECT_DIR$/application/Bootstrap.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/prijmy/delete.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/vydaje/delete.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/externa-vyroba/delete.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/preview.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/preview.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/list.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/no-errors.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/errors.phtml" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/printton.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml" />
-        <option value="$PROJECT_DIR$/application/models/DbTable/ExternaDodavka.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/delete.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/preview.phtml" />
-        <option value="$PROJECT_DIR$/application/models/DbTable/MiestaStiepenia.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-vyroba/preview.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-vyroba/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/add.phtml" />
@@ -283,6 +188,37 @@
         <option value="$PROJECT_DIR$/application/forms/Vyroba.php" />
         <option value="$PROJECT_DIR$/application/forms/Objednavka.php" />
         <option value="$PROJECT_DIR$/application/forms/Dodavka.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/prepravci/list.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/sklady/list.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/stroje/list.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/materialy-druhy/list.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/dodavatelia/list.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/dodavatelia/add.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/dodavatelia/edit.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/DodavateliaController.php" />
+        <option value="$PROJECT_DIR$/application/models/DbTable/Dodavatelia.php" />
+        <option value="$PROJECT_DIR$/application/forms/Dodavatel.php" />
+        <option value="$PROJECT_DIR$/application/forms/Zakaznik.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/ZakazniciController.php" />
+        <option value="$PROJECT_DIR$/application/models/DbTable/Zakaznici.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
+        <option value="$PROJECT_DIR$/application/models/LibraryAcl.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/materialy-typy/list.phtml" />
+        <option value="$PROJECT_DIR$/application/forms/MaterialTyp.php" />
+        <option value="$PROJECT_DIR$/application/configs/application.ini" />
+        <option value="$PROJECT_DIR$/application/controllers/MaterialyTypyController.php" />
+        <option value="$PROJECT_DIR$/application/models/DbTable/MaterialyTypy.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/materialy-typy/add.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/materialy-typy/edit.phtml" />
+        <option value="$PROJECT_DIR$/application/forms/MiestoStiepenia.php" />
+        <option value="$PROJECT_DIR$/application/controllers/MiestaStiepeniaController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/edit.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/add.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/list.phtml" />
       </list>
     </option>
   </component>
@@ -427,7 +363,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="objednavky" />
+              <option name="myItemId" value="miesta-stiepenia" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -453,7 +389,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="index" />
+              <option name="myItemId" value="materialy-typy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -479,7 +415,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="externa-vyroba" />
+              <option name="myItemId" value="materialy-druhy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -836,12 +772,6 @@
       <option name="number" value="Default" />
       <updated>1434810288548</updated>
     </task>
-    <task id="LOCAL-00006" summary="prijmy a vydaje preview">
-      <created>1438013106453</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1438013106453</updated>
-    </task>
     <task id="LOCAL-00007" summary="CRUD vedlajsej funkcionality">
       <created>1438080460707</created>
       <option name="number" value="00007" />
@@ -1130,7 +1060,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453812348719</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="dodavatel pre xDodavky a xVyroby, + miesto stiepenia, SPZ validator pre SK, CZ, HU, PL, objednavky zmenit hranice farieb plnenia a rozdelit v grafe plnenie vlast., xDod., xVyr., Zostava">
+      <created>1454158916467</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1454158916467</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1169,7 +1105,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35089976" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3501805" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32581228" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1195,7 +1131,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="big UI update 1" />
     <MESSAGE value="&quot;What?!&quot; - Lil Jon" />
     <MESSAGE value="zakaznici a stroje Index arrays" />
     <MESSAGE value="novorocny PUSH" />
@@ -1220,7 +1155,8 @@
     <MESSAGE value="Backbuttons vsade" />
     <MESSAGE value="Formaty final v1" />
     <MESSAGE value="print test" />
-    <option name="LAST_COMMIT_MESSAGE" value="print test" />
+    <MESSAGE value="dodavatel pre xDodavky a xVyroby, + miesto stiepenia, SPZ validator pre SK, CZ, HU, PL, objednavky zmenit hranice farieb plnenia a rozdelit v grafe plnenie vlast., xDod., xVyr., Zostava" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodavatel pre xDodavky a xVyroby, + miesto stiepenia, SPZ validator pre SK, CZ, HU, PL, objednavky zmenit hranice farieb plnenia a rozdelit v grafe plnenie vlast., xDod., xVyr., Zostava" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1236,324 +1172,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/no-errors.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78902954" vertical-offset="1734" max-vertical-offset="5253">
-          <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16436464" vertical-offset="0" max-vertical-offset="1003">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="n#_getPublicPath#0;n#Bootstrap#0;n#!!top" expanded="false" />
-            <element signature="n#_getApplicationUrl#0;n#Bootstrap#0;n#!!top" expanded="false" />
-            <element signature="n#_initAutoLoad#0;n#Bootstrap#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/prijmy/edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20165746" vertical-offset="1333" max-vertical-offset="3128">
-          <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/prijmy/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38255978" vertical-offset="0" max-vertical-offset="3638">
-          <caret line="16" column="59" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/vydaje/delete.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6455696" vertical-offset="1632" max-vertical-offset="2907">
-          <caret line="123" column="16" selection-start-line="123" selection-start-column="16" selection-end-line="123" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/prijmy/delete.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7172996" vertical-offset="1734" max-vertical-offset="3383">
-          <caret line="132" column="16" selection-start-line="132" selection-start-column="16" selection-end-line="132" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/delete.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47819972" vertical-offset="0" max-vertical-offset="2635">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57383966" vertical-offset="0" max-vertical-offset="3570">
-          <caret line="24" column="91" selection-start-line="24" selection-start-column="91" selection-end-line="24" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43037975" vertical-offset="2397" max-vertical-offset="4063">
-          <caret line="159" column="15" selection-start-line="159" selection-start-column="15" selection-end-line="159" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/list.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538" vertical-offset="2635" max-vertical-offset="5066">
-          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/no-errors.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385" vertical-offset="2635" max-vertical-offset="5032">
-          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/errors.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5260197" vertical-offset="2771" max-vertical-offset="5236">
-          <caret line="185" column="70" selection-start-line="185" selection-start-column="70" selection-end-line="185" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/printton.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61049724" vertical-offset="408" max-vertical-offset="1496">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617" vertical-offset="629" max-vertical-offset="2278">
-          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Dodavatelia.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/delete.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74120957" vertical-offset="187" max-vertical-offset="2652">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6540084" vertical-offset="1499" max-vertical-offset="2618">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Stroje.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18847007" vertical-offset="0" max-vertical-offset="527">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/ExternaDodavka.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="3808">
-          <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
-          <folding>
-            <element signature="n#addXDodavka#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#editXDodavka#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#deleteXDodavka#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#getSumByColumn#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#getRowCountByColumn#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#getSumByDateAndStock#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#getSumByColumnBetween#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#getSubmittedQuantityByStockYearMonth#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#getNumberOfErrors#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#getNumberOfWaitings#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-            <element signature="n#markAsError#0;n#Application_Model_DbTable_ExternaDodavka#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35443038" vertical-offset="360" max-vertical-offset="3145">
-          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/MiestaStiepenia.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21132597" vertical-offset="0" max-vertical-offset="748">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="n#getNazov#0;n#Application_Model_DbTable_MiestaStiepenia#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2618">
-          <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/add.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2618">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9696133" vertical-offset="2684" max-vertical-offset="6511">
-          <caret line="81" column="67" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
-          <folding>
-            <element signature="n#listAction#0;n#ExternaDodavkaController#0;n#!!top" expanded="true" />
-            <element signature="n#waitingsAction#0;n#ExternaDodavkaController#0;n#!!top" expanded="true" />
-            <element signature="n#addAction#0;n#ExternaDodavkaController#0;n#!!top" expanded="true" />
-            <element signature="n#editAction#0;n#ExternaDodavkaController#0;n#!!top" expanded="true" />
-            <element signature="n#previewAction#0;n#ExternaDodavkaController#0;n#!!top" expanded="true" />
-            <element signature="n#deleteAction#0;n#ExternaDodavkaController#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46679318" vertical-offset="1259" max-vertical-offset="3995">
-          <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
-          <folding>
-            <element signature="n#addXVyroba#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#deleteXVyroba#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#getSumByColumn#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#getRowCountByColumn#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#getSumByDateAndStock#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#getSumByColumnBetween#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#getSubmittedQuantityByStockYearMonth#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#getNumberOfErrors#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#getNumberOfWaitings#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-            <element signature="n#markAsError#0;n#Application_Model_DbTable_ExternaVyroba#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/add.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2836812" vertical-offset="789" max-vertical-offset="2975">
-          <caret line="64" column="0" selection-start-line="15" selection-start-column="16" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33206832" vertical-offset="704" max-vertical-offset="2924">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/helpers/stavy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20967741" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/helpers/Prijmybuttons.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46774194" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-          <folding>
-            <element signature="n#prijmybuttons#0;n#Zend_View_Helper_prijmybuttons#0;n#!!top" expanded="true" />
-            <marker date="1454154192011" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/waitings.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66129035" vertical-offset="187" max-vertical-offset="2006">
-          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/errors.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63757116" vertical-offset="110" max-vertical-offset="1904">
-          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62903225" vertical-offset="323" max-vertical-offset="2176">
-          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7504744" vertical-offset="1011" max-vertical-offset="6460">
-          <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
-          <folding>
-            <element signature="n#indexAction#0;n#ExternaVyrobaController#0;n#!!top" expanded="true" />
-            <element signature="n#listAction#0;n#ExternaVyrobaController#0;n#!!top" expanded="true" />
-            <element signature="n#errorsAction#0;n#ExternaVyrobaController#0;n#!!top" expanded="true" />
-            <element signature="n#addAction#0;n#ExternaVyrobaController#0;n#!!top" expanded="true" />
-            <element signature="n#editAction#0;n#ExternaVyrobaController#0;n#!!top" expanded="true" />
-            <element signature="n#previewAction#0;n#ExternaVyrobaController#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/errors.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18595825" vertical-offset="722" max-vertical-offset="1989">
-          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-vyroba/waitings.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7343454" vertical-offset="569" max-vertical-offset="2006">
@@ -1592,16 +1210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Dodavatel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#init#0;n#Application_Form_Dodavatel#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/forms/Dodavka.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="3468">
@@ -1618,16 +1226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/MaterialDruh.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#init#0;n#Application_Form_MaterialDruh#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/forms/Objednavka.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.923077" vertical-offset="0" max-vertical-offset="1734">
@@ -1641,7 +1239,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#init#0;n#Application_Form_Podsklad#0;n#!!top" expanded="true" />
+            <element signature="n#init#0;n#Application_Form_Podsklad#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1651,7 +1249,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#init#0;n#Application_Form_Prepravca#0;n#!!top" expanded="true" />
+            <element signature="n#init#0;n#Application_Form_Prepravca#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1669,17 +1267,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#init#0;n#Application_Form_Sklad#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Stroj.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#init#0;n#Application_Form_Stroj#0;n#!!top" expanded="true" />
+            <element signature="n#init#0;n#Application_Form_Sklad#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1692,20 +1280,348 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Zakaznik.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#init#0;n#Application_Form_Zakaznik#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/forms/Vyroba.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5" vertical-offset="0" max-vertical-offset="3791">
           <caret line="31" column="112" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/prepravci/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/sklady/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.26923" vertical-offset="0" max-vertical-offset="867">
+          <caret line="31" column="15" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="799">
+          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/stroje/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="731">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/materialy-druhy/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="731">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/Zakaznik.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33870968" vertical-offset="0" max-vertical-offset="1683">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/Dodavatel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33870968" vertical-offset="0" max-vertical-offset="1530">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Dodavatelia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3548387" vertical-offset="0" max-vertical-offset="1122">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="n#editDodavatel#0;n#Application_Model_DbTable_Dodavatelia#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/dodavatelia/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.115385" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="43" column="75" selection-start-line="40" selection-start-column="86" selection-end-line="43" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/dodavatelia/edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="544" max-vertical-offset="1717">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/dodavatelia/add.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46774194" vertical-offset="0" max-vertical-offset="2057">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/zakaznici/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.5" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="39" column="75" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/zakaznici/add.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.692307" vertical-offset="153" max-vertical-offset="2023">
+          <caret line="33" column="22" selection-start-line="26" selection-start-column="16" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Zakaznici.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.403904" vertical-offset="408" max-vertical-offset="1513">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding>
+            <element signature="n#addZakaznik#0;n#Application_Model_DbTable_Zakaznici#0;n#!!top" expanded="true" />
+            <element signature="n#deleteZakaznik#0;n#Application_Model_DbTable_Zakaznici#0;n#!!top" expanded="true" />
+            <element signature="n#updateZakaznik#0;n#Application_Model_DbTable_Zakaznici#0;n#!!top" expanded="true" />
+            <element signature="n#getMoznosti#0;n#Application_Model_DbTable_Zakaznici#0;n#!!top" expanded="true" />
+            <element signature="n#getMernaJednotka#0;n#Application_Model_DbTable_Zakaznici#0;n#!!top" expanded="true" />
+            <element signature="n#getCountTransactionsByStrojId#0;n#Application_Model_DbTable_Zakaznici#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ZakazniciController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6381381" vertical-offset="153" max-vertical-offset="1785">
+          <caret line="58" column="119" selection-start-line="58" selection-start-column="84" selection-end-line="58" selection-end-column="119" />
+          <folding>
+            <element signature="n#editAction#0;n#ZakazniciController#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/DodavateliaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8168168" vertical-offset="102" max-vertical-offset="2346">
+          <caret line="44" column="61" selection-start-line="41" selection-start-column="16" selection-end-line="44" selection-end-column="61" />
+          <folding>
+            <element signature="n#editAction#0;n#DodavateliaController#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/zakaznici/edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.536036" vertical-offset="0" max-vertical-offset="1904">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/layout.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.423077" vertical-offset="6324" max-vertical-offset="8449">
+          <caret line="420" column="39" selection-start-line="420" selection-start-column="39" selection-end-line="420" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/LibraryAcl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847" vertical-offset="1224" max-vertical-offset="2295">
+          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/materialy-typy/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2580645" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/Stroj.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.846153" vertical-offset="0" max-vertical-offset="850">
+          <caret line="38" column="69" selection-start-line="7" selection-start-column="8" selection-end-line="38" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/MaterialDruh.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.076923" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="46" column="66" selection-start-line="7" selection-start-column="8" selection-end-line="46" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/MaterialyDruhyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.423077" vertical-offset="306" max-vertical-offset="1377">
+          <caret line="76" column="9" selection-start-line="50" selection-start-column="8" selection-end-line="76" selection-end-column="9" />
+          <folding>
+            <element signature="n#addAction#0;n#MaterialyDruhyController#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/MiestaStiepenia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24193548" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="n#getMiestoStiepenia#0;n#Application_Model_DbTable_MiestaStiepenia#0;n#!!top" expanded="true" />
+            <element signature="n#addMiestoStiepenia#0;n#Application_Model_DbTable_MiestaStiepenia#0;n#!!top" expanded="true" />
+            <element signature="n#updateMiestoStiepenia#0;n#Application_Model_DbTable_MiestaStiepenia#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/MaterialyTypy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24193548" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding>
+            <element signature="n#addTyp#0;n#Application_Model_DbTable_MaterialyTypy#0;n#!!top" expanded="true" />
+            <element signature="n#updateTyp#0;n#Application_Model_DbTable_MaterialyTypy#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/MaterialyDruhy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="n#getDruh#0;n#Application_Model_DbTable_MaterialyDruhy#0;n#!!top" expanded="true" />
+            <element signature="n#addDruh#0;n#Application_Model_DbTable_MaterialyDruhy#0;n#!!top" expanded="true" />
+            <element signature="n#updateDruh#0;n#Application_Model_DbTable_MaterialyDruhy#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/MaterialyTypyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.23077" vertical-offset="306" max-vertical-offset="1598">
+          <caret line="52" column="9" selection-start-line="26" selection-start-column="8" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <element signature="n#init#0;n#MaterialyTypyController#0;n#!!top" expanded="true" />
+            <element signature="n#indexAction#0;n#MaterialyTypyController#0;n#!!top" expanded="true" />
+            <element signature="n#listAction#0;n#MaterialyTypyController#0;n#!!top" expanded="true" />
+            <element signature="n#addAction#0;n#MaterialyTypyController#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4564815" vertical-offset="442" max-vertical-offset="2771">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/MaterialTyp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43548387" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/materialy-druhy/add.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1122">
+          <caret line="3" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/materialy-druhy/edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="1105">
+          <caret line="5" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="59" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/materialy-typy/add.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="51" max-vertical-offset="1122">
+          <caret line="7" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/materialy-typy/edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1105">
+          <caret line="6" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="59" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="901">
+          <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/add.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="935">
+          <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/forms/MiestoStiepenia.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="799">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/MiestaStiepeniaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.461538" vertical-offset="255" max-vertical-offset="1530">
+          <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
+          <folding>
+            <element signature="n#addAction#0;n#MiestaStiepeniaController#0;n#!!top" expanded="true" />
+            <element signature="n#listAction#0;n#MiestaStiepeniaController#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/miesta-stiepenia/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48387095" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding />
         </state>
       </provider>

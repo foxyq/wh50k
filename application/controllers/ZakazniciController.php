@@ -51,8 +51,12 @@ class ZakazniciController extends Zend_Controller_Action
                 $meno = $form->getValue('meno');
                 $nazov_spolocnosti= $form->getValue('nazov_spolocnosti');
                 $merna_jednotka= $form->getValue('merna_jednotka_enum');
+                $ico = $form->getValue('ico');
+                $ic_dph = $form->getValue('ic_dph');
+                $adresa = $form->getValue('adresa');
+                $internyKod = $form->getValue('interny_kod');
                 $zakaznici = new Application_Model_DbTable_Zakaznici();
-                $zakaznici->addZakaznik($meno, $nazov_spolocnosti, $merna_jednotka);
+                $zakaznici->addZakaznik($meno, $nazov_spolocnosti, $merna_jednotka, $ico, $ic_dph, $adresa, $internyKod);
 
                 $this->_helper->redirector('list');
             } else {
@@ -111,8 +115,12 @@ class ZakazniciController extends Zend_Controller_Action
                     $meno = $form->getValue('meno');
                     $nazov_spolocnosti = $form->getValue('nazov_spolocnosti');
                     $merna_jednotka= $form->getValue('merna_jednotka_enum');
+                    $ico = $form->getValue('ico');
+                    $ic_dph = $form->getValue('ic_dph');
+                    $adresa = $form->getValue('adresa');
+                    $internyKod = $form->getValue('interny_kod');
                     $zakaznici = new Application_Model_DbTable_Zakaznici();
-                    $zakaznici->updateZakaznik($id, $meno, $nazov_spolocnosti, $merna_jednotka);
+                    $zakaznici->updateZakaznik($id, $meno, $nazov_spolocnosti, $merna_jednotka, $ico, $ic_dph, $adresa, $internyKod);
 
                     $this->_helper->redirector('list');
                 } else {
