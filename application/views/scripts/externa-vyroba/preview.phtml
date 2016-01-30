@@ -20,19 +20,41 @@
 
             <div class="row">
                 <fieldset>
-                    <legend><i class="fa fa-truck"></i> Dodanie</legend>
+                    <legend><i class="fa fa-user    "></i> Zákazník</legend>
                     <div class="col-lg-6">
                         Zákazník:
                         <?php echo $this->ciselniky['zakazniciModel']->getNazov($this->vyroba['zakaznik_enum']); // render the user name field here ?>
                     </div>
-
-                    <div class="col-lg-6">
-                        Prepravca:
-                        <?php echo $this->ciselniky['prepravciModel']->getNazov($this->vyroba['prepravca_enum']); // render the user name field here ?>
-                    </div>
             </div>
 
             <div class="row">
+                <fieldset>
+                    <legend><i class="fa fa-truck"></i> Dodanie</legend>
+                    <div class="col-lg-6">
+                        Dodávateľ:
+                        <?php echo $this->ciselniky['dodavateliaModel']->getNazov($this->vyroba['dodavatel_enum']); // render the user name field here ?>
+                    </div>
+            </div>
+            <div class="row">
+                <fieldset>
+                    <legend><i class="fa fa-cogs"></i> Spracovanie</legend>
+                    <div class="col-lg-6">
+                        Stroj:
+                        <?php echo $this->ciselniky['strojeModel']->getNazov($this->vyroba['stroj_enum']); // render the user name field here ?>
+                    </div>
+                    <div class="col-lg-6">
+                        Miesto štiepenia:
+                        <?php echo $this->ciselniky['miestaStiepeniaModel']->getNazov($this->vyroba['miesto_stiepenia_enum']); // render the user name field here ?>
+                    </div>
+            </div>
+            <div class="row">
+
+                <legend><i class="fa fa-truck"></i> Preprava</legend>
+
+                <div class="col-lg-6">
+                        Prepravca:
+                        <?php echo $this->ciselniky['prepravciModel']->getNazov($this->vyroba['prepravca_enum']); // render the user name field here ?>
+                    </div>
                 <div class="col-lg-6">
                     ŠPZ:
                     <?php echo $this->vyroba['prepravca_spz']; // render the user name field here ?>

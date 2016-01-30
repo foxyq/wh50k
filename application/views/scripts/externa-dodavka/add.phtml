@@ -1,4 +1,4 @@
-<h1 >Vytvoriť novú externú objednávku</h1>
+<h1 >Vytvoriť novú externú dodávku</h1>
 <!--<hr>-->
 
 
@@ -29,19 +29,28 @@
 
                 <div class="row">
                     <fieldset>
-                        <legend>Dodanie</legend>
+                        <legend>Zákazník</legend>
                         <div class="col-lg-6">
                             <!--                        Dodávateľ:-->
                             <?php echo $this->form->zakaznik_enum; // render the user name field here ?>
                         </div>
+                </div>
 
-                        <div class="col-lg-6">
-                            <!--                        Prepravca:-->
-                            <?php echo $this->form->prepravca_enum; // render the user name field here ?>
+                <div class="row">
+                    <fieldset>
+                        <legend>Dodanie</legend>
+                        <div class="col-lg-6 left">
+                            <!--                        Dodávateľ:-->
+                            <?php echo $this->form->dodavatel_enum; // render the user name field here ?>
                         </div>
+
                 </div>
                 <!--        -->
                 <div class="row">
+                    <div class="col-lg-6">
+                            <!--                        Prepravca:-->
+                            <?php echo $this->form->prepravca_enum; // render the user name field here ?>
+                        </div>
                     <div class="col-lg-6">
                         <!--                    ŠPZ:-->
                         <?php echo $this->form->prepravca_spz; // render the user name field here ?>

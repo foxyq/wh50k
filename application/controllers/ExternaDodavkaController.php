@@ -19,6 +19,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         // vytvorenie instancií modelov
         $externeDodavky = new Application_Model_DbTable_ExternaDodavka();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
         $prepravci = new Application_Model_DbTable_Prepravci();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
@@ -32,6 +33,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         // priradenie modelov do premenných a poslanie na view script
         $this->view->externeDodavky = $externeDodavky->fetchAll($param);
         $this->view->zakaznici = $zakaznici;
+        $this->view->dodavatelia = $dodavatelia;
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
@@ -46,6 +48,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         // vytvorenie instancií modelov
         $externeDodavky = new Application_Model_DbTable_ExternaDodavka();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
         $prepravci = new Application_Model_DbTable_Prepravci();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
@@ -59,6 +62,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         // priradenie modelov do premenných a poslanie na view script
         $this->view->externeDodavky = $externeDodavky->fetchAll("stav_transakcie = 1");
         $this->view->zakaznici = $zakaznici;
+        $this->view->dodavatelia = $dodavatelia;
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
@@ -75,6 +79,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         // vytvorenie instancií modelov
         $externeDodavky = new Application_Model_DbTable_ExternaDodavka();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
         $prepravci = new Application_Model_DbTable_Prepravci();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
@@ -88,6 +93,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         // priradenie modelov do premenných a poslanie na view script
         $this->view->externeDodavky = $externeDodavky->fetchAll("chyba = 1");
         $this->view->zakaznici = $zakaznici;
+        $this->view->dodavatelia = $dodavatelia;
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
@@ -111,15 +117,16 @@ class ExternaDodavkaController extends Zend_Controller_Action
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+        $dodavateliaModel = new Application_Model_DbTable_Dodavatelia();
 
         //metoda ktorou vytiahneme do premennej zoznam
 
         $zakazniciMoznosti = $zakazniciMoznosti->getMoznosti();
         $prepravciMoznosti = $prepravciMoznosti->getMoznosti();
-
         $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
         $materialyTypyMoznosti = $materialyTypy->getMoznosti();
         $transakcieStavyMoznosti = $transakcieStavy->getMoznosti();
+        $dodavateliaMoznosti = $dodavateliaModel->getMoznosti();
 
         //samostatne premenne ktore posielame na form
         $potvrdzujuceTlacidlo = 'Vložiť';
@@ -129,6 +136,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
             'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
             'materialyTypyMoznosti' => $materialyTypyMoznosti,
             'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
+            'dodavateliaMoznosti' => $dodavateliaMoznosti,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo,
         ));
         $this->view->form = $form;
@@ -136,11 +144,11 @@ class ExternaDodavkaController extends Zend_Controller_Action
 
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
-//            var_dump($this->getRequest()->getPost());
             if ($form->isValid($formData)) {
 
                 $datum_xdodavky = $form->getValue('datum_xdodavky_d');
                 $zakaznik = $form->getValue('zakaznik_enum');
+                $dodavatel = $form->getValue('dodavatel_enum');
                 $prepravca = $form->getValue('prepravca_enum');
                 $prepravca_spz = $form->getValue('prepravca_spz');
                 $q_tony_merane = $form->getValue('q_tony_merane');
@@ -161,6 +169,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
 
                 $dodavka->addXDodavka($datum_xdodavky,
                     $zakaznik,
+                    $dodavatel,
                     $prepravca,
                     $prepravca_spz,
                     $q_tony_merane,
@@ -178,8 +187,6 @@ class ExternaDodavkaController extends Zend_Controller_Action
                 $this->_helper->redirector($fromAction);
             } else {
                 $form->populate($formData);
-                //pageManager
-                //$_SESSION[pageManager][ignore] = 1;
             }
         }
     }
@@ -194,6 +201,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
 
         $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
         $prepravciMoznosti = new Application_Model_DbTable_Prepravci();
+        $dodavateliaMoznosti = new Application_Model_DbTable_Dodavatelia();
 
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
@@ -202,6 +210,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         //metoda ktorou vytiahneme do premennej zoznam
 
         $zakazniciMoznosti = $zakazniciMoznosti->getMoznosti();
+        $dodavateliaMoznosti = $dodavateliaMoznosti->getMoznosti();
         $prepravciMoznosti = $prepravciMoznosti->getMoznosti();
         $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
         $materialyTypyMoznosti = $materialyTypy->getMoznosti();
@@ -211,6 +220,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         $potvrdzujuceTlacidlo = 'Upraviť';
         $form = new Application_Form_Dodavka(array(
             'zakazniciMoznosti' => $zakazniciMoznosti,
+            'dodavateliaMoznosti' => $dodavateliaMoznosti,
             'prepravciMoznosti' => $prepravciMoznosti,
             'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
             'materialyTypyMoznosti' => $materialyTypyMoznosti,
@@ -227,6 +237,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
                 $id = $this->_getParam('id', 0);
                 $datum_xdodavky = $form->getValue('datum_xdodavky_d');
                 $zakaznik = $form->getValue('zakaznik_enum');
+                $dodavatel = $form->getValue('dodavatel_enum');
                 $prepravca = $form->getValue('prepravca_enum');
                 $prepravca_spz = $form->getValue('prepravca_spz');
                 $q_tony_merane = $form->getValue('q_tony_merane');
@@ -245,6 +256,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
                     $id,
                     $datum_xdodavky,
                     $zakaznik,
+                    $dodavatel,
                     $prepravca,
                     $prepravca_spz,
                     $q_tony_merane,
@@ -286,12 +298,14 @@ class ExternaDodavkaController extends Zend_Controller_Action
         //inicializacia pre vypis premennych - pre getNazov() metody
 
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $dodavateliaModel = new Application_Model_DbTable_Dodavatelia();
         $prepravciModel = new Application_Model_DbTable_Prepravci();
         $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
         $ciselniky = array(
             'zakazniciModel' => $zakazniciModel,
+            'dodavateliaModel' => $dodavateliaModel,
             'prepravciModel' => $prepravciModel,
             'materialyTypyModel' => $materialyTypyModel,
             'materialyDruhyModel' => $materialyDruhyModel,
@@ -314,6 +328,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
         //inicializacia pre vypis premennych - pre getNazov() metody
 
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $dodavateliaModel = new Application_Model_DbTable_Dodavatelia();
         $prepravciModel = new Application_Model_DbTable_Prepravci();
         $materialyTypyModel = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
@@ -321,11 +336,11 @@ class ExternaDodavkaController extends Zend_Controller_Action
         $ciselniky = array(
 
             'zakazniciModel' => $zakazniciModel,
+            'dodavateliaModel' => $dodavateliaModel,
             'prepravciModel' => $prepravciModel,
             'materialyTypyModel' => $materialyTypyModel,
             'materialyDruhyModel' => $materialyDruhyModel,
-            'transakcieStavyModel' => $transakcieStavyModel,
-            'strojeMoznosti' => $strojeModel
+            'transakcieStavyModel' => $transakcieStavyModel
         );
         $this->view->ciselniky = $ciselniky;
         $this->view->title = "Zmazať externú dodávku?";

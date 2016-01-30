@@ -13,6 +13,7 @@
 
                 <div class="row">
                     <fieldset>
+
                         <!--                    <legend>Dátum príjmu</legend>-->
 
                         <div class="col-lg-6">
@@ -22,28 +23,44 @@
                     </fieldset>
                 </div>
 
-                <!--        -->
+
                 <div class="row">
                     <fieldset>
-                        <legend>Dodanie</legend>
+                        <legend>Zákazník</legend>
                         <div class="col-lg-6">
                             <!--                        Dodávateľ:-->
                             <?php echo $this->form->zakaznik_enum; // render the user name field here ?>
                         </div>
+                </div>
 
+                <div class="row">
+                    <fieldset>
+                        <legend>Dodávateľ a spracovanie</legend>
+                        <div class="col-lg-6">
+                            <!--                        Dodávateľ:-->
+                            <?php echo $this->form->dodavatel_enum; // render the user name field here ?>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <!--                        Dodávateľ:-->
+                            <?php echo $this->form->miesto_stiepenia_enum; // render the user name field here ?>
+                        </div>
+                </div>
+
+                <div class="row">
+                    <fieldset>
+                        <legend>Preprava</legend>
                         <div class="col-lg-6">
                             <!--                        Prepravca:-->
                             <?php echo $this->form->prepravca_enum; // render the user name field here ?>
                         </div>
-                </div>
-                <!--        -->
-                <div class="row">
-                    <div class="col-lg-6">
+                        <div class="col-lg-6">
                         <!--                    ŠPZ:-->
                         <?php echo $this->form->prepravca_spz; // render the user name field here ?>
                     </div>
-                    </fieldset>
                 </div>
+                <!--        -->
+
 
                 <div class="row">
                     <fieldset>

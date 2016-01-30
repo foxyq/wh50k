@@ -25,7 +25,7 @@ class Application_Form_Objednavka extends Zend_Form
         $validatorCislaRange99999->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 99999,99.");
         $validatorSelecty= new Zend_Validate_Between(array('min' => 1, 'max' => 999));
         $validatorSelecty->setMessage("Hodnota je povinná");
-        $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[1-Z]{2}[0-9]{3}[A-Z]{2}/"));
+        $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[a-zA-Z0-9]{7}|[a-zA-Z0-9]{6}|[a-zA-Z0-9]{5}/"));
         $validatorSPZ->setMessage('Zadajte ŠPZ v tvare ZV123BU.', Zend_Validate_Regex::NOT_MATCH);
 
         /*

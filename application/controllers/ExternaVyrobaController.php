@@ -12,6 +12,7 @@ class ExternaVyrobaController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+
     }
 
     public function listAction()
@@ -19,10 +20,13 @@ class ExternaVyrobaController extends Zend_Controller_Action
         // vytvorenie instancií modelov
         $externeVyroby = new Application_Model_DbTable_ExternaVyroba();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
         $prepravci = new Application_Model_DbTable_Prepravci();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+        $miestaStiepenia = new Application_Model_DbTable_MiestaStiepenia();
+        $stroje = new Application_Model_DbTable_Stroje();
 
         // priradenie modelov do premenných a poslanie na view script
         $param = $this->_getParam('param', null);
@@ -32,10 +36,13 @@ class ExternaVyrobaController extends Zend_Controller_Action
         // priradenie modelov do premenných a poslanie na view script
         $this->view->externeVyroby = $externeVyroby->fetchAll($param);
         $this->view->zakaznici = $zakaznici;
+        $this->view->dodavatelia = $dodavatelia;
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
         $this->view->transakcieStavy = $transakcieStavy;
+        $this->view->miestaStiepenia = $miestaStiepenia;
+        $this->view->stroje = $stroje;
 
         //názov stránky
         $this->view->title = "Externá výroba - zoznam";
@@ -46,10 +53,13 @@ class ExternaVyrobaController extends Zend_Controller_Action
         // vytvorenie instancií modelov
         $externeVyroby = new Application_Model_DbTable_ExternaVyroba();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
         $prepravci = new Application_Model_DbTable_Prepravci();
+        $miestaStiepenia = new Application_Model_DbTable_MiestaStiepenia();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+        $stroje = new Application_Model_DbTable_Stroje();
 
         // priradenie modelov do premenných a poslanie na view script
         //$param = $this->_getParam('param', null);
@@ -59,10 +69,13 @@ class ExternaVyrobaController extends Zend_Controller_Action
         // priradenie modelov do premenných a poslanie na view script
         $this->view->externeVyroby = $externeVyroby->fetchAll("chyba = 1");
         $this->view->zakaznici = $zakaznici;
+        $this->view->dodavatelia = $dodavatelia;
+        $this->view->miestaStiepenia = $miestaStiepenia;
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
         $this->view->transakcieStavy = $transakcieStavy;
+        $this->view->stroje = $stroje;
 
         //názov stránky
         $this->view->title = "Externá výroba - chyby";
@@ -73,10 +86,13 @@ class ExternaVyrobaController extends Zend_Controller_Action
         // vytvorenie instancií modelov
         $externeVyroby = new Application_Model_DbTable_ExternaVyroba();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
+        $dodavatelia = new Application_Model_DbTable_Dodavatelia();
         $prepravci = new Application_Model_DbTable_Prepravci();
+        $miestaStiepenia = new Application_Model_DbTable_MiestaStiepenia();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
         $transakcieStavy = new Application_Model_DbTable_TransakcieStavy();
+        $stroje = new Application_Model_DbTable_Stroje();
 
         // priradenie modelov do premenných a poslanie na view script
         //$param = $this->_getParam('param', null);
@@ -87,9 +103,12 @@ class ExternaVyrobaController extends Zend_Controller_Action
         $this->view->externeVyroby = $externeVyroby->fetchAll("stav_transakcie = 1");
         $this->view->zakaznici = $zakaznici;
         $this->view->prepravci = $prepravci;
+        $this->view->dodavatelia = $dodavatelia;
+        $this->view->miestaStiepenia = $miestaStiepenia;
         $this->view->materialyTypy = $materialyTypy;
         $this->view->materialyDruhy = $materialyDruhy;
         $this->view->transakcieStavy = $transakcieStavy;
+        $this->view->stroje = $stroje;
 
         //názov stránky
         $this->view->title = "Externá výroba - čaká na schválenie";
@@ -109,6 +128,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
         //instancia modelu z ktoreho budeme tahat zoznam
 
         $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
+        $dodavateliaMoznosti = new Application_Model_DbTable_Dodavatelia();
+        $miestaStiepenia = new Application_Model_DbTable_MiestaStiepenia();
         $prepravciMoznosti = new Application_Model_DbTable_Prepravci();
         $dokladyTypyMoznosti = new Application_Model_DbTable_DokladyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
@@ -118,6 +139,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
         //metoda ktorou vytiahneme do premennej zoznam
 
         $zakazniciMoznosti = $zakazniciMoznosti->getMoznosti();
+        $dodavateliaMoznosti = $dodavateliaMoznosti->getMoznosti();
+        $miestaStiepeniaMoznosti = $miestaStiepenia->getMoznosti();
         $prepravciMoznosti = $prepravciMoznosti->getMoznosti();
         $dokladyTypyMoznosti = $dokladyTypyMoznosti->getMoznosti();
         $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
@@ -130,6 +153,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
         $form = new Application_Form_Vyroba(array(
 
             'zakazniciMoznosti' => $zakazniciMoznosti,
+            'dodavateliaMoznosti' => $dodavateliaMoznosti,
+            'miestaStiepeniaMoznosti' => $miestaStiepeniaMoznosti,
             'prepravciMoznosti' => $prepravciMoznosti,
             'dokladyTypyMoznosti' => $dokladyTypyMoznosti,
             'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
@@ -147,6 +172,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
             if ($form->isValid($formData)) {
                 $datum_vydaju = $form->getValue('datum_xvyroby_d');
                 $zakaznik = $form->getValue('zakaznik_enum');
+                $dodavatel = $form->getValue('dodavatel_enum');
+                $miestoStiepenia = $form->getValue('miesto_stiepenia_enum');
                 $prepravca = $form->getValue('prepravca_enum');
                 $prepravca_spz = $form->getValue('prepravca_spz');
                 $q_tony_merane = $form->getValue('q_tony_merane');
@@ -167,6 +194,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
                 $vyroba->addXVyroba(
                     $datum_vydaju,
                     $zakaznik,
+                    $dodavatel,
+                    $miestoStiepenia,
                     $prepravca,
                     $prepravca_spz,
                     $q_tony_merane,
@@ -197,6 +226,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
         $this->view->fromController = $fromController;
         //instancia modelu z ktoreho budeme tahat zoznam
         $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
+        $dodavateliaMoznosti = new Application_Model_DbTable_Dodavatelia();
+        $miestaStiepenia = new Application_Model_DbTable_MiestaStiepenia();
         $prepravciMoznosti = new Application_Model_DbTable_Prepravci();
         $dokladyTypyMoznosti = new Application_Model_DbTable_DokladyTypy();
         $materialyDruhy = new Application_Model_DbTable_MaterialyDruhy();
@@ -205,6 +236,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
         $stroje = new Application_Model_DbTable_Stroje();
         //metoda ktorou vytiahneme do premennej zoznam
         $zakazniciMoznosti = $zakazniciMoznosti->getMoznosti();
+        $dodavateliaMoznosti = $dodavateliaMoznosti->getMoznosti();
+        $miestaStiepeniaMoznosti = $miestaStiepenia->getMoznosti();
         $prepravciMoznosti = $prepravciMoznosti->getMoznosti();
         $dokladyTypyMoznosti = $dokladyTypyMoznosti->getMoznosti();
         $materialyDruhyMoznosti = $materialyDruhy->getMoznosti();
@@ -215,6 +248,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
         $potvrdzujuceTlacidlo = 'Upraviť';
         $form = new Application_Form_Vyroba(array(
             'zakazniciMoznosti' => $zakazniciMoznosti,
+            'dodavateliaMoznosti' => $dodavateliaMoznosti,
+            'miestaStiepeniaMoznosti' => $miestaStiepeniaMoznosti,
             'prepravciMoznosti' => $prepravciMoznosti,
             'dokladyTypyMoznosti' => $dokladyTypyMoznosti,
             'materialyDruhyMoznosti' => $materialyDruhyMoznosti,
@@ -231,6 +266,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
                 $id = (int)$form->getValue('tx_vyroba_id');
                 $datum_xvyroby_d = $form->getValue('datum_xvyroby_d');
                 $zakaznik = $form->getValue('zakaznik_enum');
+                $dodavatel = $form->getValue('dodavatel_enum');
+                $miestoStiepenia = $form->getValue('miesto_stiepenia_enum');
                 $prepravca = $form->getValue('prepravca_enum');
                 $prepravca_spz = $form->getValue('prepravca_spz');
                 $q_tony_merane = $form->getValue('q_tony_merane');
@@ -249,6 +286,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
                     $id,
                     $datum_xvyroby_d,
                     $zakaznik,
+                    $dodavatel,
+                    $miestoStiepenia,
                     $prepravca,
                     $prepravca_spz,
                     $q_tony_merane,
@@ -336,6 +375,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
 
         //inicializacia pre vypis premennych - pre getNazov() metody
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $dodavateliaModel = new Application_Model_DbTable_Dodavatelia();
+        $miestaStiepenia = new Application_Model_DbTable_MiestaStiepenia();
         $prepravciModel = new Application_Model_DbTable_Prepravci();
         $strojeModel = new Application_Model_DbTable_Stroje();
         $dokladyTypyModel = new Application_Model_DbTable_DokladyTypy();
@@ -344,6 +385,8 @@ class ExternaVyrobaController extends Zend_Controller_Action
         $transakcieStavyModel = new Application_Model_DbTable_TransakcieStavy();
         $ciselniky = array(
             'zakazniciModel' => $zakazniciModel,
+            'dodavateliaModel' => $dodavateliaModel,
+            'miestaStiepeniaModel' => $miestaStiepenia,
             'prepravciModel' => $prepravciModel,
             'strojeModel'=>$strojeModel,
             'dokladyTypyModel' => $dokladyTypyModel,

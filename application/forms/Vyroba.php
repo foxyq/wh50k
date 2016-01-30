@@ -29,7 +29,7 @@ class Application_Form_Vyroba extends ZendX_JQuery_Form{
         $validatorCislaRange->setMessage("Zadané číslo sa nenachádza v intervale od 0 do 999,99.");
         $validatorSelecty= new Zend_Validate_Between(array('min' => 1, 'max' => 999));
         $validatorSelecty->setMessage("Hodnota je povinná");
-        $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[1-Z]{2}[0-9]{3}[A-Z]{2}/"));
+        $validatorSPZ = new Zend_Validate_Regex(array('pattern'=> "/[a-zA-Z0-9]{7}|[a-zA-Z0-9]{6}|[a-zA-Z0-9]{5}/"));
         $validatorSPZ->setMessage('Zadajte ŠPZ v tvare ZV123BU.', Zend_Validate_Regex::NOT_MATCH);
 
 
@@ -59,6 +59,22 @@ class Application_Form_Vyroba extends ZendX_JQuery_Form{
             '0' => '' ));
         $zakaznik->addMultiOptions($this->getAttrib('zakazniciMoznosti'));
         $zakaznik->setLabel("Zákazník")
+            ->addValidator($validatorSelecty)
+            ->setAttrib('class', 'form-control');
+
+        $dodavatel = new Zend_Form_Element_Select('$dodavatel_enum');
+        $dodavatel->addMultiOptions(array(
+            '0' => '' ));
+        $dodavatel->addMultiOptions($this->getAttrib('dodavateliaMoznosti'));
+        $dodavatel->setLabel("Dodávateľ")
+            ->addValidator($validatorSelecty)
+            ->setAttrib('class', 'form-control');
+
+        $miesta_stiepenia = new Zend_Form_Element_Select('$miesto_stiepenia_enum');
+        $miesta_stiepenia->addMultiOptions(array(
+            '0' => '' ));
+        $miesta_stiepenia->addMultiOptions($this->getAttrib('miestaStiepeniaMoznosti'));
+        $miesta_stiepenia->setLabel("Miesto štiepenia")
             ->addValidator($validatorSelecty)
             ->setAttrib('class', 'form-control');
 
@@ -179,6 +195,8 @@ class Application_Form_Vyroba extends ZendX_JQuery_Form{
             $id,
             $datum_vyroby,
             $zakaznik,
+            $dodavatel,
+            $miesta_stiepenia,
             $prepravca,
             $prepravca_spz,
             $q_tony_merane,

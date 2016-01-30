@@ -26,6 +26,9 @@ $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
             <th class="no-print">Detail</th>
             <th>Dátum</th>
             <th>Zákazník</th>
+            <th>Dodávateľ</th>
+            <th>Stroj</th>
+            <th>Miesto štp.</th>
             <th>Prepravca</th>
             <th>Tony</th>
             <th>m<sup>3</sup></th>
@@ -43,6 +46,9 @@ $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
             <th></th>
             <th>dátum</th>
             <th>zákazník</th>
+            <th>dodávateľ</th>
+            <th>stroj</th>
+            <th>miesto štp.</th>
             <th></th>
             <th>tony</th>
             <th>m3</th>
@@ -69,6 +75,9 @@ $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
             echo $date ;?>
             </td>
             <td><?php echo $this->escape($this->zakaznici->getNazov($externa_vyroba->zakaznik_enum));?></td>
+            <td><?php echo $this->escape($this->dodavatelia->getNazov($externa_vyroba->dodavatel_enum));?></td>
+            <td><?php echo $this->escape($this->stroje->getNazov($externa_vyroba->stroj_enum));?></td>
+            <td><?php echo $this->escape($this->miestaStiepenia->getNazov($externa_vyroba->miesto_stiepenia_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($externa_vyroba->prepravca_enum));?></td>
             <td class="tonaz"><?php echo number_format($this->escape($externa_vyroba->q_tony_merane), 2, ",", " ");?></td>
 

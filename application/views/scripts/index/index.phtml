@@ -270,8 +270,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                 $xdodavky = $this->xdodavkyModel->getSubmittedQuantityByStockYearMonth($objednavka->merna_jednotka_enum,$objednavka->zakaznik_enum,$objednavka->rok_enum,$objednavka->mesiac_enum);
                 $dodane = $vydaje + $xvyroby + $xdodavky;
                 $plnenie = ($dodane/$objednavka->mnozstvo)*100;
-                if ($plnenie > 25){
-                    if ($plnenie > 90){
+                if ($plnenie >= 25){
+                    if ($plnenie >= 75){
                         $farbaClass = 'success';
                     }else
                         $farbaClass = 'warning';

@@ -61,12 +61,12 @@
                         -->
                         <td><?php echo date("d.m.Y", strtotime($this->escape($ubytok->datum_ubytku_d)));?></td>
                         <td><?php echo $this->escape($this->sklady->getSkratka($ubytok->sklad_enum));?></td>
-                        <td><?php echo number_format($this->escape($ubytok->q_rano_tony), 2, ",", " ");?></td>
-                        <td><?php echo number_format($this->escape($ubytok->q_denny_pohyb_tony), 2, ",", " ");?></td>
-                        <td><?php echo number_format($this->escape($ubytok->q_vecer_tony), 2, ",", " ");?></td>
-                        <td><?php echo number_format($this->escape($ubytok->q_cely_den_tony), 2, ",", " ");?></td>
-                        <td><?php echo number_format($this->escape($ubytok->q_ubytok_tony), 2, ",", " ");?></td>
-                        <td><?php echo number_format($this->escape($ubytok->q_konecny_stav_tony), 2, ",", " ");?></td>
+                        <td><?php echo number_format($this->escape($ubytok->q_rano_tony), 4, ",", " ");?></td>
+                        <td><?php echo number_format($this->escape($ubytok->q_denny_pohyb_tony), 4, ",", " ");?></td>
+                        <td><?php echo number_format($this->escape($ubytok->q_vecer_tony), 4, ",", " ");?></td>
+                        <td><?php echo number_format($this->escape($ubytok->q_cely_den_tony), 4, ",", " ");?></td>
+                        <td><?php echo number_format($this->escape($ubytok->q_ubytok_tony), 4, ",", " ");?></td>
+                        <td><?php echo number_format($this->escape($ubytok->q_konecny_stav_tony), 4, ",", " ");?></td>
                         <td><?php echo $this->escape($ubytok->poznamka);?></td>
                         <td><?php echo $this->escape($this->sklady->getMernaJednotkaSkratka($ubytok->merna_jednotka_enum));?></td>
                     </tr>

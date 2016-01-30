@@ -186,6 +186,7 @@
           <dbTableFile dbTableName="Objednavky"/>
           <dbTableFile dbTableName="Roky"/>
           <dbTableFile dbTableName="Mesiace"/>
+          <dbTableFile dbTableName="MiestaStiepenia"/>
         </dbTableDirectory>
         <modelFile modelName="Notifikacie"/>
         <modelFile modelName="LibraryAcl"/>

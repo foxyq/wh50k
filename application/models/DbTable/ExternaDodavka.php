@@ -71,6 +71,7 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
 
     public function addXDodavka($datum_xdodavky,
                               $zakaznik,
+                              $dodavatel,
                               $prepravca,
                               $prepravca_spz,
                               $q_tony_merane,
@@ -91,6 +92,7 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
         $data = array(
             'datum_xdodavky_d' => $datum_xdodavky,
             'zakaznik_enum' => $zakaznik,
+            'dodavatel_enum' => $dodavatel,
             'prepravca_enum' => $prepravca,
             'prepravca_spz' => $prepravca_spz,
             'q_tony_merane' => $q_tony_merane,
@@ -118,6 +120,7 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
                             $id,
                             $datum_xdodavky,
                              $zakaznik,
+                            $dodavatel,
                              $prepravca,
                              $prepravca_spz,
                              $q_tony_merane,
@@ -136,6 +139,7 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
         $data = array(
             'datum_xdodavky_d' => $datum_xdodavky,
             'zakaznik_enum' => $zakaznik,
+            'dodavatel_enum' => $dodavatel,
             'prepravca_enum' => $prepravca,
             'prepravca_spz' => $prepravca_spz,
             'q_tony_merane' => $q_tony_merane,

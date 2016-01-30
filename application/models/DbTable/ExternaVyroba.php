@@ -71,6 +71,8 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
 
     public function addXVyroba($datum_xvyroby,
                               $zakaznik,
+                              $dodavatel,
+                              $miestoStiepenia,
                               $prepravca,
                               $prepravca_spz,
                               $q_tony_merane,
@@ -92,6 +94,8 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
         $data = array(
             'datum_xvyroby_d' => $datum_xvyroby,
             'zakaznik_enum' => $zakaznik,
+            'dodavatel_enum' => $dodavatel,
+            'miesto_stiepenia_enum' => $miestoStiepenia,
             'prepravca_enum' => $prepravca,
             'prepravca_spz' => $prepravca_spz,
             'q_tony_merane' => $q_tony_merane,
@@ -119,6 +123,8 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
                             $id,
                             $datum_xvyroby,
                              $zakaznik,
+                              $dodavatel,
+                              $miestoStiepenia,
                              $prepravca,
                              $prepravca_spz,
                              $q_tony_merane,
@@ -139,6 +145,8 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
         $data = array(
             'datum_xvyroby_d' => $datum_xvyroby,
             'zakaznik_enum' => $zakaznik,
+            'dodavatel_enum' => $dodavatel,
+            'miesto_stiepenia_enum' => $miestoStiepenia,
             'prepravca_enum' => $prepravca,
             'prepravca_spz' => $prepravca_spz,
             'q_tony_merane' => $q_tony_merane,

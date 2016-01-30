@@ -62,7 +62,7 @@
                         $xdodavky = $this->xdodavkyModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
 
                         $percentaVydaje = $vydaje*100/$objednavka['mnozstvo'];
-                        $percentaXVyrobky = $xvyroby*100/$objednavka['mnozstvo'];
+                        $percentaXVyroby = $xvyroby*100/$objednavka['mnozstvo'];
                         $percentaXDodavky = $xdodavky*100/$objednavka['mnozstvo'];
 
 
@@ -102,7 +102,7 @@
                     <legend><i class="fa fa-mail-forward"></i> Na dodanie</legend>
 
                     <div class="col-lg-6">
-                        zostáva:
+                        Zostáva:
                         <?php echo number_format($objednavka['mnozstvo'] - $xvyroby - $xdodavky - $vydaje, 2, ",", " ");?>
                         <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
                     </div>
@@ -110,11 +110,13 @@
             </div>
 
             <div class="progress" style="margin-top: 15pt; margin-bottom: 15pt; margin-left: 5pt; margin-right: 5pt">
-                    <div class="progress-bar progress-bar-success" style="width: <?php echo $percentaVydaje;?>%">vlastné<span class="sr-only">35% Complete (success)</span>
+                    <div class="progress-bar progress-bar-success" style="width: <?php echo $percentaVydaje;?>%">Vlastné<span class="sr-only">35% Complete (success)</span>
                     </div>
-                    <div class="progress-bar progress-bar-info" style="width: <?php echo ($percentaXVyrobky + $percentaXDodavky);?>%">externé<span class="sr-only">20% Complete (warning)</span>
+                    <div class="progress-bar progress-bar-info" style="width: <?php echo $percentaXVyroby;?>%">xVýroba<span class="sr-only">35% Complete (success)</span>
                     </div>
-                    <div class="progress-bar progress-bar-danger" style="width: <?php echo (100-$percentaXDodavky-$percentaXVyrobky-$percentaVydaje)?>%">zostáva<span class='sr-only'>10% Complete (danger)</span>
+                    <div class="progress-bar progress-bar-warning" style="width: <?php echo $percentaXDodavky;?>%">xDodávka<span class="sr-only">20% Complete (warning)</span>
+                    </div>
+                    <div class="progress-bar progress-bar-danger" style="width: <?php echo (100-$percentaXDodavky-$percentaXVyroby-$percentaVydaje)?>%">Zostáva<span class='sr-only'>10% Complete (danger)</span>
                     </div>
                 </div>
             <br>
