@@ -15,178 +15,138 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
                         <a href="<?php echo $this->url(array('controller'=>'ubytky',
                             'action'=>'refreshdataexternal', 'fromAction'=>'index', 'fromController'=>'sklady'));?>"><button type="button" class="btn btn-success">Aktualizovať data</button></a>
-
-
-                        <hr>
                     </div>
 
-                    <?php
-                    $skladyIds = $this->skladyModel->getIds();
-                    $counter = 1;
+    <br><br>
 
-                    $pocitadlo = 1;
-                    ?>
 
-                    <?php foreach ($skladyIds AS $skladId) :
-                        if ($counter>count($colors)) {$counter = 1;}
-                        ?>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-<?php echo $colors[$counter]?>">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-3x">
-                                                <?php
-                                                    ECHO $this->skladyModel->getSkratka($skladId)
+    <ul class="nav nav-tabs">
+        <?php
+        $skladyIds = $this->skladyModel->getIds();
 
-                                            ?></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">
+        foreach($skladyIds as $skladId):?>
+            <li <?php if ($skladId == 1){echo "class=\"active\"";}?>><a data-toggle="tab" href="#menu<?php echo $skladId;?>"><?php echo $this->skladyModel->getNazov($skladId);?></a></li>
+        <?php endforeach; ?>
+    </ul>
+
+    <br>
+    <div class="tab-content">
+        <?php
+        $counter = 1;
+        $pocitadlo = 1;
+        foreach($skladyIds as $skladId):
+            if ($counter>count($colors)) {$counter = 1;} ?>
+            <div id="<?php echo "menu".$skladId;?>" <?php if ($skladId == 1){echo "class=\"tab-pane fade in active\"";} else { echo "class=\"tab-pane fade\"";}?>>
+
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel panel-<?php echo $colors[$counter]?>">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-3x">
+                                        <?php
+                                        ECHO $this->skladyModel->getSkratka($skladId)
+
+                                        ?></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">
                                             <span style="font-size:26pt;">
                                             <?php
-                                                $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
-                                                $aktualnyStavSkladu = number_format($aktualnyStavSkladu['t'], 2, ',', ' ');
-                                                echo $aktualnyStavSkladu;
+                                            $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
+                                            $aktualnyStavSkladu = number_format($aktualnyStavSkladu['t'], 2, ',', ' ');
+                                            echo $aktualnyStavSkladu;
                                             ?>
-                                            <span style="font-size:10pt;">
+                                                <span style="font-size:10pt;">
                                                 <?php
-                                                    //print_r($this->skladyModel->getMernaJednotkaSkratka($skladId));
-                                                    $mernaJednotka = $this->skladyModel->getMernaJednotkaSkratka($skladId);
-                                                    if ($mernaJednotka == 'm3'){
-                                                        echo "m<sup>3</sup>";
-                                                    }else{
-                                                        echo $mernaJednotka;
-                                                    }
+                                                //print_r($this->skladyModel->getMernaJednotkaSkratka($skladId));
+                                                $mernaJednotka = $this->skladyModel->getMernaJednotkaSkratka($skladId);
+                                                if ($mernaJednotka == 'm3'){
+                                                    echo "m<sup>3</sup>";
+                                                }else{
+                                                    echo $mernaJednotka;
+                                                }
                                                 ?>
                                             </span>
                                             </span>
-                                        </div>
-                                        <div>
-                                            <?php
-                                                echo $this->skladyModel->getNazov($skladId);
-                                            ?>
-                                        </div>
+                                    </div>
+                                    <div>
+                                        <?php
+                                        echo $this->skladyModel->getNazov($skladId);
+                                        ?>
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-body" style="margin-left: 15px; margin-right: 15px;">
+                        </div>
+                        <div class="panel-body" style="margin-left: 15px; margin-right: 15px;">
+                            <div class="col-lg-4 col-md-4">
+                                <div class="row " >
+                                <table class="center table-hover" style="border-style: none; width: 100%" >
+                                    <tr class="tleft" style="font-weight: bold;">
+                                        <td>Pohyb</td>
+                                        <td>Príjmy</td>
+                                        <td>Výdaje</td>
+                                        <td>Celkovo</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tleft">Deň</td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 0, ',', ' ');?></td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 0, ',', ' ');?></td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['den']['total'], 0, ',', ' ');?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tleft">Týždeň</td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 0, ',', ' ');?></td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 0, ',', ' ');?></td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 0, ',', ' ');?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tleft">Mesiac</td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 0, ',', ' ');?></td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 0, ',', ' ');?></td>
+                                        <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 0, ',', ' ');?></td>
+                                    </tr>
+                                </table>
 
-                                    <!--TOTO NIE JE MOZNE VYPISOVAT ZATIAL PRETOZE BERIEME LEN V MERNEJ JEDNOTKE SKLADU NIE VSETKY CALCULATED APOD.
-                                    <div class="row">
-                                        <table style="border-style: none; width: 100%; font-size: large;">
-                                            <tr>
-                                                <td>
-                                                    <?php
-                                                        $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
-                                                        $aktualnyStavSkladu = number_format($aktualnyStavSkladu['t'], 2, ',', ' ');
-                                                        echo $aktualnyStavSkladu;
-                                                    ?>
-                                                </td>
-                                                <td style="font-weight: bold;">tony</td>
-                                            </tr>
-                                            <tr>
-                                                <td><?php
-                                                        $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
-                                                        $aktualnyStavSkladu = number_format($aktualnyStavSkladu['prm'], 2, ',', ' ');
-                                                        echo $aktualnyStavSkladu;
-                                                    ?>
-                                                </td>
-                                                <td style="font-weight: bold;">PRM</td>
+                            </div>
+                             </div>
+                            <div class="col-lg-8 col-md-8" >
 
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <?php
-                                                        $aktualnyStavSkladu = $this->ubytky->getLastStavSkladu($skladId);
-                                                        $aktualnyStavSkladu = number_format($aktualnyStavSkladu['m3'], 2, ',', ' ');
-                                                        echo $aktualnyStavSkladu;
-                                                    ?>
-                                                </td>
-                                                <td style="font-weight: bold;">m<sup>3</sup></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    -->
-
-
-
-
-
-
-                                    <div class="row">
-
-                                    </div>
-                                    <div class="row " >
-                                        <table class="center table-hover" style="border-style: none; width: 100%">
-                                            <tr class="tleft" style="font-weight: bold;">
-                                                <td>Pohyb</td>
-                                                <td>Príjmy</td>
-                                                <td>Výdaje</td>
-                                                <td>Celkovo</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="tleft">Deň</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 0, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 0, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['den']['total'], 0, ',', ' ');?></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="tleft">Týždeň</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 0, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 0, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 0, ',', ' ');?></td>
-                                            </tr>
-                                             <tr>
-                                                <td class="tleft">Mesiac</td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 0, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 0, ',', ' ');?></td>
-                                                <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 0, ',', ' ');?></td>
-                                            </tr>
-                                        </table>
-
-                                  </div>
-                                <div id="hidden_field<?php echo $counter;?>">
-                                        <div class="row">
-                                                <hr>
-                                        </div>
-
-                                    <div class="row">
-
-                                        <div id="morris-area-chart-<?php echo $counter ?>"></div>
-
-                                    </div>
-                                </div>
-
-
-
-
-
+                                <div id="morris-area-chart-<?php echo $counter ?>"></div>
 
                             </div>
 
-                            <div class="panel-heading center">
 
-                                <button id="button-<?php echo $counter;?>" class="btn btn-default" type="button">
-                                    <i class="fa fa-bars"></i>
-                                </button>
+<!--                            <div id="hidden_field--><?php //echo $counter;?><!--">-->
+<!--                                -->
+<!--                                <div class="row">-->
+<!---->
+<!--                                -->
+<!---->
+<!--                                </div>-->
+<!--                            </div>-->
 
-                                <script>
-
-                                    $("#button-<?php echo $counter;?>").click( function() {
-
-                                        $("#hidden_field<?php echo $counter;?>").fadeToggle("slide");
-                                        $("#hidden_field<?php echo $counter;?>").removeClass("hidden");
-                                    });
-
-                                </script>
-                            </div>
 
                         </div>
+
+                        <div class="panel-heading center">
+
+
+                        </div>
+
                     </div>
-                    <?php
-                    $counter++;
-                    endforeach; ?>
+                </div>
+
+            </div>
+        <?php
+            $counter++;
+        endforeach; ?>
+
+    </div>
+
+
+
+
 <!-- GRAFY DATA LOAD ... -->
 
     <?php foreach ($skladyIds AS $skladId) : ?>
@@ -194,7 +154,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
         <?php
 
         $dataSkladu = new Application_Model_DbTable_UbytkyHmotnosti();
-        $dataSkladu = $dataSkladu->getLastXValues( $skladId, 5);
+        $dataSkladu = $dataSkladu->getLastXValues( $skladId, 31);
 
 //        print_r($dataSkladu);
         ?>
@@ -202,7 +162,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
         <script>
         // Area Chart
-        Morris.Bar({
+        Morris.Area({
             element: 'morris-area-chart-<?php echo $skladId ?>',
 
             data: <?php echo json_encode($dataSkladu);?>,
@@ -214,11 +174,11 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
             hideHover: 'auto',
             smooth: true,
             resize: true,
-            <?php if ($skladId == 1) {
-             echo "barColors: ['#d9534f']";
+        <?php if ($skladId == 1) {
+             echo "lineColors: ['#d9534f']";
              }
              else if ($skladId ==3){
-             echo "barColors: ['#5cb85c']";
+             echo "lineColors: ['#5cb85c']";
              }
              ?>
 

@@ -52,7 +52,7 @@ try {
 
     //  do tej page, ktoru som si vyssie vybral, vpisujem moje stringy na x,y, poziciu
     $page->setFont($font, 9)
-        ->drawText( strval($cislo_listku) , 450, 774)
+        ->drawText( strval($cislo_listku) , 440, 774)
         ->drawText($spz, 400, 670)
         ->drawText($dodavatel, 400, 693, 'UTF-8')
         ->drawText($dodavatel, 410, 509, 'UTF-8')
@@ -65,7 +65,7 @@ try {
     $page->setFont($font, 12)
         ->drawText( $brutto , 207, 538)
         ->drawText( $tara , 342, 538)
-        ->drawText( $netto , 478, 538);
+        ->drawText( $netto , 470, 538);
 
     // viem tu premennu $pdf pridat ako novu stranu (append) ale to teraz nie
     // $pdf->pages[] = $page;

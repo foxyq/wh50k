@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('#fancy_table').DataTable( {
         "order": [[ 1, "desc" ]],
-        columnDefs: [{ "sType": "string", "aTargets": [ 10 ]  }],
+        columnDefs: [{ "sType": "string", "aTargets": [ 13 ]  }],
         initComplete: function () {
             var api = this.api();
             var abc = 0;
