@@ -307,5 +307,75 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         $data = array('chyba'=>1);
         $this->update($data, 'ts_vydaje_id ='. (int)$id);
     }
+
+    public function getQuantityByYearIdQuantityTypeIdColumnAndColumnValue($yearId, $quantityTypeId, $columnName, $columnValue){
+        //definicia od do datumov pre sql
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $year = $rokyModel->getNazov($yearId);
+        $dateFrom = "'".$year."-01-01'";
+        $dateTo = "'".$year."-12-31'";
+
+        //definicia pocitaneho typu kvantity
+        $column = 'q_tony_merane';
+        switch ($quantityTypeId){
+            case 1:
+                $column = 'q_tony_merane';
+                break;
+            case 2:
+                $column = 'q_prm_merane';
+                break;
+            case 3:
+                $column = 'q_m3_merane';
+                break;
+        }
+
+        //SQL dotaz
+        $sql = $columnName." = ".$columnValue." AND (datum_vydaju_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $vydaje = $this->fetchAll($sql);
+
+        //SUMA v definovanom stlpci
+        $sum = 0;
+        foreach ($vydaje as $vydaj){
+            $sum = $sum + $vydaj[$column];
+        }
+        return $sum;
+
+
+
+    }
+
+    public function getQuantitiesByYearIdColumnAndColumnValue($yearId, $columnName, $columnValue){
+        //definicia od do datumov pre sql
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $year = $rokyModel->getNazov($yearId);
+        $dateFrom = "'".$year."-01-01'";
+        $dateTo = "'".$year."-12-31'";
+
+        //pre potreby vypoctu
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+
+        //SQL dotaz
+        $sql = $columnName." = ".$columnValue." AND (datum_vydaju_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $vydaje = $this->fetchAll($sql);
+
+        //SUMA v definovanom stlpci
+        $sum = array('q_tony_merane' => 0,'q_prm_merane' => 0,'q_m3_merane' => 0);
+        foreach ($vydaje as $vydaj){
+            switch ($zakazniciModel->getMernaJednotka($vydaj->zakaznik_enum)){
+            case 1:
+                $column = 'q_tony_merane';
+                break;
+            case 2:
+                $column = 'q_prm_merane';
+                break;
+            case 3:
+                $column = 'q_m3_merane';
+                break;
+            }
+            $vydajAry = $vydaj->toArray();
+            $sum[$column] = $sum[$column] + $vydaj[$column];
+        }
+        return $sum;
+    }
 }
 

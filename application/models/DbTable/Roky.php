@@ -27,6 +27,16 @@ class Application_Model_DbTable_Roky extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
+    public function getIds(){
+        $roky = $this->fetchAll()->toArray();
+        $ids = array();
+
+        foreach ($roky as $rok) {
+            $ids[] = $rok['roky_id'];
+        }
+        return $ids;
+    }
+
 
 }
 

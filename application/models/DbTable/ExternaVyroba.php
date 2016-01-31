@@ -255,6 +255,76 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
         return $sum;
     }
 
+    public function getQuantityByYearIdQuantityTypeIdColumnAndColumnValue($yearId, $quantityTypeId, $columnName, $columnValue){
+        //definicia od do datumov pre sql
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $year = $rokyModel->getNazov($yearId);
+        $dateFrom = "'".$year."-01-01'";
+        $dateTo = "'".$year."-12-31'";
+
+        //definicia pocitaneho typu kvantity
+        $column = 'q_tony_merane';
+        switch ($quantityTypeId){
+            case 1:
+                $column = 'q_tony_merane';
+                break;
+            case 2:
+                $column = 'q_prm_merane';
+                break;
+            case 3:
+                $column = 'q_m3_merane';
+                break;
+        }
+
+        //SQL dotaz
+        $sql = $columnName." = ".$columnValue." AND (datum_xvyroby_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $xvyroby = $this->fetchAll($sql);
+
+        //SUMA v definovanom stlpci
+        $sum = 0;
+        foreach ($xvyroby as $xvyroba){
+            $sum = $sum + $xvyroba[$column];
+        }
+        return $sum;
+
+
+
+    }
+
+    public function getQuantitiesByYearIdColumnAndColumnValue($yearId, $columnName, $columnValue){
+        //definicia od do datumov pre sql
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $year = $rokyModel->getNazov($yearId);
+        $dateFrom = "'".$year."-01-01'";
+        $dateTo = "'".$year."-12-31'";
+
+        //pre potreby vypoctu
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+
+        //SQL dotaz
+        $sql = $columnName." = ".$columnValue." AND (datum_xvyroby_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $xvyroby = $this->fetchAll($sql);
+
+        //SUMA v definovanom stlpci
+        $sum = array('q_tony_merane' => 0,'q_prm_merane' => 0,'q_m3_merane' => 0);
+        foreach ($xvyroby as $xvyroba){
+            switch ($zakazniciModel->getMernaJednotka($xvyroba->zakaznik_enum)){
+            case 1:
+                $column = 'q_tony_merane';
+                break;
+            case 2:
+                $column = 'q_prm_merane';
+                break;
+            case 3:
+                $column = 'q_m3_merane';
+                break;
+            }
+            $vydajAry = $xvyroba->toArray();
+            $sum[$column] = $sum[$column] + $xvyroba[$column];
+        }
+        return $sum;
+    }
+
     public function getNumberOfErrors(){
             $select = $this->select();
             $select->from($this, array('count(*) as amount'))->where("chyba = 1");

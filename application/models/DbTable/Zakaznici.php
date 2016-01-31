@@ -98,6 +98,21 @@ class Application_Model_DbTable_Zakaznici extends Zend_Db_Table_Abstract
         return $pocetVydajov + $pocetXVyrob + $pocetXDodaviek;
     }
 
+    public function getQuantityByYearIdQuantityTypeIdZakaznikId($yearId, $zakaznikId){
+        $vydajeModel = new Application_Model_DbTable_Vydaje();
+        $xvyrobyModel = new Application_Model_DbTable_ExternaVyroba();
+        $xdodavkyModel = new Application_Model_DbTable_ExternaDodavka();
+
+        $quantityTypeId = $this->getMernaJednotka($zakaznikId);
+
+        $sumOfVydaje = $vydajeModel->getQuantityByYearIdQuantityTypeIdColumnAndColumnValue($yearId, $quantityTypeId, 'zakaznik_enum', $zakaznikId);
+        $sumOfXVyroby = $xvyrobyModel->getQuantityByYearIdQuantityTypeIdColumnAndColumnValue($yearId, $quantityTypeId, 'zakaznik_enum', $zakaznikId);
+        $sumOfXDodavky = $xdodavkyModel->getQuantityByYearIdQuantityTypeIdColumnAndColumnValue($yearId, $quantityTypeId, 'zakaznik_enum', $zakaznikId);
+
+        return $sumOfVydaje + $sumOfXDodavky + $sumOfXVyroby;
+
+    }
+
 
 
 

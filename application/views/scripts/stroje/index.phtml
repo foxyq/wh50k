@@ -40,7 +40,7 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
         } );
     } );
 </script>
-
+<!--
 <div class="row table-responsive">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="panel panel-primary">
@@ -56,40 +56,55 @@ $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
         </div>
     </div>
 </div>
+-->
 
-
-<div class="row">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ">
-        <!--<table id="tabulka" class="table table-striped table-bordered table-hover">-->
-        <table id="fancy_table" class="table table-striped table-hover">
-
-            <thead>
-            <tr class="tableizer-firsrow">
-        <th>Stroj</th>
-        <th>Počet spracovaných transakcií</th>
-    </tr>
-            </thead>
-
-            <tbody>
-
-    <?php foreach($this->strojeModel->getIds() as $strojId) : ?>
-        <tr>
-            <td><?php echo $this->strojeModel->getNazov($strojId);?></td>
-            <td><?php echo $this->strojeModel->getCountTransactionsByStrojId($strojId);?></td>
-        </tr>
+<!--Taby-->
+<ul class="nav nav-tabs">
+    <?php
+    foreach($this->rokyModel->getIds() as $rokId):?>
+    <li <?php if ($rokId == 1){echo "class=\"active\"";}?>><a data-toggle="tab" href="#menu<?php echo $rokId;?>"><?php echo $this->rokyModel->getNazov($rokId);?></a></li>
     <?php endforeach; ?>
-            </tbody>
-</table>
-    </div>
+</ul>
+
+<div class="tab-content">
+    <?php
+    foreach($this->rokyModel->getIds() as $rokId):?>
+        <div id="<?php echo "menu".$rokId;?>" <?php if ($rokId == 1){echo "class=\"tab-pane fade in active\"";} else { echo "class=\"tab-pane fade\"";}?>>
+            <div id="" class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <!--
+                    <th>ID</th>
+                    -->
+                    <th>Stroj</th>
+                    <th>Spracovanie tony</th>
+                    <th>Spracovanie PRM</th>
+                    <th>Spracovanie m<sup>3</sup></th>
+                </tr>
+
+
+                <?php foreach($this->strojeModel->getIds() as $strojId) :
+                    $sums = $this->strojeModel->getQuantitiesByYearIdStrojId($rokId,$strojId);
+                    ?>
+                    <tr>
+                        <td><?php echo $this->escape($this->strojeModel->getNazov($strojId));?></td>
+
+                        <td><?php echo number_format($sums['q_tony_merane'], 2, ",", " ");?></td>
+
+                        <td><?php echo number_format($sums['q_prm_merane'], 2, ",", " ");?></td>
+
+                        <td><?php echo number_format($sums['q_m3_merane'], 2, ",", " ");?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </table>
+            </div>
+
+        </div>
+    <?php endforeach; ?>
+
 </div>
 
-
-<!--<div class="row">-->
-<!--    <div class="col-lg-12">-->
-<!--        <div id="pie-chart"></div>-->
-<!--    </div>-->
-<!--</div>-->
-
+<br>
 
 <script>
 

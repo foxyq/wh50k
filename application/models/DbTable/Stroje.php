@@ -82,5 +82,21 @@ class Application_Model_DbTable_Stroje extends Zend_Db_Table_Abstract
         return $pocetVydajov + $pocetXVyrob;
     }
 
+    public function getQuantitiesByYearIdStrojId($yearId, $strojId){
+        $vydajeModel = new Application_Model_DbTable_Vydaje();
+        $xvyrobyModel = new Application_Model_DbTable_ExternaVyroba();
+
+        $sumsOfVydaje = $vydajeModel->getQuantitiesByYearIdColumnAndColumnValue($yearId, 'stroj_enum', $strojId);
+        $sumsOfXVyroby = $xvyrobyModel->getQuantitiesByYearIdColumnAndColumnValue($yearId, 'stroj_enum', $strojId);
+
+        $sums = array(
+            'q_tony_merane' => $sumsOfVydaje['q_tony_merane'] + $sumsOfXVyroby['q_tony_merane'],
+            'q_prm_merane' => $sumsOfVydaje['q_prm_merane'] + $sumsOfXVyroby['q_prm_merane'],
+            'q_m3_merane' => $sumsOfVydaje['q_m3_merane'] + $sumsOfXVyroby['q_m3_merane']
+        );
+
+        return $sums;
+    }
+
 }
 

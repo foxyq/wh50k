@@ -244,6 +244,42 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
         return $sum;
     }
 
+    public function getQuantityByYearIdQuantityTypeIdColumnAndColumnValue($yearId, $quantityTypeId, $columnName, $columnValue){
+        //definicia od do datumov pre sql
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $year = $rokyModel->getNazov($yearId);
+        $dateFrom = "'".$year."-01-01'";
+        $dateTo = "'".$year."-12-31'";
+
+        //definicia pocitaneho typu kvantity
+        $column = 'q_tony_merane';
+        switch ($quantityTypeId){
+            case 1:
+                $column = 'q_tony_merane';
+                break;
+            case 2:
+                $column = 'q_prm_merane';
+                break;
+            case 3:
+                $column = 'q_m3_merane';
+                break;
+        }
+
+        //SQL dotaz
+        $sql = $columnName." = ".$columnValue." AND (datum_xdodavky_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $xdodavky = $this->fetchAll($sql);
+
+        //SUMA v definovanom stlpci
+        $sum = 0;
+        foreach ($xdodavky as $xdodavka){
+            $sum = $sum + $xdodavka[$column];
+        }
+        return $sum;
+
+
+
+    }
+
     public function getNumberOfErrors(){
             $select = $this->select();
             $select->from($this, array('count(*) as amount'))->where("chyba = 1");

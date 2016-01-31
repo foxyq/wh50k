@@ -7,15 +7,25 @@ class StrojeController extends Zend_Controller_Action
     }
     public function indexAction()
     {
-        $stroje = new Application_Model_DbTable_Stroje();
-        $vydaje = new Application_Model_DbTable_Vydaje();
-        $strojeIds = $stroje->getIds();
-        $stroje = $stroje->getMoznosti();
+        //potrebne modely
         $strojeModel = new Application_Model_DbTable_Stroje();
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
+
+        //transakcne modely
+        $vydajeModel = new Application_Model_DbTable_Vydaje();
+        $xdodavkyModel = new Application_Model_DbTable_ExternaDodavka();
+        $xvyrobyModel = new Application_Model_DbTable_ExternaVyroba();
+
+        //preposielanie na view
+        $this->view->strojeModel = $strojeModel;
+        $this->view->rokyModel = $rokyModel;
+        $this->view->merneJednotkyModel = $merneJednotkyModel;
+        $this->view->vydajeModel = $vydajeModel;
+        $this->view->xdodavkyModel = $xdodavkyModel;
+        $this->view->xvyrobyModel = $xvyrobyModel;
 
         $this->view->title = "Stroje - prehľad";
-        $this->view->strojeModel = $strojeModel;
-        $this->view->stroje = $stroje;
     }
     public function addAction()
     {

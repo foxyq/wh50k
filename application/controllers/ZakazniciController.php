@@ -10,25 +10,25 @@ class ZakazniciController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        //potrebne modely
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
-        /*
-        $vydaje = new Application_Model_DbTable_Vydaje();
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
 
-        $zakazniciIds = $zakaznici->getIds();
-        $dodaneMnozstvoZakaznikom = array();
+        //transakcne modely
+        $vydajeModel = new Application_Model_DbTable_Vydaje();
+        $xdodavkyModel = new Application_Model_DbTable_ExternaDodavka();
+        $xvyrobyModel = new Application_Model_DbTable_ExternaVyroba();
 
-        foreach ($zakazniciIds AS $zakaznikId){
-
-
-            $dodaneMnozstvoZakaznikom[$zakaznikId]['nazov'] = $zakaznici->getNazov($zakaznikId);
-            $dodaneMnozstvoZakaznikom[$zakaznikId]['q_tony_merane'] = $vydaje->getSumByColumn('q_tony_merane', 'zakaznik_enum', $zakaznikId);
-
-        }
-        */
+        //preposielanie na view
+        $this->view->zakazniciModel = $zakazniciModel;
+        $this->view->rokyModel = $rokyModel;
+        $this->view->merneJednotkyModel = $merneJednotkyModel;
+        $this->view->vydajeModel = $vydajeModel;
+        $this->view->xdodavkyModel = $xdodavkyModel;
+        $this->view->xvyrobyModel = $xvyrobyModel;
 
         $this->view->title = "Zákazníci - prehľad";
-        //$this->view->dodaneMnozstvoZakaznikom = $dodaneMnozstvoZakaznikom;
-        $this->view->zakazniciModel = $zakazniciModel;
     }
 
     public function addAction()

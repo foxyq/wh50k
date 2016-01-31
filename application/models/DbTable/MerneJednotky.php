@@ -25,6 +25,16 @@ class Application_Model_DbTable_MerneJednotky extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
+    public function getIds(){
+        $merne_jednotky = $this->fetchAll()->toArray();
+        $ids = array();
+
+        foreach ($merne_jednotky as $merna_jednotka) {
+            $ids[] = $merna_jednotka['merne_jednotky_id'];
+        }
+        return $ids;
+    }
+
     //vracia pole s mnozstvom vo vsetkych dostupnych jednotkach prepocitanych podla konverzii definovanych druhom dreva
     //vracia pole s nasledovnymi klucmy $prepoctyArray['t'], $prepoctyArray['prm'], $prepoctyArray['m3']
     public function getPrepoctyArray($mnozstvo, $mernaJednotkaId, $materialDruhId){
