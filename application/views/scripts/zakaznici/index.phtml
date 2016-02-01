@@ -13,10 +13,10 @@ $zakazniciModel = $this->zakazniciModel;
 
 <script type="text/javascript" language="javascript" class="init">
     $(document).ready(function() {
-        $('#fancy_table').DataTable( {
+        $('.fancy_table').DataTable( {
             "order": [[ 1, "desc" ]],
             columnDefs: [
-                { "sType": "title-string", "aTargets": [ 0 ]  }
+                { "sType": "title-string", "aTargets": [ 2 ]  }
 //                    { "sType": "alt-string", "aTargets" : 1 }
             ],
             initComplete: function () {
@@ -67,7 +67,7 @@ $zakazniciModel = $this->zakazniciModel;
 <ul class="nav nav-tabs">
     <?php
     foreach($this->rokyModel->getIds() as $rokId):?>
-    <li <?php if ($rokId == 1){echo "class=\"active\"";}?>><a data-toggle="tab" href="#menu<?php echo $rokId;?>"><?php echo $this->rokyModel->getNazov($rokId);?></a></li>
+        <li <?php if ($rokId == 1){echo "class=\"active\"";}?>><a data-toggle="tab" href="#menu<?php echo $rokId;?>"><?php echo $this->rokyModel->getNazov($rokId);?></a></li>
     <?php endforeach; ?>
 </ul>
 
@@ -75,24 +75,35 @@ $zakazniciModel = $this->zakazniciModel;
     <?php
     foreach($this->rokyModel->getIds() as $rokId):?>
         <div id="<?php echo "menu".$rokId;?>" <?php if ($rokId == 1){echo "class=\"tab-pane fade in active\"";} else { echo "class=\"tab-pane fade\"";}?>>
-            <div class="table-responsive">
-                <table id="fancy_table" class="table table-striped table-hover">
-                <tr class="tableizer-firstrow">
-                    <th>Zákazník</th>
-                    <th>Dodané množstvo</th>
-                    <th>MJ</th>
-                </tr>
-
-
-                <?php foreach($this->zakazniciModel->getIds() as $zakaznikId) : ?>
-                    <tr>
-                        <td><?php echo $this->escape($this->zakazniciModel->getNazov($zakaznikId));?></td>
-
-                        <td><?php echo number_format($this->escape($this->zakazniciModel->getQuantityByYearIdQuantityTypeIdZakaznikId($rokId, $zakaznikId)), 2, ",", " ");?></td>
-
-                        <td><?php echo $this->escape($this->merneJednotkyModel->getSkratka($this->zakazniciModel->getMernaJednotka($zakaznikId)));?></td>
+            <div class="table-responsive" style="padding-top: 10px">
+                <table  class=" fancy_table table table-striped table-hover">
+                    <thead>
+                    <tr class="tableizer-firstrow">
+                        <th>Zákazník</th>
+                        <th>Dodané množstvo</th>
+                        <th>MJ</th>
                     </tr>
-                <?php endforeach; ?>
+                    </thead>
+
+                    <tbody>
+                    <?php foreach($this->zakazniciModel->getIds() as $zakaznikId) : ?>
+                        <tr>
+                            <td><?php echo $this->escape($this->zakazniciModel->getNazov($zakaznikId));?></td>
+
+                            <td><?php echo number_format($this->escape($this->zakazniciModel->getQuantityByYearIdQuantityTypeIdZakaznikId($rokId, $zakaznikId)), 2, ",", " ");?></td>
+
+                            <td><?php echo $this->escape($this->merneJednotkyModel->getSkratka($this->zakazniciModel->getMernaJednotka($zakaznikId)));?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+
+                    <tfoot>
+                    <tr >
+                        <th>Zákazník</th>
+                        <th>Dodané množstvo</th>
+                        <th>MJ</th>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
 
@@ -114,8 +125,8 @@ foreach($this->zakazniciModel->getIds() as $zakaznikId) : ?>
     <?php $counter++; if ($counter < count($this->zakazniciModel->getIds()) ) echo ','; ?>
     <?php endforeach; ?>
 
-        ],
-        xkey: 'device',
+    ],
+    xkey: 'device',
         ykeys: ['geekbench'],
         labels: ['Dodané objednávky'],
         barRatio: 15,

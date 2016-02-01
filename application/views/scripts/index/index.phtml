@@ -48,6 +48,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
 <!--SKLADY-->
 <h2><i class="fa fa-bank"></i> Stav skladov</h2><br>
+
+
 <div class="row">
 
                     <?php
@@ -156,8 +158,8 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                 <div class="row">
                                     <div class="col-xs-12 text-right">
                                             <span class="white">
-                                                <a href="<?php echo $this->url(array('controller'=>'Ubytky',
-                                                    'action'=>'list', "fromAction"=>"index", "fromController"=>"index"));?>" class="right" >Detail <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="<?php echo $this->url(array('controller'=>'sklady',
+                                                    'action'=>'index', "fromAction"=>"index", "fromController"=>"index", "skladID"=>$skladId));?>" class="right" >Detail <i class="fa fa-arrow-circle-right"></i></a>
                                             </span>
                                     </div>
                                 </div>

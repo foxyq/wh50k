@@ -10,6 +10,11 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 
 <h1>Sklady - aktuálny stav</h1>
 
+
+
+<?php
+$id = $this->id;
+?>
 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -25,7 +30,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
         $skladyIds = $this->skladyModel->getIds();
 
         foreach($skladyIds as $skladId):?>
-            <li <?php if ($skladId == 1){echo "class=\"active\"";}?>><a data-toggle="tab" href="#menu<?php echo $skladId;?>"><?php echo $this->skladyModel->getNazov($skladId);?></a></li>
+            <li <?php if ($skladId == $id){echo "class=\"active\"";}?>><a data-toggle="tab" href="#menu<?php echo $skladId;?>"><?php echo $this->skladyModel->getNazov($skladId);?></a></li>
         <?php endforeach; ?>
     </ul>
 
@@ -36,7 +41,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
         $pocitadlo = 1;
         foreach($skladyIds as $skladId):
             if ($counter>count($colors)) {$counter = 1;} ?>
-            <div id="<?php echo "menu".$skladId;?>" <?php if ($skladId == 1){echo "class=\"tab-pane fade in active\"";} else { echo "class=\"tab-pane fade\"";}?>>
+            <div id="<?php echo "menu".$skladId;?>" <?php if ($skladId == $id){echo "class=\"tab-pane fade in active\"";} else { echo "class=\"tab-pane fade\"";}?>>
 
                 <div class="col-lg-12 col-md-12">
                     <div class="panel panel-<?php echo $colors[$counter]?>">
@@ -90,21 +95,21 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                     </tr>
                                     <tr>
                                         <td class="tleft">Deň</td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 0, ',', ' ');?></td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 0, ',', ' ');?></td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['den']['total'], 0, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['den']['prijmy'], 2, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['den']['vydaje'], 2, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['den']['total'], 2, ',', ' ');?></td>
                                     </tr>
                                     <tr>
                                         <td class="tleft">Týždeň</td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 0, ',', ' ');?></td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 0, ',', ' ');?></td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 0, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['tyzden']['prijmy'], 2, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['tyzden']['vydaje'], 2, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['tyzden']['total'], 2, ',', ' ');?></td>
                                     </tr>
                                     <tr>
                                         <td class="tleft">Mesiac</td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 0, ',', ' ');?></td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 0, ',', ' ');?></td>
-                                        <td><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 0, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['mesiac']['prijmy'], 2, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['mesiac']['vydaje'], 2, ',', ' ');?></td>
+                                        <td class="tleft"><?php echo number_format($this->pohyby[$skladId]['mesiac']['total'], 2, ',', ' ');?></td>
                                     </tr>
                                 </table>
 
@@ -115,17 +120,6 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                                 <div id="morris-area-chart-<?php echo $counter ?>"></div>
 
                             </div>
-
-
-<!--                            <div id="hidden_field--><?php //echo $counter;?><!--">-->
-<!--                                -->
-<!--                                <div class="row">-->
-<!---->
-<!--                                -->
-<!---->
-<!--                                </div>-->
-<!--                            </div>-->
-
 
                         </div>
 

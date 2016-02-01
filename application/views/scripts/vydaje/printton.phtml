@@ -43,7 +43,13 @@ try {
 
     $druh =  $this->escape($this->materialyDruhy->getNazov($this->vydaj['material_druh_enum']));
     $sklad = $this->escape($this->sklady->getNazov($this->vydaj['sklad_enum']));
-    $dodavatel = $this->escape($this->zakaznici->getNazov($this->vydaj['zakaznik_enum']));
+
+    $zakaznik = $this->zakaznici->getZakaznik($this->vydaj['zakaznik_enum']);
+    $adresa = $zakaznik['adresa'];
+    $ico = $zakaznik['ico'];
+    $dph = $zakaznik['ic_dph'];
+    $dodavatel = $zakaznik['nazov_spolocnosti'];
+//    $dodavatel = $this->escape($this->zakaznici->getNazov($this->vydaj['zakaznik_enum']));
 
     $brutto = $this->vydaj['q_tony_merane_brutto'];
     $tara = $this->vydaj['q_tony_merane_tara'];
@@ -53,15 +59,40 @@ try {
     $meno = $this->escape($this->uzivatelia->getMeno($this->escape($this->vydaj['vytvoril_u'])));
 
     $page->setFont($font, 9)
-        ->drawText( strval($cislo_listku) , 450, 774)
-        ->drawText($spz, 400, 670)
-        ->drawText($dodavatel, 400, 693, 'UTF-8')
-        ->drawText($dodavatel, 410, 509, 'UTF-8')
+        ->drawText( strval($cislo_listku) , 440, 774)
+        ->drawText($spz, 380, 660)
+        ->drawText($dodavatel, 380, 720, 'UTF-8')
+        ->drawText($adresa, 380, 700, 'UTF-8')
+        ->drawText($ico, 380, 688, 'UTF-8')
+        ->drawText($dph, 380, 677, 'UTF-8')
         ->drawText($datum, 200, 598)
         ->drawText($cas, 200, 582)
         ->drawText($druh, 390, 598, 'UTF-8')
         ->drawText($meno, 390,583, 'UTF-8')
         ->drawText($sklad, 200, 567, 'UTF-8' );
+
+    $page->setFont($font, 12)
+        ->drawText( $brutto , 207, 538)
+        ->drawText( $tara , 338, 538)
+        ->drawText( $netto , 463, 538);
+//spodny listok
+    $page->setFont($font, 9)
+        ->drawText( strval($cislo_listku) , 440, 386)
+        ->drawText($spz, 380, 270)
+        ->drawText($dodavatel, 380, 331, 'UTF-8')
+        ->drawText($adresa, 380, 309, 'UTF-8')
+        ->drawText($ico, 380, 297, 'UTF-8')
+        ->drawText($dph, 380, 286, 'UTF-8')
+        ->drawText($datum, 200, 208)
+        ->drawText($cas, 200, 193)
+        ->drawText($druh, 390, 205, 'UTF-8')
+        ->drawText($meno, 390,193, 'UTF-8')
+        ->drawText($sklad, 200, 179, 'UTF-8' );
+
+    $page->setFont($font, 12)
+        ->drawText( $brutto , 207, 149)
+        ->drawText( $tara , 338, 149)
+        ->drawText( $netto , 463, 149);
 
     // viem tu premennu $pdf pridat ako novu stranu (append) ale to teraz nie
     // $pdf->pages[] = $page;

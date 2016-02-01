@@ -11,6 +11,10 @@ class SkladyController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+
+        $id = $this->_getParam('skladID', 1);
+        $this->view->id = $id;
+
         $sklady = new Application_Model_DbTable_Sklady();
         $prijmy = new Application_Model_DbTable_Prijmy();
         $vydaje = new Application_Model_DbTable_Vydaje();

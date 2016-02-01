@@ -226,23 +226,20 @@ class VydajeController extends Zend_Controller_Action
                     $poznamka,
                     $chyba,
                     $stav_transakcie);
-                //pageManager
-                //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
+
                 $this->_helper->redirector($fromAction);
             } else {
                 $form->populate($formData);
-                //pageManager
-                //$_SESSION[pageManager][ignore] = 1;
+
             }
         } else {
             $id = $this->_getParam('id', 0);
-            //$id = (int)$this->$form->getValue('ts_vydaje_id');
+
             if ($id > 0) {
                 $vydaje = new Application_Model_DbTable_Vydaje();
                 $form->populate($vydaje->getVydajFormatted($id));
                 $this->view->data = $vydaje->getVydaj($id);
-                //pageManager
-                //$_SESSION[pageManager][ignore] = 1;
+
             }
         }
     }
