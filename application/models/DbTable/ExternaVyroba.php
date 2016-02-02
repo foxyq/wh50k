@@ -15,15 +15,49 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
-    public function getXVyrobyByZakaznikIdAndDate($zakaznikId, $yearId, $monthId){
+    public function getXVyrobyByZakaznikIdAndDateMJ($zakaznikId, $yearId, $monthId, $mernaJednotkaId){
         $rokyModel = new Application_Model_DbTable_Roky();
 
         $year = $rokyModel->getNazov($yearId);
         $month = $monthId;
         $dateFrom = "'".$year."-".$month."-"."01'";
         $dateTo = "'".$year."-".$month."-"."31'";
+        $stlpecKvantity = 'q_tony_merane';
 
-        $sql = "zakaznik_enum = ".$zakaznikId." AND (datum_xvyroby_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        switch ($mernaJednotkaId){
+            case 1:
+                $stlpecKvantity = 'q_tony_merane';
+                break;
+            case 2:
+                $stlpecKvantity = 'q_prm_merane';
+                break;
+            case 3:
+                $stlpecKvantity = 'q_m3_merane';
+                break;
+        }
+
+        $sql = "zakaznik_enum = ".$zakaznikId." AND (datum_xvyroby_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2 AND ".$stlpecKvantity." > 0";
+        $xvyroby = $this->fetchAll($sql);
+
+        return $xvyroby;
+
+    }
+
+    public function getXVyrobyByZakaznikIdAndDateFromDateToMJ($zakaznikId, $dateFrom, $dateTo, $mernaJednotkaId){
+        $stlpecKvantity = 'q_tony_merane';
+
+        switch ($mernaJednotkaId){
+            case 1:
+                $stlpecKvantity = 'q_tony_merane';
+                break;
+            case 2:
+                $stlpecKvantity = 'q_prm_merane';
+                break;
+            case 3:
+                $stlpecKvantity = 'q_m3_merane';
+                break;
+        }
+        $sql = "zakaznik_enum = ".$zakaznikId." AND (datum_xvyroby_d BETWEEN '".$dateFrom."' AND '".$dateTo."') AND stav_transakcie = 2 AND ".$stlpecKvantity." > 0";
         $xvyroby = $this->fetchAll($sql);
 
         return $xvyroby;
@@ -246,6 +280,33 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
         }
 
         $sql = "zakaznik_enum = ".$zakaznik_id." AND (datum_xvyroby_d BETWEEN ".$dateFrom." AND ".$dateTo.") AND stav_transakcie = 2";
+        $xvyroby = $this->fetchAll($sql);
+
+        $sum = 0;
+        foreach ($xvyroby as $xvyroba){
+            $sum = $sum + $xvyroba[$column];
+        }
+        return $sum;
+    }
+
+    //$quantity_column_name - ex. 'prm_merane', 'm3_merane'
+    //$zakaznik_id
+    public function getSubmittedQuantityByCustomerDateFromDateTo($merna_jednotka, $zakaznik_id, $dateFrom, $dateTo){
+
+        $column = 'q_tony_merane';
+        switch ($merna_jednotka){
+            case 1:
+                $column = 'q_tony_merane';
+                break;
+            case 2:
+                $column = 'q_prm_merane';
+                break;
+            case 3:
+                $column = 'q_m3_merane';
+                break;
+        }
+
+        $sql = "zakaznik_enum = ".$zakaznik_id." AND (datum_xvyroby_d BETWEEN '".$dateFrom."' AND '".$dateTo."') AND stav_transakcie = 2";
         $xvyroby = $this->fetchAll($sql);
 
         $sum = 0;

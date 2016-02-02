@@ -12,6 +12,7 @@ class Application_Model_Notifikacie
         $externeDodavky = new Application_Model_DbTable_ExternaDodavka();
         $externeVyroby = new Application_Model_DbTable_ExternaVyroba();
         $objednavky = new Application_Model_DbTable_Objednavky();
+        $mikroObjednavky = new Application_Model_DbTable_MikroObjednavky();
 
         $status['prijmy_waitings'] = $prijmy->getNumberOfWaitings();
         $status['prijmy_errors'] = $prijmy->getNumberOfErrors();
@@ -23,6 +24,9 @@ class Application_Model_Notifikacie
         $status['externe_vyroby_waitings'] = $externeVyroby->getNumberOfWaitings();
         $status['externe_vyroby_errors'] = $externeVyroby->getNumberOfErrors();
         $status['objednavky_nekompatibilne'] = $objednavky->getCountNekompatibilneObjednavky();
+        $status['mikroObjednavky_nekompatibilne'] = $mikroObjednavky->getCountNekompatibilneMikroObjednavky();
+        $status['mikroObjednavky_nekompatibilne_ku_objednavkam'] = $mikroObjednavky->getCountNekompatibilneMikroObjednavkyVsObjednavky();
+
 
         $status['total'] =
             (int)$prijmy->getNumberOfWaitings() +
@@ -34,7 +38,9 @@ class Application_Model_Notifikacie
             (int)$externeVyroby->getNumberOfWaitings() +
             (int)$externeVyroby->getNumberOfErrors() +
             (int)$ubytky->getErrorNedostatokNaSklade() +
-            (int)$objednavky->getCountNekompatibilneObjednavky();
+            (int)$objednavky->getCountNekompatibilneObjednavky() +
+            (int)$mikroObjednavky->getCountNekompatibilneMikroObjednavky() +
+            (int)$mikroObjednavky->getCountNekompatibilneMikroObjednavkyVsObjednavky();;
 
         return $status;
 

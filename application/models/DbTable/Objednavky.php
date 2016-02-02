@@ -26,6 +26,52 @@ class Application_Model_DbTable_Objednavky extends Zend_Db_Table_Abstract
         return $ids;
     }
 
+    public function getKratkyPopis($id){
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $mesiaceModel = new Application_Model_DbTable_Mesiace();
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
+
+        $id = (int)$id;
+        $row = $this->fetchRow('objednavky_id = ' . $id);
+        if (!$row) {
+            throw new Exception("Could not find row $id");
+        }
+
+        $kratkyPopis =
+            $rokyModel->getNazov($row->rok_enum)."/".
+            $mesiaceModel->getNazov($row->mesiac_enum)." ".
+            $zakazniciModel->getNazov($row->zakaznik_enum)." ".
+            $row->mnozstvo.
+            $merneJednotkyModel->getSkratka($row->merna_jednotka_enum);
+        return $kratkyPopis;
+    }
+
+    public function getMoznosti()
+    {
+        $pole = $this->fetchAll();
+        $moznosti = array();
+
+        $rokyModel = new Application_Model_DbTable_Roky();
+        $mesiaceModel = new Application_Model_DbTable_Mesiace();
+        $zakazniciModel = new Application_Model_DbTable_Zakaznici();
+        $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
+
+        foreach ($pole as $hodnota){
+            //$moznosti[$hodnota['objednavky_id']] = $hodnota['meno'];
+
+            $moznosti[$hodnota['objednavky_id']] =
+                $hodnota['objednavky_id']."-".
+                $rokyModel->getNazov($hodnota['rok_enum'])."."
+                .$mesiaceModel->getNazov($hodnota['mesiac_enum'])." "
+                .$zakazniciModel->getNazov($hodnota['zakaznik_enum'])." "
+                .number_format($hodnota['mnozstvo'], 2, ",", " ")
+                .$merneJednotkyModel->getSkratka($hodnota['merna_jednotka_enum']);
+        }
+
+        return $moznosti;
+    }
+
     //$zakaznik, $rok, $mesiac, $mnozstvo, $merna_jednotka, $poznamka
     public function addObjednavka($zakaznik, $rok, $mesiac, $mnozstvo, $merna_jednotka, $poznamka)
     {

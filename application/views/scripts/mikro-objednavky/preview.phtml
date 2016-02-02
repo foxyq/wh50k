@@ -1,16 +1,16 @@
 <script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
 <script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
 
-<h2 xmlns="http://www.w3.org/1999/html">Objednávky - detail</h2>
+<h2 xmlns="http://www.w3.org/1999/html">Mikro objednávky - detail</h2>
 <!--<hr>-->
 <div class="col-lg-5">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-newspaper-o fa-fw"></i> Detail objednávky </h3>
+            <h3 class="panel-title"><i class="fa fa-keyboard-o fa-fw"></i> Detail mikro objednávky </h3>
         </div>
         <div class="panel-body">
         <?php
-            $objednavka = $this->objednavkyModel->getObjednavka($this->objednavkaId);
+            $mikroObjednavka = $this->mikroObjednavkyModel->getMikroObjednavka($this->mikroObjednavkaId);
         ?>
             <div class="row">
                 <fieldset>
@@ -18,7 +18,7 @@
 
                     <div class="col-lg-6">
                         Názov:
-                        <?php echo $this->zakazniciModel->getNazov($objednavka['zakaznik_enum']);?>
+                        <?php echo $this->zakazniciModel->getNazov($mikroObjednavka['zakaznik_enum']);?>
                     </div>
                 </fieldset>
             </div>
@@ -28,15 +28,44 @@
                     <legend><i class="fa fa-calendar-o"></i> Obdobie</legend>
 
                     <div class="col-lg-6">
-                        Rok:
-                        <?php echo $this->rokyModel->getNazov($objednavka['rok_enum']);?>
+                        Od:
+                        <?php echo $mikroObjednavka['datum_od_d'];?>
                     </div>
 
                     <div class="col-lg-6">
-                        Mesiac:
-                        <?php echo $this->mesiaceModel->getNazov($objednavka['mesiac_enum']);?>
+                        Do:
+                        <?php echo $mikroObjednavka['datum_do_d'];?>
                     </div>
 
+                </fieldset>
+            </div>
+
+            <div class="row">
+                <fieldset>
+                    <legend><i class="fa fa-user"></i> Nadobjednávka</legend>
+
+                    <div class="col-lg-12">
+                        Popis:
+                        <a href="<?php echo $this->url(array('controller'=>'Objednavky',
+                            'action'=>'preview', 'id'=>$mikroObjednavka['nadobjednavka_enum'],
+                            'fromController'=>'MikroObjednavky', 'fromAction'=>'list'));?>">
+                        <?php
+                            echo $this->objednavkyModel->getKratkyPopis($mikroObjednavka['nadobjednavka_enum']);?>
+                        </a>
+                        <?php
+                            $nadobjednavka = $this->objednavkyModel->getObjednavka($mikroObjednavka['nadobjednavka_enum']);
+                            if($nadobjednavka['merna_jednotka_enum'] <> $mikroObjednavka['merna_jednotka_enum']){?>
+                                <div class="row">
+                                    <br>
+                                <div class="col-lg-12">
+                                    <div class="alert alert-danger">
+                                        MJ <strong>OBJEDNÁVKY</strong> je rôzna od MJ <strong>MIKROOBJEDNÁVKY</strong>.
+                                    </div>
+                                </div>
+                              </div>
+                            <?php } ?>
+
+                    </div>
                 </fieldset>
             </div>
 
@@ -46,8 +75,8 @@
 
                     <div class="col-lg-12">
                         Objednané množstvo:
-                        <?php echo number_format($objednavka['mnozstvo'], 2, ",", " ");?>
-                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                        <?php echo number_format($mikroObjednavka['mnozstvo'], 2, ",", " ");?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($mikroObjednavka['merna_jednotka_enum']);?>
                     </div>
                 </fieldset>
             </div>
@@ -57,21 +86,19 @@
                 <fieldset>
                     <legend><i class="fa fa-truck"></i> Plnenie</legend>
                     <?php
-                        $vydaje = $this->vydajeModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
-                        $xvyroby = $this->xvyrobyModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
-                        $xdodavky = $this->xdodavkyModel->getSubmittedQuantityByStockYearMonth($objednavka['merna_jednotka_enum'],$objednavka['zakaznik_enum'],$objednavka['rok_enum'],$objednavka['mesiac_enum']);
+                        $vydaje = $this->vydajeModel->getSubmittedQuantityByCustomerDateFromDateTo($mikroObjednavka['merna_jednotka_enum'],$mikroObjednavka['zakaznik_enum'], $mikroObjednavka['datum_od_d'], $mikroObjednavka['datum_do_d']);
+                        $xvyroby = $this->xvyrobyModel->getSubmittedQuantityByCustomerDateFromDateTo($mikroObjednavka['merna_jednotka_enum'],$mikroObjednavka['zakaznik_enum'], $mikroObjednavka['datum_od_d'], $mikroObjednavka['datum_do_d']);
+                        $xdodavky = $this->xdodavkyModel->getSubmittedQuantityByCustomerDateFromDateTo($mikroObjednavka['merna_jednotka_enum'],$mikroObjednavka['zakaznik_enum'], $mikroObjednavka['datum_od_d'], $mikroObjednavka['datum_do_d']);
 
-                        $percentaVydaje = $vydaje*100/$objednavka['mnozstvo'];
-                        $percentaXVyroby = $xvyroby*100/$objednavka['mnozstvo'];
-                        $percentaXDodavky = $xdodavky*100/$objednavka['mnozstvo'];
-
-
-
+                        $percentaVydaje = $vydaje*100/$mikroObjednavka['mnozstvo'];
+                        $percentaXVyroby = $xvyroby*100/$mikroObjednavka['mnozstvo'];
+                        $percentaXDodavky = $xdodavky*100/$mikroObjednavka['mnozstvo'];
                     ?>
+
                     <div class="col-lg-6">
                         Vlastné:
                         <?php echo number_format($vydaje , 2, ",", " ");?>
-                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($mikroObjednavka['merna_jednotka_enum']);?>
                     </div>
 
                     <br><br>
@@ -79,13 +106,13 @@
                     <div class="col-lg-6">
                         Ext. dodávka:
                         <?php echo number_format($xdodavky, 2, ",", " ");?>
-                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($mikroObjednavka['merna_jednotka_enum']);?>
                     </div>
 
                     <div class="col-lg-6">
                         Ext. výroba:
                         <?php echo number_format($xvyroby, 2, ",", " ");?>
-                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($mikroObjednavka['merna_jednotka_enum']);?>
                     </div>
 
 
@@ -103,8 +130,8 @@
 
                     <div class="col-lg-6">
                         Zostáva:
-                        <?php echo number_format($objednavka['mnozstvo'] - $xvyroby - $xdodavky - $vydaje, 2, ",", " ");?>
-                        <?php echo $this->merneJednotkyModel->getSkratka($objednavka['merna_jednotka_enum']);?>
+                        <?php echo number_format($mikroObjednavka['mnozstvo'] - $xvyroby - $xdodavky - $vydaje, 2, ",", " ");?>
+                        <?php echo $this->merneJednotkyModel->getSkratka($mikroObjednavka['merna_jednotka_enum']);?>
                     </div>
                 </fieldset>
             </div>
@@ -123,16 +150,17 @@
 
             <div class="col-lg-6 tleft">
                     <a href="<?php echo $this->url(array(
-                        'controller' => 'objednavky',
+                        'controller' => 'mikroObjednavky',
                         'action' => 'edit',
-                        'id' => $this->objednavkaId
+                        'id' => $this->mikroObjednavkaId
                     ), null, true) ?>"  type="button" class="btn btn-info">Upraviť</a>
                 </div>
 
             <div class="col-lg-6 right">
                     <a href="<?php echo $this->url(array(
                         'controller' => $this->fromController,
-                        'action' => $this->fromAction
+                        'action' => $this->fromAction,
+                        'id' => $this->fromId
                     ), null, true) ?>"  type="button" class="btn btn-warning form-control">Späť</a>
                 </div>
 
@@ -144,16 +172,12 @@
 </div>
 
 <?php
-    $vydajeObjednavky = $this->vydajeModel->getVydajeByZakaznikIdAndDateMJ($this->objednavka['zakaznik_enum'], $this->objednavka['rok_enum'], $this->objednavka['mesiac_enum'], $this->objednavka['merna_jednotka_enum']);
-    $xdodavkyObjednavky = $this->xdodavkyModel->getXDodavkyByZakaznikIdAndDateMJ($this->objednavka['zakaznik_enum'], $this->objednavka['rok_enum'], $this->objednavka['mesiac_enum'], $this->objednavka['merna_jednotka_enum']);
-    $xvyrobyObjednavky = $this->xvyrobyModel->getXVyrobyByZakaznikIdAndDateMJ($this->objednavka['zakaznik_enum'], $this->objednavka['rok_enum'], $this->objednavka['mesiac_enum'], $this->objednavka['merna_jednotka_enum']);
+    $vydajeObjednavky = $this->vydajeModel->getVydajeByZakaznikIdAndDateFromDateToMJ($this->mikroObjednavka['zakaznik_enum'], $this->mikroObjednavka['datum_od_d'], $this->mikroObjednavka['datum_do_d'], $this->mikroObjednavka['merna_jednotka_enum']);
+    $xdodavkyObjednavky = $this->xdodavkyModel->getXDodavkyByZakaznikIdAndDateFromDateToMJ($this->mikroObjednavka['zakaznik_enum'],$this->mikroObjednavka['datum_od_d'], $this->mikroObjednavka['datum_do_d'], $this->mikroObjednavka['merna_jednotka_enum']);
+    $xvyrobyObjednavky = $this->xvyrobyModel->getXVyrobyByZakaznikIdAndDateFromDateToMJ($this->mikroObjednavka['zakaznik_enum'], $this->mikroObjednavka['datum_od_d'], $this->mikroObjednavka['datum_do_d'], $this->mikroObjednavka['merna_jednotka_enum']);
     $skladyModel = new Application_Model_DbTable_Sklady();
     $stlpecKvantity = 'q_tony_merane';
     $mernaJednotkaId = $this->objednavka['merna_jednotka_enum'];
-
-    $mikroObjednavky = $this->mikroObjednavkyModel->getMikroObjednavkyByObjednavkaId($this->objednavka['objednavky_id']);
-    //print_r($mikroObjednavky);
-
     switch ($mernaJednotkaId){
         case 1:
             $stlpecKvantity = 'q_tony_merane';
@@ -166,8 +190,6 @@
             break;
     }
 
-
-
 ?>
 
 <div class="col-lg-5">
@@ -178,7 +200,8 @@
                             <div class="panel-body">
                                 <div class="list-group">
                                     <?php foreach ($vydajeObjednavky AS $vydajObjednavky):?>
-                                        <a href="<?php echo $this->url(array( "controller"=>"vydaje" , "action"=>"preview", "id"=>$vydajObjednavky->doklad_cislo, "fromController"=>"objednavky", "fromAction"=>"preview", "fromId"=>$this->objednavkaId), 'default');  ?>" class="list-group-item">
+
+                                        <a href="<?php echo $this->url(array( "controller"=>"vydaje" , "action"=>"preview", "id"=>$vydajObjednavky->doklad_cislo, "fromController"=>"mikroObjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
                                             <span class="badge"><?php echo date("d.m.Y", strtotime($vydajObjednavky->datum_vydaju_d));?></span>
                                             <i class="fa fa-fw fa-minus-square"></i> <?php echo "Výdaj ".number_format($vydajObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId)." zo skladu ".$skladyModel->getNazov($vydajObjednavky->sklad_enum);?>
                                         </a>
@@ -187,7 +210,8 @@
                                 </div>
                                 <div class="list-group">
                                     <?php foreach ($xdodavkyObjednavky AS $xdodavkaObjednavky):?>
-                                        <a href="<?php echo $this->url(array( "controller"=>"externaDodavka" , "action"=>"preview", "id"=>$xdodavkaObjednavky->doklad_cislo, "fromController"=>"objednavky", "fromAction"=>"preview", "fromId"=>$this->objednavkaId), 'default');  ?>" class="list-group-item">
+
+                                        <a href="<?php echo $this->url(array( "controller"=>"externaDodavka" , "action"=>"preview", "id"=>$xdodavkaObjednavky->doklad_cislo, "fromController"=>"mikroObjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
                                             <span class="badge"><?php echo date("d.m.Y", strtotime($xdodavkaObjednavky->datum_xdodavky_d));?></span>
                                             <i class="fa fa-fw fa-th-large"></i> <?php echo "Ex. dodávka ".number_format($xdodavkaObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId);?>
                                         </a>
@@ -196,27 +220,10 @@
                                 </div>
                                 <div class="list-group">
                                     <?php foreach ($xvyrobyObjednavky AS $xvyrobaObjednavky):?>
-                                        <a href="<?php echo $this->url(array( "controller"=>"externaVyroba" , "action"=>"preview", "id"=>$xvyrobaObjednavky->tx_vyroba_id, "fromController"=>"objednavky", "fromAction"=>"preview", "fromId"=>$this->objednavkaId), 'default');  ?>" class="list-group-item">
+
+                                        <a href="<?php echo $this->url(array( "controller"=>"externaVyroba" , "action"=>"preview", "id"=>$xvyrobaObjednavky->tx_vyroba_id, "fromController"=>"mikroObjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
                                             <span class="badge"><?php echo date("d.m.Y", strtotime($xvyrobaObjednavky->datum_xvyroby_d));?></span>
                                             <i class="fa fa-fw fa-cogs"></i> <?php echo "Ex. výroba ".number_format($xvyrobaObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId);?>
-                                        </a>
-                                    <?php endforeach; ?>
-
-                                </div>
-                            </div>
-                        </div>
-
-    <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-keyboard-o fa-fw"></i> Mikroobjednávky</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <?php foreach ($mikroObjednavky AS $mikroObjednavka):?>
-                                        <a href="<?php echo $this->url(array( "controller"=>"mikroObjednavky" , "action"=>"preview", "id"=>$mikroObjednavka->objednavky_mikro_id, "fromController"=>"objednavky", "fromAction"=>"preview", "fromId"=>$this->objednavkaId), 'default');  ?>" class="list-group-item">
-                                            <span class="badge"><?php echo date("d.m.Y", strtotime($mikroObjednavka->datum_od_d))." - ".date("d.m.Y", strtotime($mikroObjednavka->datum_do_d));?></span>
-                                            <i class="fa fa-fw fa-keyboard-o"></i>
-                                            <?php echo $this->zakazniciModel->getNazov($mikroObjednavka->zakaznik_enum)." ".number_format($mikroObjednavka->mnozstvo,2,","," ")." ".$this->merneJednotkyModel->getSkratka($mikroObjednavka->merna_jednotka_enum);?>
                                         </a>
                                     <?php endforeach; ?>
 

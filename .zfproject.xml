@@ -149,6 +149,14 @@
           <actionMethod actionName="list"/>
           <actionMethod actionName="delete"/>
         </controllerFile>
+        <controllerFile controllerName="MikroObjednavky">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="list"/>
+          <actionMethod actionName="add"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="preview"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Zakaznik"/>
@@ -164,6 +172,7 @@
         <formFile formName="Objednavka"/>
         <formFile formName="MaterialTyp"/>
         <formFile formName="MiestoStiepenia"/>
+        <formFile formName="MikroObjednavka"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -198,6 +207,7 @@
           <dbTableFile dbTableName="Roky"/>
           <dbTableFile dbTableName="Mesiace"/>
           <dbTableFile dbTableName="MiestaStiepenia"/>
+          <dbTableFile dbTableName="MikroObjednavky"/>
         </dbTableDirectory>
         <modelFile modelName="Notifikacie"/>
         <modelFile modelName="LibraryAcl"/>
@@ -653,6 +663,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="MaterialyTypy">
             <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="MikroObjednavky">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="MikroObjednavky">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="MikroObjednavky">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="MikroObjednavky">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="MikroObjednavky">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="MikroObjednavky">
+            <viewScriptFile forActionName="preview"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

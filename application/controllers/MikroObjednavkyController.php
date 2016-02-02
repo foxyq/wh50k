@@ -1,6 +1,6 @@
 <?php
 
-class ObjednavkyController extends Zend_Controller_Action
+class MikroObjednavkyController extends Zend_Controller_Action
 {
 
     public function init()
@@ -15,6 +15,7 @@ class ObjednavkyController extends Zend_Controller_Action
 
     public function listAction()
     {
+        $mikroObjednavkyModel = new Application_Model_DbTable_MikroObjednavky();
         $objednavkyModel = new Application_Model_DbTable_Objednavky();
         $vydajeModel = new Application_Model_DbTable_Vydaje();
         $xdodavkyModel = new Application_Model_DbTable_ExternaDodavka();
@@ -22,65 +23,66 @@ class ObjednavkyController extends Zend_Controller_Action
 
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
         $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
-        $rokyModel = new Application_Model_DbTable_Roky();
-        $mesiaceModel = new Application_Model_DbTable_Mesiace();
 
-        $this->view->objednavky = $objednavkyModel->fetchAll();
+        $this->view->mikroObjednavky = $mikroObjednavkyModel->fetchAll();
+        $this->view->mikroObjednavkyModel = $mikroObjednavkyModel;
         $this->view->objednavkyModel = $objednavkyModel;
         $this->view->zakazniciModel = $zakazniciModel;
         $this->view->merneJednotkyModel = $merneJednotkyModel;
-        $this->view->rokyModel = $rokyModel;
-        $this->view->mesiaceModel = $mesiaceModel;
         $this->view->vydajeModel = $vydajeModel;
         $this->view->xvyrobyModel = $xvyrobyModel;
         $this->view->xdodavkyModel = $xdodavkyModel;
 
-        $this->view->title = "Objednávky - zoznam";
-
+        $this->view->title = "Mikro objednávky - zoznam";
     }
 
     public function addAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'objednavky');
+        $fromController = $this->_getParam('fromController', 'mikroObjednavky');
         $this->view->fromController = $fromController;
 
         /*
          * Data pre ciselniky
          */
+        $mikroObjednavkyModel = new Application_Model_DbTable_MikroObjednavky();
         $objednavkyModel = new Application_Model_DbTable_Objednavky();
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
-        $rokyModel = new Application_Model_DbTable_Roky();
-        $mesiaceModel = new Application_Model_DbTable_Mesiace();
         $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
 
         $zakazniciMoznosti = $zakazniciModel->getMoznosti();
-        $rokyMoznosti = $rokyModel->getMoznosti();
-        $mesiaceMoznosti = $mesiaceModel->getMoznosti();
         $merneJednotkyMoznosti = $merneJednotkyModel->getMoznosti();
+        $objednavkyMoznosti = $objednavkyModel->getMoznosti();
 
-        $form = new Application_Form_Objednavka(array(
+        $form = new Application_Form_MikroObjednavka(array(
             'zakazniciMoznosti' => $zakazniciMoznosti,
-            'rokyMoznosti' => $rokyMoznosti,
-            'mesiaceMoznosti' => $mesiaceMoznosti,
-            'merneJednotkyMoznosti' => $merneJednotkyMoznosti
+            'merneJednotkyMoznosti' => $merneJednotkyMoznosti,
+            'objednavkyMoznosti' => $objednavkyMoznosti
         ));
 
-        $form->submit->setLabel('Pridať objednávku');
+        $form->submit->setLabel('Pridať mikro objednávku');
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
                 $zakaznik = $form->getValue('zakaznik_enum');
-                $rok = $form->getValue('rok_enum');
-                $mesiac = $form->getValue('mesiac_enum');
+                $nadobjednavka = $form->getValue('nadobjednavka_enum');
+                $datumOd = $form->getValue('datum_od_d');
+                $datumDo = $form->getValue('datum_do_d');
                 $mnozstvo = $form->getValue('mnozstvo');
                 $merna_jednotka= $form->getValue('merna_jednotka_enum');
                 $poznamka = $form->getValue('poznamka');
 
-                $objednavkyModel->addObjednavka($zakaznik, $rok, $mesiac, $mnozstvo, $merna_jednotka, $poznamka);
+                $mikroObjednavkyModel->addMikroObjednavka(
+                    $nadobjednavka,
+                    $datumOd,
+                    $datumDo,
+                    $mnozstvo,
+                    $zakaznik,
+                    $merna_jednotka,
+                    $poznamka);
 
                 $this->_helper->redirector('list');
             } else {
@@ -91,90 +93,80 @@ class ObjednavkyController extends Zend_Controller_Action
 
     public function editAction()
     {
+        $fromAction = $this->_getParam('fromAction', 'list');
+        $this->view->fromAction = $fromAction;
+        $fromController = $this->_getParam('fromController', 'mikroObjednavky');
+        $this->view->fromController = $fromController;
+
         /*
          * Data pre ciselniky
          */
+        $mikroObjednavkyModel = new Application_Model_DbTable_MikroObjednavky();
         $objednavkyModel = new Application_Model_DbTable_Objednavky();
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
-        $rokyModel = new Application_Model_DbTable_Roky();
-        $mesiaceModel = new Application_Model_DbTable_Mesiace();
         $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
 
         $zakazniciMoznosti = $zakazniciModel->getMoznosti();
-        $rokyMoznosti = $rokyModel->getMoznosti();
-        $mesiaceMoznosti = $mesiaceModel->getMoznosti();
         $merneJednotkyMoznosti = $merneJednotkyModel->getMoznosti();
+        $objednavkyMoznosti = $objednavkyModel->getMoznosti();
 
-        $form = new Application_Form_Objednavka(array(
+        $form = new Application_Form_MikroObjednavka(array(
             'zakazniciMoznosti' => $zakazniciMoznosti,
-            'rokyMoznosti' => $rokyMoznosti,
-            'mesiaceMoznosti' => $mesiaceMoznosti,
-            'merneJednotkyMoznosti' => $merneJednotkyMoznosti
+            'merneJednotkyMoznosti' => $merneJednotkyMoznosti,
+            'objednavkyMoznosti' => $objednavkyMoznosti
         ));
 
-        $form->submit->setLabel('Upraviť objednávku');
+        $form->submit->setLabel('Upraviť mikro objednávku');
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
-                $id = (int)$form->getValue('objednavky_id');
+                $id = (int) $form->getValue('objednavky_mikro_id');
                 $zakaznik = $form->getValue('zakaznik_enum');
-                $rok = $form->getValue('rok_enum');
-                $mesiac = $form->getValue('mesiac_enum');
+                $nadobjednavka = $form->getValue('nadobjednavka_enum');
+                $datumOd = $form->getValue('datum_od_d');
+                $datumDo = $form->getValue('datum_do_d');
                 $mnozstvo = $form->getValue('mnozstvo');
                 $merna_jednotka= $form->getValue('merna_jednotka_enum');
                 $poznamka = $form->getValue('poznamka');
 
-                $objednavkyModel->updateObjednavka($id, $zakaznik, $rok, $mesiac, $mnozstvo, $merna_jednotka, $poznamka);
+                $mikroObjednavkyModel->updateMikroObjednavka(
+                    $id,
+                    $nadobjednavka,
+                    $datumOd,
+                    $datumDo,
+                    $mnozstvo,
+                    $zakaznik,
+                    $merna_jednotka,
+                    $poznamka);
 
                 $this->_helper->redirector('list');
             } else {
                 $form->populate($formData);
             }
-        } else {
-                $id = $this->_getParam('id', 0);
-                if ($id > 0) {
-                    $objednavky = new Application_Model_DbTable_Objednavky();
-                    $form->populate($objednavky->getObjednavka($id));
-                }
-                }
+        }else {
+            $id = $this->_getParam('id', 0);
+            if ($id > 0) {
+                $mikroObjednavky = new Application_Model_DbTable_MikroObjednavky();
+                $form->populate($mikroObjednavky->getMikroObjednavka($id));
+            }
+        }
     }
 
     public function deleteAction()
     {
-        if ($this->getRequest()->isPost()) {
-            $del = $this->getRequest()->getPost('del');
-            if ($del == 'Áno') {
-                $id = $this->getRequest()->getPost('id');
-                $objednavky = new Application_Model_DbTable_Objednavky();
-                $objednavky->deleteObjednavka($id);
-            }
-            $this->_helper->redirector('list');
-        } else {
-            $id = $this->_getParam('id', 0);
-            $objednavky = new Application_Model_DbTable_Objednavky();
-
-            $zakazniciModel = new Application_Model_DbTable_Zakaznici();
-            $rokyModel = new Application_Model_DbTable_Roky();
-            $mesiaceModel = new Application_Model_DbTable_Mesiace();
-            $merneJednotkyModel = new Application_Model_DbTable_MerneJednotky();
-
-            $this->view->objednavka = $objednavky->getObjednavka($id);
-            $this->view->objednavkaId = $id;
-            $this->view->zakazniciModel = $zakazniciModel;
-            $this->view->mesiaceModel = $mesiaceModel;
-            $this->view->rokyModel = $rokyModel;
-            $this->view->merneJednotkyModel = $merneJednotkyModel;
-        }
+        // action body
     }
 
     public function previewAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
-        $fromController = $this->_getParam('fromController', 'objednavky');
+        $fromController = $this->_getParam('fromController', 'mikroObjednavky');
+        $fromId = $this->_getParam('fromId', null);
         $this->view->fromAction = $fromAction;
         $this->view->fromController = $fromController;
+        $this->view->fromId = $fromId;
 
         //inicializacia modelov pre vypis
         $zakazniciModel = new Application_Model_DbTable_Zakaznici();
@@ -198,19 +190,12 @@ class ObjednavkyController extends Zend_Controller_Action
         $this->view->xvyrobyModel = $xvyrobyModel;
 
         $id = $this->_getParam('id');
-        $this->view->objednavka = $objednavkyModel->getObjednavka($id);
-        $this->view->objednavkaId = $id;
-    }
-
-    public function calendarAction()
-    {
-        // action body
+        $this->view->mikroObjednavka = $mikroObjednavkyModel->getMikroObjednavka($id);
+        $this->view->mikroObjednavkaId = $id;
     }
 
 
 }
-
-
 
 
 

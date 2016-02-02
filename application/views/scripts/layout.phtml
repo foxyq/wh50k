@@ -380,14 +380,19 @@ echo $this->doctype(); ?>
 
                         <ul id="objednavky" class="collapse">
                             <li>
-                                <a href="<?php echo $this->baseUrl().'/objednavky/list'?>"><i class="fa fa-fw fa-list"></i> Prehľad objednávok</a>
+                                <a href="<?php echo $this->baseUrl().'/objednavky/list'?>"><i class="fa fa-fw fa-newspaper-o"></i> Objednávky</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->baseUrl().'/mikroObjednavky/list'?>"><i class="fa fa-fw fa-keyboard-o" ></i> Mikroobjednávky</a>
                             </li>
                             <li>
                                 <a href="<?php echo $this->baseUrl().'/objednavky/add'?>"><i class="fa fa-fw fa-plus"></i> Pridať objednávku</a>
                             </li>
+                            <!--
                             <li>
                                 <a href="<?php echo $this->baseUrl().'/objednavky/calendar'?>"><i class="fa fa-fw fa-calendar-o"></i> Kalendár objednávok</a>
                             </li>
+                            -->
                         </ul>
                     </li>
 

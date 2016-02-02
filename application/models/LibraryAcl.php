@@ -27,6 +27,7 @@ class Application_Model_LibraryAcl extends Zend_Acl
 
         //OBJEDNAVKY
         $this->add(new Zend_Acl_Resource('default:objednavky'));
+        $this->add(new Zend_Acl_Resource('default:mikroobjednavky'));
 
 
         //ADMINISTRACIA resources
@@ -92,6 +93,7 @@ class Application_Model_LibraryAcl extends Zend_Acl
 
         //objednavky
         $this->allow('2', 'default:objednavky');
+        $this->allow('2', 'default:mikroobjednavky');
 
         //administracia
         $this->allow('2', 'default:dodavatelia');
