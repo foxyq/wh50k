@@ -327,11 +327,11 @@ echo $this->doctype(); ?>
                         <li>
                             <a href="<?php echo $this->url(array('controller' => 'profil', 'action' => 'index'));?>"><i class="fa fa-fw fa-user"></i> Profil</a>
                         </li>
-                     <!--    <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Správy</a>
-                        </li> -->
                         <li>
                             <a href="<?php echo $this->url(array('controller' => 'nastavenia', 'action' => 'index'));?>"><i class="fa fa-fw fa-gear"></i> Nastavenia</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo $this->url(array('controller' => 'ubytky', 'action' => 'refreshdataexternal', 'fromController' => Zend_Controller_Front::getInstance()->getRequest()->getControllerName(), 'fromAction'=>Zend_Controller_Front::getInstance()->getRequest()->getActionName()));?>"><i class="fa fa-fw fa-refresh"></i> Aktualizuj dáta</a>
                         </li>
                         <li class="divider"></li>
                         <li>

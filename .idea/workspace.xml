@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/forms/MikroObjednavka.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/DbTable/MikroObjednavky.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/MikroObjednavkyController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/add.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/delete.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/edit.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/list.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/preview.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.zfproject.xml" afterPath="$PROJECT_DIR$/.zfproject.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/ExternaDodavka.php" afterPath="$PROJECT_DIR$/application/models/DbTable/ExternaDodavka.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php" afterPath="$PROJECT_DIR$/application/models/DbTable/ExternaVyroba.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/LibraryAcl.php" afterPath="$PROJECT_DIR$/application/models/LibraryAcl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Notifikacie.php" afterPath="$PROJECT_DIR$/application/models/Notifikacie.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Objednavky.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Objednavky.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ObjednavkyController.php" afterPath="$PROJECT_DIR$/application/controllers/ObjednavkyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/DbTable/Vydaje.php" afterPath="$PROJECT_DIR$/application/models/DbTable/Vydaje.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/layout.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wh50k.iws" />
@@ -47,161 +28,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="preview.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/mikro-objednavky/preview.phtml">
+      <file leaf-file-name="layout.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/layout.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923" vertical-offset="2006" max-vertical-offset="4114">
-              <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-              <folding>
-                <marker date="1454433051746" expanded="true" signature="3051:3308" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="3078:3308" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="3197:3308" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="3559:3802" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="3586:3802" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="4734:4933" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="5060:5265" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="5362:5565" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="5707:5961" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="5734:5961" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="5861:5961" placeholder="..." />
-                <marker date="1454433051746" expanded="false" signature="6257:6331" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="6332:7102" placeholder="..." />
-                <marker date="1454433051746" expanded="false" signature="6408:6445" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="6446:6531" placeholder="..." />
-                <marker date="1454433051746" expanded="false" signature="6604:6642" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="6643:6728" placeholder="..." />
-                <marker date="1454433051746" expanded="false" signature="6804:6843" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="6844:6930" placeholder="..." />
-                <marker date="1454433051746" expanded="false" signature="7005:7082" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="7249:7332" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="7619:7702" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="9237:9946" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="9275:9946" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="9331:9480" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="9533:9946" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="9590:9946" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="10627:10999" placeholder="..." />
-                <marker date="1454433051746" expanded="true" signature="11623:11991" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Notifikacie.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/Notifikacie.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39193085" vertical-offset="0" max-vertical-offset="1105">
-              <caret line="16" column="68" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
-              <folding>
-                <element signature="n#getStatusTotal#0;n#Application_Model_Notifikacie#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/mikro-objednavky/list.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.23077" vertical-offset="0" max-vertical-offset="2720">
-              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.24495678" vertical-offset="5100" max-vertical-offset="8534">
+              <caret line="318" column="29" selection-start-line="318" selection-start-column="29" selection-end-line="318" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObjednavkyController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/ObjednavkyController.php">
+      <file leaf-file-name="UbytkyHmotnosti.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.038462" vertical-offset="2154" max-vertical-offset="3366">
-              <caret line="194" column="65" selection-start-line="194" selection-start-column="65" selection-end-line="194" selection-end-column="65" />
-              <folding>
-                <element signature="n#indexAction#0;n#ObjednavkyController#0;n#!!top" expanded="true" />
-                <element signature="n#listAction#0;n#ObjednavkyController#0;n#!!top" expanded="true" />
-                <element signature="n#addAction#0;n#ObjednavkyController#0;n#!!top" expanded="true" />
-                <element signature="n#editAction#0;n#ObjednavkyController#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MikroObjednavky.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/DbTable/MikroObjednavky.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615" vertical-offset="1887" max-vertical-offset="2992">
-              <caret line="133" column="25" selection-start-line="133" selection-start-column="25" selection-end-line="133" selection-end-column="25" />
-              <folding>
-                <element signature="n#getMikroObjednavka#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#getMikroObjednavkyByObjednavkaId#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#getIds#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#getKratkyPopis#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#addMikroObjednavka#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#updateMikroObjednavka#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#deleteMikroObjednavka#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#existujeMikroObjednavka#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#existujeObjednavkaSId#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#getCountNekompatibilneMikroObjednavky#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-                <element signature="n#getCountNekompatibilneMikroObjednavkyVsObjednavky#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Objednavky.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/DbTable/Objednavky.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615" vertical-offset="51" max-vertical-offset="2924">
-              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-              <folding>
-                <element signature="n#getObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#getKratkyPopis#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#getMoznosti#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#addObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#updateObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#deleteObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#existujeObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#existujeObjednavkaSId#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#checkObjednavkaById#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-                <element signature="n#getCountNekompatibilneObjednavky#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preview.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-35.46154" vertical-offset="2852" max-vertical-offset="3995">
-              <caret line="222" column="38" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="816">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preview.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/vydaje/preview.phtml">
+      <file leaf-file-name="UbytkyController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/UbytkyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.73077" vertical-offset="2227" max-vertical-offset="3281">
-              <caret line="178" column="45" selection-start-line="178" selection-start-column="24" selection-end-line="178" selection-end-column="45" />
-              <folding />
+            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="748">
+              <caret line="53" column="45" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="45" />
+              <folding>
+                <element signature="n#refreshdataAction#0;n#UbytkyController#0;n#!!top" expanded="true" />
+                <element signature="n#refreshdataexternalAction#0;n#UbytkyController#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VydajeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/VydajeController.php">
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1020">
-              <caret line="305" column="46" selection-start-line="306" selection-start-column="54" selection-end-line="307" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MikroObjednavkyController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/MikroObjednavkyController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693" vertical-offset="153" max-vertical-offset="1207">
-              <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
+            <state vertical-scroll-proportion="-32.53846" vertical-offset="106" max-vertical-offset="1649">
+              <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -295,7 +159,6 @@
         <option value="$PROJECT_DIR$/application/views/scripts/stroje/index.phtml" />
         <option value="$PROJECT_DIR$/application/models/LibraryAcl.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
         <option value="$PROJECT_DIR$/application/forms/Prijem.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/edit.phtml" />
@@ -312,6 +175,7 @@
         <option value="$PROJECT_DIR$/application/views/scripts/mikro-objednavky/list.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/MikroObjednavky.php" />
         <option value="$PROJECT_DIR$/application/models/Notifikacie.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/layout.phtml" />
       </list>
     </option>
   </component>
@@ -930,12 +794,6 @@
       <option name="number" value="Default" />
       <updated>1434810288548</updated>
     </task>
-    <task id="LOCAL-00011" summary="2015_07_30 - opravene errors">
-      <created>1438289915424</created>
-      <option name="number" value="00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1438289915424</updated>
-    </task>
     <task id="LOCAL-00012" summary="2015_08_01 - CRUD ciselnikov, merneJednotky model repoaired">
       <created>1438451818835</created>
       <option name="number" value="00012" />
@@ -1224,7 +1082,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454239597361</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="MikroObjednavky modul - DONE">
+      <created>1454433076809</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1454433076809</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1249,7 +1113,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1432" y="-308" width="1936" height="1216" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32851985" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1264,7 +1128,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3501805" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32490975" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32490975" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1289,7 +1153,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Sklady/Index priroeny hlaska o PO sklade, sql dump&#10;" />
     <MESSAGE value="Prijmy/Vydaje custom validator - in progress&#10;" />
     <MESSAGE value="Prijmy/Vydaje custom validator - DONE&#10;" />
     <MESSAGE value="Externe transakcie - db, modely, list, waitings, errors&#10;" />
@@ -1314,7 +1177,8 @@
     <MESSAGE value="OPrava SPZ regexu" />
     <MESSAGE value="Podsklady - pridany sklad ktoremu patri + add/edit/list update" />
     <MESSAGE value="Stroje a zakaznici - novy reporting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stroje a zakaznici - novy reporting" />
+    <MESSAGE value="MikroObjednavky modul - DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="MikroObjednavky modul - DONE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1330,30 +1194,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/forms/Stroj.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="850">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Vydaj.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153" vertical-offset="102" max-vertical-offset="3859">
-          <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/forms/Vyroba.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923" vertical-offset="0" max-vertical-offset="3791">
-          <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/forms/Zakaznik.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5967742" vertical-offset="0" max-vertical-offset="1683">
@@ -1563,14 +1403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/layout.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.506244" vertical-offset="5967" max-vertical-offset="8534">
-          <caret line="385" column="128" selection-start-line="385" selection-start-column="128" selection-end-line="385" selection-end-column="128" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5967742" vertical-offset="255" max-vertical-offset="1972">
@@ -1751,9 +1583,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/mikro-objednavky/preview.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.26923" vertical-offset="2006" max-vertical-offset="4114">
+          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding>
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1454433051746" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Notifikacie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.516129" vertical-offset="0" max-vertical-offset="1105">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+          <folding>
+            <element signature="n#getStatusTotal#0;n#Application_Model_Notifikacie#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/mikro-objednavky/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5552353" vertical-offset="0" max-vertical-offset="2720">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/ObjednavkyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.038462" vertical-offset="2154" max-vertical-offset="3366">
+        <state vertical-scroll-proportion="0.61764705" vertical-offset="2154" max-vertical-offset="3366">
           <caret line="194" column="65" selection-start-line="194" selection-start-column="65" selection-end-line="194" selection-end-column="65" />
           <folding>
             <element signature="n#indexAction#0;n#ObjednavkyController#0;n#!!top" expanded="true" />
@@ -1764,98 +1652,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.46154" vertical-offset="2852" max-vertical-offset="3995">
-          <caret line="222" column="38" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/MikroObjednavkyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="153" max-vertical-offset="1207">
-          <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/VydajeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="305" column="46" selection-start-line="306" selection-start-column="54" selection-end-line="307" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/vydaje/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.73077" vertical-offset="2227" max-vertical-offset="3281">
-          <caret line="178" column="45" selection-start-line="178" selection-start-column="24" selection-end-line="178" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/mikro-objednavky/preview.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923" vertical-offset="2006" max-vertical-offset="4114">
-          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding>
-            <marker date="1454433051746" expanded="true" signature="3051:3308" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="3078:3308" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="3197:3308" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="3559:3802" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="3586:3802" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="4734:4933" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="5060:5265" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="5362:5565" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="5707:5961" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="5734:5961" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="5861:5961" placeholder="..." />
-            <marker date="1454433051746" expanded="false" signature="6257:6331" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="6332:7102" placeholder="..." />
-            <marker date="1454433051746" expanded="false" signature="6408:6445" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="6446:6531" placeholder="..." />
-            <marker date="1454433051746" expanded="false" signature="6604:6642" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="6643:6728" placeholder="..." />
-            <marker date="1454433051746" expanded="false" signature="6804:6843" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="6844:6930" placeholder="..." />
-            <marker date="1454433051746" expanded="false" signature="7005:7082" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="7249:7332" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="7619:7702" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="9237:9946" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="9275:9946" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="9331:9480" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="9533:9946" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="9590:9946" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="10627:10999" placeholder="..." />
-            <marker date="1454433051746" expanded="true" signature="11623:11991" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Objednavky.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615" vertical-offset="51" max-vertical-offset="2924">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding>
-            <element signature="n#getObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#getKratkyPopis#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#getMoznosti#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#addObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#updateObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#deleteObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#existujeObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#existujeObjednavkaSId#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#checkObjednavkaById#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-            <element signature="n#getCountNekompatibilneObjednavky#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/MikroObjednavky.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615" vertical-offset="1887" max-vertical-offset="2992">
+        <state vertical-scroll-proportion="0.3548387" vertical-offset="1887" max-vertical-offset="2992">
           <caret line="133" column="25" selection-start-line="133" selection-start-column="25" selection-end-line="133" selection-end-column="25" />
           <folding>
             <element signature="n#getMikroObjednavka#0;n#Application_Model_DbTable_MikroObjednavky#0;n#!!top" expanded="true" />
@@ -1873,21 +1672,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/mikro-objednavky/list.phtml">
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Objednavky.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.23077" vertical-offset="0" max-vertical-offset="2720">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.3548387" vertical-offset="51" max-vertical-offset="2924">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding>
+            <element signature="n#getObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#getKratkyPopis#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#getMoznosti#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#addObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#updateObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#deleteObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#existujeObjednavka#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#existujeObjednavkaSId#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#checkObjednavkaById#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+            <element signature="n#getCountNekompatibilneObjednavky#0;n#Application_Model_DbTable_Objednavky#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/objednavky/preview.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8856868" vertical-offset="2852" max-vertical-offset="3995">
+          <caret line="222" column="38" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Notifikacie.php">
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/vydaje/preview.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39193085" vertical-offset="0" max-vertical-offset="1105">
-          <caret line="16" column="68" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.7580645" vertical-offset="2227" max-vertical-offset="3281">
+          <caret line="178" column="45" selection-start-line="178" selection-start-column="24" selection-end-line="178" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/VydajeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24193548" vertical-offset="0" max-vertical-offset="1054">
+          <caret line="305" column="46" selection-start-line="306" selection-start-column="54" selection-end-line="307" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/MikroObjednavkyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24193548" vertical-offset="153" max-vertical-offset="1207">
+          <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-32.53846" vertical-offset="106" max-vertical-offset="1649">
+          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/UbytkyHmotnosti.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/UbytkyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="748">
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="45" />
           <folding>
-            <element signature="n#getStatusTotal#0;n#Application_Model_Notifikacie#0;n#!!top" expanded="true" />
+            <element signature="n#refreshdataAction#0;n#UbytkyController#0;n#!!top" expanded="true" />
+            <element signature="n#refreshdataexternalAction#0;n#UbytkyController#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/layout.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24495678" vertical-offset="5100" max-vertical-offset="8534">
+          <caret line="318" column="29" selection-start-line="318" selection-start-column="29" selection-end-line="318" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
