@@ -28,7 +28,26 @@ $(document).ready(function() {
             suma_tonaz +=  Number(tonaze[i].innerHTML.toString().replace(/[,]/, "."));
         }
 
-        $('#tonaz').html('Suma zobrazenej tonáže = ' + suma_tonaz +' ton');
+        $('#tonaz').html('Suma ton = ' + suma_tonaz );
+
+        var m3 = document.getElementsByClassName("m3");
+        var suma_m3= 0;
+
+        for( i=0; i<m3.length; i++) {
+            suma_m3 +=  Number(m3[i].innerHTML.toString().replace(/[,]/, "."));
+        }
+
+        $('#m3').html('Suma m<sup>3</sup>= ' + suma_m3 );
+
+        var prm = document.getElementsByClassName("prm");
+        var suma_prm= 0;
+
+        for( i=0; i<prm.length; i++) {
+            suma_prm +=  Number(prm[i].innerHTML.toString().replace(/[,]/, "."));
+        }
+
+        $('#prm').html('Suma prm = ' + suma_prm );
+
     }, 500);
 
 });

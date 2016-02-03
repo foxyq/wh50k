@@ -81,8 +81,8 @@ $this->prijmybuttons($this,$vydaje_w,$vydaje_e,$controller);
             <td><?php echo $this->escape($this->zakaznici->getNazov($vydaj->zakaznik_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($vydaj->prepravca_enum));?></td>
             <td class="tonaz"><?php echo number_format($this->escape($vydaj->q_tony_merane), 2, ",", " ");?></td>
-            <td><?php echo number_format($this->escape($vydaj->q_m3_merane), 2, ",", " ");?></td>
-            <td><?php echo number_format($this->escape($vydaj->q_prm_merane), 2, ",", " ");?></td>
+            <td class="m3"><?php echo number_format($this->escape($vydaj->q_m3_merane), 2, ",", " ");?></td>
+            <td class="prm"><?php echo number_format($this->escape($vydaj->q_prm_merane), 2, ",", " ");?></td>
             <td class="vlhkost">
                 <?php
             if ($vydaj->q_vlhkost == 0.00){
@@ -123,5 +123,7 @@ $this->prijmybuttons($this,$vydaje_w,$vydaje_e,$controller);
     </table>
 
     <div id="tonaz">   </div>
+    <div id="m3">   </div>
+    <div id="prm">   </div>
     <div id="priemer"> </div>
 </div>

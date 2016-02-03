@@ -21,19 +21,12 @@ echo $this->doctype(); ?>
     <!--jquery kamos so zendom-->
     <?php
     echo $this->jQuery()
-//    ->setVersion('1.5.1')    // toto nacita najnovsie ENG z netu
-//    ->setUiVersion('1.8.11') // toto je k tomu a tiez je to ENG
         ->enable()
         ->uiEnable(); ?>
     <!--jquery-->
 
-    <!-- ostatne JS + jquery pre fancy tables    -->
     <?php
 
-//    $this->inlineScript()->appendFile($this->baseUrl().'/js/raphael.min.js');
-//    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris.min.js');
-//    $this->inlineScript()->appendFile($this->baseUrl().'/js/morris-data.js');
-//    $this->inlineScript()->appendFile($this->baseUrl().'/js/shCore.js');
     $this->inlineScript()->appendFile($this->baseUrl().'/js/jquery.dataTables.min.js');
     echo $this->inlineScript(); ?>
 
@@ -61,46 +54,10 @@ echo $this->doctype(); ?>
 
 <!--    ************** KONIEC CSS INCLUDES ************ -->
 
-
-<!--    <script>-->
-<!---->
-<!--        function onReady(callback) {-->
-<!--            var intervalID = window.setInterval(checkReady, 300);-->
-<!---->
-<!--            function checkReady() {-->
-<!--                if (document.getElementsByTagName('body')[0] !== undefined) {-->
-<!--                    window.clearInterval(intervalID);-->
-<!--                    callback.call(this);-->
-<!--                }-->
-<!--            }-->
-<!--        }-->
-<!---->
-<!--        function show(id, value) {-->
-<!--            document.getElementById(id).style.display = value ? 'block' : 'none';-->
-<!--        }-->
-<!---->
-<!--        onReady(function () {-->
-<!--            show('page', true);-->
-<!--            show('loading', false);-->
-<!--        });-->
-<!---->
-<!--//    </script>-->
-
-
-<!--    <script type="text/javascript">-->
-<!--        $(window).load(function() {-->
-<!--        $("#loading").fadeOut("slow");-->
-<!--            })-->
-<!--//   </script>-->
-
-
-
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <link href="/styles/basic.css" media="screen" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -146,6 +103,9 @@ echo $this->doctype(); ?>
                     $ex_vyr_w = $notif_info['externe_vyroby_waitings'];
                     $ex_vyr_e = $notif_info['externe_vyroby_errors'];
                     $obj_nekomp = $notif_info['objednavky_nekompatibilne'];
+                    $unekomp = $notif_info['mikroObjednavky_nekompatibilne'];
+                    $unekmp_obj = $notif_info['mikroObjednavky_nekompatibilne_ku_objednavkam'];
+
 
                     ?>
 
@@ -274,9 +234,39 @@ echo $this->doctype(); ?>
 
                             echo '<li class="divider"></li>';
 
-                        } ?>
+                        }
 
-                    <?php if ($ubytky_ch > 0 ) {
+                        if ($unekomp >0) {
+                        ?>
+
+                        <li>
+                            <a href="<?php echo $this->url(array(
+                                'controller' => 'mikroObjednavky',
+                                'action' => 'list'
+                            ), null, true) ?>"> <span class="label label-warning tleft">Nekompatibilné mikro</span> <span class="notif_count right"> <?php echo $unekomp; ?> </span> </a>
+                        </li>
+
+                        <?php }
+
+                        if ($unekmp_obj > 0 ) {
+                            ?>
+
+                            <li>
+                                <a href="<?php echo $this->url(array(
+                                    'controller' => 'mikroObjednavky',
+                                    'action' => 'list'
+                                ), null, true) ?>"> <span class="label label-danger tleft">Nespárované mikro </span> <span class="notif_count right"> <?php echo $unekmp_obj; ?> </span>  </a>
+                            </li>
+
+                        <?php }
+
+                        if ($unekomp + $unekmp_obj> 0) {
+
+                            echo '<li class="divider"></li>';
+
+                        }
+
+                        if ($ubytky_ch > 0 ) {
                         ?>
                         <li>
                             <a href="<?php echo $this->url(array(
@@ -473,7 +463,6 @@ echo $this->doctype(); ?>
 
                           <h1><?php echo $this->escape($this->title); ?></h1>
                         <?php
-
 
                         echo $this->layout()->content; ?>
 

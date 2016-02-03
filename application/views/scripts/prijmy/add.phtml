@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/wh50k/public/js/vlhkost_auto.js"></script>
+
 <h1>Príjmy - vytvoriť nový</h1>
 <!--<hr>-->
 <script>
@@ -90,6 +92,8 @@
         <?php
             $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
             $konverznaTabulka = $materialyDruhyModel->getKonverzieAll();
+//            $konverznaTabulka = $konverznaTabulka[1];
+
         ?>
         $(".in").keyup(function(){
             var konverznaTabulka = <?php echo json_encode($konverznaTabulka); ?>;
@@ -254,10 +258,23 @@
                             <!--                        Netto:-->
                             <?php echo $this->form->q_tony_merane; // render the user name field here ?>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 hide">
                             <!--                        Brutto:-->
                             <?php echo $this->form->q_tony_nadrozmer; // render the user name field here ?>
                         </div>
+
+                        <div class="col-lg-6">
+                            <dt id="q_vlhkost-label"><label for="q_vlhkost" class="optional">Nadrozmer</label></dt>
+                            <dd id="q_vlhkost-element">
+                                <div class="form-group input-group">
+                                    <input type="text" id="help" class="form-control" placeholder="0">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+
+                            </dd>
+
+                        </div>
+
                     </fieldset>
                 </div>
 
@@ -292,7 +309,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <?php echo $this->form->q_vlhkost; // render the user name field here ?>
+
                     </div>
+
 
                     <div class="col-lg-6">
                         <dt><label>&nbsp;</label></dt>

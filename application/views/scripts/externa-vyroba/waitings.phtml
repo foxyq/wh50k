@@ -80,10 +80,10 @@ $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
             <td><?php echo $this->escape($this->stroje->getNazov($externa_vyroba->stroj_enum));?></td>
             <td><?php echo $this->escape($this->miestaStiepenia->getNazov($externa_vyroba->miesto_stiepenia_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($externa_vyroba->prepravca_enum));?></td>
-            <td class="tonaz"><?php echo number_format($this->escape($externa_vyroba->q_tony_merane), 2, ",", " ");?></td>
+                <td class="tonaz"><?php echo number_format($this->escape($externa_vyroba->q_tony_merane), 2, ",", " ");?></td>
 
-            <td><?php echo number_format($this->escape($externa_vyroba->q_m3_merane), 2, ",", " ");?></td>
-            <td><?php echo number_format($this->escape($externa_vyroba->q_prm_merane), 2, ",", " ");?></td>
+            <td class="m3"><?php echo number_format($this->escape($externa_vyroba->q_m3_merane), 2, ",", " ");?></td>
+            <td class="prm"><?php echo number_format($this->escape($externa_vyroba->q_prm_merane), 2, ",", " ");?></td>
             <td class="vlhkost">
                 <?php
             if ($externa_vyroba->q_vlhkost == 0.00){
@@ -109,5 +109,7 @@ $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
     </table>
 
     <div id="tonaz">   </div>
+    <div id="m3">   </div>
+    <div id="prm">   </div>
     <div id="priemer"> </div>
 </div>

@@ -8,6 +8,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
 <script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
 <script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
 
+
 <h1>Sklady - aktuálny stav</h1>
 
 
@@ -25,14 +26,17 @@ $id = $this->id;
     <br><br>
 
 
-    <ul class="nav nav-tabs">
+    <ul id="tabs" class="nav nav-tabs">
         <?php
         $skladyIds = $this->skladyModel->getIds();
 
         foreach($skladyIds as $skladId):?>
-            <li <?php if ($skladId == $id){echo "class=\"active\"";}?>><a data-toggle="tab" href="#menu<?php echo $skladId;?>"><?php echo $this->skladyModel->getNazov($skladId);?></a></li>
+            <li <?php if ($skladId == $id){echo "class=\"active\"";}?>><a  href="<?php echo $this->url(array('controller'=>'sklady',
+                    'action'=>'index', 'skladID'=> $skladId, 'fromAction' => 'list'));?>"><?php echo $this->skladyModel->getNazov($skladId);?></a></li>
         <?php endforeach; ?>
     </ul>
+
+
 
     <br>
     <div class="tab-content">
@@ -50,7 +54,7 @@ $id = $this->id;
                                 <div class="col-xs-3">
                                     <i class="fa fa-3x">
                                         <?php
-                                        ECHO $this->skladyModel->getSkratka($skladId)
+                                        echo $this->skladyModel->getSkratka($skladId)
 
                                         ?></i>
                                 </div>
@@ -117,7 +121,7 @@ $id = $this->id;
                              </div>
                             <div class="col-lg-8 col-md-8" >
 
-                                <div id="morris-area-chart-<?php echo $counter ?>"></div>
+                                <div id="morris-area-chart-<?php echo $counter ?>" style="display: block"></div>
 
                             </div>
 
@@ -156,6 +160,9 @@ $id = $this->id;
 
         <script>
         // Area Chart
+
+
+
         Morris.Area({
             element: 'morris-area-chart-<?php echo $skladId ?>',
 
@@ -174,18 +181,16 @@ $id = $this->id;
              else if ($skladId ==3){
              echo "lineColors: ['#5cb85c']";
              }
+             else if ($skladId ==4){
+             echo "lineColors: ['#f0ad4e']";
+             }
              ?>
 
         });
 
-
-        var d = document.getElementById("hidden_field<?php echo $skladId?>");
-        d.className = d.className + " hidden";
-
     </script>
 
-<!--    --><?php //echo json_encode($dataSkladu);
-//     print_r ($dataSkladu);
+    <?php
 
     endforeach ?>
 

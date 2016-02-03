@@ -1,3 +1,23 @@
+
+
+<script>
+
+    $(document).ready(function() {
+
+//        $('#sklad_enum').change(function () {
+        $('#sklad_enum').on("change", function() {
+//            $('#submitbutton').submit();
+//            $('#sklad_enum').innerHTML('');
+            $('#Myform').submit();
+            return false;
+    //        podsklad.innerHTML('');
+        })
+    });
+
+</script>
+
+
+
 <h1 >Výdaje - vytvoriť nový</h1>
 <div class="col-lg-5">
     <div class="panel panel-green">
@@ -7,7 +27,7 @@
         <div class="panel-body">
             <form action="<?php echo $this->escape($this->form->getAction()) ?>"
                   method="<?php echo $this->escape($this->form->getMethod()) ?>"
-                  enctype="multipart/form-data" class="normal">
+                  enctype="multipart/form-data" class="normal" id="myForm">
 
                 <?php echo $this->form->ts_vydaje_id; ?>
 
@@ -162,6 +182,4 @@
                 </div>
 
             </form>
-
-
 
