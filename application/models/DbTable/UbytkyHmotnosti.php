@@ -180,6 +180,50 @@ class Application_Model_DbTable_UbytkyHmotnosti extends Zend_Db_Table_Abstract
 
     }
 
+    //vracia pole s poslednymi $pocetHodnot hodnotami pre vykreslovanie grafu - hodnoty na konci dna po odpocte ubytkov
+    //pole je v poradi od najstarsieho [0] po najnovsie [max]
+    public function getLastXValuesForAllWHs($pocetHodnot)
+    {
+        $poslednychXHodnot = array();
+
+        $zaciatokKalendara = strtotime(Zend_Controller_Front::getInstance()->getParam('bootstrap')->getOption('calendar_start_date'));
+        $pocetDniOdZaciatkuKalendara = floor(abs(time() - $zaciatokKalendara) / 86400);
+
+        if ($pocetDniOdZaciatkuKalendara  < $pocetHodnot)
+        {
+            $pocetHodnot = $pocetDniOdZaciatkuKalendara;
+        }
+
+        $zaciatokDatum = date('Y-m-d', strtotime('-'.($pocetHodnot - 1).' days'));
+
+        //$date = strtotime(date("Y-m-d", strtotime($date)) . " +1 day");
+
+        $skladyModel = new Application_Model_DbTable_Sklady();
+        $sklady = $skladyModel->getIds();
+        $counterDatum = strtotime(date("Y-m-d", strtotime($zaciatokDatum)) . " +0 day");
+
+        for ($i = 1; $i <= $pocetHodnot; $i++)
+        {
+            $poslednychXHodnot[$i]['datum'] = date('Y-m-d', $counterDatum);
+            foreach ($sklady AS $sklad){
+                $sql = "datum_ubytku_d = '".date('Y-m-d', $counterDatum)."' AND sklad_enum = ".$sklad;
+                $stavNaKonciDna = $this->fetchRow($sql);
+                $poslednychXHodnot[$i]['sklad'.$sklad] = $stavNaKonciDna->q_konecny_stav_tony;
+            }
+            $counterDatum = strtotime(date("Y-m-d", strtotime($zaciatokDatum)) . " +".$i." day");
+            //$poslednychXHodnot[] = $ubytky = $this->fetchAll($sql)->getRow($pocetZaznamov-$pocetHodnot-1+$i)->toArray();
+        }
+
+
+        //ksort($poslednychXHodnotVystup);
+
+
+        return $poslednychXHodnot;
+
+
+    }
+
+
     public function getErrorNedostatokNaSklade(){
         $sql = "poznamka = 'Nedostatok na sklade.'";
         $pocetChyb = $this->fetchAll($sql)->count();

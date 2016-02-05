@@ -36,6 +36,18 @@ class Application_Model_DbTable_Podsklady extends Zend_Db_Table_Abstract
         return $moznosti;
     }
 
+    public function getIdsSoSkladIds(){
+        $pole = $this->fetchAll();
+        $moznosti = array();
+
+        foreach ($pole as $hodnota){
+            $moznosti[$hodnota->podsklady_id]['podsklad_id'] = $hodnota->podsklady_id;
+            $moznosti[$hodnota->podsklady_id]['sklad_id'] = $hodnota->sklad_enum;
+        }
+
+        return $moznosti;
+    }
+
     public function addPodsklad($nazov, $kod, $sklad, $mesto, $adresa)
     {
         $data = array(

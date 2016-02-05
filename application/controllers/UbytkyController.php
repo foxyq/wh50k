@@ -36,6 +36,7 @@ class UbytkyController extends Zend_Controller_Action
         }
         $this->view->ubytkyVPoli = $ubytkyVPoli;
 
+        $this->view->ubytkyModel = $ubytky;
         $this->view->sklady = $sklady;
         $this->view->prijmy = $prijmy;
         $this->view->notifikacieModel = $notifikacieModel;

@@ -20,6 +20,7 @@ class PodskladyController extends Zend_Controller_Action
         $mesta = new Application_Model_DbTable_Mesta();
 
         $this->view->podsklady = $podsklady->fetchAll();
+        $this->view->podskladyModel = $podsklady;
         $this->view->skladyModel = $skladyModel;
         $this->view->mesta = $mesta;
 
