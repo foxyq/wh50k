@@ -1,7 +1,59 @@
 <script type="text/javascript" src="/wh50k/public/js/vlhkost_auto.js"></script>
 
 <h1>Príjmy - vytvoriť nový</h1>
-<!--<hr>-->
+
+
+<script>
+    var deved = '9';
+
+    $(document).ready(function(){
+
+
+        var options = $('select#podsklad_enum option');
+
+        var values = $.map(options ,function(option) {
+//            alert( option.value );
+
+            // skontrolujem pole
+            //
+
+//            $userdb=Array
+//            (
+//                (0) => Array
+//            (
+//                (uid) => '100',
+//                (name) => 'Sandra Shush',
+//                (url) => 'urlof100'
+//            ),
+//
+//            (1) => Array
+//            (
+//                (uid) => '5465',
+//                (name) => 'Stefanie Mcmohn',
+//                (pic_square) => 'urlof100'
+//            ),
+//
+//            (2) => Array
+//            (
+//                (uid) => '40489',
+//                (name) => 'Michael',
+//                (pic_square) => 'urlof40489'
+//            )
+//            );
+//
+//            simply u can use this
+//
+//            $key = array_search(40489, array_column($userdb, 'uid'));
+//
+        });
+
+
+
+        $('select#podsklad_enum option').addClass( deved );
+        });
+
+</script>
+
 <script>
     function isEmpty(str){
         if(document.getElementById(str).value == "")
@@ -26,9 +78,27 @@
         $("#q_prm_merane").val( nula );
     }
     $(document).ready(function(){
+
+        <?php
+            $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
+            $konverznaTabulka = $materialyDruhyModel->getKonverzieAll();
+        ?>
+
         document.getElementById('q_tony_merane').readOnly = true;
         //    button click
         $("#manualCalc").button().click(function(){
+
+
+            $( "#manualCalc" ).toggleClass( "hide" );
+            $( "#autoCalc" ).toggleClass( "hide" );
+
+            $("#q_tony_brutto").val( '' );
+            $("#q_tony_tara").val( '' );
+            $("#q_tony_nadrozmer").val( '' );
+            $("#q_tony_merane").val( '' );
+            $("#q_prm_merane").val( '' );
+            $("#q_m3_merane").val( '' );
+
             document.getElementById('q_tony_nadrozmer').readOnly = false;
             document.getElementById('q_tony_tara').readOnly = false;
             document.getElementById('q_tony_brutto').readOnly = false;
@@ -36,18 +106,101 @@
             document.getElementById('q_prm_merane').readOnly = false;
             document.getElementById('q_m3_merane').readOnly = false;
             $('.in').unbind('keyup');
-            alert("Automatické prepočitavanie parametrov vypnuté. Pre zapnutie, prosím, znova načítajte stránku.");
+            alert("Automatické prepočitavanie parametrov vypnuté.");
+
+
         });
+
+        $('#autoCalc').button().click(function(){
+
+            $( "#manualCalc" ).toggleClass( "hide" );
+            $( "#autoCalc" ).toggleClass( "hide" );
+
+            $("#q_tony_brutto").val( '' );
+            $("#q_tony_tara").val( '' );
+            $("#q_tony_nadrozmer").val( '' );
+            $("#q_tony_merane").val( '' );
+            $("#q_prm_merane").val( '' );
+            $("#q_m3_merane").val( '' );
+
+            document.getElementById('q_tony_merane').readOnly = true;
+
+            $(".in").keyup(function(){
+                var konverznaTabulka = <?php echo json_encode($konverznaTabulka); ?>;
+                var tonym = +$("#q_tony_merane").val().replace(",",".");
+                var tonyb = +$("#q_tony_brutto").val().replace(",",".");
+                var tonyt = +$("#q_tony_tara").val().replace(",",".");
+                var m3 = +$("#q_m3_merane").val().replace(",",".");
+                var prm = +$("#q_prm_merane").val().replace(",",".");
+                var materialDruh =  +$("#material_druh_enum").val();
+                var tony2m3 = konverznaTabulka[materialDruh]["ton_m3"];
+                var tony2prm = konverznaTabulka[materialDruh]["ton_prm"];
+                var m32tony = konverznaTabulka[materialDruh]["m3_ton"];
+                var m32prm = konverznaTabulka[materialDruh]["m3_prm"];
+                var prm2tony = konverznaTabulka[materialDruh]["prm_ton"];
+                var prm2m3 = konverznaTabulka[materialDruh]["prm_m3"];
+                var nula = "";
+//
+                if($('#q_tony_brutto').is(':focus')) {
+                    document.getElementById('q_m3_merane').readOnly = true;
+                    document.getElementById('q_prm_merane').readOnly = true;
+                    $("#q_tony_merane").val(tonyb - tonyt);
+                    $("#q_prm_merane").val( (tonyb - tonyt ) * tony2prm);
+                    $("#q_m3_merane").val( (tonyb - tonyt ) * tony2m3);
+                }
+                if($('#q_tony_tara').is(':focus')) {
+                    document.getElementById('q_m3_merane').readOnly = true;
+                    document.getElementById('q_prm_merane').readOnly = true;
+                    $("#q_tony_merane").val(tonyb - tonyt);
+                    $("#q_prm_merane").val( (tonyb - tonyt ) * tony2prm);
+                    $("#q_m3_merane").val( (tonyb - tonyt ) * tony2m3);
+                }
+                if($('#q_tony_nadrozmer').is(':focus')) {
+//                document.getElementById('q_m3_merane').readOnly = true;
+//                document.getElementById('q_prm_merane').readOnly = true;
+//                $("#q_tony_merane").val(tonyb - tonyt);
+//                $("#q_prm_merane").val( (tonyb - tonyt ) * tony2prm);
+//                $("#q_m3_merane").val( (tonyb - tonyt ) * tony2m3);
+                }
+                if($('#q_m3_merane').is(':focus')) {
+                    document.getElementById('q_tony_merane').readOnly = true;
+                    document.getElementById('q_tony_brutto').readOnly = true;
+                    document.getElementById('q_tony_tara').readOnly = true;
+//                document.getElementById('q_tony_nadrozmer').readOnly = true;
+                    document.getElementById('q_prm_merane').readOnly = true;
+                    $("#q_tony_brutto").val( nula );
+                    $("#q_tony_tara").val( nula );
+                    $("#q_tony_nadrozmer").val( nula );
+                    $("#q_tony_merane").val( m3 * m32tony);
+                    $("#q_prm_merane").val( m3 * m32prm);
+                }
+                if($('#q_prm_merane').is(':focus')) {
+                    document.getElementById('q_tony_merane').readOnly = true;
+                    document.getElementById('q_tony_brutto').readOnly = true;
+                    document.getElementById('q_tony_tara').readOnly = true;
+//                document.getElementById('q_tony_nadrozmer').readOnly = true;
+                    document.getElementById('q_m3_merane').readOnly = true;
+                    $("#q_tony_brutto").val( nula );
+                    $("#q_tony_tara").val( nula );
+                    $("#q_tony_nadrozmer").val( nula );
+                    $("#q_tony_merane").val( prm * prm2tony);
+                    $("#q_m3_merane").val( prm * prm2m3);
+                }
+            });
+
+            alert("Automatické prepočitavanie parametrov zapnuté.");
+
+        });
+
         window.setInterval(function(){
-//deklaracie ....
+
             var tonym = +$("#q_tony_merane").val();
             var tonyb = +$("#q_tony_brutto").val();
-//            var tonyn =  +$("#q_tony_nadrozmer").val();
+
             var tonyt = +$("#q_tony_tara").val();
             var m3 = +$("#q_m3_merane").val();
             var prm = +$("#q_prm_merane").val();
-//            ifiky ... tieto sa kontroluju kazdu sekundu
-//            ked zmazem m3
+
             if ( //ak sa nieeco posere a vsetky fieldy sa locknu ... zmaz ich a unlockni
             //checkujem kazdu sekundu
             document.getElementById('q_tony_nadrozmer').getAttribute('disabled') == false
@@ -89,12 +242,7 @@
 //                document.getElementById('q_tony_merane').readOnly = false;
             }
         }, 1000);
-        <?php
-            $materialyDruhyModel = new Application_Model_DbTable_MaterialyDruhy();
-            $konverznaTabulka = $materialyDruhyModel->getKonverzieAll();
-//            $konverznaTabulka = $konverznaTabulka[1];
 
-        ?>
         $(".in").keyup(function(){
             var konverznaTabulka = <?php echo json_encode($konverznaTabulka); ?>;
             var tonym = +$("#q_tony_merane").val().replace(",",".");
@@ -316,7 +464,7 @@
                     <div class="col-lg-6">
                         <dt><label>&nbsp;</label></dt>
                         <a href="#" id="manualCalc" type="button" class="btn btn-default">Manuálne hodnoty</a>
-
+                        <a href="#" id="autoCalc" type="button" class="btn btn-default hide">Automatické hodnoty</a>
                     </div>
 
                 </div>

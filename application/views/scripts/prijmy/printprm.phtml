@@ -87,7 +87,7 @@ try {
 
     // ulozim si to ako file ... cesta a save
 
-    $output = '../public/pdf/prijmovy_listok-'.$cislo_listku.'.pdf';
+    $output = '../public/pdf/'.$cislo_listku.'.pdf';
     $odkaz = substr($output, 9);
     $pdf->save( $output);
 

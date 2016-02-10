@@ -97,7 +97,7 @@ try {
     // viem tu premennu $pdf pridat ako novu stranu (append) ale to teraz nie
     // $pdf->pages[] = $page;
 
-    $output = '../public/pdf/vazny_listok-'.$cislo_listku.'.pdf';
+    $output = '../public/pdf/'.$cislo_listku.'.pdf';
     $odkaz = substr($output, 9);
     $pdf->save( $output);
 

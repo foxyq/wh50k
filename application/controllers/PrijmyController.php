@@ -107,9 +107,38 @@ class PrijmyController extends Zend_Controller_Action
                 $poznamka = $form->getValue('poznamka');
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
-                $code = str_replace('-', '', $datum_prijmu);
-                $code = substr( $code, 2);
-                $doklad_cislo = 'SP'.$code.'-'.substr(uniqid(),6);
+
+                ////////////////////////
+
+                $files = scandir("../public/pdf/");
+
+                $prijmove = preg_grep("/SP-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", $files);
+
+                $max = 0;
+
+                foreach ($prijmove as $subor) {
+                    $poradove_cislo = preg_replace("/SP-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", "", $subor);
+                    $poradove_cislo = str_replace(".php", "", $poradove_cislo);
+                    $poradove_cislo = intval($poradove_cislo);
+
+                    if($poradove_cislo > $max) {$max = $poradove_cislo;}
+                }
+
+
+                $nove_meno = "SP-" . $datum_prijmu . "-" . ($max+1); // . ".pdf";
+
+//                echo ($nove_meno) . '<br><br>';
+
+                var_dump($prijmove);
+
+
+                ////////////////////
+
+//                $code = str_replace('-', '', $datum_prijmu);
+//                $code = substr( $code, 2);
+//                $doklad_cislo = 'SP'.$code.'-'.substr(uniqid(),6);
+                $doklad_cislo = $nove_meno;
+
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $prijmy->addPrijem(
                     $datum_prijmu,
@@ -132,9 +161,8 @@ class PrijmyController extends Zend_Controller_Action
                     $chyba,
                     $stav_transakcie,
                     $doklad_cislo);
-                //pageManager
-                //$this->_helper->redirector($_SESSION['pageManager']['lastPageParameters']['action']);
-                $this->_helper->redirector($fromAction);
+//
+//                $this->_helper->redirector($fromAction);
             } else {
                 $form->populate($formData);
                 //pageManager

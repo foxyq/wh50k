@@ -97,7 +97,7 @@ try {
     // viem tu premennu $pdf pridat ako novu stranu (append) ale to teraz nie
     // $pdf->pages[] = $page;
 
-    $output = '../public/pdf/vazny_listok-'.$cislo_listku.'.pdf';
+    $output = '../public/pdf/'.$cislo_listku.'.pdf';
     $odkaz = substr($output, 9);
     $pdf->save( $output);
 
@@ -115,35 +115,7 @@ echo '<a id=”pdfDownloadLink” href=" '.$this->baseUrl().$odkaz.' " '.'>Odkaz
 
 
 // ak je vsetko ok, automaticky redirect na pdf
-//header('Location: '.$this->baseUrl().$odkaz);
-
-
-//////////////////////////////////
-
-$files = scandir("../public/pdf/");
-
-$prijmove = preg_grep("/prijmovy_listok-SP[0-9]{6}-/", $files);
-
-$max = 0;
-
-foreach ($prijmove as $subor) {
-    $poradove_cislo = preg_replace("/prijmovy_listok-SP[0-9]{6}-/", "", $subor);
-    $poradove_cislo = str_replace(".php", "", $poradove_cislo);
-    $poradove_cislo = intval($poradove_cislo);
-
-    if($poradove_cislo > $max) {$max = $poradove_cislo;}
-}
-
-$datum = "POTATO";
-
-$nove_meno = "prijmovy_listok-SP" . $datum . "-" . ($max+1) . ".pdf";
-
-var_dump($nove_meno);
-
-var_dump($prijmove);
-
-
-
+header('Location: '.$this->baseUrl().$odkaz);
 
 
 ?>

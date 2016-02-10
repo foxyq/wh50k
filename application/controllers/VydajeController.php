@@ -108,9 +108,35 @@ class VydajeController extends Zend_Controller_Action
                 $poznamka = $form->getValue('poznamka');
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
-                $code = str_replace('-', '', $datum_vydaju);
-                $code = substr( $code, 2);
-                $doklad_cislo = 'SV'.$code.'-'.substr(uniqid(),6);
+//                $code = str_replace('-', '', $datum_vydaju);
+//                $code = substr( $code, 2);
+//                $doklad_cislo = 'SV'.$code.'-'.substr(uniqid(),6);
+
+                ////////////////////////
+
+                $files = scandir("../public/pdf/");
+                $prijmove = preg_grep("/SV-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", $files);
+
+                $max = 0;
+
+                foreach ($prijmove as $subor) {
+                    $poradove_cislo = preg_replace("/SV-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", "", $subor);
+                    $poradove_cislo = str_replace(".php", "", $poradove_cislo);
+                    $poradove_cislo = intval($poradove_cislo);
+
+                    if($poradove_cislo > $max) {$max = $poradove_cislo;}
+                }
+
+
+                $nove_meno = "SV-" . $datum_vydaju . "-" . ($max+1); // . ".pdf";
+
+//                echo ($nove_meno) . '<br><br>';
+
+//                var_dump($prijmove);
+
+                $doklad_cislo = $nove_meno;
+                ////////////////////
+
                 $vydaje = new Application_Model_DbTable_Vydaje();
                 $vydaje->addVydaj(
                     $datum_vydaju,

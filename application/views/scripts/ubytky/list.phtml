@@ -1,13 +1,18 @@
 <?php
     $this->headTitle($this->title);
-    print_r($this->ubytkyModel->getLastXValuesForAllWHs(2));
+//    print_r($this->ubytkyModel->getLastXValuesForAllWHs(2));
 ?>
 
+<script src="<?php echo $this->baseUrl().'/js/morris.min.js';?>"></script>
+<script src="<?php echo $this->baseUrl().'/js/raphael.min.js';?>"></script>
 
 
 <a href="<?php echo $this->url(array('controller'=>'ubytky',
             'action'=>'refreshData'));?>"><button type="button" class="btn btn-success">Prepočítať tabuľku</button></a>
 <br><br>
+
+<div id="morris-area-chart"></div>
+
 <?php
     $status = $this->notifikacieModel->getStatusArray();
     if ($status['ubytky_chyba'] > 0) {?>
@@ -79,3 +84,19 @@
     <?php endforeach; ?>
 
 </div>
+
+<script>
+    Morris.Area({
+        element: 'morris-area-chart',
+        data: <?php echo json_encode($this->ubytkyModel->getLastXValuesForAllWHs(365)); ?>,
+        xkey: 'datum',
+        ykeys: ['sklad1', 'sklad2', 'sklad3', 'sklad4'],
+        labels: ['Zvolen', 'Hronská Breznica', 'Prešov', 'Kráľova Lehota'],
+        pointSize: 2,
+        hideHover: 'auto',
+        resize: true
+    });
+
+
+
+</script>
