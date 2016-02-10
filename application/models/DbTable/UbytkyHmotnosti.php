@@ -196,22 +196,19 @@ class Application_Model_DbTable_UbytkyHmotnosti extends Zend_Db_Table_Abstract
 
         $zaciatokDatum = date('Y-m-d', strtotime('-'.($pocetHodnot - 1).' days'));
 
-        //$date = strtotime(date("Y-m-d", strtotime($date)) . " +1 day");
-
         $skladyModel = new Application_Model_DbTable_Sklady();
         $sklady = $skladyModel->getIds();
         $counterDatum = strtotime(date("Y-m-d", strtotime($zaciatokDatum)) . " +0 day");
 
         for ($i = 1; $i <= $pocetHodnot; $i++)
         {
-            $poslednychXHodnot[$i]['datum'] = date('Y-m-d', $counterDatum);
+            $poslednychXHodnot[$i-1]['datum'] = date('Y-m-d', $counterDatum);
             foreach ($sklady AS $sklad){
                 $sql = "datum_ubytku_d = '".date('Y-m-d', $counterDatum)."' AND sklad_enum = ".$sklad;
                 $stavNaKonciDna = $this->fetchRow($sql);
-                $poslednychXHodnot[$i]['sklad'.$sklad] = $stavNaKonciDna->q_konecny_stav_tony;
+                $poslednychXHodnot[$i-1]['sklad'.$sklad] = $stavNaKonciDna->q_konecny_stav_tony;
             }
             $counterDatum = strtotime(date("Y-m-d", strtotime($zaciatokDatum)) . " +".$i." day");
-            //$poslednychXHodnot[] = $ubytky = $this->fetchAll($sql)->getRow($pocetZaznamov-$pocetHodnot-1+$i)->toArray();
         }
 
 
