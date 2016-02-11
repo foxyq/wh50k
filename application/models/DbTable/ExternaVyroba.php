@@ -408,6 +408,20 @@ class Application_Model_DbTable_ExternaVyroba extends Zend_Db_Table_Abstract
         $this->update($data, 'tx_vyroba_id ='. (int)$id);
     }
 
+    public function getDokladyCislaByDate($date){
+        $sql = "datum_xvyroby_d = '".$date."'";
+        $xvyroby = $this->fetchAll($sql);
+        $cislaDokladovArray = array();
+        $counter = 0;
+
+        foreach ($xvyroby AS $xdodavky){
+            $cislaDokladovArray[$counter] = $xdodavky->doklad_cislo;
+            $counter++;
+        }
+
+        return $cislaDokladovArray;
+    }
+
 
 
 }

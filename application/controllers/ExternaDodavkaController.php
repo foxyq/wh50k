@@ -32,6 +32,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
 
         // priradenie modelov do premenných a poslanie na view script
         $this->view->externeDodavky = $externeDodavky->fetchAll($param);
+        $this->view->externeDodavkyModel = $externeDodavky;
         $this->view->zakaznici = $zakaznici;
         $this->view->dodavatelia = $dodavatelia;
         $this->view->prepravci = $prepravci;

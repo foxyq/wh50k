@@ -437,5 +437,19 @@ class Application_Model_DbTable_Vydaje extends Zend_Db_Table_Abstract
         }
         return $sum;
     }
+
+    public function getDokladyCislaByDate($date){
+        $sql = "datum_vydaju_d = '".$date."'";
+        $vydaje = $this->fetchAll($sql);
+        $cislaDokladovArray = array();
+        $counter = 0;
+
+        foreach ($vydaje AS $vydaj){
+            $cislaDokladovArray[$counter] = $vydaj->doklad_cislo;
+            $counter++;
+        }
+
+        return $cislaDokladovArray;
+    }
 }
 

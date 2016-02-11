@@ -15,6 +15,10 @@ $prijmy_e = $notif_info['prijmy_errors'];
 $controller = 'prijmy';
 $this->prijmybuttons($this,$prijmy_w,$prijmy_e,$controller);
 
+//pouzitie funkcie getDokladyCislaByDate
+$date = date('Y-m-d', time());
+print_r($this->prijmyModel->getDokladyCislaByDate($date));
+
 ?>
 
 

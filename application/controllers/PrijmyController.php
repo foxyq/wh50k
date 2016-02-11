@@ -28,6 +28,7 @@ class PrijmyController extends Zend_Controller_Action
         //$title = $this->_getParam('title', null);
         //if (!isset($title)){$title = 'Príjmy - zoznam';}
         $this->view->prijmy = $prijmy->fetchAll();
+        $this->view->prijmyModel = $prijmy;
         $this->view->sklady = $sklady;
         $this->view->podsklady = $podsklady;
         $this->view->dodavatelia = $dodavatelia;

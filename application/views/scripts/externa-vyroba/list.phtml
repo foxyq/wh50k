@@ -14,6 +14,10 @@ $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
 
 $controller = 'externaVyroba';
 $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
+
+//pouzitie funkcie getDokladyCislaByDate
+$date = date('Y-m-d', time());
+print_r($this->externeVyrobyModel->getDokladyCislaByDate($date));
 ?>
 
 

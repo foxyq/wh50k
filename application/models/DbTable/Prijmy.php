@@ -306,6 +306,20 @@ class Application_Model_DbTable_Prijmy extends Zend_Db_Table_Abstract
         $this->update($data, 'ts_prijmy_id ='. (int)$id);
     }
 
+    public function getDokladyCislaByDate($date){
+        $sql = "datum_prijmu_d = '".$date."'";
+        $prijmy = $this->fetchAll($sql);
+        $cislaDokladovArray = array();
+        $counter = 0;
+
+        foreach ($prijmy AS $prijem){
+            $cislaDokladovArray[$counter] = $prijem->doklad_cislo;
+            $counter++;
+        }
+
+        return $cislaDokladovArray;
+    }
+
 
 }
 

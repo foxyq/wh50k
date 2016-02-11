@@ -364,6 +364,20 @@ class Application_Model_DbTable_ExternaDodavka extends Zend_Db_Table_Abstract
         $this->update($data, 'tx_dodavka_id ='. (int)$id);
     }
 
+    public function getDokladyCislaByDate($date){
+        $sql = "datum_xdodavky_d = '".$date."'";
+        $xdodavky = $this->fetchAll($sql);
+        $cislaDokladovArray = array();
+        $counter = 0;
+
+        foreach ($xdodavky AS $xdodavka){
+            $cislaDokladovArray[$counter] = $xdodavka->doklad_cislo;
+            $counter++;
+        }
+
+        return $cislaDokladovArray;
+    }
+
 
 
 }

@@ -32,6 +32,7 @@ class VydajeController extends Zend_Controller_Action
         if (!isset($title)){$title = 'Výdaje - zoznam';}
         // priradenie modelov do premenných a poslanie na view script
         $this->view->vydaje = $vydaje->fetchAll($param);
+        $this->view->vydajeModel = $vydaje;
         $this->view->sklady = $sklady;
         $this->view->podsklady = $podsklady;
         $this->view->zakaznici = $zakaznici;

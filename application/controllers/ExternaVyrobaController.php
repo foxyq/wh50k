@@ -35,6 +35,7 @@ class ExternaVyrobaController extends Zend_Controller_Action
 
         // priradenie modelov do premenných a poslanie na view script
         $this->view->externeVyroby = $externeVyroby->fetchAll($param);
+        $this->view->externeVyrobyModel = $externeVyroby;
         $this->view->zakaznici = $zakaznici;
         $this->view->dodavatelia = $dodavatelia;
         $this->view->prepravci = $prepravci;
