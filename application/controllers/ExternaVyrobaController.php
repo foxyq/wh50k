@@ -188,10 +188,19 @@ class ExternaVyrobaController extends Zend_Controller_Action
                 $poznamka = $form->getValue('poznamka');
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
-                $code = str_replace('-', '', $datum_vydaju);
-                $code = substr( $code, 2);
-                $doklad_cislo = 'EV'.$code.'-'.substr(uniqid(),6);
+//                $code = str_replace('-', '', $datum_vydaju);
+//                $code = substr( $code, 2);
                 $vyroba = new Application_Model_DbTable_ExternaVyroba();
+
+
+                $count = count($vyroba->getDokladyCislaByDate($datum_vydaju));
+
+                $max = $count + 1;
+                $nove_meno = "EV-" . $datum_vydaju. "-" .$max; // . ".pdf";
+                $doklad_cislo = $nove_meno;
+
+//                echo $doklad_cislo;
+
                 $vyroba->addXVyroba(
                     $datum_vydaju,
                     $zakaznik,

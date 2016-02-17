@@ -162,11 +162,18 @@ class ExternaDodavkaController extends Zend_Controller_Action
                 $poznamka = $form->getValue('poznamka');
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
-                $code = str_replace('-', '', $datum_xdodavky);
-                $code = substr( $code, 2);
-                $doklad_cislo = 'ED'.$code.'-'.substr(uniqid(),6);
+//                $code = str_replace('-', '', $datum_xdodavky);
+//                $code = substr( $code, 2);
+//                $doklad_cislo = 'ED'.$code.'-'.substr(uniqid(),6);
 
                 $dodavka = new Application_Model_DbTable_ExternaDodavka();
+
+                $count = count($dodavka->getDokladyCislaByDate($datum_xdodavky));
+
+                $max = $count + 1;
+                $nove_meno = "ED-" . $datum_xdodavky . "-" .$max; // . ".pdf";
+                $doklad_cislo = $nove_meno;
+//                echo $doklad_cislo;
 
                 $dodavka->addXDodavka($datum_xdodavky,
                     $zakaznik,

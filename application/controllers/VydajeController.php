@@ -12,11 +12,7 @@ class VydajeController extends Zend_Controller_Action
     }
     public function listAction()
     {
-//        $controller = $this->getRequest()->getControllerName();
-//        $action = $this->getRequest()->getActionName();
-//        VERY IMPORTANT!!!!
-//        if ($controller == 'Vydaje' && $action == 'add') echo 'penis';
-//        else echo 'vagina';
+
         // vytvorenie instancií modelov
         $vydaje = new Application_Model_DbTable_Vydaje();
         $sklady = new Application_Model_DbTable_Sklady();
@@ -113,29 +109,15 @@ class VydajeController extends Zend_Controller_Action
 //                $code = substr( $code, 2);
 //                $doklad_cislo = 'SV'.$code.'-'.substr(uniqid(),6);
 
-                ////////////////////////
+                $vydaje = new Application_Model_DbTable_Vydaje();
+                $count = count($vydaje->getDokladyCislaByDate($datum_vydaju));
 
-                $files = scandir("../public/pdf/");
-                $prijmove = preg_grep("/SV-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", $files);
-
-                $max = 0;
-
-                foreach ($prijmove as $subor) {
-                    $poradove_cislo = preg_replace("/SV-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", "", $subor);
-                    $poradove_cislo = str_replace(".php", "", $poradove_cislo);
-                    $poradove_cislo = intval($poradove_cislo);
-
-                    if($poradove_cislo > $max) {$max = $poradove_cislo;}
-                }
-
-
-                $nove_meno = "SV-" . $datum_vydaju . "-" . ($max+1); // . ".pdf";
-
-//                echo ($nove_meno) . '<br><br>';
-
-//                var_dump($prijmove);
-
+                $max = $count + 1;
+                $nove_meno = "SV-" . $datum_vydaju . "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
+
+//                echo $doklad_cislo;
+
                 ////////////////////
 
                 $vydaje = new Application_Model_DbTable_Vydaje();

@@ -1,3 +1,21 @@
+<script type="text/javascript" src="/wh50k/public/js/jquery.chained.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+
+        $("#podsklad_enum").chained("#sklad_enum");
+
+    });
+
+</script>
+
+<?php
+$podsklady = new Application_Model_DbTable_Podsklady();
+$arr = $podsklady->getIdsSoSkladIds();
+$moznosti = $podsklady->getMoznosti();
+?>
+
 <h1 >Výdaje - upraviť výdaj</h1>
 <div class="col-lg-5">
     <div class="panel panel-primary">
@@ -32,7 +50,29 @@
 
                         <div class="col-lg-6">
                             <!--                        Podsklad:-->
-                            <?php echo $this->form->podsklad_enum; // render the user name field here ?>
+
+
+                            <dt id="podsklad-label"><label for="podsklad" class="optional">Podsklad</label></dt>
+                            <dd id="podsklad-element">
+                                <select name="podsklad_enum" id="podsklad_enum" class="form-control">
+                                    <?php
+
+                                    $podsklady = new Application_Model_DbTable_Podsklady();
+                                    $podskladyIDs = $podsklady->getIdsSoSkladIds();
+
+
+                                    foreach ($moznosti as $key=>$podsklad ) :
+
+                                        foreach ($podskladyIDs as $podsklads ) :
+
+                                            if ($key == $podsklads['podsklad_id'])
+
+                                                echo '<option value="'.$key.'" class="'.$podsklads[sklad_id].'">'.$podsklad.'</option>';
+
+                                        endforeach;
+                                    endforeach ?>
+                                </select></dd>
+                            <!--                            --><?php //echo $this->form->podsklad_enum; // render the user name field here ?>
                         </div>
                     </fieldset>
                 </div>

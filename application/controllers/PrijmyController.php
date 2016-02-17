@@ -52,6 +52,7 @@ class PrijmyController extends Zend_Controller_Action
 
 
         //instancia modelu z ktoreho budeme tahat zoznam
+        $prijmy = new Application_Model_DbTable_Prijmy();
         $skladyMoznosti = new Application_Model_DbTable_Sklady();
         $podskladyMoznosti = new Application_Model_DbTable_Podsklady();
         $dodavateliaMoznosti = new Application_Model_DbTable_Dodavatelia();
@@ -110,35 +111,35 @@ class PrijmyController extends Zend_Controller_Action
                 $stav_transakcie = $form->getValue('stav_transakcie');
 
                 ////////////////////////
+//                $files = scandir("../public/pdf/");
+//                $prijmove = preg_grep("/SP-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", $files);
+//                $max = 0;
+//
+//                foreach ($prijmove as $subor) {
+//                    $poradove_cislo = preg_replace("/SP-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", "", $subor);
+//                    $poradove_cislo = str_replace(".php", "", $poradove_cislo);
+//                    $poradove_cislo = intval($poradove_cislo);
+//
+//                    if($poradove_cislo > $max) {$max = $poradove_cislo;}
+//                }
 
-                $files = scandir("../public/pdf/");
+//                echo 'novy max '.$max;
 
-                $prijmove = preg_grep("/SP-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", $files);
-
-                $max = 0;
-
-                foreach ($prijmove as $subor) {
-                    $poradove_cislo = preg_replace("/SP-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", "", $subor);
-                    $poradove_cislo = str_replace(".php", "", $poradove_cislo);
-                    $poradove_cislo = intval($poradove_cislo);
-
-                    if($poradove_cislo > $max) {$max = $poradove_cislo;}
-                }
-
-
-                $nove_meno = "SP-" . $datum_prijmu . "-" . ($max+1); // . ".pdf";
-
-//                echo ($nove_meno) . '<br><br>';
-
-                var_dump($prijmove);
+//                var_dump($prijmy->getDokladyCislaByDate($datum_prijmu));
 
 
-                ////////////////////
 
 //                $code = str_replace('-', '', $datum_prijmu);
 //                $code = substr( $code, 2);
 //                $doklad_cislo = 'SP'.$code.'-'.substr(uniqid(),6);
+
+
+                $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
+
+                $max = $count + 1;
+                $nove_meno = "SP-" . $datum_prijmu . "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
+
 
                 $prijmy = new Application_Model_DbTable_Prijmy();
                 $prijmy->addPrijem(
@@ -163,7 +164,7 @@ class PrijmyController extends Zend_Controller_Action
                     $stav_transakcie,
                     $doklad_cislo);
 //
-//                $this->_helper->redirector($fromAction);
+                $this->_helper->redirector($fromAction);
             } else {
                 $form->populate($formData);
                 //pageManager

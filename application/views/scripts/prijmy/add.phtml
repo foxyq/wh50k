@@ -1,58 +1,8 @@
 <script type="text/javascript" src="/wh50k/public/js/vlhkost_auto.js"></script>
+<script type="text/javascript" src="/wh50k/public/js/jquery.chained.js"></script>
 
 <h1>Príjmy - vytvoriť nový</h1>
 
-
-<script>
-    var deved = '9';
-
-    $(document).ready(function(){
-
-
-        var options = $('select#podsklad_enum option');
-
-        var values = $.map(options ,function(option) {
-//            alert( option.value );
-
-            // skontrolujem pole
-            //
-
-//            $userdb=Array
-//            (
-//                (0) => Array
-//            (
-//                (uid) => '100',
-//                (name) => 'Sandra Shush',
-//                (url) => 'urlof100'
-//            ),
-//
-//            (1) => Array
-//            (
-//                (uid) => '5465',
-//                (name) => 'Stefanie Mcmohn',
-//                (pic_square) => 'urlof100'
-//            ),
-//
-//            (2) => Array
-//            (
-//                (uid) => '40489',
-//                (name) => 'Michael',
-//                (pic_square) => 'urlof40489'
-//            )
-//            );
-//
-//            simply u can use this
-//
-//            $key = array_search(40489, array_column($userdb, 'uid'));
-//
-        });
-
-
-
-        $('select#podsklad_enum option').addClass( deved );
-        });
-
-</script>
 
 <script>
     function isEmpty(str){
@@ -305,8 +255,19 @@
                 $("#q_m3_merane").val( prm * prm2m3);
             }
         });
+
+        $("#podsklad_enum").chained("#sklad_enum");
+
     });
 </script>
+
+
+
+<?php
+$podsklady = new Application_Model_DbTable_Podsklady();
+$arr = $podsklady->getIdsSoSkladIds();
+$moznosti = $podsklady->getMoznosti();
+?>
 
 <div class="col-lg-5">
     <div class="panel panel-green">
@@ -340,6 +301,8 @@
                 <div class="row">
                     <fieldset>
                         <legend>Sklady</legend>
+
+
                         <div class="col-lg-6">
                             <!--                        Sklad:-->
                             <?php echo $this->form->sklad_enum; // render the user name field here ?>
@@ -347,7 +310,31 @@
 
                         <div class="col-lg-6">
                             <!--                        Podsklad:-->
-                            <?php echo $this->form->podsklad_enum; // render the user name field here ?>
+                            <dt id="podsklad-label"><label for="podsklad" class="optional">Podsklad</label></dt>
+                            <dd id="podsklad-element">
+                                <select name="podsklad_enum" id="podsklad_enum" class="form-control">
+                                    <?php
+
+                                    $podsklady = new Application_Model_DbTable_Podsklady();
+                                    $podskladyIDs = $podsklady->getIdsSoSkladIds();
+
+
+                                    foreach ($moznosti as $key=>$podsklad ) :
+
+                                        foreach ($podskladyIDs as $podsklads ) :
+
+                                            if ($key == $podsklads['podsklad_id'])
+
+                                                echo '<option value="'.$key.'" class="'.$podsklads[sklad_id].'">'.$podsklad.'</option>';
+
+                                        endforeach;
+                                    endforeach ?>
+                                </select></dd>
+
+
+
+
+                            <?php //echo $this->form->podsklad_enum; // render the user name field here ?>
                         </div>
                     </fieldset>
                 </div>
