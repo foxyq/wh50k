@@ -120,7 +120,7 @@ class VydajeController extends Zend_Controller_Action
 
                 ////////////////////
 
-                $vydaje = new Application_Model_DbTable_Vydaje();
+
                 $vydaje->addVydaj(
                     $datum_vydaju,
                     $sklad,

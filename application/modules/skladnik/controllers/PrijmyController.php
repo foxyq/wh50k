@@ -169,12 +169,17 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $stav_transakcie = 1;
 
 
-                $code = str_replace('-', '', $datum_prijmu);
-                $code = substr( $code, 2);
-
-                $doklad_cislo = 'SP'.$code.'-'.substr(uniqid(),6);
+//                $code = str_replace('-', '', $datum_prijmu);
+//                $code = substr( $code, 2);
 
                 $prijmy = new Application_Model_DbTable_Prijmy();
+
+                $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
+                $max = $count + 1;
+                $nove_meno = "SP-" . $datum_prijmu . "-" .$max; // . ".pdf";
+                $doklad_cislo = $nove_meno;
+
+
                 $prijmy->addPrijem(
                     $datum_prijmu,
                     $sklad,
@@ -281,12 +286,14 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $chyba = 0;
                 $stav_transakcie = 1;
 
-                $code = str_replace('-', '', $datum_prijmu);
-                $code = substr( $code, 2);
-
-                $doklad_cislo = 'SP'.$code.'-'.substr(uniqid(),6);
 
                 $prijmy = new Application_Model_DbTable_Prijmy();
+
+                $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
+                $max = $count + 1;
+                $nove_meno = "SP-" . $datum_prijmu . "-" .$max; // . ".pdf";
+                $doklad_cislo = $nove_meno;
+
                 $prijmy->addPrijem(
                     $datum_prijmu,
                     $sklad,
@@ -393,12 +400,14 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $chyba = 0;
                 $stav_transakcie = 1;
 
-                $code = str_replace('-', '', $datum_prijmu);
-                $code = substr( $code, 2);
-
-                $doklad_cislo = 'SP'.$code.'-'.substr(uniqid(),6);
 
                 $prijmy = new Application_Model_DbTable_Prijmy();
+
+                $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
+                $max = $count + 1;
+                $nove_meno = "SP-" . $datum_prijmu . "-" .$max; // . ".pdf";
+                $doklad_cislo = $nove_meno;
+
                 $prijmy->addPrijem(
                     $datum_prijmu,
                     $sklad,

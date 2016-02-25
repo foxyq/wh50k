@@ -89,12 +89,12 @@ class Skladnik_VydajeController extends Zend_Controller_Action
                 $chyba = 0;
                 $stav_transakcie = 1;
 
-                $code = str_replace('-', '', $datum_vydaju);
-                $code = substr( $code, 2);
-
-                $doklad_cislo = 'SV'.$code.'-'.substr(uniqid(),6);
-
                 $vydaje = new Application_Model_DbTable_Vydaje();
+                $count = count($vydaje->getDokladyCislaByDate($datum_vydaju));
+
+                $max = $count + 1;
+                $nove_meno = "SV-" . $datum_vydaju . "-" .$max; // . ".pdf";
+                $doklad_cislo = $nove_meno;
 
                 $vydaje->addVydaj(
                     $datum_vydaju,
