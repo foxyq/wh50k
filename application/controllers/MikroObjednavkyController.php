@@ -1,6 +1,6 @@
 <?php
 
-class MikroObjednavkyController extends Zend_Controller_Action
+class MikroobjednavkyController extends Zend_Controller_Action
 {
 
     public function init()
@@ -40,7 +40,7 @@ class MikroObjednavkyController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'mikroObjednavky');
+        $fromController = $this->_getParam('fromController', 'mikroobjednavky');
         $this->view->fromController = $fromController;
 
         /*
@@ -95,7 +95,7 @@ class MikroObjednavkyController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'mikroObjednavky');
+        $fromController = $this->_getParam('fromController', 'mikroobjednavky');
         $this->view->fromController = $fromController;
 
         /*
@@ -162,7 +162,7 @@ class MikroObjednavkyController extends Zend_Controller_Action
     public function previewAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
-        $fromController = $this->_getParam('fromController', 'mikroObjednavky');
+        $fromController = $this->_getParam('fromController', 'mikroobjednavky');
         $fromId = $this->_getParam('fromId', null);
         $this->view->fromAction = $fromAction;
         $this->view->fromController = $fromController;

@@ -1,6 +1,6 @@
 <?php
 
-class MiestaStiepeniaController extends Zend_Controller_Action
+class MiestastiepeniaController extends Zend_Controller_Action
 {
 
     public function init()

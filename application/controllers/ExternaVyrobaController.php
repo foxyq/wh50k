@@ -1,6 +1,6 @@
 <?php
 
-class ExternaVyrobaController extends Zend_Controller_Action
+class ExternavyrobaController extends Zend_Controller_Action
 {
 
     public function init()
@@ -124,7 +124,7 @@ class ExternaVyrobaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'externaVyroba');
+        $fromController = $this->_getParam('fromController', 'externavyroba');
         $this->view->fromController = $fromController;
         //instancia modelu z ktoreho budeme tahat zoznam
 
@@ -232,7 +232,7 @@ class ExternaVyrobaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'externaVyroba');
+        $fromController = $this->_getParam('fromController', 'externavyroba');
         $this->view->fromController = $fromController;
         //instancia modelu z ktoreho budeme tahat zoznam
         $zakazniciMoznosti = new Application_Model_DbTable_Zakaznici();
@@ -334,7 +334,7 @@ class ExternaVyrobaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'externaVyroba');
+        $fromController = $this->_getParam('fromController', 'externavyroba');
         $this->view->fromController = $fromController;
         //inicializacia pre vypis premennych - pre getNazov() metody
 
@@ -377,7 +377,7 @@ class ExternaVyrobaController extends Zend_Controller_Action
     public function previewAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
-        $fromController = $this->_getParam('fromController', 'ExternaVyroba');
+        $fromController = $this->_getParam('fromController', 'externavyroba');
         $fromId = $this->_getParam('fromId', null);
         $this->view->fromAction = $fromAction;
         $this->view->fromController = $fromController;

@@ -3,7 +3,7 @@ $this->headTitle($this->title);
 ?>
 
 <p>
-    <a href="<?php echo $this->url(array('controller'=>'MaterialyDruhy',
+    <a href="<?php echo $this->url(array('controller'=>'Materialydruhy',
         'action'=>'add'));?>">
         <button type="button" class="btn btn-success">Pridať druh materiálu</button>
     </a>
@@ -29,7 +29,7 @@ $this->headTitle($this->title);
             <td><?php echo $this->escape($materialyDruh->nazov);?></td>
             <td><?php echo $this->escape($materialyDruh->skratka);?></td>
             <td>
-                <a href="<?php echo $this->url(array('controller'=>'MaterialyDruhy',
+                <a href="<?php echo $this->url(array('controller'=>'Materialydruhy',
                     'action'=>'edit', 'id'=>$materialyDruh->materialy_druhy_id));?>">Upraviť</a>
             </td>
         </tr>

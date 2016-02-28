@@ -1,6 +1,6 @@
 <?php
 
-class ExternaDodavkaController extends Zend_Controller_Action
+class ExternadodavkaController extends Zend_Controller_Action
 {
 
     public function init()
@@ -108,7 +108,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'externaDodavka');
+        $fromController = $this->_getParam('fromController', 'externadodavka');
         $this->view->fromController = $fromController;
         //instancia modelu z ktoreho budeme tahat zoznam
 
@@ -203,7 +203,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'externaDodavka');
+        $fromController = $this->_getParam('fromController', 'externadodavka');
         $this->view->fromController = $fromController;
         //instancia modelu z ktoreho budeme tahat zoznam
 
@@ -297,7 +297,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
     public function previewAction()
     {
         $fromAction = $this->_getParam('fromAction', 'list');
-        $fromController = $this->_getParam('fromController', 'ExternaDodavka');
+        $fromController = $this->_getParam('fromController', 'externadodavka');
         $fromId = $this->_getParam('fromId', null);
         $this->view->fromAction = $fromAction;
         $this->view->fromController = $fromController;
@@ -331,7 +331,7 @@ class ExternaDodavkaController extends Zend_Controller_Action
     {
         $fromAction = $this->_getParam('fromAction', 'list');
         $this->view->fromAction = $fromAction;
-        $fromController = $this->_getParam('fromController', 'externaDodavka');
+        $fromController = $this->_getParam('fromController', 'externadodavka');
         $this->view->fromController = $fromController;
         //inicializacia pre vypis premennych - pre getNazov() metody
 

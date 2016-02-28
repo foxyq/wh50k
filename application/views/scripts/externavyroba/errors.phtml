@@ -12,10 +12,9 @@ $count_notif = $notif_info['total'];
 $externe_vyroby_w = $notif_info['externe_vyroby_waitings'];
 $externe_vyroby_e = $notif_info['externe_vyroby_errors'];
 
-$controller = 'externaVyroba';
+$controller = 'externavyroba';
 $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
 ?>
-
 
 
 <div class="table-responsive">
@@ -66,7 +65,7 @@ $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
             <?php if ($externa_vyroba->chyba == 1 ) echo "<tr class='danger'> ";
             else echo   "<tr>";
             ?>
-            <td class="center no-print"> <a href="<?php echo $this->url(array('controller'=>'externaVyroba',
+            <td class="center no-print"> <a href="<?php echo $this->url(array('controller'=>'externavyroba',
                 'action'=>'preview', 'id'=>$externa_vyroba->tx_vyroba_id, 'fromAction' => 'list'));?>">
                      <i class="fa fa-eye"></i>
                 </a></td>
@@ -80,7 +79,7 @@ $this->prijmybuttons($this,$externe_vyroby_w,$externe_vyroby_e,$controller);
             <td><?php echo $this->escape($this->stroje->getNazov($externa_vyroba->stroj_enum));?></td>
             <td><?php echo $this->escape($this->miestaStiepenia->getNazov($externa_vyroba->miesto_stiepenia_enum));?></td>
             <td><?php echo $this->escape($this->prepravci->getNazov($externa_vyroba->prepravca_enum));?></td>
-                <td class="tonaz"><?php echo number_format($this->escape($externa_vyroba->q_tony_merane), 2, ",", " ");?></td>
+              <td class="tonaz"><?php echo number_format($this->escape($externa_vyroba->q_tony_merane), 2, ",", " ");?></td>
 
             <td class="m3"><?php echo number_format($this->escape($externa_vyroba->q_m3_merane), 2, ",", " ");?></td>
             <td class="prm"><?php echo number_format($this->escape($externa_vyroba->q_prm_merane), 2, ",", " ");?></td>

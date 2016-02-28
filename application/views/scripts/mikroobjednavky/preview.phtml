@@ -48,7 +48,7 @@
                         Popis:
                         <a href="<?php echo $this->url(array('controller'=>'Objednavky',
                             'action'=>'preview', 'id'=>$mikroObjednavka['nadobjednavka_enum'],
-                            'fromController'=>'MikroObjednavky', 'fromAction'=>'list'));?>">
+                            'fromController'=>'Mikroobjednavky', 'fromAction'=>'list'));?>">
                         <?php
                             echo $this->objednavkyModel->getKratkyPopis($mikroObjednavka['nadobjednavka_enum']);?>
                         </a>
@@ -150,7 +150,7 @@
 
             <div class="col-lg-6 tleft">
                     <a href="<?php echo $this->url(array(
-                        'controller' => 'mikroObjednavky',
+                        'controller' => 'mikroobjednavky',
                         'action' => 'edit',
                         'id' => $this->mikroObjednavkaId
                     ), null, true) ?>"  type="button" class="btn btn-info">Upraviť</a>
@@ -201,7 +201,7 @@
                                 <div class="list-group">
                                     <?php foreach ($vydajeObjednavky AS $vydajObjednavky):?>
 
-                                        <a href="<?php echo $this->url(array( "controller"=>"vydaje" , "action"=>"preview", "id"=>$vydajObjednavky->doklad_cislo, "fromController"=>"mikroObjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
+                                        <a href="<?php echo $this->url(array( "controller"=>"vydaje" , "action"=>"preview", "id"=>$vydajObjednavky->doklad_cislo, "fromController"=>"mikroobjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
                                             <span class="badge"><?php echo date("d.m.Y", strtotime($vydajObjednavky->datum_vydaju_d));?></span>
                                             <i class="fa fa-fw fa-minus-square"></i> <?php echo "Výdaj ".number_format($vydajObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId)." zo skladu ".$skladyModel->getNazov($vydajObjednavky->sklad_enum);?>
                                         </a>
@@ -211,7 +211,7 @@
                                 <div class="list-group">
                                     <?php foreach ($xdodavkyObjednavky AS $xdodavkaObjednavky):?>
 
-                                        <a href="<?php echo $this->url(array( "controller"=>"externaDodavka" , "action"=>"preview", "id"=>$xdodavkaObjednavky->doklad_cislo, "fromController"=>"mikroObjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
+                                        <a href="<?php echo $this->url(array( "controller"=>"externadodavka" , "action"=>"preview", "id"=>$xdodavkaObjednavky->doklad_cislo, "fromController"=>"mikroobjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
                                             <span class="badge"><?php echo date("d.m.Y", strtotime($xdodavkaObjednavky->datum_xdodavky_d));?></span>
                                             <i class="fa fa-fw fa-th-large"></i> <?php echo "Ex. dodávka ".number_format($xdodavkaObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId);?>
                                         </a>
@@ -221,7 +221,7 @@
                                 <div class="list-group">
                                     <?php foreach ($xvyrobyObjednavky AS $xvyrobaObjednavky):?>
 
-                                        <a href="<?php echo $this->url(array( "controller"=>"externaVyroba" , "action"=>"preview", "id"=>$xvyrobaObjednavky->tx_vyroba_id, "fromController"=>"mikroObjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
+                                        <a href="<?php echo $this->url(array( "controller"=>"externavyroba" , "action"=>"preview", "id"=>$xvyrobaObjednavky->tx_vyroba_id, "fromController"=>"mikroobjednavky", "fromAction"=>"preview", "fromId"=>$this->mikroObjednavkaId), 'default');  ?>" class="list-group-item">
                                             <span class="badge"><?php echo date("d.m.Y", strtotime($xvyrobaObjednavky->datum_xvyroby_d));?></span>
                                             <i class="fa fa-fw fa-cogs"></i> <?php echo "Ex. výroba ".number_format($xvyrobaObjednavky->$stlpecKvantity, 2, ',', ' ')." ".$this->merneJednotkyModel->getSkratka($mernaJednotkaId);?>
                                         </a>

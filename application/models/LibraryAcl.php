@@ -3,7 +3,6 @@
 class Application_Model_LibraryAcl extends Zend_Acl
 {
     public function __construct(){
-        //index sa evidentne nasekava automaticky,...damn nigga - what the hell?
 
 
         /**
@@ -22,12 +21,17 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->add(new Zend_Acl_Resource('default:prijmy'));
         $this->add(new Zend_Acl_Resource('default:vydaje'));
         $this->add(new Zend_Acl_Resource('default:ubytky'));
-        $this->add(new Zend_Acl_Resource('default:externadodavka'));
         $this->add(new Zend_Acl_Resource('default:externavyroba'));
+        $this->add(new Zend_Acl_Resource('default:externadodavka'));
+        //LINUX srvr
+        $this->add(new Zend_Acl_Resource('default:externa-vyroba'));
+        $this->add(new Zend_Acl_Resource('default:externa-dodavka'));
 
         //OBJEDNAVKY
         $this->add(new Zend_Acl_Resource('default:objednavky'));
         $this->add(new Zend_Acl_Resource('default:mikroobjednavky'));
+        //LINUX srvr
+        $this->add(new Zend_Acl_Resource('default:mikro-objednavky'));
 
 
         //ADMINISTRACIA resources
@@ -40,6 +44,10 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->add(new Zend_Acl_Resource('default:materialydruhy'));
         $this->add(new Zend_Acl_Resource('default:materialytypy'));
         $this->add(new Zend_Acl_Resource('default:miestastiepenia'));
+        //LINUX srvr
+        $this->add(new Zend_Acl_Resource('default:materialy-druhy'));
+        $this->add(new Zend_Acl_Resource('default:materialy-typy'));
+        $this->add(new Zend_Acl_Resource('default:miesta-stiepenia'));
 
         //definicia skladnik resources
         $this->add(new Zend_Acl_Resource('skladnik:index'));
@@ -90,10 +98,16 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->allow('2', 'default:ubytky');
         $this->allow('2', 'default:externadodavka');
         $this->allow('2', 'default:externavyroba');
+        //LINUX srvr
+        $this->allow('2', 'default:externa-dodavka');
+        $this->allow('2', 'default:externa-vyroba');
+
 
         //objednavky
         $this->allow('2', 'default:objednavky');
         $this->allow('2', 'default:mikroobjednavky');
+        //LINUX srvr
+        $this->allow('2', 'default:mikro-objednavky');
 
         //administracia
         $this->allow('2', 'default:dodavatelia');
@@ -107,6 +121,10 @@ class Application_Model_LibraryAcl extends Zend_Acl
         $this->allow('2', 'default:nastavenia');
         $this->allow('2', 'default:profil');
         $this->allow('2', 'default:miestastiepenia');
+        //LINUX srvr
+        $this->allow('2', 'default:materialy-druhy');
+        $this->allow('2', 'default:materialy-typy');
+        $this->allow('2', 'default:miesta-stiepenia');
 
         /*
          *++++++++++++

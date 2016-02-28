@@ -3,7 +3,8 @@ $this->headTitle($this->title);
 $this->inlineScript()->appendFile($this->baseUrl().'/js/bootstrap.min.js');
 $this->inlineScript()->appendFile($this->baseUrl().'/js/jjquery.js');
 $this->inlineScript()->appendFile($this->baseUrl().'/js/fancy_table_ext.js');
-$this->inlineScript()->appendFile($this->baseUrl().'/js/table_features.js');
+$this->inlineScript()->appendFile($this->baseUrl().'/js/table_features.js'); //tuto su prepocty priemer a sum
+
 
 $notifikacie     = new Application_Model_Notifikacie();
 $notif_info = $notifikacie->getStatusArray();
@@ -11,25 +12,30 @@ $count_notif = $notif_info['total'];
 $externe_dodavky_w = $notif_info['externe_dodavky_waitings'];
 $externe_dodavky_e = $notif_info['externe_dodavky_errors'];
 
-$controller = 'externaDodavka';
+
+$controller = 'externadodavka';
 $this->prijmybuttons($this,$externe_dodavky_w,$externe_dodavky_e,$controller);
 
+//pouzitie funkcie getDokladyCislaByDate
+//$date = date('Y-m-d', time());
+//print_r($this->externeDodavkyModel->getDokladyCislaByDate($date));
 ?>
+
 
 <div class="table-responsive">
     <table id="fancy_table" class="table table-hover table-striped" >
 
         <thead>
         <tr class="tableizer-firstrow">
-
+            <!--        <th>ID</th>-->
             <th class="no-print">Detail</th>
             <th>Dátum</th>
             <th>Zákazník</th>
             <th>Dodávateľ</th>
             <th>Prepravca</th>
             <th>Tony</th>
-            <th>m<sup>3</sup></th>
-            <th>PRM</th>
+                    <th>m<sup>3</sup></th>
+                    <th>PRM</th>
             <th>Vlhkosť</th>
             <th>Doklad</th>
             <th>Materiál</th>
@@ -40,18 +46,20 @@ $this->prijmybuttons($this,$externe_dodavky_w,$externe_dodavky_e,$controller);
 
         <tfoot>
         <tr>
-
+            <!--        <th>ID</th>-->
             <th></th>
             <th>Dátum výdaju</th>
             <th>zákazník</th>
             <th>dodávateľ</th>
-            <th></th>
+            <th>prepravca</th>
             <th>tony m</th>
+            <th>m<sup>3</sup></th>
+                    <th>PRM</th>
             <th>vlhkost</th>
-            <th>m3 m</th>
-            <th>prm m</th>
-            <th>meterial</th>
+            <th>doklad</th>
             <th>material typ</th>
+            <th></th>
+<!--                    <th>úpravy</th>-->
         </tr>
         </tfoot>
 
@@ -61,9 +69,9 @@ $this->prijmybuttons($this,$externe_dodavky_w,$externe_dodavky_e,$controller);
             <?php if ($externa_dodavka->chyba == 1 ) echo "<tr class='danger'> ";
             else echo   "<tr>";
             ?>
-            <td class="center no-print"> <a href="<?php echo $this->url(array('controller'=>'externaDodavka',
-                'action'=>'preview', 'id'=>$externa_dodavka->doklad_cislo, 'fromAction' => 'errors'));?>">
-                   <i class="fa fa-eye"></i>
+            <td class="center no-print"> <a href="<?php echo $this->url(array('controller'=>'externadodavka',
+                    'action'=>'preview', 'id'=>$externa_dodavka->doklad_cislo, 'fromAction' => 'list'));?>">
+                    <i class="fa fa-eye"></i>
                 </a></td>
             <td>
             <?php
@@ -92,8 +100,8 @@ $this->prijmybuttons($this,$externe_dodavky_w,$externe_dodavky_e,$controller);
             </td>
             <td>
                 <?php   $merna_jednotka = '666';
-            $this->tlacbuttons($this,$merna_jednotka,$externa_dodavka->tx_dodavka_id,$controller);
-            ?>
+                        $this->tlacbuttons($this,$merna_jednotka,$externa_dodavka->tx_dodavka_id,$controller);
+                ?>
             </td>
         </tr>
     <?php endforeach; ?>
