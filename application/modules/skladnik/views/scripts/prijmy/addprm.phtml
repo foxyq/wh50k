@@ -2,24 +2,6 @@
 
 <script>
 
-    $(document).ready(function() {
-
-        $("#podsklad_enum").chained("#sklad_enum");
-
-    });
-
-</script>
-
-<?php
-$podsklady = new Application_Model_DbTable_Podsklady();
-$arr = $podsklady->getIdsSoSkladIds();
-$moznosti = $podsklady->getMoznosti();
-?>
-
-<h2 >Príjmy - vytvoriť nový</h2>
-<!--<hr>-->
-<script>
-
 
     function isEmpty(str){
 
@@ -235,9 +217,22 @@ $moznosti = $podsklady->getMoznosti();
 
 
         });
+
+        $("#podsklad_enum").chained("#sklad_enum");
+
     });
 
 </script>
+
+
+<?php
+$podsklady = new Application_Model_DbTable_Podsklady();
+$arr = $podsklady->getIdsSoSkladIds();
+$moznosti = $podsklady->getMoznosti();
+?>
+
+<h2 >Príjmy - vytvoriť nový</h2>
+
 
 <div class="col-lg-5">
     <div class="panel panel-green">

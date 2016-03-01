@@ -127,7 +127,7 @@ class Application_Form_Prijem extends Zend_Form{
 
 
         $q_tony_nadrozmer = new Zend_Form_Element_Text('q_tony_nadrozmer');
-        $q_tony_nadrozmer->setLabel('Tony nadrozmer')
+        $q_tony_nadrozmer->setLabel('Tony nadrozmer (t)')
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
             ->addFilter($filterCislaDesatinaCiarka)

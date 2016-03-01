@@ -110,30 +110,6 @@ class PrijmyController extends Zend_Controller_Action
                 $chyba = $form->getValue('chyba');
                 $stav_transakcie = $form->getValue('stav_transakcie');
 
-                ////////////////////////
-//                $files = scandir("../public/pdf/");
-//                $prijmove = preg_grep("/SP-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", $files);
-//                $max = 0;
-//
-//                foreach ($prijmove as $subor) {
-//                    $poradove_cislo = preg_replace("/SP-[0-9]{4}-[0-9]{2}-[0-9]{2}-/", "", $subor);
-//                    $poradove_cislo = str_replace(".php", "", $poradove_cislo);
-//                    $poradove_cislo = intval($poradove_cislo);
-//
-//                    if($poradove_cislo > $max) {$max = $poradove_cislo;}
-//                }
-
-//                echo 'novy max '.$max;
-
-//                var_dump($prijmy->getDokladyCislaByDate($datum_prijmu));
-
-
-
-//                $code = str_replace('-', '', $datum_prijmu);
-//                $code = substr( $code, 2);
-//                $doklad_cislo = 'SP'.$code.'-'.substr(uniqid(),6);
-
-
                 $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
 
                 $max = $count + 1;
