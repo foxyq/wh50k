@@ -151,7 +151,7 @@ class Application_Form_Prijem extends Zend_Form{
             //->addValidator('float');
 
         $q_vlhkost = new Zend_Form_Element_Text('q_vlhkost');
-        $q_vlhkost->setLabel('Vlhkosť')
+        $q_vlhkost->setLabel('Vlhkosť (%)')
             ->setAttrib('class', 'form-control in')
             ->setAttrib('tabindex', '-1')
             ->addFilter($filterCislaDesatinaCiarka)
