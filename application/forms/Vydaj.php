@@ -56,6 +56,7 @@ class Application_Form_Vydaj extends ZendX_JQuery_Form{
 
 
 
+
         $sklad = new Zend_Form_Element_Select('sklad_enum');
         $sklad->addMultiOptions(array(
             '0' => '' ));

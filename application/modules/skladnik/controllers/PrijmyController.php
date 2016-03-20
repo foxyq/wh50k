@@ -143,6 +143,10 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
             'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
         ));
+
+        $form->getElement('datum_prijmu_d')->setAttribs(array(
+            'disabled' => 'disabled'));
+
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
@@ -261,6 +265,9 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
             'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
         ));
+        $form->getElement('datum_prijmu_d')->setAttribs(array(
+            'disabled' => 'disabled'));
+
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
@@ -375,6 +382,9 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
             'transakcieStavyMoznosti' => $transakcieStavyMoznosti,
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo
         ));
+        $form->getElement('datum_prijmu_d')->setAttribs(array(
+            'disabled' => 'disabled'));
+
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {

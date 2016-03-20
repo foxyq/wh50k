@@ -58,6 +58,10 @@ class Skladnik_VydajeController extends Zend_Controller_Action
             'potvrdzujuceTlacidlo' => $potvrdzujuceTlacidlo,
         ));
 
+        $form->getElement('datum_vydaju_d')->setAttribs(array(
+            'disabled' => 'disabled'));
+
+
         $this->view->form = $form;
 
         //pageManager

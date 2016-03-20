@@ -7,24 +7,6 @@ $(document).ready(function() {
         var suma_vlhkosti = 0;
         var tmp = '';
 
-        for(var i=0; i<vlhkosti.length; i++) {
-
-            tmp = vlhkosti[i].innerHTML.toString().replace(/[,]/, ".");
-
-            var res = tmp.replace("%", "");
-            res =  res.replace("-","0");
-
-            suma_vlhkosti +=  Number(res);
-            pocet_zobrazenych++;
-        }
-        var result = suma_vlhkosti / pocet_zobrazenych;
-
-
-        if (isNaN(result) == false ) {
-            $('#priemer').html('Priemer vlhkostí = ' + result.toFixed(2) + '%'); //.....  suma ' + suma_vlhkosti +',  pocet ' + pocet_zobrazenych);
-        }
-
-
         var tonaze = document.getElementsByClassName("tonaz");
         var suma_tonaz = 0;
 
@@ -33,6 +15,41 @@ $(document).ready(function() {
         }
 
         $('#tonaz').html('Suma ton = ' + suma_tonaz );
+
+        var totalsuma = 0;
+
+        for(var i=0; i<vlhkosti.length; i++) {
+
+            // ********* bejzik priemer
+
+            //tmp = vlhkosti[i].innerHTML.toString().replace(/[,]/, ".");
+
+            //var res = tmp.replace("%", "");
+            //res =  res.replace("-","0");
+
+            //suma_vlhkosti +=  Number(res);
+            //pocet_zobrazenych++;
+
+            // **************** new vazeny priemer
+
+            tmp = vlhkosti[i].innerHTML.toString().replace(/[,]/, ".");
+            tmpton = tonaze[i].innerHTML.toString().replace(/[,]/, ".");
+
+            var res = tmp.replace("%", "");
+            res =  res.replace("-","0");
+
+            totalsuma += Number (res) * Number (tmpton);
+
+            //pocet_zobrazenych++;
+
+        }
+        //var result = suma_vlhkosti / pocet_zobrazenych;
+
+        var result = totalsuma / suma_tonaz;
+
+        if (isNaN(result) == false ) {
+            $('#priemer').html('Priemer vlhkostí = ' + result.toFixed(2) + '%'); //.....  suma ' + suma_vlhkosti +',  pocet ' + pocet_zobrazenych);
+        }
 
         var m3 = document.getElementsByClassName("m3");
         var suma_m3= 0;
