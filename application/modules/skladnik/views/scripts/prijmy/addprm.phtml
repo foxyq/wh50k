@@ -257,9 +257,16 @@ $moznosti = $podsklady->getMoznosti();
                 <fieldset>
 <!--                    <legend>Dátum príjmu</legend>-->
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 hide">
 <!--                        Dátum:-->
                         <?php echo $this->form->datum_prijmu_d; // render the user name field here ?>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <!--   fake field, readonly pre usera -->
+                        <dt id="datum_prijmu_d-label2"><label for="datum_prijmu_d2" class="required">Dátum príjmu</label></dt>
+                        <dd>
+                            <input type="text" name="datum_prijmu_d2" id="datum_prijmu_d2" value="<?php echo date('Y-m-d');?>" class="form-control" readonly></dd>
                     </div>
                 </fieldset>
             </div>
