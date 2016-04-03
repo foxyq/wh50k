@@ -195,7 +195,24 @@ class ExternavyrobaController extends Zend_Controller_Action
 
                 $count = count($vyroba->getDokladyCislaByDate($datum_vydaju));
 
-                $max = $count + 1;
+//                $max = $count + 1;
+
+
+                if ($count == 0) {
+
+                    $max = 1;
+                }
+                else {
+
+                    $last = end($vyroba->getDokladyCislaByDate($datum_vydaju));
+                    $max = substr($last, -3);
+                    $max += 1;
+                }
+
+                $max = sprintf("%03d", $max);
+
+
+
                 $nove_meno = "EV-" . $datum_vydaju. "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
 

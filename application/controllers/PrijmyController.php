@@ -111,8 +111,21 @@ class PrijmyController extends Zend_Controller_Action
                 $stav_transakcie = $form->getValue('stav_transakcie');
 
                 $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
+//                $max = $count + 1;
 
-                $max = $count + 1;
+                if ($count == 0) {
+
+                    $max = 1;
+                }
+                else {
+
+                    $last = end($prijmy->getDokladyCislaByDate($datum_prijmu));
+                    $max = substr($last, -3);
+                    $max += 1;
+                }
+
+                $max = sprintf("%03d", $max);
+
                 $nove_meno = "SP-" . $datum_prijmu . "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
 
@@ -140,6 +153,12 @@ class PrijmyController extends Zend_Controller_Action
                     $stav_transakcie,
                     $doklad_cislo);
 //
+//                print_r($doklad_cislo);
+
+//                echo "<br>";
+
+//                print_r($last);
+
                 $this->_helper->redirector($fromAction);
             } else {
                 $form->populate($formData);

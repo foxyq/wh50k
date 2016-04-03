@@ -112,7 +112,24 @@ class VydajeController extends Zend_Controller_Action
                 $vydaje = new Application_Model_DbTable_Vydaje();
                 $count = count($vydaje->getDokladyCislaByDate($datum_vydaju));
 
-                $max = $count + 1;
+//                $max = $count + 1;
+
+
+                if ($count == 0) {
+
+                    $max = 1;
+                }
+                else {
+
+                    $last = end($vydaje->getDokladyCislaByDate($datum_vydaju));
+                    $max = substr($last, -3);
+                    $max += 1;
+                }
+
+                $max = sprintf("%03d", $max);
+
+
+
                 $nove_meno = "SV-" . $datum_vydaju . "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
 

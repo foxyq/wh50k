@@ -170,7 +170,25 @@ class ExternadodavkaController extends Zend_Controller_Action
 
                 $count = count($dodavka->getDokladyCislaByDate($datum_xdodavky));
 
-                $max = $count + 1;
+//                $max = $count + 1;
+
+//                $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
+//                $max = $count + 1;
+
+                if ($count == 0) {
+
+                    $max = 1;
+                }
+                else {
+
+                    $last = end($dodavka->getDokladyCislaByDate($datum_xdodavky));
+                    $max = substr($last, -3);
+                    $max += 1;
+                }
+
+                $max = sprintf("%03d", $max);
+
+
                 $nove_meno = "ED-" . $datum_xdodavky . "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
 //                echo $doklad_cislo;

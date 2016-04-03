@@ -179,7 +179,26 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $prijmy = new Application_Model_DbTable_Prijmy();
 
                 $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
-                $max = $count + 1;
+//                $max = $count + 1;
+
+
+                if ($count == 0) {
+
+                    $max = 1;
+                }
+                else {
+
+                    $last = end($prijmy->getDokladyCislaByDate($datum_prijmu));
+                    $max = substr($last, -3);
+                    $max += 1;
+                }
+
+                $max = sprintf("%03d", $max);
+
+
+
+
+
                 $nove_meno = "SP-" . $datum_prijmu . "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
 
@@ -299,7 +318,22 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $prijmy = new Application_Model_DbTable_Prijmy();
 
                 $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
-                $max = $count + 1;
+//                $max = $count + 1;
+
+                if ($count == 0) {
+
+                    $max = 1;
+                }
+                else {
+
+                    $last = end($prijmy->getDokladyCislaByDate($datum_prijmu));
+                    $max = substr($last, -3);
+                    $max += 1;
+                }
+
+                $max = sprintf("%03d", $max);
+
+
                 $nove_meno = "SP-" . $datum_prijmu . "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
 
@@ -416,7 +450,22 @@ class Skladnik_PrijmyController extends Zend_Controller_Action
                 $prijmy = new Application_Model_DbTable_Prijmy();
 
                 $count = count($prijmy->getDokladyCislaByDate($datum_prijmu));
-                $max = $count + 1;
+//                $max = $count + 1;
+
+
+                if ($count == 0) {
+
+                    $max = 1;
+                }
+                else {
+
+                    $last = end($prijmy->getDokladyCislaByDate($datum_prijmu));
+                    $max = substr($last, -3);
+                    $max += 1;
+                }
+
+                $max = sprintf("%03d", $max);
+
                 $nove_meno = "SP-" . $datum_prijmu . "-" .$max; // . ".pdf";
                 $doklad_cislo = $nove_meno;
 

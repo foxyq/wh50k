@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="">
+    <list default="true" id="889f4616-7e12-4adf-bbdd-5ff38b440985" name="Default" comment="upravene PDF">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php" afterPath="$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" afterPath="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/PrijmyController.php" afterPath="$PROJECT_DIR$/application/controllers/PrijmyController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/VydajeController.php" afterPath="$PROJECT_DIR$/application/controllers/VydajeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/skladnik/controllers/PrijmyController.php" afterPath="$PROJECT_DIR$/application/modules/skladnik/controllers/PrijmyController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/skladnik/controllers/VydajeController.php" afterPath="$PROJECT_DIR$/application/modules/skladnik/controllers/VydajeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addm3.phtml" afterPath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addm3.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addprm.phtml" afterPath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addprm.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addton.phtml" afterPath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addton.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/add.phtml" afterPath="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/add.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/externadodavka/list.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/externadodavka/list.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/index/index.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
     </list>
     <ignored path="wh50k.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +32,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add.phtml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/add.phtml">
+      <file leaf-file-name="list.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/externadodavka/list.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7093207">
-              <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+            <state vertical-scroll-proportion="-21.875">
+              <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.68784225">
+              <caret line="291" column="129" selection-start-line="291" selection-start-column="129" selection-end-line="291" selection-end-column="129" />
               <folding />
             </state>
           </provider>
@@ -91,8 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/SkladyController.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/zakaznici/index.phtml" />
         <option value="$PROJECT_DIR$/public/js/fancy_table_ext.js" />
         <option value="$PROJECT_DIR$/application/views/scripts/vydaje/errors.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/vydaje/waitings.phtml" />
@@ -117,18 +127,14 @@
         <option value="$PROJECT_DIR$/application/views/scripts/podsklady/list.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/list.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/vydaje/list.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-vyroba/list.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/externa-dodavka/list.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/VydajeController.php" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/printton.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/printm3.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/printprm.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/list.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/printton.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/printm3.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/PrijmyController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/add.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/prijmy/edit.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/vydaje/add.phtml" />
@@ -139,9 +145,15 @@
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addton.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addprm.phtml" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/prijmy/addm3.phtml" />
+        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/add.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/PrijmyController.php" />
+        <option value="$PROJECT_DIR$/application/controllers/VydajeController.php" />
+        <option value="$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php" />
+        <option value="$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/controllers/PrijmyController.php" />
         <option value="$PROJECT_DIR$/application/modules/skladnik/controllers/VydajeController.php" />
-        <option value="$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/add.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/externadodavka/list.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
       </list>
     </option>
   </component>
@@ -155,10 +167,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
     <option name="y" value="23" />
-    <option name="width" value="1276" />
-    <option name="height" value="777" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -185,6 +196,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -213,38 +225,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -260,14 +240,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skladnik" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -293,14 +265,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skladnik" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -309,7 +273,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vydaje" />
+              <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -327,33 +291,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="skladnik" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wh50k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="forms" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -378,7 +316,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -433,6 +370,12 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -444,12 +387,6 @@
       <created>1434810288548</created>
       <option name="number" value="Default" />
       <updated>1434810288548</updated>
-    </task>
-    <task id="LOCAL-00003" summary="pridane ubytky, mergnute a fungujuce">
-      <created>1437326276342</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1437326276342</updated>
     </task>
     <task id="LOCAL-00004" summary="fungujuce JS,jquery, datatables, +veci od 3t">
       <created>1437327787866</created>
@@ -739,7 +676,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458469774481</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="skladnik - prijem+vydaj add - fix readonly datum bug ... fuck me, right?">
+      <created>1459238582919</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1459238582921</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -763,10 +706,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="23" width="1276" height="777" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2082658" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13897763" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953367" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -824,7 +767,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="daj si piko ramon geno prave si sa pochoval" />
     <MESSAGE value="big UI update 1" />
     <MESSAGE value="&quot;What?!&quot; - Lil Jon" />
     <MESSAGE value="jozko kunik" />
@@ -849,7 +791,8 @@
     <MESSAGE value="modul skladnik - nove cisla listku, zretazenie dropdownov sklad-podsklad, tlac pdf" />
     <MESSAGE value="JS fix pre priemery" />
     <MESSAGE value="skladnik lock datum + priemer-&gt;vazeny priemer" />
-    <option name="LAST_COMMIT_MESSAGE" value="skladnik lock datum + priemer-&gt;vazeny priemer" />
+    <MESSAGE value="skladnik - prijem+vydaj add - fix readonly datum bug ... fuck me, right?" />
+    <option name="LAST_COMMIT_MESSAGE" value="skladnik - prijem+vydaj add - fix readonly datum bug ... fuck me, right?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -865,34 +808,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/ubytky/list.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40854326">
-          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/helpers/Tlacbuttons.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/UbytkyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2705367">
-          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/sb-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6791209">
-          <caret line="289" column="43" selection-start-line="289" selection-start-column="43" selection-end-line="289" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/autoCunt.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08004269">
@@ -949,31 +864,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72289157">
-          <caret line="216" column="18" selection-start-line="216" selection-start-column="18" selection-end-line="216" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78860897">
-          <caret line="195" column="20" selection-start-line="195" selection-start-column="20" selection-end-line="195" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1686232">
           <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/VydajeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5662651">
-          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1037,13 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/PrijmyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63981044">
-          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1156,7 +1043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.57966614">
           <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,7 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2276176">
           <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1172,7 +1057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1180,13 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45023698">
           <caret line="265" column="26" selection-start-line="260" selection-start-column="19" selection-end-line="265" selection-end-column="26" />
-          <folding>
-            <marker date="1459234564000" expanded="true" signature="9756:9832" placeholder="..." />
-            <marker date="1459234564000" expanded="true" signature="11386:11463" placeholder="..." />
-            <marker date="1459234564000" expanded="true" signature="12577:12663" placeholder="..." />
-            <marker date="1459234564000" expanded="true" signature="13218:13296" placeholder="..." />
-            <marker date="1459234564000" expanded="true" signature="15556:15647" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1194,15 +1071,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.521327">
           <caret line="269" column="26" selection-start-line="269" selection-start-column="26" selection-end-line="269" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/controllers/PrijmyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48815167">
-          <caret line="462" column="33" selection-start-line="462" selection-start-column="33" selection-end-line="462" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1210,7 +1078,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.521327">
           <caret line="266" column="26" selection-start-line="261" selection-start-column="19" selection-end-line="266" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1218,22 +1085,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62401265">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/add.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68236583">
+          <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/PrijmyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21358159">
+          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="126" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/VydajeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6516977">
+          <caret line="126" column="17" selection-start-line="126" selection-start-column="17" selection-end-line="126" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ExternaVyrobaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61117196">
+          <caret line="211" column="45" selection-start-line="211" selection-start-column="45" selection-end-line="211" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ExternaDodavkaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25520262">
+          <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/controllers/PrijmyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5345017">
+          <caret line="361" column="0" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/skladnik/controllers/VydajeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57345974">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.43483022">
+          <caret line="131" column="27" selection-start-line="131" selection-start-column="27" selection-end-line="131" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/skladnik/views/scripts/vydaje/add.phtml">
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/materialydruhy/list.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7093207">
-          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/materialydruhy/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/externadodavka/list.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.875">
+          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68784225">
+          <caret line="291" column="129" selection-start-line="291" selection-start-column="129" selection-end-line="291" selection-end-column="129" />
           <folding />
         </state>
       </provider>

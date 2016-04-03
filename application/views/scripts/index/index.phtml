@@ -289,7 +289,7 @@ $colors = array('1' => 'red', '2' => 'primary', '3' => 'green', '4' => 'yellow',
                 ><?php echo number_format(($dodane/$objednavka->mnozstvo)*100, 2, ",", " ")." %" ;?></td>
             <td><?php echo number_format($this->escape($objednavka->mnozstvo), 2, ",", " ");?></td>
             <td><?php echo number_format($vydaje + $xvyroby + $xdodavky, 2, ",", " ");?></td>
-            <td><b><?php echo number_format($this->escape($objednavka->mnozstvo) - ($vydaje + $xvyroby + $xdodavky), 2, ",", " ");?></b></td>
+            <td><?php echo number_format($this->escape($objednavka->mnozstvo) - ($vydaje + $xvyroby + $xdodavky), 2, ",", " ");?></td>
 
 
             <td><?php echo $this->escape($this->merneJednotkyModel->getSkratka($objednavka->merna_jednotka_enum));?></td>
