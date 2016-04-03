@@ -39,7 +39,7 @@ try {
 
     $timestamp = $this->escape($this->prijem['vznik_zaznamu_dtm']);
     $datum = date('d.m.Y', strtotime($timestamp));
-    $cas = date('h:i:s', strtotime($timestamp));
+    $cas = date('H:i:s', strtotime($timestamp));
 
     $druh =  $this->escape($this->materialyDruhy->getNazov($this->prijem['material_druh_enum']));
     $sklad = $this->escape($this->sklady->getNazov($this->prijem['sklad_enum']));
@@ -72,9 +72,9 @@ try {
         ->drawText($sklad, 200, 567, 'UTF-8' );
 
     $page->setFont($font, 12)
-        ->drawText( $brutto , 207, 538)
-        ->drawText( $tara , 338, 538)
-        ->drawText( $netto , 463, 538);
+        ->drawText( number_format($brutto, 2, ",", " ") , 207, 538)
+        ->drawText( number_format($tara, 2, ",", " "), 338, 538)
+        ->drawText( number_format($netto, 2, ",", " ") , 456, 538);
 //spodny listok
     $page->setFont($font, 9)
         ->drawText( strval($cislo_listku) , 440, 386)
@@ -90,9 +90,9 @@ try {
         ->drawText($sklad, 200, 179, 'UTF-8' );
 
     $page->setFont($font, 12)
-        ->drawText( $brutto , 207, 149)
-        ->drawText( $tara , 338, 149)
-        ->drawText( $netto , 463, 149);
+        ->drawText( number_format($brutto, 2, ",", " ") , 207, 149)
+        ->drawText( number_format($tara, 2, ",", " ") , 338, 149)
+        ->drawText( number_format($netto, 2, ",", " "), 456, 149);
 
     // viem tu premennu $pdf pridat ako novu stranu (append) ale to teraz nie
     // $pdf->pages[] = $page;

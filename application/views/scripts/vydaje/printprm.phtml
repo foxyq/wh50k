@@ -39,7 +39,7 @@ try {
 
     $timestamp = $this->escape($this->vydaj['vznik_zaznamu_dtm']);
     $datum = date('d.m.Y', strtotime($timestamp));
-    $cas = date('h:i:s', strtotime($timestamp));
+    $cas = date('H:i:s', strtotime($timestamp));
 
     $m3 = $this->vydaj['q_m3_merane'];
     $prm = $this->vydaj['q_prm_merane'];
@@ -60,8 +60,10 @@ try {
         ->drawText($sklad, 200, 567, 'UTF-8' );
 
     $page->setFont($font, 12)
-        ->drawText( $m3 , 237, 538)
-        ->drawText( $prm , 428, 538);
+        ->drawText( number_format($m3, 2, ",", " ") , 237, 538)
+        ->drawText( number_format($prm, 2, ",", " ") , 428, 538);
+
+
 
 //spodny listok
     $page->setFont($font, 9)
@@ -78,8 +80,9 @@ try {
         ->drawText($sklad, 200, 179, 'UTF-8' );
 
     $page->setFont($font, 12)
-        ->drawText( $m3, 237, 149)
-        ->drawText( $prm , 428, 149);
+        ->drawText( number_format($m3, 2, ",", " ") , 237, 149)
+        ->drawText( number_format($prm, 2, ",", " ") , 428, 149);
+
 
 
     // viem tu premennu $pdf pridat ako novu stranu (append) ale to teraz nie
