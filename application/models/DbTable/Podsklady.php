@@ -13,6 +13,14 @@ class Application_Model_DbTable_Podsklady extends Zend_Db_Table_Abstract
     	return $nazov;
     }
 
+    public function getSkratka($id)
+    {
+        $id = (int)$id;
+        $skratkaSkladu = $this->fetchRow('podsklady_id = ' . $id)->kod_podskladu;
+        return $skratkaSkladu;
+
+    }
+
     public function getPodsklad($id)
     {
         $id = (int)$id;

@@ -7,7 +7,7 @@ Zend_Loader::loadClass('Zend_Pdf');
 try {
     //    1. bud vytvorim clear cisty ... 2.alebo otvaram existujuci layout
     //    $pdf = new Zend_Pdf();
-    $filename = '../docs/pdf/layout_pl.pdf';
+    $filename = '../docs/pdf/prijmovy_listok_vydaj.pdf';
 
     //    nasleduje load
     $pdf = Zend_Pdf::load( $filename);
@@ -27,9 +27,14 @@ try {
     $id = $this->escape($this->vydaj['ts_vydaje_id']);
     $cislo_listku = $this->escape($this->vydaj['doklad_cislo']);
     $spz = $this->escape($this->vydaj['prepravca_spz']);
-    $druh =  $this->escape($this->materialyDruhy->getNazov($this->vydaj['material_druh_enum']));
-    $sklad = $this->escape($this->sklady->getNazov($this->vydaj['sklad_enum']));
-//    $dodavatel = $this->escape($this->zakaznici->getNazov($this->vydaj['zakaznik_enum']));
+
+    $druh =  $this->escape($this->materialyDruhy->getSkratka($this->vydaj['material_druh_enum']));
+//    $druh =  $this->escape($this->materialyDruhy->getSkratka($this->prijem['material_druh_enum'])); //skratka
+    $typ =  $this->escape($this->materialyTypy->getNazov($this->vydaj['material_typ_enum']));
+
+    $sklad = $this->escape($this->sklady->getSkratka($this->vydaj['sklad_enum']));
+    $podsklad = $this->escape($this->podsklady->getSkratka($this->vydaj['podsklad_enum']));
+
     $zakaznik = $this->zakaznici->getZakaznik($this->vydaj['zakaznik_enum']);
     $adresa = $zakaznik['adresa'];
     $ico = $zakaznik['ico'];
@@ -47,42 +52,39 @@ try {
     $meno = $this->escape($this->uzivatelia->getMeno($this->escape($this->vydaj['vytvoril_u'])));
 
     $page->setFont($font, 9)
-        ->drawText( strval($cislo_listku) , 440, 774)
+        ->drawText( strval($cislo_listku) , 440, 775)
         ->drawText($spz, 380, 660)
         ->drawText($dodavatel, 380, 720, 'UTF-8')
         ->drawText($adresa, 380, 700, 'UTF-8')
         ->drawText($ico, 380, 688, 'UTF-8')
         ->drawText($dph, 380, 677, 'UTF-8')
-        ->drawText($datum, 200, 598)
-        ->drawText($cas, 200, 582)
-        ->drawText($druh, 390, 598, 'UTF-8')
+        ->drawText($datum, 200, 599)
+        ->drawText($cas, 200, 583)
+        ->drawText($typ . ' '. $druh, 390, 598, 'UTF-8')
         ->drawText($meno, 390,583, 'UTF-8')
-        ->drawText($sklad, 200, 567, 'UTF-8' );
+        ->drawText($sklad . ' ' . $podsklad, 200, 567, 'UTF-8' );
 
     $page->setFont($font, 12)
         ->drawText( number_format($m3, 2, ",", " ") , 237, 538)
         ->drawText( number_format($prm, 2, ",", " ") , 428, 538);
 
-
-
 //spodny listok
     $page->setFont($font, 9)
         ->drawText( strval($cislo_listku) , 440, 386)
-        ->drawText($spz, 380, 270)
+        ->drawText($spz, 380, 272)
         ->drawText($dodavatel, 380, 331, 'UTF-8')
         ->drawText($adresa, 380, 309, 'UTF-8')
         ->drawText($ico, 380, 297, 'UTF-8')
         ->drawText($dph, 380, 286, 'UTF-8')
-        ->drawText($datum, 200, 208)
-        ->drawText($cas, 200, 193)
-        ->drawText($druh, 390, 205, 'UTF-8')
-        ->drawText($meno, 390,193, 'UTF-8')
-        ->drawText($sklad, 200, 179, 'UTF-8' );
+        ->drawText($datum, 200, 210)
+        ->drawText($cas, 200, 194)
+        ->drawText($typ . ' '. $druh, 390, 210, 'UTF-8')
+        ->drawText($meno, 390,194, 'UTF-8')
+        ->drawText($sklad . ' ' . $podsklad, 200, 179, 'UTF-8' );
 
     $page->setFont($font, 12)
         ->drawText( number_format($m3, 2, ",", " ") , 237, 149)
         ->drawText( number_format($prm, 2, ",", " ") , 428, 149);
-
 
 
     // viem tu premennu $pdf pridat ako novu stranu (append) ale to teraz nie

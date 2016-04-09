@@ -425,6 +425,7 @@ class VydajeController extends Zend_Controller_Action
     public function printtonAction()
     {
         $sklady = new Application_Model_DbTable_Sklady();
+        $podskladyModel = new Application_Model_DbTable_Podsklady();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
         $prepravci = new Application_Model_DbTable_Prepravci();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
@@ -432,6 +433,7 @@ class VydajeController extends Zend_Controller_Action
         $uzivatelia = new Application_Model_DbTable_Users();
 
         $this->view->sklady = $sklady;
+        $this->view->podsklady = $podskladyModel;
         $this->view->zakaznici = $zakaznici;
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;
@@ -445,6 +447,7 @@ class VydajeController extends Zend_Controller_Action
     public function printprmAction()
     {
         $sklady = new Application_Model_DbTable_Sklady();
+        $podskladyModel = new Application_Model_DbTable_Podsklady();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
         $prepravci = new Application_Model_DbTable_Prepravci();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
@@ -452,6 +455,7 @@ class VydajeController extends Zend_Controller_Action
         $uzivatelia = new Application_Model_DbTable_Users();
 
         $this->view->sklady = $sklady;
+        $this->view->podsklady = $podskladyModel;
         $this->view->zakaznici = $zakaznici;
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;
@@ -465,6 +469,7 @@ class VydajeController extends Zend_Controller_Action
     public function printm3Action()
     {
         $sklady = new Application_Model_DbTable_Sklady();
+        $podskladyModel = new Application_Model_DbTable_Podsklady();
         $zakaznici = new Application_Model_DbTable_Zakaznici();
         $prepravci = new Application_Model_DbTable_Prepravci();
         $materialyTypy = new Application_Model_DbTable_MaterialyTypy();
@@ -472,6 +477,7 @@ class VydajeController extends Zend_Controller_Action
         $uzivatelia = new Application_Model_DbTable_Users();
 
         $this->view->sklady = $sklady;
+        $this->view->podsklady = $podskladyModel;
         $this->view->zakaznici = $zakaznici;
         $this->view->prepravci = $prepravci;
         $this->view->materialyTypy = $materialyTypy;

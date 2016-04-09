@@ -13,11 +13,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 //        tak to treba v nej volat zas, alebo rovno v controller->init (vydaje, prijmy ...)
         $view->addHelperPath('ZendX/JQuery/View/Helper/', 'ZendX_JQuery_View_Helper');
 
-//        ********** TOTO SA POUZIVA LEN KVOLI
 
-//                    JEBNUTEEEEEEMU
 
-//                  AMPPS LOCALHOSTU A ROUTOVANIU ***********
+        $view->headLink()->headLink(array('rel' => 'favicon',
+                              'href' => $view->baseUrl("/images/favicon.ico"),
+                                'type' => 'image/x-icon' ));
+
 
 //        $view->jQuery()->addStylesheet('http://localhost/wh50k/public/js/jquery/jquery-ui-dark.css')
 //        ->setLocalPath('http://localhost/wh50k/public/js/jquery.min.js')

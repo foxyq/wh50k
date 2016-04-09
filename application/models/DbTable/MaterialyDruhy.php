@@ -14,6 +14,14 @@ class Application_Model_DbTable_MaterialyDruhy extends Zend_Db_Table_Abstract
 
     }
 
+    public function getSkratka($id)
+    {
+        $id = (int)$id;
+        $nazov = $this->fetchRow('materialy_druhy_id = '.$id)->skratka;
+        return $nazov;
+
+    }
+
     public function getDruh($id)
     {
         $id = (int)$id;
